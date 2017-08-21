@@ -1,0 +1,36 @@
+---
+layout: page
+nav-title: Refills
+title: Sample Refill Components
+permalink: refills/
+body-class: 'patternlib full-width'
+---
+
+<p>We use Refills to quickly prototype patterns. Additional patterns may be added as well. Simply include the SASS file located in <code>_sass/refills</code> and then include the relevant Refills file where you want it: <code>{% raw %}{% include '_sass/refills_html/name-of-file.html' %}{% endraw %}</code>.</p>
+
+{% comment %}
+	The *directory* plugin scans a directory and gives us access to the following variables:
+	file.url        # absolute path to file
+  file.name       # basename
+  file.date       # date extracted from beginning of filename, if present (optional)
+  file.slug       # basename with the date and file extension stripped off
+  file.title      # file.slug with hyphens converted to spaces, and put into Title Case
+
+  Below we loop over all files to build an example page
+{% endcomment %}
+
+{% directory path: _sass/refills_html %}
+  
+<div class="patternlib--sample">
+  <h3 class="patternlib--sample--title">{{ file.name }}</h3>
+  <div class="patternlib--sample--pattern">
+{% include_relative {{ file.url }} %}
+  </div>
+  <div class="patternlib--sample--code">
+    <textarea>
+{% include_relative {{ file.url }} %}
+    </textarea>
+  </div>
+</div>
+
+{% enddirectory %}

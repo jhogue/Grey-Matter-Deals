@@ -1,0 +1,11 @@
+# The rendered site
+_site/
+
+# Rendered CSS
+assets/css/*
+
+.DS_Store
+*/.DS_Store
+.sass-cache/
+.jekyll-metadata
+Gemfile.lock
