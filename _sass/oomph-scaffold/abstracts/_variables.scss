@@ -4,7 +4,7 @@
 
 // Default constants used by our mixins
 // Change below only if you require a different value
-$icon-font-family: 'font-awesome';
+$icon-font-family: 'FontAwesome';
 $min-vw: bp(small) !default;
 $max-vw: bp(x-large) !default;
 
@@ -50,4 +50,4 @@ $form-button-color-default: palette(mono, 66);
 $form-button-border-color-default: palette(mono, 33);
 $form-button-border-width: 1px;
 $form-button-border-radius: $default-border-radius;
-$form-button-padding: .625em 1em .5em;
+$form-button-padding: .5em 1em .375em;
