@@ -1,0 +1,67 @@
+//<main id="main" class="content layout--content">
+//	<div class="layout--container">
+//	  <header class="content--header">
+//  		<h1 class="content--title giga">{{ page.title }}</h1>
+//  	</header>
+//  	<article class="content--main">
+.content {
+
+  &--header {}
+
+  &--title {}
+
+  &--main {
+    padding-bottom: $vert-line-height;
+  }
+
+  @include media($medium-up) {
+
+    &--main {
+      padding-bottom: $vert-line-height*2;
+    }
+  }
+}
+
+// A few special rules for Refills on the Sample page
+// for the sample Pattern Library
+.patternlib {
+
+  .cards {
+    margin: 0 -1em;
+  }
+
+  .bullets {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  &--sample {
+    @include clearfix;
+    clear: both;
+    border-bottom: 1px solid $color-borders;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+
+    &--title {
+      font-weight: $font-weight-bold;
+    }
+
+    &--pattern {
+      float: left;
+      width: 67%;
+    }
+
+    &--code {
+      float: left;
+      padding-left: 1rem;
+      width: 33%;
+      
+      textarea {
+        color: $color-code;
+        font-family: $font-mono;
+        font-size: 87.5%;
+        min-height: 12rem;
+      }
+    }
+  }
+}

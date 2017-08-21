@@ -1,0 +1,129 @@
+//<div id="top" class="drawer">
+//	<a href="javascript:;" class="drawer__close js-menu-close"></a>
+//</div>
+//<div class="layout">
+//	<header id="b365-mainnav" class="mainhead">
+//		<div class="utility layout__utility">
+//			<ul class="utility__list menu" role="navigation">
+//  			<li class="utlity__lang"><a href="#">English</a> / <a href="#">Españgol</a></li>
+//  			<li><a href="#">About Blue365</a></li>
+//  		</ul>
+//    </div>
+//  	<div class="mainnav layout-__mainnav">
+//    	<div class="mainhead__brand">
+//      	<a class="mainhead--title" href="{{ site.baseurl }}">Blue365</a>
+//      </div>
+//      <div class="search">
+//        <div class="menu-action">
+//          <a href="javascript:;" class="menu-action__button js-menu-toggle"><span class="menu-action__icon">&equiv;</span></a>
+//        </div>
+//      	<form class=""> [...] </form>
+//      </div>
+//			<ul class="mainnav__list menu" role="navigation">
+//				<li><a href="#">How it Works</a></li>
+//				<li><a href="#">Sign In</a> / <a href="#">Sign Up</a></li>
+//			</ul>
+//  	</div>
+//  	<div class="catnav layout__catnav">
+//  		<nav class="catnav__wrapper">
+//  			<ul class="catnav__list">
+//  				<li><a href="#">Apparel & Wearables</a></li>
+//  			</ul>
+//  		</nav>
+//  	</div>
+//	</header>
+
+.mainhead {
+  
+  &__brand {}
+  
+  &__title {}
+}
+
+.utility {
+  @include hide();
+  
+  &__list {}
+  
+  &__lang {}
+}
+
+.mainnav {
+  
+  &__list {
+    @include hide();
+  }
+}
+
+.search {
+  
+}
+
+.menu-action {
+  
+  &__button {}
+  
+  &__icon {}
+}
+
+.catnav {
+  @include hide();
+  
+  &__wrapper {}
+  
+  &__list {}
+}
+
+
+$drawer-width: 280px;
+$body-bg-color: palette(mono, 90);
+$layout-bg-color: palette(mono, white);
+
+body {
+  @include transition( transform 250ms ease );
+  background-color: $body-bg-color;
+
+  &.js-menu-open {
+    @include transform( translateX($drawer-width) );
+  }
+}
+
+.drawer {
+  @include transition( transform 250ms ease );
+  @include transform( translateX( - ($drawer-width * 1.5) ) );
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $drawer-width;
+  height: 100vh;
+  overflow-y: scroll;
+  
+  body.js-menu-open & {
+    @include transform( translateX(- $drawer-width) );
+  }
+  
+  body.js-menu-open &__close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(palette(mono, white), .5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+  }
+  
+  .brand {
+    @include hide();
+  }
+  
+  .utility,
+  .catnav,
+  .mainnav__list {
+    @include show();
+    
+    a {
+      padding: .5em 1em .375em;
+    }
+  }
+}

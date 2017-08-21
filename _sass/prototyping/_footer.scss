@@ -1,0 +1,30 @@
+//<footer class="mainfoot">
+//	<div class="layout--container">
+//		<p class="mainfoot--list">
+//			<span class="mainfoot--link">All pages</span> 
+//			<a href="/grey-matter/readme/" class="mainfoot--link">Read Me</a>, 
+//		</p>
+//		<p class="mainfoot--copyright">©2016 Oomph, Inc.</p>
+//	</div>
+//</footer>
+
+.mainfoot {
+  @include container-light('1px 0 0 0');
+  padding-top: $vert-line-height;
+  padding-bottom: $vert-line-height/2;
+
+  &--list {
+    margin-bottom: 1rem;
+  }
+  
+  &--link {
+
+    @include touch-hover('idle') {
+      color: palette(mono, 75);
+    }
+
+    @include touch-hover('hover') {
+      color: palette(mono, black);
+    }
+  }
+}

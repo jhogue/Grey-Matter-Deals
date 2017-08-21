@@ -1,0 +1,138 @@
+.layout {
+
+  &--container {
+    @include outer-container();
+  
+    /*body*/.full-width & {
+      max-width: none;
+    }
+  }
+
+  &--content {
+    padding: 0 $page-gutter;
+  }
+}
+
+// Grid System using flexbox
+// 1. solo 
+// 2. duo 
+// 3. trio 
+// 4. quartet 
+// 5. quint 
+// 6. sextet 
+// 7. septet 
+// 8. octet 
+// 9. nonet
+.grid {
+  @include align-items(stretch);
+  @include display(flex);
+  @include flex-flow( row wrap );
+
+	&--item {
+  	padding: 0 $page-gutter;
+	}
+
+  &--sample &--item {
+    border: 1px solid $color-borders;
+  }
+
+
+  /*<div class="grid grid--rail__right">
+		<div class="grid--item grid--column--main">
+			[ ... ]
+		</div>
+		<aside class="grid--item grid--column--rail">
+			[ ... ]
+		</aside>
+	</div>*/
+	&--rail__right {}
+
+	@include media($small) {
+
+		&--rail__right &--item--main {
+  		width: percentage(7/$grid-columns);
+  }
+
+		&--rail__right &--item--rail {
+			width: percentage(5/$grid-columns);
+		}
+	}
+
+	@include media($medium) {
+
+		&--rail__right &--item--main {
+  		width: percentage(8/$grid-columns);
+    }
+
+		&--rail__right &--item--rail {
+			width: percentage(4/$grid-columns);
+		}
+	}
+
+	@include media($large-up) {
+
+		&--rail__right &--item--main {
+  		width: percentage(8.5/$grid-columns);
+    }
+
+		&--rail__right &--item--rail {
+			width: percentage(3.5/$grid-columns);
+		}
+	} // end &--rail__right
+
+
+	// This one grows from a single col to two
+	&__duo &--item {
+    width: 100%;
+
+		@include media($small-up) {
+			width: percentage(6/$grid-columns);
+		}
+	}
+
+
+	// This one grows from a single col to a two and stops at three
+	&__trio &--item {
+    width: 100%;
+
+		@include media($medium) {
+			width: percentage(6/$grid-columns);
+			
+			&:last-child {
+  			@include flex-grow(2);
+			}
+		}
+
+		@include media($large-up) {
+			width: percentage(4/$grid-columns);
+		}
+	}
+
+
+	// This one grows from a single col to a two and stops at four
+	&__quartet &--item {
+    width: 100%;
+
+		@include media($small-up) {
+			width: percentage(6/$grid-columns);
+		}
+
+    @include media($large-up) {
+			width: percentage(3/$grid-columns);
+		}
+	}
+
+
+	// This one starts at two over threee, then three over two, then six across
+	&__sextet &--item {
+    width: percentage(6/$grid-columns);
+
+		@include media($small) {
+			width: percentage(4/$grid-columns);
+		}
+
+		@include media($large-up) {
+			width: percentage(2/$grid-columns);
+		}
+	}
+}

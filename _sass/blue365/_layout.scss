@@ -1,0 +1,15 @@
+.layout {
+  background-color: $layout-bg-color;
+  position: relative;
+  
+  &__utlility {}
+  
+  &__mainnav {
+    @include display(flex);
+    @include flex-flow(row wrap);
+    @include justify-content(space-between);
+    @include align-items(center);
+  }
+  
+  &__catnav {}
+}

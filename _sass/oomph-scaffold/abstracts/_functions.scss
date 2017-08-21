@@ -1,0 +1,127 @@
+////
+/// Oomph Scaffold Functions
+/// @access public
+/// @group Oomph Functions
+/// @author Oomph, Inc. UX Engineers
+/// @parameter none
+/// @require no 3rd party requirements
+////
+
+
+/// Map deep get
+/// @author Hugo Giraudel
+/// @require SASS map-get()
+/// @parameter {Map} $map - Map
+/// @parameter {Arglist} $keys - Key chain
+/// @example  scss - Usage
+///   property: map-deep-get($mapname, key);
+/// @example css - Output
+///   {*} - Desired value
+@function map-deep-get($map, $keys...) {
+	@each $key in $keys {
+		$map: map-get($map, $key);
+	}
+	@return $map;
+}
+
+
+/// palette() =
+/// A specific deep-getter: A deep get on a map called $palette
+/// @author jcionci
+/// @link http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/
+/// @param $pallete
+/// @param $tone [base]
+/// @require SASS map-get(), map-keys(), Oomph map-deep-get()
+/// @example scss - Usage
+///   color: palette(mono, white);
+/// @example css - Output
+///   color: #fff;
+///
+@function palette($palette, $tone:base) {
+
+	@if not index(map-keys($palettes), $palette) {
+		@error "Palette `#{$palette}` does not exist.";
+	}
+	@if not index(map-keys(map-get($palettes, $palette)), $tone) {
+		@error "There is no `#{$tone}` defined in your `#{$palette}` color map however, its being called in your theme.";
+	}
+	@return map-deep-get( $palettes, $palette, $tone );
+}
+
+
+/// bp() =
+/// A specific deep-getter: A deep get on a map called $breakpoints
+/// @author jhogue
+/// @require SASS map-get()
+/// @param {string} $size ['base'] - A key value
+/// @example scss - Usage
+///   bp(small)
+/// @example css - Output
+///   30em
+@function bp($size: 'base') {
+	@return em( map-get( $breakpoints, $size ) );
+}
+
+
+/// bppx() =
+/// A specific deep-getter: A deep get on a map called $breakpoints
+/// @author jhogue
+/// @require SASS map-get()
+/// @param {string} $size ['base'] A key value
+/// @example scss - Usage
+///   bp(small)
+/// @example css - Output
+///   480px
+@function bppx($size: 'base') {
+	@return px( map-get( $breakpoints, $size ) );
+}
+
+
+/// rwd-size() =
+/// A specific deep-getter: A deep get on a map called $type-sizes
+/// @author jhogue
+/// @require Oomph map-deep-get()
+/// @param $elem - A key value
+/// @param {string} $group ['base'] - A deep key value
+/// @example scss - Usage
+///   rwd-size(h1, small)
+/// @example css - Output
+///   26
+@function rwd-size($elem, $group: 'base') {
+	@return map-deep-get( $type-sizes, $group, $elem );
+}
+
+
+/// px() =
+/// Change a unitless value to px
+/// @author jhogue
+/// @require Bourbon strip-units()
+/// @param {float} $value - Numeric value assumed to be pixels
+/// @example scss - Usage
+///   width: px(48);
+/// @example css - Output
+///   width: 48px;
+@function px($value) {
+	// Make sure it is unitless
+	$value: strip-units($value);
+	@return ($value * 1px);
+}
+
+
+/// percent-color() =
+/// Emulate the way Adobe Illustrator allows percentages of defined global colors
+/// @link http://thesassway.com/intermediate/mixins-for-semi-transparent-colors
+/// @require Bourbon strip-units(), SASS opacify() and mix()
+/// @param $color - A color as Hex, RGB or HSL. Percent as numeric
+/// @param $percent - Optional background color for mixing function
+/// @param $background [white]
+/// @example scss - Usage
+///   background-color: percent-color(#666, 50%);
+/// @example css - Output
+///   background-color: #ccc;
+@function percent-color($color, $percent, $background: white) {
+	$percent: strip-units($percent);
+	$opaque: opacify($color, 1);
+	$solid-color: mix($opaque, $background, $percent);
+	@return $solid-color;
+}
