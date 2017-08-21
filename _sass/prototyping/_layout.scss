@@ -1,16 +1,17 @@
 .layout {
 
-  &--container {
-    @include outer-container();
+  //&__container {
+  //  min-width: $min-width;
+  //  max-width: $max-width;
   
-    /*body*/.full-width & {
-      max-width: none;
-    }
-  }
+  //  /*body*/.full-width & {
+  //    max-width: none;
+  //  }
+  //}
 
-  &--content {
-    padding: 0 $page-gutter;
-  }
+  //&__content {
+  //  padding: 0 $page-gutter;
+  //}
 }
 
 // Grid System using flexbox
