@@ -33,11 +33,37 @@
 //  	</div>
 //	</header>
 
+$drawer-width: 280px;
+$body-bg-color: palette(mono, 90);
+$layout-bg-color: palette(mono, white);
+
+
 .mainhead {
+  background-color: $body-bg-color;
+  color: palette(mono, white);
+  padding: $page-gutter;
+
+  a {
+
+    @include touch-hover('idle') {
+      color: palette(mono, white);
+    }
+
+    @include touch-hover('hover') {
+      color: palette(mono, 25);
+    }
+  }
+
+  &__brand {
+    
+    @include media($small-up) {
+      order: 1;
+    }
+  }
   
-  &__brand {}
-  
-  &__title {}
+  &__title {
+    @extend .charlie;
+  }
 }
 
 .utility {
@@ -52,16 +78,61 @@
   
   &__list {
     @include hide();
+    
+    @include media($small-up) {
+      @include show(inline-block);
+      order: 2;
+      flex-grow: 2;
+      text-align: right;
+      
+      li {
+        display: inline-block;
+        padding-right: $page-gutter;
+      }
+    }
   }
 }
 
 .search {
   
+  form {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  &__wrapper {
+    display: block;
+    padding: .6875rem 1rem .625rem;
+    margin-bottom: 0;
+    
+    &:after {
+      @include icon-font('\f002');
+      font-size: 1.25em;
+      color: #fff;
+    }
+  }
+  
+  &__input,
+  &__button {
+    @include hide();
+  }
+  
+  @include media($small-up) {
+    order: 3;
+  }
 }
 
 .menu-action {
+  border: $form-input-border-width solid $form-input-border-color;
+  border-radius: $form-input-border-radius;
+  display: inline-block;
+  vertical-align: middle;
   
-  &__button {}
+  &__button {
+    display: block;
+    font-size: 1.25em;
+    padding: .5rem 1rem .375rem;
+  }
   
   &__icon {}
 }
@@ -75,13 +146,10 @@
 }
 
 
-$drawer-width: 280px;
-$body-bg-color: palette(mono, 90);
-$layout-bg-color: palette(mono, white);
-
 body {
   @include transition( transform 250ms ease );
   background-color: $body-bg-color;
+  overflow-x: hidden;
 
   &.js-menu-open {
     @include transform( translateX($drawer-width) );
@@ -89,8 +157,8 @@ body {
 }
 
 .drawer {
-  @include transition( transform 250ms ease );
-  @include transform( translateX( - ($drawer-width * 1.5) ) );
+  @include transition( transform 350ms ease );
+  @include transform( translateX( - ($drawer-width * 2) ) );
   position: absolute;
   top: 0;
   left: 0;
@@ -102,6 +170,10 @@ body {
     @include transform( translateX(- $drawer-width) );
   }
   
+  body &__close {
+    @include transition(all 500ms ease);
+  }
+  
   body.js-menu-open &__close {
     position: absolute;
     top: 0;
@@ -110,20 +182,80 @@ body {
     bottom: 0;
     background-color: rgba(palette(mono, white), .5);
     -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(8px);
-  }
-  
-  .brand {
-    @include hide();
-  }
-  
-  .utility,
-  .catnav,
-  .mainnav__list {
-    @include show();
+    backdrop-filter: blur(6px);
     
-    a {
-      padding: .5em 1em .375em;
+    &:before {
+      @include transition(all 250ms ease);
+      @include icon-font('\f00d');
+      border: $form-input-border-width solid palette(mono, 75);
+      border-radius: $form-input-border-radius;
+      color: palette(mono, black);
+      font-size: 1.5em;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      padding: .5rem .75rem;
+    }
+    
+    &:hover:before,
+    &:focus:before {
+      border-color: palette(brand);
+      color: palette(brand);
+    }
+  }
+  
+  &__nav {
+    display: flex;
+    flex-flow: column;
+    // negate tthe padding from mainhead
+    padding: 0;
+    
+    .brand,
+    .search {
+      @include hide();
+    }
+    
+    .utility,
+    .catnav,
+    .mainnav__list {
+      @include show();
+      
+      a {
+        padding: .5rem 1rem .375rem;
+      }
+    }
+    
+    // Change the order
+    .utility {
+      order: 2;
+    }
+    
+    .mainnav {
+      order: 1;
+    }
+    
+    .catnav {
+      order: 3;
+      padding-top: $vert-line-height;
+      
+      &:before {
+        content: 'Browse Deals:';
+        color: palette(mono, 33);
+        display: block;
+        font-size: 87.5%;
+        font-weight: $font-weight-bold;
+        letter-spacing: .0625em;
+        padding: .5rem 1rem .375rem;
+        text-transform: uppercase;
+      }
+    }
+    
+    // Media
+    @include media($small-up) {
+
+      .mainnav__list {
+        @include hide();
+      }
     }
   }
 }

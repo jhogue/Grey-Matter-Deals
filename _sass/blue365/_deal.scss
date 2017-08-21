@@ -1,0 +1,189 @@
+//<div class="wayfinding">
+//  <ul class="wayfinding__list menu">
+//    <li><a href="#description">Description</a></li>
+//    <li><a href="#terms">Terms</a></li>
+//  </ul>
+//</div>
+
+.wayfinding {
+  @include container-light();
+  margin-left: - $page-gutter;
+  margin-right: - $page-gutter;
+
+  &__list {
+    
+    li {
+      display: inline-block;
+    }
+    
+    a {
+      padding: 0 .5em;
+    }
+  }
+}
+
+//<section class="content__main deal">
+//  <header class="deal__header">
+//  	<h1 class="deal__title">
+//  		<img class="deal__title__logo" src="#">
+//  		<div class="deal__title__brand">THE ORGANWISE GUYS:</div>
+//  		<div class="deal__title__offer">
+//    		10% Off Kid's Monthly Nutrition Education Program plus Free Shipping
+//      </div>
+//    </h1>
+//    <div class="deal__actions">
+//      <p class="deal__price">
+//        <span class="deal__price__before">Normal Price: <del>$24.95</del></span>
+//        <span class="deal__price__after">Discount Price: <ins>$22.46</ins></ins>
+//        <span class="deal__price__recurrence">Monthly</span>
+//      </p>
+//      <div id="deal__redeem" class="deal__redeem">
+//        <p>
+//          <a href="#" class="button button__primary deal__signin__button">Sign In / Sign Up</a>
+//          <a href="#" class="button button__disabled deal__redeem__button">Redeem</a>
+//        </p>
+//      </div>
+//    </div>
+//    <div class="deal__featured">
+//      <img class="deal__featured__image" src="#">
+//    </div>
+
+.deal {
+  
+  &__header {
+    border-bottom: 1px solid $color-borders;
+    margin-bottom: $vert-line-height/2;
+    padding-bottom: $vert-line-height/2;
+    
+    @include media($small-up) {
+      display: flex;
+      flex-flow: row wrap;
+    }
+    
+    @include media($large-up) {
+      justify-content: flex-end;
+    }
+  }
+  
+  &__title {
+    line-height: 1.5;
+    margin-bottom: $vert-line-height/2;
+    
+    &__logo {}
+    
+    &__brand {}
+    
+    // If there is a logo AND a brand name, hide the brand name
+    &__logo[src] + &__brand {
+      @include hide();
+    }
+    
+    &__offer {}
+    
+    @include media($small-up) {
+      order: 1;
+      width: 100%;
+    }
+    
+    @include media($large-up) {
+      order: 2;
+      width: 50%;
+    }
+  }
+  
+  &__actions {
+    border-top: 1px solid $color-borders;
+    padding: $vert-line-height/2 0 $vert-line-height;
+    
+    @include media($small-up) {
+      order: 3;
+      width: 50%;
+    }
+  }
+  
+  &__price {
+    padding-bottom: $vert-line-height/2;
+    
+    &__before {}
+    
+    &__after {}
+    
+    &__recurrence {}
+  }
+  
+  &__redeem {
+    padding-bottom: $vert-line-height;
+    
+    //<div id="deal-redeem__js-clone" class="deal__redeem deal__redeem--adhesive deal__redeem--visible">
+    //  <div id="deal-actions__js-clone" class="deal__title__brand">THE ORGANWISE GUYS:</div>
+    //  <p>
+    //    <a href="#" class="button button__primary deal__signin__button">Sign In / Sign Up</a>
+    //    <a href="#" class="button button__disabled deal__redeem__button">Redeem</a>
+    //  </p>
+    //</div>
+    &--adhesive {
+      @include transition(opacity 500ms ease);
+      background-color: palette(mono, white);
+      box-shadow: 0 -.25em .5em rgba(#000, .15);
+      opacity: 0;
+      padding: $page-gutter;
+      position: fixed;
+      left: 0;
+      bottom: -100%;
+      right: 0;
+      text-align: center;
+      
+      @include media($small-up) {
+        text-align: right;
+      }
+    }
+    
+    &--visible {
+      bottom: 0;
+      opacity: 1;
+    }
+    
+    .deal__title__brand {
+      @include hide();
+      @extend .echo;
+    }
+
+    @include media($small-up) {
+
+      .deal__title__brand,
+      p {
+        display: inline-block;
+        visibility: visible;
+        vertical-align: middle;
+      }
+    }
+  }
+  
+  &__featured {
+    padding-bottom: $vert-line-height;
+    
+    @include media($small-up) {
+      order: 2;
+      padding-right: $page-gutter;
+      width: 50%;
+    }
+    
+    @include media($large-up) {
+      order: 1;
+    }
+  }
+  
+  &__details {
+    padding: $vert-line-height 0 $vert-line-height/2;
+    
+    &__meta {
+      padding-bottom: $vert-line-height;
+    }
+    
+    &__description,
+    &__terms {
+      margin: 0 auto;
+      max-width: em(620);
+    }
+  }
+}

@@ -1,14 +1,29 @@
 .layout {
   background-color: $layout-bg-color;
   position: relative;
-  
+
+  &__container {
+    min-width: $min-width;
+    max-width: $max-width;
+    margin: 0 auto;
+
+    /*body*/.full-width & {
+      //max-width: none;
+    }
+  }
+
+  &__content {
+    padding: 0 $page-gutter;
+  }
+
+  // ! HEADER - - - - -
   &__utlility {}
   
   &__mainnav {
-    @include display(flex);
-    @include flex-flow(row wrap);
-    @include justify-content(space-between);
-    @include align-items(center);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
   }
   
   &__catnav {}
