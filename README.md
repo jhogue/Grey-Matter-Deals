@@ -55,6 +55,8 @@ If needed, the two commands that Rake is running are (which you can run in two T
 ```
 $ bundle exec sass -r sass-globbing --watch _sass:assets/css &
 $ jekyll serve -w --baseurl="/grey-matter/"
+
+$ sass --watch _sass/greymatter.scss:assets/css/greymatter.css
 ```
 
 The server is available at `http://localhost:4040/grey-matter/` or  `http://0.0.0.0:4040/grey-matter/`. If the compiled file URLs need to be prefixed, add a prefix to the `rakefile` line 21, and serve from that project root as well, i.e. `http://localhost:4040/project`. When you upload the sites content to a server, all URLs will be prefixed with `/project`.

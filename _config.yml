@@ -7,9 +7,10 @@ redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
 
 baseurl: '/deals/'
-port: 4040
+port: 4080
 url: //jhogue.dev.oomphcloud.com
 twitter_handle: oomphinc
+
 
 # Define some defaults
 defaults:
@@ -29,3 +30,8 @@ relative_permalinks: false
 
 sass:
   sass_dir: _sass
+
+
+# Plugins and extras
+gems:
+- jekyll-autoprefixer
