@@ -1,0 +1,20 @@
+  	<footer class="mainfoot">
+  		<div class="layout--container">
+  			<p class="mainfoot--list">
+  				<span class="mainfoot--link">All pages: </span> 
+  				{% for page in site.pages | sort:'title' %}
+  				<a href="{{ site.baseurl}}{{ page.permalink }}" class="mainfoot--link">{% if page.nav-title %}{{ page.nav-title }}{% else %}{{ page.title }}{% endif %}</a>{% unless forloop.last %}, {% endunless %}
+  				{% endfor %}
+  			</p>
+  			<p class="mainfoot--copyright">&copy;{{ 'now' | date: '%Y' }} Oomph, Inc.</p>
+  		</div>
+  	</footer>
+	</div>
+
+  <a href="javascript:;" class="drawer__close js-menu-close"></a>
+	<div id="size"></div>
+
+	<script src="//code.jquery.com/jquery-1.12.2.min.js"></script>
+  <script src="{{ "assets/js/plugins.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "assets/js/prototyping.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "assets/js/scripts.js" | prepend: site.baseurl }}"></script>
