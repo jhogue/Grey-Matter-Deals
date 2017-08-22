@@ -19,7 +19,7 @@ task :serve do
   system 'bundle exec sass -r sass-globbing --watch _sass:assets/css &'
   #jekyll 'serve -w --baseurl="/"' Optional, if we need to serve from a different root, change below
   # If you need to change the value below, also change it in _config.yml
-  jekyll 'serve -w --baseurl="/deals/"'
+  jekyll 'serve -w --baseurl="/b365/"'
 end
 
 def jekyll(opts = '')
