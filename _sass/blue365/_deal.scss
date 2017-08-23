@@ -162,6 +162,10 @@
   &__featured {
     padding-bottom: $vert-line-height;
     
+    img {
+      width: 100%;
+    }
+    
     @include media($small-up) {
       order: 2;
       padding-right: $page-gutter;
@@ -180,10 +184,11 @@
       padding-bottom: $vert-line-height;
     }
     
+    &__meta,
     &__description,
     &__terms {
       margin: 0 auto;
-      max-width: em(620);
+      max-width: em(760);
     }
   }
 }

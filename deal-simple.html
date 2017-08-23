@@ -23,13 +23,13 @@ permalink: /organwise-guys
   </h1>
   <div class="deal__actions">
     <p class="deal__price">
-      <span class="deal__price__before">Normal Price: <del>$24.95</del></span>
-      <span class="deal__price__after">Discount Price: <ins>$22.46</ins></ins>
+      <span class="deal__price__after"><ins alt="Blue365 Deal Price">$22.46</ins></ins>
+      <span class="deal__price__before"><del alt="Regular Price">$24.95</del></span>
       <span class="deal__price__recurrence">Monthly</span>
     </p>
     <div id="deal-redeem" class="deal__redeem">
       <p>
-        <a href="#" class="button button__primary deal__signin__button">Sign In / Sign Up</a>
+        <a href="#signin" class="button button__primary deal__signin__button js-inline-modal">Sign In / Join</a>
         <a href="#" class="button button__disabled deal__redeem__button">Redeem</a>
       </p>
     </div>
@@ -70,6 +70,18 @@ permalink: /organwise-guys
 </article>
 
 <footer class="deal__footer">
-  <h3>Deal Footer: Recirculation</h3>
+  <h3>More Deals from the <b>Wellness</b> Category:</h3>
+  <div class="grid grid__trio">
+    {% include deal-card.html %}
+    {% include deal-card.html %}
+    {% include deal-card.html %}
+  </div>
 </footer>
+
+<!-- Modals -->
+<div id="signin" class="modal mfp-hide">
+  <div class="modal__wrapper">
+    {% include signin-join.html %}
+  </div>
+</div>
     
