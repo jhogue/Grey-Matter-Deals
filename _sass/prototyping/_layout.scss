@@ -25,9 +25,9 @@
 // 8. octet 
 // 9. nonet
 .grid {
-  @include align-items(stretch);
-  @include display(flex);
-  @include flex-flow( row wrap );
+  align-items: stretch;
+  display: flex;
+  flex-flow: row wrap;
 
 	&--item {
   	padding: 0 $page-gutter;

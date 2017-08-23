@@ -36,6 +36,7 @@
       background-color: palette(brand);
       border-color: darken(palette(brand), 8%);
       color: palette(mono, 10);
+      cursor: pointer;
     }
 
     @include touch-hover('hover') {
@@ -50,6 +51,7 @@
       background-color: palette(mono, 15);
       border-color: palette(mono, 25);
       color: palette(mono, 90);
+      cursor: pointer;
     }
 
     @include touch-hover('hover') {
@@ -63,7 +65,7 @@
     @include touch-hover('idle') {
       background-color: palette(mono, 15);
       border-color: palette(mono, 25);
-      color: palette(mono, 66);
+      color: palette(mono);
       cursor: not-allowed;
       text-decoration: none;
     }
@@ -71,7 +73,7 @@
     @include touch-hover('hover') {
       background-color: palette(mono, 15);
       border-color: palette(mono, 25);
-      color: palette(mono, 66);
+      color: palette(mono);
       cursor: not-allowed;
       text-decoration: none !important;
     }
