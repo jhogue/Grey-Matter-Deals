@@ -1,0 +1,24 @@
+.modal {
+  position: relative;
+  background: palette(mono, white);
+  margin: $vert-line-height auto;
+  padding: $page-gutter;
+  width: auto;
+  
+  $gutter-as-ems: strip-units($page-gutter) * 1em;
+  
+  @include media($small-up) {
+    max-width: bp(small) - ($gutter-as-ems * 4);
+  }
+  
+  @include media($medium-up) {
+    max-width: bp(medium) - ($gutter-as-ems * 4);
+  }
+  
+  @include media($large-up) {
+    max-width: bp(large) - ($gutter-as-ems * 4);
+  }
+}
+
+
+@import "magnific-popup";

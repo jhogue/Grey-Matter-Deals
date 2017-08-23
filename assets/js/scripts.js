@@ -36,6 +36,13 @@ $(document).ready(function() {
   });
 
 
+  // Initialize Magnific popup
+  $('.js-inline-modal').magnificPopup({
+    type: 'inline',
+    midClick: true
+  });
+
+
   /* 
    * Animate some scrolling for smoother transitions 
    * http://css-tricks.com/snippets/jquery/smooth-scrolling/
