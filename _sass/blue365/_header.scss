@@ -79,7 +79,7 @@ $layout-bg-color: palette(mono, white);
   &__list {
     @include hide();
     
-    @include media($small-up) {
+    @include media($medium-up) {
       @include show(inline-block);
       order: 2;
       flex-grow: 2;
@@ -156,6 +156,7 @@ body {
   }
 }
 
+// The drawer as a wrapper to take the same elements and do some different things
 .drawer {
   @include transition( transform 350ms ease );
   @include transform( translateX( - ($drawer-width * 2) ) );
@@ -207,7 +208,7 @@ body {
   &__nav {
     display: flex;
     flex-flow: column;
-    // negate tthe padding from mainhead
+    // negate the padding from mainhead
     padding: 0;
     
     .brand,
@@ -234,6 +235,11 @@ body {
       order: 1;
     }
     
+    .mainnav__list {
+      display: flex;
+      flex-flow: column-reverse;
+    }
+    
     .catnav {
       order: 3;
       padding-top: $vert-line-height;
@@ -251,7 +257,7 @@ body {
     }
     
     // Media
-    @include media($small-up) {
+    @include media($medium-up) {
 
       .mainnav__list {
         @include hide();

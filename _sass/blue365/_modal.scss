@@ -20,5 +20,22 @@
   }
 }
 
+#signup {}
+
+#redeem {
+
+  .deal__redeem__title,
+  .deal__redeem__message {
+    text-align: center;
+  }
+
+  .deal__redeem__continue,
+  .deal__redeem__online,
+  .deal__redeem__instore {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 
 @import "magnific-popup";

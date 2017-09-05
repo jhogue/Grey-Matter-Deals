@@ -87,4 +87,30 @@
 		dt,
 		dd { line-height: 1.5; }
 	}
+	
+	.align-left {
+  	
+  	@include media($small-up) {
+    	float: left;
+    	margin-right: $page-gutter;
+    	max-width: 40%;
+  	}
+  	
+  	@include media($medium-up) {
+    	max-width: 33%;
+  	}
+	}
+	
+	.align-right {
+  	
+  	@include media($small-up) {
+    	float: right;
+    	margin-left: $page-gutter;
+    	max-width: 40%;
+  	}
+  	
+  	@include media($medium-up) {
+    	max-width: 33%;
+  	}
+	}
 }

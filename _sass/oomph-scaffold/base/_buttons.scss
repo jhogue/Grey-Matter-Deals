@@ -5,6 +5,11 @@
 .button {
   @include button();
 
+  .fa {
+    font-size: 125%;
+    margin-right: .75em;
+  }
+
   &__primary {
     @include button('primary');
   }

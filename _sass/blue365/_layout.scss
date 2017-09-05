@@ -28,3 +28,62 @@
   
   &__catnav {}
 }
+
+
+// Special layout for a Deals page with paragraphs
+.flow-2-body.layout-deal {
+  
+  @include media($medium-up) {
+    
+    #deal-wrapper {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: stretch;
+      justify-content: space-between;
+    
+      .wayfinding {
+         
+        li {
+          display: block;
+          padding-bottom: .5em;
+          
+          a {
+            line-height: 1.25;
+          }
+        }
+      }
+      
+      #description { width: 80%; }
+    }
+  }
+  
+  @include media($large-up) {
+    
+    #deal-wrapper {
+
+      .wayfinding { width: 15%; }
+      
+      #description { width: 85%; }
+    }
+  }
+  
+  @include media($xlarge-up) {
+    
+    #deal-wrapper {
+
+      .wayfinding { width: 12.5%; }
+      
+      #description { width: 87.5%; }
+    }
+  }
+  
+  @include media($xxlarge-up) {
+    
+    #deal-wrapper {
+
+      .wayfinding { width: 10%; }
+      
+      #description { width: 90%; }
+    }
+  }
+} 

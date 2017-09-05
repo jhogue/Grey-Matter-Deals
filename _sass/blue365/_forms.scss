@@ -1,0 +1,41 @@
+
+//<div class="form__group form__input-button-pair deal__redeem__copycode">
+//  <input class="form__input deal__redeem__input" value="XYZ123" readonly="">
+//  <a href="#" class="button button__primary" title="Copy to Clipboard"><span class="fa fa-clipboard" aria-hidden="true"></span> Copy</a>
+//</div>
+
+.form {
+  
+  &__input {}
+  
+  &__input-button-pair {
+
+    input,
+    .button {
+      vertical-align: middle;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    
+    input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      width: calc(100% - 108px);
+    }
+    
+    .button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-left: -10px;
+      padding: 0.625em 1em 0.5em;
+    }
+  }
+  
+  &__group {
+    padding-bottom: $vert-line-height;
+  }
+  
+  &__actions {}
+  
+  &__submit {}
+}

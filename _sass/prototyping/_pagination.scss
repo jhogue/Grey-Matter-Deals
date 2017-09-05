@@ -1,0 +1,73 @@
+// Sample Pagination HTML
+// Cut and Paste and modify as needed
+
+//<div class="pagination">
+//  <ul class="menu">
+//    <li><a href="#" class="pagination__first pagination__disabled"><span class="fa fa-angle-double-left" aria-hidden="true"></span></a></li>
+//    <li><a href="#" class="pagination__previous pagination__disabled"><span class="fa fa-angle-left" aria-hidden="true"></span></a></li>
+//    
+//    <li><a href="#" class="pagination__number pagination__current">1</a></li>
+//    <li><a href="#" class="pagination__number">2</a></li>
+//    
+//    <li><a href="#" class="pagination__next"><span class="fa fa-angle-right" aria-hidden="true"></span></a></li>
+//    <li><a href="#" class="pagination__last"><span class="fa fa-angle-double-right" aria-hidden="true"></span></a></li>
+//  </ul>
+//</div>
+.pagination {
+  padding: $vert-line-height 0;
+
+  ul {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    
+    li {
+      margin-right: 1px;
+    }
+  }
+  
+  a {
+    display: block;
+    padding: .375em .75em .25em;
+  }
+  
+  &__number {
+    
+    @include touch-hover('idle') {
+      color: palette(mono, white);
+      background-color: palette(brand);
+    }
+    
+    @include touch-hover('hover') {
+      color: palette(brand);
+      background-color: palette(mono, 15);
+    }
+  }
+  
+  &__current {
+    
+    @include touch-hover('idle') {
+      color: palette(mono, 90);
+      background-color: palette(mono, 10);
+    }
+    
+    @include touch-hover('hover') {
+      color: palette(mono, 90);
+      background-color: palette(mono, 10);
+      cursor: default;
+    }
+  }
+  
+  &__disabled {
+    
+    @include touch-hover('idle') {
+      color: palette(mono);
+    }
+    
+    @include touch-hover('hover') {
+      color: palette(mono);
+      cursor: default;
+    }
+  }
+}

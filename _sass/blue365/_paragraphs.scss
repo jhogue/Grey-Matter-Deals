@@ -1,0 +1,44 @@
+.paragraph {
+  
+  &__hero {
+    background-color: palette(mono, 15);
+    padding: $vert-line-height $page-gutter;
+    
+    @include media($medium-up) {
+      padding: ($vert-line-height * 1.5) ($page-gutter * 2);
+    }
+
+    @include media($medium-up) {
+      padding: ($vert-line-height * 2) ($page-gutter * 4);
+    }
+  }
+  
+  &__cards {
+    border-bottom: 1px solid $color-borders;
+    
+    .grid__item {
+      padding: $page-gutter;
+      
+      @include media($medium-up) {
+        padding: $vert-line-height ($page-gutter * 2);
+      }
+      
+      @include media($large-up) {
+        padding: ($vert-line-height * 1.5) ($page-gutter * 4);
+      }
+    }
+    
+    & > .grid__item:first-child {
+      border-right: 1px solid $color-borders;
+    }
+  }
+  
+  &__body {
+    padding: $vert-line-height $page-gutter;
+    
+    &__wrapper {
+      margin: 0 auto;
+      max-width: em(760);
+    }
+  }
+}
