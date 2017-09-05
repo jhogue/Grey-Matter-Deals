@@ -1,43 +1,4 @@
-<!-- From Refills -->
-<ul class="accordion-tabs menu">
-  <li class="tab-header-and-content">
-    <a href="javascript:void(0)" class="is-active tab-link">Sign In</a>
-    <div class="tab-content">
-
-      <div class="form__login-form">
-        <form class="form">
-          <legend class="screen-reader-text">Sign In</legend>
-          <div class="form__group">
-            <label for="email">Email</label>
-            <input class="form__input" type="email" id="email" placeholder="name@domain.com">
-          </div>
-          <div class="form__group">
-            <label for="password">Password</label>
-            <input class="form__input" type="password" id="password">
-          </div>
-          <div class="form__actions">
-            <input class="form__submit button button__primary" type="submit" value="Let&rsquo;s Go!">
-            <a href="#">Forgot Password?</a>
-          </div>
-          <p>&nbsp;</p>
-          <div class="form__group">
-            <h3>Use Social Logins</h3>
-            <p>
-              <input class="button button__secondary" type="submit" value="Facebook">
-              <input class="button button__secondary" type="submit" value="Google+">
-              <input class="button button__secondary" type="submit" value="Apple ID">
-            </p>
-          </div>
-        </form>
-      </div>
-      
-    </div>
-  </li>
-  <li class="tab-header-and-content">
-    <a href="javascript:void(0)" class="tab-link">Join</a>
-    <div class="tab-content">
-      
-      <div class="form__join-form">
+<div class="form--join-form">
         <form class="form">
           <legend class="screen-reader-text">Become a Member</legend>
           <div class="form__group">
@@ -107,12 +68,16 @@
               </div>
             </div>
           </fieldset>
-          <div class="form__actions">
-            <input class="form__submit button button__primary" type="submit" value="Let&rsquo;s Go!">
+          
+          
+          <div class="flow-1 form__actions">
+            <a href="{{ site.baseurl }}flow-1-deal-logged-in.html" class="form__submit button button__primary">Let&rsquo;s Go!</a>
           </div>
+          <div class="flow-2 form__actions">
+            <a href="{{ site.baseurl }}flow-2-deal-logged-in.html" class="form__submit button button__primary">Let&rsquo;s Go!</a>
+          </div>
+          
+          
           <p>&nbsp;</p>
         </form>
       </div>
-    </div>
-  </li>
-</ul>

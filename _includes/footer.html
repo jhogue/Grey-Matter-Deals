@@ -1,50 +1,37 @@
   	<footer class="mainfoot">
   		<div class="layout__container">
-  			<div class="mainfoot__group">
-    			<div class="brand">
-          	<a class="mainfoot__title" href="{{ site.baseurl }}">Blue365</a>
+  			<div class="grid grid--quartet">
+    			<div class="grid__item mainfoot__group">
+      			<div class="brand">
+            	<a class="mainfoot__title" href="{{ site.baseurl }}">Blue365</a>
+            </div>
+      		</div>
+    			<div class="grid__item mainfoot__group">
+      			<h4 class="mainfoot__group__title">Categories:</h4>
+      			<ul class="mainfoot__group__list" role="navigation">
+        			{% include navigation/deal-categories.html %}
+        		</ul>
           </div>
-    		</div>
-  			<div class="mainfoot__group">
-    			<h4 class="mainfoot__group__title">Categories:</h4>
-    			<ul class="mainfoot__group__list" role="navigation">
-      			<li><a href="#">Apparel & Wearables</a></li>
-    				<li><a href="#">Families & Kids</a></li>
-    				<li><a href="#">Fitness Activities</a></li>
-    				<li><a href="#">Healthy Eating</a></li>
-    				<li><a href="#">Personal Care</a></li>
-    				<li><a href="#">Seniors</a></li>
-    				<li><a href="#">Travel</a></li>
-    				<li><a href="#">Other Deals</a></li>
-      		</ul>
-        </div>
-        <div class="mainfoot__group">
-    			<h4 class="mainfoot__group__title">How it Works:</h4>
-    			<ul class="mainfoot__group__list" role="navigation">
-      			<li><a href="#">How it Works</a></li>
-      			<li><a href="#">Our Mission &amp; Focus</a></li>
-      			<li><a href="#">Frequently Asked Questions</a></li>
-      			<li><a href="#">Healthier Living Programs</a></li>
-      			<li><a href="#">Eligibility</a></li>
-      			<li><a href="#">For Employers</a></li>
-      			<li><a href="#">Become a Partner</a></li>
-      		</ul>
-    		</div>
-    		<div class="mainfoot__group">
-    			<h4 class="mainfoot__group__title">&nbsp;</h4>
-    			<ul class="mainfoot__group__list" role="navigation">
-      			<li><a href="#">Sign In / Sign Up</a></li>
-      			<li><a href="#">Contact</a></li>
-      			<li><a href="#">Privacy Policy</a></li>
-      			<li><a href="#">Terms of Use</a></li>
-      			<li><a href="#">Non-Discrimination and Language Assistance</a></li>
-      		</ul>
+          <div class="grid__item mainfoot__group">
+      			<h4 class="mainfoot__group__title">About Blue365</h4>
+      			<ul class="mainfoot__group__list" role="navigation">
+        			{% include navigation/about-b365.html %}
+        		</ul>
+      		</div>
+      		<div class="grid__item mainfoot__group">
+      			<h4 class="mainfoot__group__title">Members</h4>
+      			<ul class="mainfoot__group__list" role="navigation">
+        			<li><a href="#">Sign In / Join</a></li>
+        			<li><a href="#">Contact</a></li>
+        			<li><a href="{{ site:baseurl }}flow-1.html">Redemption Flow 1</a></li>
+        			<li><a href="{{ site:baseurl }}flow-2.html">Redemption Flow 2</a></li>
+        		</ul>
+      		</div>
     		</div>
   			<p class="mainfoot__copyright"><small>&copy;{{ 'now' | date: '%Y' }} Blue Cross Blue Shield Association and Blue365</small></p>
   		</div>
   	</footer>
 	</div>
-
   <a href="javascript:;" class="drawer__close js-menu-close"></a>
 	
 	<!-- Prototyping only -->
