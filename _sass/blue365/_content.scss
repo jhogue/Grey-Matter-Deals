@@ -1,0 +1,116 @@
+// Vertical rhythm applied whenever we have content
+// coming in from a WYSIWYG
+.entry-content {
+	clear: both;
+
+	h1 {
+		margin-top: 1.9375em;
+		margin-bottom: .5625em;
+	}
+
+	h1:first-child,
+	h2:first-child,
+	h3:first-child {
+		margin-top: 0;
+	}
+
+	h2 {
+		margin-top: 3.375rem;
+    line-height: 1.28;
+    margin-bottom: 1.875rem;
+	}
+
+	h3 {
+		margin-top: 3.375rem;
+    line-height: 1.4;
+    margin-bottom: 1.5em;
+	}
+
+	h4 {
+		margin-top: -.1875rem;
+    line-height: 1.6;
+    margin-bottom: .125rem;
+	}
+
+	h5,
+	h6 {
+		margin-top: -.0625em;
+	}
+
+	// Adjust some pairs
+	h1 + h2 {
+		//margin-top: 1.15em;
+	}
+
+	h1 + h3 {
+		//margin-top: 1.625em;
+	}
+	
+	h2 + h3 {
+  	//margin-top: 1.875em;
+  }
+
+	h3 + h4 {
+  	//margin-top: -.125em;
+  }
+
+	// Default vertical rhythm
+	p,
+	ul,
+	ol,
+	dl,
+	address,
+	table {
+		margin-bottom: $vert-line-height;
+	}
+
+	// Remove margin bottom when nested
+	ul,
+	ol {
+    
+    // Adjust line height to tighten multi-line LIs, and add space in between to maintain rhythm
+    li {
+			line-height: 1.66;
+      padding-bottom: .625em;
+		}
+
+		& ul,
+		& ol {
+			margin-left: 1.5em;
+			margin-bottom: 0;
+		}
+	}
+
+	
+	dl {
+
+		dt,
+		dd { line-height: 1.5; }
+	}
+	
+	.align-left {
+  	
+  	@include media($small-up) {
+    	float: left;
+    	margin-right: $page-gutter;
+    	max-width: 40%;
+  	}
+  	
+  	@include media($medium-up) {
+    	max-width: 33%;
+  	}
+	}
+	
+	.align-right {
+  	
+  	@include media($small-up) {
+    	float: right;
+    	margin-left: $page-gutter;
+    	max-width: 40%;
+  	}
+  	
+  	@include media($medium-up) {
+    	max-width: 33%;
+  	}
+	}
+}

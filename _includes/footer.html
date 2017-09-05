@@ -1,17 +1,40 @@
   	<footer class="mainfoot">
-  		<div class="layout--container">
-  			<p class="mainfoot--list">
-  				<span class="mainfoot--link">All pages: </span> 
-  				{% for page in site.pages | sort:'title' %}
-  				<a href="{{ site.baseurl}}{{ page.permalink }}" class="mainfoot--link">{% if page.nav-title %}{{ page.nav-title }}{% else %}{{ page.title }}{% endif %}</a>{% unless forloop.last %}, {% endunless %}
-  				{% endfor %}
-  			</p>
-  			<p class="mainfoot--copyright">&copy;{{ 'now' | date: '%Y' }} Oomph, Inc.</p>
+  		<div class="layout__container">
+  			<div class="grid grid--quartet">
+    			<div class="grid__item mainfoot__group">
+      			<div class="brand">
+            	<a class="mainfoot__title" href="{{ site.baseurl }}">Blue365</a>
+            </div>
+      		</div>
+    			<div class="grid__item mainfoot__group">
+      			<h4 class="mainfoot__group__title">Categories:</h4>
+      			<ul class="mainfoot__group__list" role="navigation">
+        			{% include navigation/deal-categories.html %}
+        		</ul>
+          </div>
+          <div class="grid__item mainfoot__group">
+      			<h4 class="mainfoot__group__title">About Blue365</h4>
+      			<ul class="mainfoot__group__list" role="navigation">
+        			{% include navigation/about-b365.html %}
+        		</ul>
+      		</div>
+      		<div class="grid__item mainfoot__group">
+      			<h4 class="mainfoot__group__title">Members</h4>
+      			<ul class="mainfoot__group__list" role="navigation">
+        			<li><a href="#">Sign In / Join</a></li>
+        			<li><a href="#">Contact</a></li>
+        			<li><a href="{{ site:baseurl }}flow-1.html">Redemption Flow 1</a></li>
+        			<li><a href="{{ site:baseurl }}flow-2.html">Redemption Flow 2</a></li>
+        		</ul>
+      		</div>
+    		</div>
+  			<p class="mainfoot__copyright"><small>&copy;{{ 'now' | date: '%Y' }} Blue Cross Blue Shield Association and Blue365</small></p>
   		</div>
   	</footer>
 	</div>
-
   <a href="javascript:;" class="drawer__close js-menu-close"></a>
+	
+	<!-- Prototyping only -->
 	<div id="size"></div>
 
 	<script src="//code.jquery.com/jquery-1.12.2.min.js"></script>

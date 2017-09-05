@@ -1,0 +1,182 @@
+//<div class="grid__item">
+//  <article class="deal-card">
+//    <div class="deal-card__header">
+//      <div class="deal-card__category">
+//        <a class="deal-card__category__link" href="#">Fitness</a>
+//      </div>
+//    </div>
+//    <a class="deal-card__link" href="deal-simple.html">
+//      <div class="deal-card__thumb">
+//        <img src="http://fpoimg.com/800x450?text=Deal Thumbnail" alt="">
+//        <div class="deal-card__expiring">
+//          <span class="deal-card__expiring__days">4</span> days left
+//        </div>
+//      </div>
+//      <h2 class="charlie deal-card__brand">Gym Network 360</h2>
+//      <div class="deal-card__offer">
+//        <h3 class="delta deal-card__offer__content">5%&ndash;20% Off Gym Memberships for Seniors</h3>
+//      </div>
+//    </a>
+//    <footer class="deal-card__actions">
+//      <span class="button button__primary">More Details</span>
+//      <span class="deal-card__favorite deal-card__favorite--off"><span class="fa fa-heart-o" aria-hidden="true"></span>
+//    </footer>
+//  </article>
+//</div>
+
+.deal-card {
+  border: 1px solid $color-borders;
+  margin-bottom: $vert-line-height/2;
+  padding-bottom: $vert-line-height/2;
+
+  &__header {}
+
+  &__category {
+    
+    &__link {
+      display: block;
+      font-size: .875em;
+      padding: .375em .75em;
+      text-transform: uppercase;
+      
+      @include touch-hover() {
+        background-color: palette(brand);
+        color: palette(mono, white);
+      }
+      @include touch-hover('hover') {
+        background-color: palette(mono, 90);
+        color: palette(brand);
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+  }
+
+  &__thumb {
+    position: relative;
+
+    img {}
+  }
+
+  // Show only in special circumstances
+  &--featured-element {
+    @include hide();
+  }
+
+  //<div class="deal-card__flash">
+  //  Flash Sale!
+  //</div>
+  //<div class="deal-card__expiring">
+  //  <span class="deal-card__expiring__days">4</span> days left
+  //</div>
+  //<div class="deal-card__location">
+  //  Locations Near You!
+  //</div>
+
+  &__flash,
+  &__expiring,
+  &__location {
+    display: inline-block;
+    line-height: 1;
+    padding: .375em .75em;
+  }
+  
+  &__flash {
+    background-color: rgba(palette(brand, red), .75);
+    color: palette(mono, white);
+    
+    .flow-2-body & {
+      left: 0;
+      right: auto;
+    }
+    
+    @include media($small-up) {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  &__expiring {
+    background-color: rgba(palette(mono, 75), .75);
+    color: palette(mono, white);
+    font-size: 1rem;
+    
+    &__days {
+      font-weight: $font-weight-bold;
+    }
+  }
+  
+  &__location {
+    background-color: rgba(palette(brand), .75);
+    color: palette(mono, white);
+    
+    @include media($small-up) {
+      position: absolute;
+      right: 0;
+      bottom: 0;;
+    }
+  }
+
+  &__brand,
+  &__offer,
+  &__actions,
+  &--featured-element {
+    padding-left: $page-gutter;
+    padding-right: $page-gutter;
+  }
+  
+  &__brand {}
+
+  &__offer {
+
+    &__content {}
+  }
+
+  //<footer class="deal-card__actions">
+  //  <a href="#redeem" class="button button__primary js-inline-modal">Redeem Now</a>
+  //  <a href="#" class="deal-card__favorite deal-card__favorite--off"><span class="fa fa-heart-o" aria-hidden="true"></a>
+  //</footer>
+  &__actions {
+    padding-top: $vert-line-height/2;
+    
+    .button {
+      @include hide();
+      
+      @include media($small-up) {
+        @include show(inline-block);
+      }
+    }
+  }
+  
+  // <a href="#" class="deal-card__favorite deal-card__favorite--off"><span class="fa fa-heart" aria-hidden="true"></span><span class="fa fa-heart-o" aria-hidden="true"></span></a>
+  &__favorite {
+    display: inline-block;
+    position: relative;
+    margin-left: .75em;
+    
+    .fa:before {
+      font-size: 150%;
+    }
+    
+    .fa-heart-o,
+    .fa-heart {
+      transition: 300ms all ease;
+    }
+    
+    &--off .fa-heart {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scale(1.66);
+    }
+    
+    &--off:hover .fa-heart {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}

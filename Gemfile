@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "jekyll", ">=2.4.0"
 gem "jekyll-watch", ">=1.1"
+gem 'jekyll-autoprefixer'
 gem "liquid", ">=2.6.1"
 gem "pygments.rb", ">=0.6.0"
 gem "redcarpet", ">=3.1"

@@ -1,0 +1,138 @@
+
+.deal-archive {
+  padding: $vert-line-height $page-gutter;
+}
+
+
+// Make one look featured
+.flow-2-body .deal-archive .grid--trio-small {
+  
+  .grid__item:first-child {
+    width: 100%;
+
+    .deal-card {
+      padding-bottom: 0;
+    }
+
+    .deal-card__link {
+      display: grid;
+      grid-template-columns: .68fr .32fr;
+    }
+    
+    div.category-clone {
+      @include show();
+      grid-column: 2;
+      grid-row: 1;
+      margin-left: - $page-gutter;
+      margin-right: - $page-gutter;
+    }
+    
+    .deal-card__brand {
+      grid-column: 2;
+      grid-row: 2;
+    }
+    
+    .deal-card__offer {
+      grid-column: 2;
+      grid-row: 3;
+    }
+    
+    .deal-card__thumb {
+      grid-column: 1;
+      grid-row: 1 / span 4;
+    }
+    
+    div.action-clone {
+      @include show();
+      grid-column: 2;
+      grid-row: 4;
+    }
+    
+    span.deal-card--featured-element {
+      @include show(inline-block);
+    }
+    
+    .deal-card__header,
+    .deal-card__actions {
+      @include hide();
+    }
+  }
+}
+
+
+// Turn elements on an off to make it look like we have
+// different types of deals flagged with labels
+.deal-archive .grid--trio-small {
+  
+  // Hide all options
+  .grid__item {
+    
+    .deal-card__flash,
+    .deal-card__expiring,
+    .deal-card__location {
+      @include hide();
+    }
+  }
+  
+  // Show specific ones
+  .grid__item:nth-child(1),
+  .grid__item:nth-child(2) {
+    
+    .deal-card__flash {
+      @include show();
+    }
+  }
+  
+  .grid__item:nth-child(3),
+  .grid__item:nth-child(5),
+  .grid__item:nth-child(7) {
+    
+    .deal-card__location {
+      @include show();
+    }
+  }
+  
+  .grid__item:nth-child(4),
+  .grid__item:nth-child(9),
+  .grid__item:nth-child(11) {
+    
+    .deal-card__expiring {
+      @include show(inline-block);
+    }
+  }
+}
+
+.deal__footer .grid {
+  
+  // Hide all options
+  .grid__item {
+    
+    .deal-card__flash,
+    .deal-card__expiring,
+    .deal-card__location {
+      @include hide();
+    }
+  }
+  
+  .grid__item:nth-child(1) {
+    
+    // Show specific ones
+    .deal-card__flash {
+      @include show();
+    }
+  }
+  
+  .grid__item:nth-child(4) {
+    
+    .deal-card__location {
+      @include show();
+    }
+  }
+  
+  .grid__item:nth-child(3) {
+    
+    .deal-card__expiring {
+      @include show(inline-block);
+    }
+  }
+}

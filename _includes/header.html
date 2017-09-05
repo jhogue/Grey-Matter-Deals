@@ -5,21 +5,22 @@
 
 			<div class="utility layout__utility">
   			<ul class="utility__list menu" role="navigation">
-    			<li class="utlity__lang"><a href="#">English</a> / <a href="#">Españgol</a></li>
-    			<li><a href="#">About Blue365</a></li>
+    			<li class="utlity__lang"><a href="#">English</a> / <a href="#">Español</a></li>
     			<li><a href="#">For Employers</a></li>
-    			<li><a href="#">Become a Partner</a></li>
+    			<li><a href="#">Promote your Deal</a></li>
     		</ul>
       </div>
 
     	<div class="mainnav layout__mainnav">
       	<div class="brand">
-        	<a class="mainhead--title" href="{{ site.baseurl }}">Blue365</a>
+        	<a class="mainhead__title" href="{{ site.baseurl }}">Blue365</a>
+        	<span class="flow-1">Redeem Flow 1</span>
+        	<span class="flow-2">Redeem Flow 2</span>
         </div>
         
         <div class="search">
           <div class="menu-action">
-            <a href="javascript:;" class="menu-action__button js-menu-toggle"><span class="menu-action__icon">&equiv;</span></a>
+            <a href="javascript:;" class="menu-action__button js-menu-toggle"><span class="fa fa-bars" aria-hidden="true"><!--<span class="menu-action__icon" aria-hidden="true">&equiv;</span>--></span></a>
           </div>
         	<form class="">
       			<fieldset class="search__wrapper">
@@ -31,22 +32,18 @@
         </div>
 
   			<ul class="mainnav__list menu" role="navigation">
-  				<li><a href="#">How it Works</a></li>
-  				<li><a href="#">Sign In</a> / <a href="#">Sign Up</a></li>
+  				<li class="logged-out"><a href="#">About Blue365</a></li>
+  				<li class="logged-out flow-1"><a href="{{ site.baseurl }}sign-in-flow-1.html">Sign In</a> / <a href="{{ site.baseurl }}sign-in-flow-1.html#join">Join</a></li>
+  				<li class="logged-out flow-2"><a href="{{ site.baseurl }}sign-in-flow-2.html">Sign In</a> / <a href="{{ site.baseurl }}sign-in-flow-2.html#join">Join</a></li>
+  				<li class="logged-in"><a href="#">About Blue365</a></li>
+  				<li class="logged-in"><a href="#">My Account</a> / <a href="#">Sign Out</a></li>
   			</ul>
     	</div>
 
     	<div class="catnav layout__catnav">
     		<nav class="catnav__wrapper">
     			<ul class="catnav__list">
-    				<li><a href="#">Apparel & Wearables</a></li>
-    				<li><a href="#">Families & Kids</a></li>
-    				<li><a href="#">Fitness Activities</a></li>
-    				<li><a href="#">Healthy Eating</a></li>
-    				<li><a href="#">Personal Care</a></li>
-    				<li><a href="#">Seniors</a></li>
-    				<li><a href="#">Travel</a></li>
-    				<li><a href="#">Other Deals</a></li>
+    				{% include navigation/deal-categories.html %}
     			</ul>
     		</nav>
     	</div>

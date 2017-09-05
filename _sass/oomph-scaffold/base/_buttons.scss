@@ -1,15 +1,24 @@
 // @file buttons.scss
 
 // Classes can be used independently: 
-// class="button", or class="button--primary"
+// class="button", or class="button__primary"
 .button {
   @include button();
 
-  &--primary {
+  .fa {
+    font-size: 125%;
+    margin-right: .75em;
+  }
+
+  &__primary {
     @include button('primary');
   }
 
-  &--secondary {
+  &__secondary {
     @include button('secondary');
+  }
+  
+  &__disabled {
+    @include button('disabled');
   }
 }

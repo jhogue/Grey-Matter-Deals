@@ -1,0 +1,453 @@
+%bottom-border-spacing {
+  border-bottom: 1px solid $color-borders;
+  margin-bottom: $vert-line-height/2;
+  padding-bottom: $vert-line-height/2;
+}
+
+//<div class="wayfinding">
+//  <ul class="wayfinding__list menu">
+//    <li><a href="#description">Description</a></li>
+//    <li><a href="#terms">Terms</a></li>
+//  </ul>
+//</div>
+
+#wayfinding {
+  position: relative;
+  
+  .js-adhesive.hit-bottom {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+  }
+}
+
+.wayfinding {
+  @include container-light();
+
+  &__wrapper {
+
+    &.js-adhesive.stuck {
+      position: fixed;
+      top: 0;
+    }
+  }
+
+  &__list {
+    
+    li {
+      display: inline-block;
+    }
+    
+    a {
+      padding: 0 .5em;
+    }
+  }
+}
+
+//<section class="content__main deal">
+//  <header class="deal__header">
+//  	<div class="deal__header__wrapper">
+//      <h1 class="deal__title">
+//  	  	<img class="deal__title__logo" src="#">
+//  	  	<div class="deal__title__brand">THE ORGANWISE GUYS:</div>
+//  	  	<div class="deal__title__offer">
+//      		10% Off Kid's Monthly Nutrition Education Program plus Free Shipping
+//        </div>
+//      </h1>
+//      <div class="deal__actions">
+//        <p class="deal__price">
+//          <span class="deal__price__before">Normal Price: <del>$24.95</del></span>
+//          <span class="deal__price__after">Discount Price: <ins>$22.46</ins></ins>
+//          <span class="deal__price__recurrence">Monthly</span>
+//        </p>
+//        <div id="deal__redeem" class="deal__redeem">
+//          <p>
+//            <a href="#" class="button button__primary deal__signin__button">Sign In / Sign Up</a>
+//            <a href="#" class="button button__disabled deal__redeem__button">Redeem</a>
+//          </p>
+//        </div>
+//      </div>
+//    </div>
+//    <div class="deal__featured">
+//      <img class="deal__featured__image" src="#">
+//      <div class="deal__details__meta">
+//        <p><a href="#" title="More from this category">Wellness</a></p>
+//      </div>
+//    </div>
+
+.deal {
+  margin-left: - $page-gutter;
+  margin-right: - $page-gutter;
+  
+  &__header {
+    border-bottom: 1px solid $color-borders;
+    margin-bottom: $vert-line-height/2;
+    padding-bottom: $vert-line-height/2;
+    
+    // Variations
+    .flow-2-body & {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &__title {
+    line-height: 1.5;
+    margin-bottom: $vert-line-height/2;
+    padding: 0 $page-gutter;
+    
+    &__logo {}
+    
+    &__brand {}
+    
+    // If there is a logo AND a brand name, hide the brand name
+    &__logo[src] + &__brand {
+      @include hide();
+    }
+    
+    &__offer {}
+  }
+
+  &__actions {
+    border-top: 1px solid $color-borders;
+    padding: $vert-line-height/2 $page-gutter $vert-line-height;
+  }
+
+  &__price {
+    padding-bottom: $vert-line-height/2;
+    
+    &__before {}
+    
+    &__after {}
+    
+    &__recurrence {}
+  }
+
+  &__redeem {
+    padding-bottom: $vert-line-height;
+    
+    //<div id="deal-redeem__js-clone" class="deal__redeem deal__redeem--adhesive deal__redeem--visible">
+    //  <div id="deal-actions__js-clone" class="deal__title__brand">THE ORGANWISE GUYS:</div>
+    //  <p>
+    //    <a href="#" class="button button__primary deal__signin__button">Sign In / Sign Up</a>
+    //    <a href="#" class="button button__disabled deal__redeem__button">Redeem</a>
+    //  </p>
+    //</div>
+    &--adhesive {
+      @include transition(opacity 500ms ease);
+      background-color: palette(mono, white);
+      box-shadow: 0 -.25em .5em rgba(#000, .15);
+      opacity: 0;
+      padding: $page-gutter;
+      position: fixed;
+      left: 0;
+      bottom: -100%;
+      right: 0;
+      text-align: center;
+      z-index: 9999;
+      
+      @include media($small-up) {
+        text-align: right;
+      }
+    }
+    
+    &--visible {
+      bottom: 0;
+      opacity: 1;
+    }
+    
+    .deal__title__brand {
+      @include hide();
+      @extend .echo;
+    }
+
+    &__title {
+      padding-bottom: $vert-line-height/2;
+    }
+    
+    @at-root {
+      // The Adhesive clone of the Redeem actions bar
+
+      /*body*/.logged-in #deal-redeem__js-clone &__title,
+      .logged-in #deal-redeem__js-clone .deal__title__brand,
+      .logged-in #deal-redeem__js-clone .deal__redeem__continue {
+        @include hide();
+      }
+    
+      .logged-in #deal-redeem__js-clone {
+
+        @include media($large-up) {
+          display: flex;
+          flex-flow: row wrap;
+          align-items: flex-start;
+        
+          .deal__redeem__online,
+          .deal__redeem__instore {
+            width: 50%;
+            border-bottom: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+          }
+
+          .deal__redeem__online {
+            text-align: left;
+          }
+
+          .deal__redeem__instore {
+            justify-content: flex-end;
+          }
+        }
+      }
+      
+      // In Flow 2, we only show the "Redeem Now" button in the adhesive area
+      .flow-2-body.logged-in #deal-redeem__js-clone {
+        display: block;
+      }
+    }
+    
+
+    //<div class="deal__redeem__continue">
+    //  <h4 class="echo">Continue Shopping</h4>
+    //  <a href="#" class="button button__primary" target="_blank"><span class="fa fa-external-link-square" aria-hidden="true"></span>Shop Online</a>
+    //  <p class="deal__redeem__message"><b>No code needed!</b> Your discount will be added at checkout.</p>
+    //</div>
+    &__continue {
+      @extend %bottom-border-spacing;
+      
+      @include media($large-up) {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        
+        h4 {
+          margin-right: .75em;
+        }
+      }
+    }
+
+
+    //<div class="deal__redeem__online">
+    //  <h4 class="echo">Your Online Coupon Code</h4>
+    //  <div class="form__group form__input-button-pair deal__redeem__copycode">
+    //    <input class="form__input deal__redeem__input" value="XYZ123" readonly="">
+    //    <a href="#" class="button button__primary" title="Copy to Clipboard"><span class="fa fa-clipboard" aria-hidden="true"></span> Copy</a>
+    //  </div>
+    //  <p class="deal__redeem__url">Visit <a href="#">OrganwiseGuys.com/shop</a> and use the code at checkout.</p>
+    //</div>
+    &__online {
+      @extend %bottom-border-spacing;
+
+      .form__group {
+        padding-bottom: $vert-line-height/2;
+      }
+
+      @include media($large-up) {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+
+        h4,
+        .form__group {
+          padding-bottom: 0;
+          margin-right: .75em;
+        }
+      }
+    }
+
+    &__message {
+
+      @include media($large-up) {
+        width: 100%;
+      }
+    }
+
+    &__instore {
+      @extend %bottom-border-spacing;
+
+      @include media($large-up) {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        
+        & > * {
+          margin-right: .75em;
+        }
+      }
+    }
+
+    &__copycode {}
+
+
+    //<div class="deal__redeem__instructions typography">
+    //  <h3>Instructions:</h3>
+    //  <p>To redeem this offer, follow these steps:</p>
+    //  <ol>
+    //    <li>Call <a href="tel:18884186763">1-888-418-6763</a> to find your nearest Beltone location.</li>
+    //  </ol>
+    //</div>
+    &__instructions {
+      @extend %bottom-border-spacing;
+      
+      ol {
+        padding-left: 1em;
+      }
+    }
+    
+
+    @include media($small-up) {
+
+      .deal__title__brand,
+      p {
+        display: inline-block;
+        visibility: visible;
+        vertical-align: middle;
+      }
+    }
+  } // end &__redeem
+
+  &__featured {
+    padding-bottom: $vert-line-height;
+    
+    &__image {
+      width: 100%;
+    }
+    
+    //<div class="deal__featured__gallery">
+    //  <ul>
+    //    <li><img class="deal__featured__gallery__image" src="https://www.blue365deals.com/sites/default/files/uploads/thermos_lime_green.jpg"></li>
+    //    <li><img class="deal__featured__gallery__image" src="https://www.blue365deals.com/sites/default/files/uploads/stem_chem_set_image.jpg"></li>
+    //  </ul>
+    //</div>
+    &__gallery {
+      
+      ul {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+        justify-content: center;
+        
+        li {
+          position: relative;
+          padding-bottom: 28%;
+          overflow: hidden;
+          width: 33%;
+        }
+      }
+      
+      &__image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    
+    // Variations
+    .flow-2-body & {
+      padding-bottom: 0;
+    }
+  }
+
+  &__details {
+    padding: $vert-line-height 0 $vert-line-height/2;
+    
+    &__meta {
+      
+      a {
+        display: block;
+        padding: .375em .75em;
+        
+        @include touch-hover() {
+          background-color: palette(brand);
+          color: palette(mono, white);
+        }
+        @include touch-hover('hover') {
+          background-color: palette(mono, 90);
+          color: palette(brand);
+        }
+      }
+    }
+    
+    &__meta,
+    &__description,
+    &__terms {
+      margin: 0 auto;
+      max-width: em(760);
+    }
+    
+    // Variations
+    .flow-2-body & {
+      padding-top: 0;
+    }
+  }
+  
+  &__footer {
+    padding-left: $page-gutter;
+    padding-right: $page-gutter;
+    padding-bottom: $vert-line-height;
+    
+    &__title {
+      padding-bottom: $vert-line-height;
+    }
+  }
+  
+  
+  // Media
+  // Grouping these together because we are using CSS Grid
+  
+  @include media($small-up) {
+    // Using CSS Grid
+    // Goal: For desktop, place the image on the left and both the headline and the
+    // redemption actions on the right, using as much vertical space as they need
+    // With flexbox, the image and title we in one row, and the 
+    // redemption options were on another row. They were not getting sucked up into
+    // the title area if there was room for them
+    
+    // The grid container
+    &__header {
+      display: grid;
+      grid-gap: $page-gutter;
+      grid-template-columns: 1fr 1fr; // 1 fraction! Removes the need for percents
+      padding-right: $page-gutter;
+    }
+    
+    &__title {
+      grid-column: 1 / span 2;
+      grid-row: 1;
+    }
+    
+    &__actions {
+      grid-column: 2;
+      grid-row: 2;
+    }
+    
+    &__featured {
+      grid-column: 1;
+      grid-row: 2;
+    }
+  }
+  
+  @include media($large-up) {
+
+    &__header {
+      grid-gap: ($page-gutter * 2);
+      padding-right: ($page-gutter * 2);
+    }
+
+    &__title {
+      grid-column: 2;
+      //grid-row: 1;
+      margin-bottom: 0;
+    }
+    
+    &__actions {
+      grid-column: 2;
+      grid-row: 2;
+    }
+    
+    &__featured {
+      //grid-column: 1;
+      grid-row: 1 / span 2;
+    }
+  }
+}

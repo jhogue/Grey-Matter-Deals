@@ -36,6 +36,7 @@
       background-color: palette(brand);
       border-color: darken(palette(brand), 8%);
       color: palette(mono, 10);
+      cursor: pointer;
     }
 
     @include touch-hover('hover') {
@@ -47,14 +48,34 @@
   @if $type == 'secondary' {
 
     @include touch-hover('idle') {
-      background-color: palette(mono, 25);
-      border-color: palette(mono, 33);
+      background-color: palette(mono, 15);
+      border-color: palette(mono, 25);
       color: palette(mono, 90);
+      cursor: pointer;
     }
 
     @include touch-hover('hover') {
       background-color: palette(mono);
       color: palette(mono, white);
+    }
+  }
+  
+  @if $type == 'disabled' {
+
+    @include touch-hover('idle') {
+      background-color: palette(mono, 15);
+      border-color: palette(mono, 25);
+      color: palette(mono);
+      cursor: not-allowed;
+      text-decoration: none;
+    }
+
+    @include touch-hover('hover') {
+      background-color: palette(mono, 15);
+      border-color: palette(mono, 25);
+      color: palette(mono);
+      cursor: not-allowed;
+      text-decoration: none !important;
     }
   }
 }

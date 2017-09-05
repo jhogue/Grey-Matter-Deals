@@ -17,6 +17,7 @@ textarea {
   // and our Reset, which declares font-size: 100%
   color: $color-text;
   font-family: $font-custom;
+  font-size: 100%;
   font-weight: $font-weight-normal;
   line-height: $line-height;
 }
@@ -119,18 +120,6 @@ button,
 select,
 textarea {
   @extend %base-rwd-size;
-}
-
-// Set the vertical rhythm for block-level containers
-p,
-ul,
-ol,
-dl,
-address,
-form,
-figure,
-table {
-  margin-bottom: $vert-line-height;
 }
 
 // Nested lists should not have margin bottom
@@ -354,7 +343,8 @@ del {
 }
 
 ins {
-  background-color: palette(mono, 25);
+  //background-color: palette(mono, 25);
+  font-weight: $font-weight-bold;
   text-decoration: none;
 }
 
@@ -411,7 +401,9 @@ small {
 .vertical-grid {
   // Debug vertical rhythm
   // scss-lint:disable UrlFormat
-  background-image: url('http://basehold.it/i/31/cc0000');
-  background-position: 0 14px;
+  
+  // Mobile 360px: 28 baseline with 20 offset
+  background-image: url('http://basehold.it/i/28/cc0000');
+  background-position: 0 20px;
   // scss-lint:enable UrlFormat
 }

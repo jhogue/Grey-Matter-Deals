@@ -1,0 +1,48 @@
+// Simple blog card in recirculation area
+//<div class="grid__item blog-card__wrapper">
+//  <div class="blog-card__content entry-content">
+//    <a href="#" class="blog-card__link">
+//      <h4 class="blog-card__title">Get the Most from your Gym</h4>
+//      <p class="blog-card__excerpt">You have a gym membership, you have the gear. Now what? Our expert panel gives you ways to make th emost of your membership. <span class="blog-card__more">Read More</span></p>
+//    </a>
+//  </div>
+//</div>
+
+.blog-card {
+  
+  &__wrapper {}
+  
+  &__content {}
+  
+  &__link {
+    display: block;
+    
+    @include touch-hover() {
+      color: palette(mono, 75);
+      text-decoration: none;
+
+      .blog-card__more,
+      .blog-card__title {
+        color: palette(brand);
+      }
+    }
+    
+    @include touch-hover('hover') {
+      color: palette(brand);
+      text-decoration: none;
+
+      .blog-card__more,
+      .blog-card__title {
+        color: palette(mono, 75);
+      }
+    }
+  }
+  
+  &__title {
+    font-weight: $font-weight-bold;
+  }
+  
+  &__excerpt {}
+  
+  &__more {}
+}

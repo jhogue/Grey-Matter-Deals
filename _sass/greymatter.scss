@@ -15,9 +15,6 @@
   // All Base
   "oomph-scaffold/base/main",
 
-  // Layout
-  "oomph-scaffold/layout/layout",
-
   // Components: Typically only need one file, the rest ship empty
   "oomph-scaffold/components/content";
   //"components/header",
@@ -32,8 +29,43 @@
 // #GREYMATTER
 // Start to output CSS
 @import 
-  "prototyping/*",
-  "refills/*";
+  "prototyping/1_mixins",
+  "prototyping/abstracts",
+  "prototyping/content",
+  "prototyping/fonts",
+  "prototyping/layout",
+  "prototyping/pagination",
+  "prototyping/viewport-size",
+  
+  //"refills/cards",
+  //"refills/comments",
+  //"refills/flexboxes",
+  //"refills/footer-big",
+  //"refills/footer-small",
+  //"refills/griditems-empty",
+  //"refills/griditems-fill",
+  //"refills/hero",
+  //"refills/icon-bullets",
+  //"refills/map",
+  //"refills/nav-bar",
+  //"refills/page-scroll",
+  //"refills/side-image",
+  "refills/tabs-vertical",
+  "refills/tabs";
 
 @import 
-  "blue365/*";
+  "blue365/mixins",
+  "blue365/header",
+  "blue365/layout",
+  "blue365/forms",
+  "blue365/content",
+  "blue365/deal-archive",
+  "blue365/deal",
+  "blue365/deal-card",
+  "blue365/paragraphs",
+  "blue365/modal",
+  "blue365/flow-switching",
+  "blue365/sign-in-join",
+  "blue365/blog",
+  "blue365/promo",
+  "blue365/footer";

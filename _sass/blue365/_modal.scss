@@ -1,0 +1,41 @@
+.modal {
+  position: relative;
+  background: palette(mono, white);
+  margin: $vert-line-height auto;
+  padding: $page-gutter;
+  width: auto;
+  
+  $gutter-as-ems: strip-units($page-gutter) * 1em;
+  
+  @include media($small-up) {
+    max-width: bp(small) - ($gutter-as-ems * 4);
+  }
+  
+  @include media($medium-up) {
+    max-width: bp(medium) - ($gutter-as-ems * 4);
+  }
+  
+  @include media($large-up) {
+    max-width: bp(large) - ($gutter-as-ems * 4);
+  }
+}
+
+#signup {}
+
+#redeem {
+
+  .deal__redeem__title,
+  .deal__redeem__message {
+    text-align: center;
+  }
+
+  .deal__redeem__continue,
+  .deal__redeem__online,
+  .deal__redeem__instore {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+
+@import "magnific-popup";
