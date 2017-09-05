@@ -1,0 +1,35 @@
+---
+layout: deal
+nav-title: Sign In / Join
+title: Sign In or Join Blue365
+permalink: /sign-in-flow-1
+body-class: 'sign-in-body flow-1-body logged-out'
+---
+  
+<div class="grid grid__rail-right deal-archive">
+	
+	<div class="grid__item grid__item__main">
+		<div class="sign-in">
+  		<h2>Sign In</h2>
+  		<p>With your Blue365 account credentials.</p>
+  		
+  		<div class="sign-in__wrapper">
+        {% include log-in/sign-in.html %}
+      </div>
+    </div>
+    
+    <div id="join" class="join">
+  		<h2>Create a New Account</h2>
+  		<p>You will need to reference your BlueCross BlueShield insurance card.</p>
+  		
+  		<div class="join__wrapper">
+        {% include log-in/join.html %}
+      </div>
+    </div>
+	</div>
+	
+	<aside class="grid__item grid__item__rail">
+		<p>Eligibility Checker Tool</p>
+		<p>Promo block content</p>
+	</aside>
+</div>
