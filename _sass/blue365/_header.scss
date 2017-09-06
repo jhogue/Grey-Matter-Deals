@@ -1,151 +1,293 @@
-//<div id="top" class="drawer">
-//	<a href="javascript:;" class="drawer__close js-menu-close"></a>
-//</div>
+//<div id="sitetop" class="drawer"></div>
 //<div class="layout">
 //	<header id="b365-mainnav" class="mainhead">
 //		<div class="utility layout__utility">
+//			<div class="menu-action">
+//        <a href="#sitefoot" class="menu-action__button js-menu-toggle"><span class="fa fa-bars" aria-hidden="true"><!--<span class="menu-action__icon" aria-hidden="true">&equiv;</span>--></span></a>
+//      </div>
 //			<ul class="utility__list menu" role="navigation">
-//  			<li class="utlity__lang"><a href="#">English</a> / <a href="#">Españgol</a></li>
-//  			<li><a href="#">About Blue365</a></li>
+//  			<li><a href="#">Healthy Tips Blog</a></li>
+//        [ ... ]
 //  		</ul>
 //    </div>
-//  	<div class="mainnav layout-__mainnav">
-//    	<div class="mainhead__brand">
-//      	<a class="mainhead--title" href="{{ site.baseurl }}">Blue365</a>
-//      </div>
-//      <div class="search">
-//        <div class="menu-action">
-//          <a href="javascript:;" class="menu-action__button js-menu-toggle"><span class="menu-action__icon">&equiv;</span></a>
-//        </div>
-//      	<form class=""> [...] </form>
-//      </div>
-//			<ul class="mainnav__list menu" role="navigation">
-//				<li><a href="#">How it Works</a></li>
-//				<li><a href="#">Sign In</a> / <a href="#">Sign Up</a></li>
-//			</ul>
-//  	</div>
+//  	<div class="brand layout__brand">
+//    	<a class="mainhead__title" href="{{ site.baseurl }}">Blue365</a>
+//    	<span class="flow-1">Flow 1</span>
+//    	<span class="flow-2">Flow 2</span>
+//    </div>
 //  	<div class="catnav layout__catnav">
+//  		<div class="search">
+//      	<form class="">
+//    			<fieldset class="search__wrapper">
+//      			<label class="screen-reader-text">Search Blue365 Deals</label>
+//      			<input class="search__input" type="search" placeholder="Search our Deals">
+//      			<input class="search__button" type="submit" value="Go">
+//      		</fieldset>
+//        </form>
+//      </div>
 //  		<nav class="catnav__wrapper">
 //  			<ul class="catnav__list">
-//  				<li><a href="#">Apparel & Wearables</a></li>
+//          [ ... ]
 //  			</ul>
 //  		</nav>
 //  	</div>
-//	</header>
 
 $drawer-width: 280px;
-$body-bg-color: palette(mono, 90);
+$body-bg-color: palette(mono, 15);
 $layout-bg-color: palette(mono, white);
+$medium-breakpoint: 800px;
+
+%link-style {
+  display: block;
+  
+  @include touch-hover('idle') {
+    color: palette(brand);
+  }
+
+  @include touch-hover('hover') {
+    color: palette(mono, 90);
+    text-decoration: none;
+  }
+}
 
 
+// Global stuff
 .mainhead {
-  background-color: $body-bg-color;
-  color: palette(mono, white);
-  padding: $page-gutter;
-
-  a {
-
-    @include touch-hover('idle') {
-      color: palette(mono, white);
-    }
-
-    @include touch-hover('hover') {
-      color: palette(mono, 25);
-    }
-  }
-
-  &__brand {
-    
-    @include media($small-up) {
-      order: 1;
-    }
-  }
-  
-  &__title {
-    @extend .charlie;
-  }
+  background-color: $layout-bg-color;
+  color: palette(mono, 66);
 }
 
+
+// Utility navigation
 .utility {
-  @include hide();
-  
-  &__list {}
-  
-  &__lang {}
-}
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: $page-gutter 0;
 
-.mainnav {
-  
   &__list {
-    @include hide();
     
-    @include media($medium-up) {
+    a:not(.button) {
+      @extend %link-style;
+      padding: .5em $page-gutter .375em;
+    }
+    
+    // Initially, hide everything but the Sign In
+    li {
+      @include hide();
+    }
+    
+    li.utility__user {
       @include show(inline-block);
-      order: 2;
-      flex-grow: 2;
-      text-align: right;
+      padding: 0 ($page-gutter/2);
+    }
+    
+    @media (min-width: 480px) {
+      li:nth-child(4) {
+        @include show(inline-block);
+      }
+    }
+    
+    @media (min-width: 640px) {
+      li.utility__lang {
+        @include show(inline-block);
+      }
+    }
+    
+    @media (min-width: $medium-breakpoint) {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-end;
+      width: 100%;
       
-      li {
-        display: inline-block;
-        padding-right: $page-gutter;
+      li:nth-child(1) {
+        @include show(inline-block);
+        margin-right: auto;
+      }
+    }
+
+    @media (min-width: 960px) {
+      li:nth-child(1) {
+        margin-right: 0;
+      }
+      li:nth-child(2) {
+        @include show(inline-block);
+        margin-right: auto;
       }
     }
   }
+
+  // Needs more specificity here
+  &__list &__lang {
+
+    a {
+      display: inline-block;
+    }
+
+    a:first-child {
+      padding-right: 0;
+    }
+
+    a:last-child {
+      padding-left: 0;
+    }
+  }
+
+  &__user {}
 }
 
-.search {
-  
-  form {
-    display: inline-block;
-    vertical-align: middle;
+
+// Brand / Logo container
+.brand {
+  padding: $page-gutter $page-gutter 0;
+  text-align: center;
+
+  @media (min-width: $medium-breakpoint) {
+    padding-top: 0;
   }
-  
+
+  img {
+    margin: 0 auto;
+  }
+}
+
+
+// Search form
+.search {
+
+  form {}
+
   &__wrapper {
     display: block;
-    padding: .6875rem 1rem .625rem;
+    padding: 0;
     margin-bottom: 0;
     
     &:after {
       @include icon-font('\f002');
       font-size: 1.25em;
-      color: #fff;
+      padding: .9375rem 1rem .875rem;
     }
   }
-  
+
   &__input,
   &__button {
     @include hide();
   }
-  
-  @include media($small-up) {
-    order: 3;
+
+  // The drawer is hidden now, so these styles apply only to the search in the catnav now
+  @include media($large-up) {
+    
+    &__wrapper {
+      
+      &:after {
+        position: absolute;
+        top: 0;
+        left: -.25em;
+      }
+    }
+
+    &__input {
+      @include show(inline-block);
+      padding: 0.5em .75em 0.375em 1.5em;
+      width: 260px;
+    }
   }
 }
 
+
+// Hamburger button
 .menu-action {
   border: $form-input-border-width solid $form-input-border-color;
   border-radius: $form-input-border-radius;
   display: inline-block;
   vertical-align: middle;
-  
+  margin-left: ($page-gutter/2);
+
+  @media (min-width: $medium-breakpoint) {
+    @include hide();
+  }
+
   &__button {
     display: block;
     font-size: 1.25em;
-    padding: .5rem 1rem .375rem;
+    padding: .25rem $page-gutter .125rem;
   }
-  
+
   &__icon {}
 }
 
+
+// Category navigation with search box inside it
 .catnav {
-  @include hide();
-  
+
   &__wrapper {}
+
+  &__list {
+
+    a {
+      @extend %link-style;
+      padding: .5em ($page-gutter/2) .375em;
+    }
+  }
   
-  &__list {}
+  // Only the exposed element in the .layout, not the one in the .drawer
+  .mainhead & {
+    // Initially hide for mobile, show only in the drawer
+    @include hide();
+    background-color: $body-bg-color;
+    position: relative;
+
+    &:after {
+      content: '';
+      background: linear-gradient(to right, rgba(#000,0) 0%,rgba(#000,.15) 100%);
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 2em;
+    }
+
+    &__wrapper {
+      overflow-x: scroll;
+    }
+
+    &__list {
+      text-align: right;
+      white-space: nowrap;
+
+      li {
+        display: inline-block;
+      }
+
+      a {
+        padding: .75em $page-gutter .625em;
+      }
+    }
+
+    @media (min-width: $medium-breakpoint) {
+      @include show(flex);
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+    }
+    
+    @media (min-width: 1440px) {
+      &:after {
+        @include hide();
+      }
+      
+      &__wrapper {
+        overflow-x: hidden;
+      }
+    }
+  }
 }
 
 
+// The drawer as a wrapper to take the same elements and do some different things
+
+// Need a transition here, some color, and actions when a new class is added
 body {
   @include transition( transform 250ms ease );
   background-color: $body-bg-color;
@@ -156,7 +298,8 @@ body {
   }
 }
 
-// The drawer as a wrapper to take the same elements and do some different things
+
+// Structure
 .drawer {
   @include transition( transform 350ms ease );
   @include transform( translateX( - ($drawer-width * 2) ) );
@@ -166,15 +309,16 @@ body {
   width: $drawer-width;
   height: 100vh;
   overflow-y: scroll;
-  
+
   body.js-menu-open & {
     @include transform( translateX(- $drawer-width) );
   }
-  
+
   body &__close {
     @include transition(all 500ms ease);
   }
-  
+
+  // Position a transparent element over the exposed area to make it clickable
   body.js-menu-open &__close {
     position: absolute;
     top: 0;
@@ -182,9 +326,10 @@ body {
     right: 0;
     bottom: 0;
     background-color: rgba(palette(mono, white), .5);
+    // This is fun...
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(6px);
-    
+
     &:before {
       @include transition(all 250ms ease);
       @include icon-font('\f00d');
@@ -197,71 +342,128 @@ body {
       left: 1rem;
       padding: .5rem .75rem;
     }
-    
+
+    // No need to support touch events here
     &:hover:before,
     &:focus:before {
       border-color: palette(brand);
       color: palette(brand);
     }
   }
-  
-  &__nav {
-    display: flex;
-    flex-flow: column;
-    // negate the padding from mainhead
-    padding: 0;
-    
-    .brand,
-    .search {
-      @include hide();
-    }
-    
-    .utility,
-    .catnav,
-    .mainnav__list {
-      @include show();
-      
-      a {
-        padding: .5rem 1rem .375rem;
-      }
-    }
-    
-    // Change the order
-    .utility {
-      order: 2;
-    }
-    
-    .mainnav {
-      order: 1;
-    }
-    
-    .mainnav__list {
-      display: flex;
-      flex-flow: column-reverse;
-    }
-    
-    .catnav {
-      order: 3;
-      padding-top: $vert-line-height;
-      
-      &:before {
-        content: 'Browse Deals:';
-        color: palette(mono, 33);
-        display: block;
-        font-size: 87.5%;
-        font-weight: $font-weight-bold;
-        letter-spacing: .0625em;
-        padding: .5rem 1rem .375rem;
-        text-transform: uppercase;
-      }
-    }
-    
-    // Media
-    @include media($medium-up) {
+}
 
-      .mainnav__list {
-        @include hide();
+
+// Show/Hide elements that are from the Mainhead but present in the cloned drawer
+.drawer {
+
+  // Hide these duplicated elements
+  .menu-action {
+    @include hide();
+  }
+  
+  // Change the color 
+  .mainhead {
+    background-color: transparent;
+  }
+  
+  .utility {
+    padding: $page-gutter 0 0;
+    
+    &__list {
+      display: flex;
+      flex-flow: column-reverse wrap;
+      
+      // Show all list items in the utility navigation
+      li {
+        @include show(block);
       }
     }
   }
+
+  .search {
+    
+    &__wrapper {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      padding: 0 $page-gutter 0 ($page-gutter * 2.5);
+      position: relative;
+      
+      &:after {
+        position: absolute;
+        top: .75em;
+        left: .5em;
+      }
+    }
+    
+    &__input {
+      @include show(inline-block);
+      width: 220px;
+    }
+  }
+  
+  // Add some padding to this list item
+  .utility__user {
+    padding: 0 $page-gutter ($page-gutter/2);
+  }
 }
+
+//  &__nav {
+//    display: flex;
+//    flex-flow: column;
+//    // negate the padding from mainhead
+//    padding: 0;
+//
+//    .brand,
+//    .search {
+//      @include hide();
+//    }
+//
+//    .utility,
+//    .catnav,
+//    .mainnav__list {
+//      @include show();
+//
+//      a {
+//        padding: .5rem 1rem .375rem;
+//      }
+//    }
+//
+//    // Change the order
+//    .utility {
+//      order: 2;
+//    }
+//
+//    .mainnav {
+//      order: 1;
+//    }
+//
+//    .mainnav__list {
+//      display: flex;
+//      flex-flow: column-reverse;
+//    }
+//
+//    .catnav {
+//      order: 3;
+//      padding-top: $vert-line-height;
+//
+//      &:before {
+//        content: 'Browse Deals:';
+//        color: palette(mono, 33);
+//        display: block;
+//        font-size: 87.5%;
+//        font-weight: $font-weight-bold;
+//        letter-spacing: .0625em;
+//        padding: .5rem 1rem .375rem;
+//        text-transform: uppercase;
+//      }
+//    }
+//
+//    // Media
+//    @include media($medium-up) {
+//
+//      .mainnav__list {
+//        @include hide();
+//      }
+//    }
+//  }

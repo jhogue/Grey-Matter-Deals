@@ -6,7 +6,7 @@ highlighter: pygments
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
 
-baseurl: '/b365/28aug2017/'
+baseurl: '/b365/06sep2017/'
 port: 4080
 url: //jhogue.dev.oomphcloud.com
 twitter_handle: oomphinc
@@ -33,5 +33,5 @@ sass:
 
 
 # Plugins and extras
-gems:
+plugins:
 - jekyll-autoprefixer

@@ -3,20 +3,8 @@
 $(document).ready(function() {
   
   // Clone the Main nav to create the mobile drawer
-  $('#b365-mainnav').clone().prop('id', 'b365-mainnav__js-clone' ).addClass('drawer__nav').appendTo('.drawer');
-  
-  // Javascript to toggle the mobile menus on Primary Source & .com
-  $( '.js-menu-toggle' ).on( 'click', function(e) {
-    e.preventDefault();
-    $( 'body' ).toggleClass( 'js-menu-open' );
-  });
-  
-  // Close it with the close overlay
-  $( '.js-menu-close' ).on( 'click', function(e) {
-    e.preventDefault();
-    $( 'body' ).removeClass( 'js-menu-open' );
-  });
-  
+  $('#b365-mainnav .utility').clone().prop('id', 'utility__js-clone' ).addClass('drawer__nav').appendTo('.drawer');
+  $('#b365-mainnav .catnav').clone().prop('id', 'catnav__js-clone' ).addClass('drawer__nav').appendTo('.drawer');
   
   // Deals page
   // Clone the Redeem actions for an adhesive bottom bar
@@ -30,58 +18,6 @@ $(document).ready(function() {
   $('body.logged-in.flow-2-body .flow-2 .deal__redeem.logged-in').clone().prop('id', 'deal-redeem__js-clone' ).addClass('deal__redeem deal__redeem--adhesive').appendTo('.deal__details');
   
   $('#deal-brand').clone().prop('id', 'deal-actions__js-clone' ).addClass('deal__title__brand').prependTo('#deal-redeem__js-clone');
-
-
-  // Waypoints for the redeem options
-  var waypoint = new Waypoint({
-    element: document.getElementById('deal-wrapper'),
-    handler: function(direction) {
-      // Action
-      //console.log('#deal-wrapper has hit the top of the viewport');
-      $('body').toggleClass('js-adhesive-redeem');
-      $('#deal-redeem__js-clone').toggleClass('deal__redeem--visible');
-    },
-    offset: 0
-  });
-
-  // The wayfinding navigation on Flow-2 Deal
-  var sticky = new Waypoint.Sticky({
-    element: $('.js-adhesive')[0]
-  });
-  // When the height of the adhesive nav hits the bottom of the container, stop it from adhering
-  var navheight = $(".wayfinding__wrapper").outerHeight(true), // returns 325, is actually 240
-      barheight = $("#wayfinding").outerHeight(true), // returns 3146, is actually 2188
-      height_difference = barheight - navheight;
-  
-  console.log(height_difference + ' = ' + barheight + ' - ' + navheight);
-  
-  var scrolltobottom = new Waypoint({
-    element: $("#wayfinding")[0],
-    handler: function(direction) {
-      $(".wayfinding__wrapper").toggleClass('hit-bottom');
-    },
-    offset: - height_difference
-  });
-  
-
-  // Initialize Magnific popups
-  $('.js-inline-modal').magnificPopup({
-    type: 'inline',
-    midClick: true
-  });
-  $('.js-inline-modal-signin').magnificPopup({
-    type: 'inline',
-    midClick: true
-  });
-  $('.js-inline-modal-redeem').magnificPopup({
-    type: 'inline',
-    midClick: true
-  });
-  
-  // In Flow-2, open the pop-up immediately after a user signs in
-  $('body.flow-2-body.logged-in .js-inline-modal-redeem').magnificPopup({
-    type: 'inline'
-  }).magnificPopup('open');
 
 
   /* 
@@ -102,4 +38,86 @@ $(document).ready(function() {
       }
     });
   });
+});
+
+
+$(window).load(function() {
+
+  // Javascript to toggle the mobile menus
+  $( '.js-menu-toggle' ).on( 'click', function(e) {
+    e.preventDefault();
+    $( 'body' ).toggleClass( 'js-menu-open' );
+  });
+  
+  // Close it with the close overlay
+  $( '.js-menu-close' ).on( 'click', function(e) {
+    e.preventDefault();
+    $( 'body' ).removeClass( 'js-menu-open' );
+  });
+
+
+  // Waypoints for the redeem options
+  /*if ( document.getElementById('deal-wrapper') !== null ) {
+    var waypoint = new Waypoint({
+      element: $('#deal-wrapper')[0],
+      handler: function(direction) {
+        // Action
+        //console.log('#deal-wrapper has hit the top of the viewport');
+        $('body').toggleClass('js-adhesive-redeem');
+        $('#deal-redeem__js-clone').toggleClass('deal__redeem--visible');
+      },
+      offset: 0
+    });
+  }
+
+  // The wayfinding navigation on Flow-2 Deal
+  if ( document.getElementsByClassName('js-adhesive') !== null ) {
+    var sticky = new Waypoint.Sticky({
+      element: $('.js-adhesive')[0]
+    });
+    // When the height of the adhesive nav hits the bottom of the container, stop it from adhering
+    var navheight = $(".wayfinding__wrapper").outerHeight(true), // returns 325, is actually 240
+        barheight = $("#wayfinding").outerHeight(true), // returns 3146, is actually 2188
+        height_difference = barheight - navheight;
+  
+    console.log(height_difference + ' = ' + barheight + ' - ' + navheight);
+  
+    var scrolltobottom = new Waypoint({
+      element: $("#wayfinding")[0],
+      handler: function(direction) {
+        $(".wayfinding__wrapper").toggleClass('hit-bottom');
+      },
+      offset: - height_difference
+    });
+  }*/
+
+  
+  // Initialize Magnific popups
+  //if ( document.getElementsByClassName('js-inline-modal') !== null ) {
+    $('.js-inline-modal').magnificPopup({
+      type: 'inline',
+      midClick: true
+    });
+  //}
+  
+  if ( document.getElementsByClassName('js-inline-modal-signin') !== null ) {
+    $('.js-inline-modal-signin').magnificPopup({
+      type: 'inline',
+      midClick: true
+    });
+  }
+  
+  //if ( document.getElementsByClassName('js-inline-modal-redeem') !== null ) {
+    $('.js-inline-modal-redeem').magnificPopup({
+      type: 'inline',
+      midClick: true
+    });
+  //}
+  
+  // In Flow-2, open the pop-up immediately after a user signs in
+  //if ( document.getElementsByClassName('js-inline-modal-redeem') !== null ) {
+    $('body.flow-2-body.logged-in .js-inline-modal-redeem').magnificPopup({
+      type: 'inline'
+    }).magnificPopup('open');
+  //}
 });
