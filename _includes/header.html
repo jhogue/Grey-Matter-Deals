@@ -1,21 +1,21 @@
-	<div id="sitetop" class="drawer"></div>
-	
-	<div class="layout">
-  	<header id="b365-mainnav" class="mainhead">
+  <div id="sitetop" class="drawer"></div>
+  
+  <div class="layout">
+    <header id="b365-mainnav" class="mainhead">
 
-			<div class="utility layout__utility">
-  			<div class="menu-action">
+      <div class="utility layout__utility">
+        <div class="menu-action">
           <a href="#sitefoot" class="menu-action__button js-menu-toggle"><span class="fa fa-bars" aria-hidden="true"><!--<span class="menu-action__icon" aria-hidden="true">&equiv;</span>--></span></a>
         </div>
-  			<ul class="utility__list menu" role="navigation">
-    			
-    			<li><a href="#">Healthy Tips Blog</a></li><li><a href="#">For Employers</a></li><li
-    			 class="utility__lang"><a href="#">English</a> / <a href="#">Español</a></li><li
-    			 ><a href="#">About Blue365</a></li><li
-  				
-  				class="utility__user">
-  				  <div class="flow-1 logged-out">
-    				  <a class="button button__secondary" href="{{ site.baseurl }}sign-in-flow-1.html">Sign In</a> <a class="button button__primary" href="{{ site.baseurl }}sign-in-flow-1.html#join">Join</a>
+        <ul class="utility__list menu" role="navigation">
+          
+          <li><a href="#">Healthy Tips Blog</a></li><li><a href="#">For Employers</a></li><li
+           class="utility__lang"><a href="#">English</a> / <a href="#">Español</a></li><li
+           ><a href="#">About Blue365</a></li><li
+          
+          class="utility__user">
+            <div class="flow-1 logged-out">
+              <a class="button button__secondary" href="{{ site.baseurl }}sign-in-flow-1.html">Sign In</a> <a class="button button__primary" href="{{ site.baseurl }}sign-in-flow-1.html#join">Join</a>
             </div>
             <div class="flow-2 logged-out">
               <a class="button button__secondary" href="{{ site.baseurl }}sign-in-flow-2.html">Sign In</a> <a class="button button__primary" href="{{ site.baseurl }}sign-in-flow-2.html#join">Join</a>
@@ -23,36 +23,43 @@
             <div class="logged-in">
               <a href="#">My Account</a> <a href="#" class="button button__secondary">Sign Out</a>
             </div>
-      		</li
-  				
-    		></ul>
+          </li
+          
+        ></ul>
       </div>
 
-    	<div class="brand layout__brand">
-      	<a class="mainhead__title" href="{{ site.baseurl }}">
-        	<img src="{{ site.baseurl }}assets/img/placeholder-logo.jpg" alt="Blue365">
-      	</a>
-      	<span class="flow-1">Flow 1</span>
-      	<span class="flow-2">Flow 2</span>
+      <div class="brand layout__brand">
+        <span class="flow-1">
+          <a class="mainhead__title" href="{{ site.baseurl }}flow-1.html">
+            <img src="{{ site.baseurl }}assets/img/placeholder-logo.jpg" alt="Blue365">
+          </a>
+          Flow 1
+        </span>
+        <span class="flow-2">
+          <a class="mainhead__title" href="{{ site.baseurl }}flow-2.html">
+            <img src="{{ site.baseurl }}assets/img/placeholder-logo.jpg" alt="Blue365">
+          </a>
+          Flow 2
+        </span>
       </div>
 
-    	<div class="catnav layout__catnav">
-    		
-    		<div class="search">
-        	<form class="">
-      			<fieldset class="search__wrapper">
-        			<label class="screen-reader-text">Search Blue365 Deals</label>
-        			<input class="search__input" type="search" placeholder="Search our Deals">
-        			<input class="search__button" type="submit" value="Go">
-        		</fieldset>
+      <div class="catnav layout__catnav">
+        
+        <div class="search">
+          <form class="">
+            <fieldset class="search__wrapper">
+              <label class="screen-reader-text">Search Blue365 Deals</label>
+              <input class="search__input" type="search" placeholder="Search our Deals">
+              <input class="search__button" type="submit" value="Go">
+            </fieldset>
           </form>
         </div>
-    		
-    		<nav class="catnav__wrapper">
-    			<ul class="catnav__list">
-    				{% include navigation/deal-categories.html %}
-    			</ul>
-    		</nav>
-    	</div>
+        
+        <nav class="catnav__wrapper">
+          <ul class="catnav__list">
+            {% include navigation/deal-categories.html %}
+          </ul>
+        </nav>
+      </div>
 
-  	</header>
+    </header>
