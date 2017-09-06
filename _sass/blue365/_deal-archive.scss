@@ -1,6 +1,6 @@
 
 .deal-archive {
-  padding: $vert-line-height $page-gutter;
+  padding: $vert-line-height 0;
 }
 
 
@@ -56,6 +56,20 @@
     .deal-card__actions {
       @include hide();
     }
+  }
+}
+
+
+// Search filters for the Archive pages
+.deal__filters {
+  padding: 0 $page-gutter;
+  
+  & > p:first-of-type {
+    // Just make this look like it might open up more stuff for now
+    border: 1px solid $color-borders;
+    border-radius: 4px;
+    padding: .5em $page-gutter .25em;
+    margin-bottom: $vert-line-height;
   }
 }
 

@@ -3,13 +3,13 @@
 // Conversely, then .logged-out is present, hide the logged-in stuff
 .logged-in .logged-out,
 .logged-out .logged-in {
-  @include hide();
+  display: none !important;
 }
 
 // When in flow-1, hide anything that pertains only to flow-2
 .flow-1-body .flow-2,
 .flow-2-body .flow-1 {
-  @include hide();
+  display: none !important;
 }
 
 // Other switches based on context or content

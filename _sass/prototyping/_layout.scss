@@ -25,10 +25,13 @@
 // 8. octet 
 // 9. nonet
 .grid {
-  align-items: stretch;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  
+  @include media($small-up) {
+    align-items: stretch;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
 
 	&__item {
   	//padding: 0 $page-gutter;
@@ -130,10 +133,18 @@
 	}
 	
 	// This one starts at a two column and goes up to three
+	&--trio-small {
+  	// We start with two items across
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: space-between;
+	}
+	
 	&--trio-small &__item {
-		width: 48%;
+		width: 50%;
 
-    @include media($medium-up) {
+    @include media($large-up) {
 			width: 32%;
 		}
 	}
