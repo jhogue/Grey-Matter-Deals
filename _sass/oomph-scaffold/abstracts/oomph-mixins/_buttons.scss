@@ -78,4 +78,20 @@
       text-decoration: none !important;
     }
   }
+  
+  @if $type == 'not' {
+    border: 0;
+    padding: .5em .625em .375em;
+    text-transform: none;
+    
+    @include touch-hover('idle') {
+      background-color: transparent;
+      color: palette(mono, 75);
+    }
+    
+    @include touch-hover('hover') {
+      background-color: transparent;
+      color: palette(brand);
+    }
+  }
 }

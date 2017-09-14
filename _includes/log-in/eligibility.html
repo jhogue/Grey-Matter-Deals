@@ -1,0 +1,24 @@
+      <div class="form--login-form">
+        <form class="form">
+          <legend class="screen-reader-text">Can I Join Blue365?</legend>
+          <div class="form__group">
+            <p>The Blue365 program is available to members who have Blue Cross Blue Shield health insurance through one of the 23 plans that have opted into the program. Supply your email and the 3-letter prefix located on your Blue ID card, and we will check whether or not your Blue plan participates.</p>
+          </div>
+          <div class="form__group">
+            <label for="email">Email</label>
+            <input class="form__input" type="email" id="email" placeholder="name@domain.com">
+          </div>
+          <div class="form__group">
+            <label for="threeletter">3-letter Prefix</label>
+            <input class="form__input" type="text" id="threeletter">
+          </div>
+          <div class="form__group">
+            <img src="{{ site.baseurl }}assets/img/member-card.png" alt="Sample of what a BCBS card looks like">
+          </div>
+          
+          <div class="form__actions">
+            <a href="#join-modal" class="form__submit button button__primary js-inline-modal">Check Eligibility</a>
+          </div>
+          
+        </form>
+      </div>

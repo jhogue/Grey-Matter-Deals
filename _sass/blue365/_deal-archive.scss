@@ -7,70 +7,212 @@
 // Make one look featured
 .flow-2-body .deal-archive .grid--trio-small {
   
-  .grid__item:first-child {
-    width: 100%;
+  .grid__item {
 
-    .deal-card {
-      padding-bottom: 0;
+    .action-clone {
+      text-align: center;
     }
 
-    .deal-card__link {
-      display: grid;
-      grid-template-columns: .68fr .32fr;
+    @media (min-width: 480px) and (max-width: 759px) {
+
+      // Hide things we do not need
+      .deal-card__header,
+      .deal-card__actions {
+        @include hide();
+      }
+      
+      // Use grid to make laying things out easier
+      .deal-card__link {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-rows: auto;
+        grid-row-gap: 0;
+        grid-template-areas:
+          "category category"
+          "image brand"
+          "image offer"
+          "actions actions";
+      }
+      
+      div.category-clone {
+        @include show();
+        grid-area: category;
+        margin-left: - $page-gutter;
+        margin-right: - $page-gutter;
+      }
+      
+      .deal-card__brand {
+        grid-area: brand;
+      }
+      
+      .deal-card__offer {
+        grid-area: offer;
+      }
+      
+      .deal-card__thumb {
+        grid-area: image;
+      }
+      
+      div.action-clone {
+        @include show();
+        grid-area: actions;
+        border-top: 1px solid $color-borders;
+        margin-top: .75em;
+        padding-top: .75em;
+      }
+      
+      span.deal-card--featured-element {
+        //@include show(inline-block);
+      }
     }
     
-    div.category-clone {
-      @include show();
-      grid-column: 2;
-      grid-row: 1;
-      margin-left: - $page-gutter;
-      margin-right: - $page-gutter;
+    @include media($small) {
+      
+      .deal-card__link {
+        grid-template-columns: 1fr 1fr;
+      }
     }
     
-    .deal-card__brand {
-      grid-column: 2;
-      grid-row: 2;
+    // Do it all again for the first-child only
+    @include media($medium-up) {
+      
+      &:first-child {
+        width: 100%;
+        
+        // Hide things we do not need
+        .deal-card__header,
+        .deal-card__actions {
+          @include hide();
+        }
+        
+        // Use grid to make laying things out easier
+        .deal-card__link {
+          display: grid;
+          grid-template-columns: 1.1fr 0.9fr;
+          grid-template-rows: auto;
+          grid-row-gap: 0;
+          grid-template-areas:
+            "category category"
+            "image brand"
+            "image offer"
+            "actions actions";
+        }
+        
+        div.category-clone {
+          @include show();
+          grid-area: category;
+          margin-left: - $page-gutter;
+          margin-right: - $page-gutter;
+        }
+        
+        .deal-card__brand {
+          grid-area: brand;
+        }
+        
+        .deal-card__offer {
+          grid-area: offer;
+        }
+        
+        .deal-card__thumb {
+          grid-area: image;
+        }
+        
+        div.action-clone {
+          @include show();
+          grid-area: actions;
+          border-top: 1px solid $color-borders;
+          margin-top: .75em;
+          padding-top: .75em;
+        }
+      }
     }
     
-    .deal-card__offer {
-      grid-column: 2;
-      grid-row: 3;
+    @include media($large-up) {
+      
+      &:first-child {
+        
+        .deal-card {
+          padding-bottom: 0;
+        }
+        
+        .deal-card__link {
+          grid-template-areas:
+            "category category"
+            "image brand"
+            "image offer"
+            "image actions";
+        }
+      }
     }
     
-    .deal-card__thumb {
-      grid-column: 1;
-      grid-row: 1 / span 4;
-    }
-    
-    div.action-clone {
-      @include show();
-      grid-column: 2;
-      grid-row: 4;
-    }
-    
-    span.deal-card--featured-element {
-      @include show(inline-block);
-    }
-    
-    .deal-card__header,
-    .deal-card__actions {
-      @include hide();
+    @include media($xlarge-up) {
+      
+      &:first-child {
+        
+        .deal-card__link {
+          grid-template-areas:
+            "image category"
+            "image brand"
+            "image offer"
+            "image actions";
+        }
+      }
     }
   }
-}
-
-
-// Search filters for the Archive pages
-.deal__filters {
-  padding: 0 $page-gutter;
   
-  & > p:first-of-type {
-    // Just make this look like it might open up more stuff for now
-    border: 1px solid $color-borders;
-    border-radius: 4px;
-    padding: .5em $page-gutter .25em;
-    margin-bottom: $vert-line-height;
-  }
+  //@include media($small-up) {
+  //
+  //  .grid__item:first-child {
+  //    width: 100%;
+  //
+  //    .deal-card {
+  //      padding-bottom: 0;
+  //    }
+  //
+  //    .deal-card__link {
+  //      display: grid;
+  //      grid-template-columns: .68fr .32fr;
+  //    }
+  //    
+  //    div.category-clone {
+  //      @include show();
+  //      grid-column: 2;
+  //      grid-row: 1;
+  //      margin-left: - $page-gutter;
+  //      margin-right: - $page-gutter;
+  //    }
+  //    
+  //    .deal-card__brand {
+  //      grid-column: 2;
+  //      grid-row: 2;
+  //    }
+  //    
+  //    .deal-card__offer {
+  //      grid-column: 2;
+  //      grid-row: 3;
+  //    }
+  //    
+  //    .deal-card__thumb {
+  //      grid-column: 1;
+  //      grid-row: 1 / span 4;
+  //    }
+  //    
+  //    div.action-clone {
+  //      @include show();
+  //      grid-column: 2;
+  //      grid-row: 4;
+  //    }
+  //    
+  //    span.deal-card--featured-element {
+  //      @include show(inline-block);
+  //    }
+  //    
+  //    .deal-card__header,
+  //    .deal-card__actions {
+  //      @include hide();
+  //    }
+  //  }
+  //}
 }
 
 
@@ -116,7 +258,12 @@
   }
 }
 
-.deal__footer .grid {
+.deal__footer .grid--duo {
+  
+  // More space for Flow-1
+  .flow-1-body & .grid__item:first-child {
+    margin-bottom: $page-gutter;
+  }
   
   // Hide all options
   .grid__item {
@@ -136,14 +283,7 @@
     }
   }
   
-  .grid__item:nth-child(4) {
-    
-    .deal-card__location {
-      @include show();
-    }
-  }
-  
-  .grid__item:nth-child(3) {
+  .grid__item:nth-child(2) {
     
     .deal-card__expiring {
       @include show(inline-block);

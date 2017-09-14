@@ -1,3 +1,12 @@
+.b365 {
+  color: palette(brand);
+  
+  span {
+    color: palette(brand, navy);
+  }
+}
+
+
 // Vertical rhythm applied whenever we have content
 // coming in from a WYSIWYG
 .entry-content {

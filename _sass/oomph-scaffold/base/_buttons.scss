@@ -21,4 +21,8 @@
   &__disabled {
     @include button('disabled');
   }
+  
+  &__not-button{
+    @include button('not');
+  }
 }
