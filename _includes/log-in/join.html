@@ -16,8 +16,14 @@
               <input class="form__input" type="text" id="name" placeholder="First (Middle) Last">
             </div>
             <div class="form__group">
-              <label for="email">Email</label>
-              <input class="form__input" type="email" id="email" placeholder="name@domain.com">
+              <div class="flow-1">
+                <label for="email">Email</label>
+                <input class="form__input" type="email" id="email" value="name@domain.com (prefilled)">
+              </div>
+              <div class="flow-2">
+                <label for="email">Email</label>
+                <input class="form__input" type="email" id="email" placeholder="name@domain.com">
+              </div>
             </div>
             <div class="form__group">
               <label for="password">Password</label>
@@ -26,17 +32,25 @@
           </fieldset>
           <fieldset>
             <legend>BlueCross BlueShield Information</legend>
-            <div class="form__group">
-              <label for="alphaprefix">ID Card Prefix</label>
-              <input class="form__input" type="text" id="alphaprefix" placeholder="XYZ">
-            </div>
-            <div class="form__group">
-              <label for="birthyear">Birth Year</label>
-              <input class="form__input" type="text" id="birthyear" placeholder="2004">
-            </div>
-            <div class="form__group">
-              <label for="zip">Zip Code</label>
-              <input class="form__input" type="text" id="zip" placeholder="01234">
+            <div class="grid grid--trio">
+              <div class="grid__item form__group">
+                <div class="flow-1">
+                  <label for="alphaprefix">ID Card Prefix</label>
+                  <input class="form__input" type="text" id="alphaprefix" value="ABC">
+                </div>
+                <div class="flow-2">
+                  <label for="alphaprefix">ID Card Prefix</label>
+                  <input class="form__input" type="text" id="alphaprefix" placeholder="XYZ">
+                </div>
+              </div>
+              <div class="grid__item form__group">
+                <label for="birthyear">Birth Year</label>
+                <input class="form__input" type="text" id="birthyear" placeholder="2004">
+              </div>
+              <div class="grid__item form__group">
+                <label for="zip">Zip Code</label>
+                <input class="form__input" type="text" id="zip" placeholder="01234">
+              </div>
             </div>
           </fieldset>
           <fieldset>
@@ -71,10 +85,10 @@
           
           
           <div class="flow-1 form__actions">
-            <a href="{{ site.baseurl }}flow-1-deal-logged-in.html" class="form__submit button button__primary">Let&rsquo;s Go!</a>
+            <a href="{{ site.baseurl }}flow-1-logged-in.html" class="form__submit button button__primary">Let&rsquo;s Go!</a>
           </div>
           <div class="flow-2 form__actions">
-            <a href="{{ site.baseurl }}flow-2-deal-logged-in.html" class="form__submit button button__primary">Let&rsquo;s Go!</a>
+            <a href="{{ site.baseurl }}flow-2-logged-in.html" class="form__submit button button__primary">Let&rsquo;s Go!</a>
           </div>
           
           
