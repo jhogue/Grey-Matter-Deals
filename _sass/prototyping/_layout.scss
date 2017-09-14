@@ -61,9 +61,16 @@
   		width: percentage(7/$grid-columns);
     }
   
-	  &__rail-left &__item__rail
+	  &__rail-left &__item__rail,
 	  &__rail-right &__item__rail {
 	  	width: percentage(5/$grid-columns);
+	  }
+	  
+	  &__rail-left.deal-archive &__item__main,
+	  &__rail-right.deal-archive &__item__main,
+  	&__rail-left.deal-archive &__item__rail,
+	  &__rail-right.deal-archive &__item__rail {
+	  	width: 100%;
 	  }
 	}
   
@@ -74,18 +81,9 @@
   		width: percentage(8/$grid-columns);
     }
     
-    //&__rail-left &__item__main {
-  	//	padding-right: $page-gutter;
-    //}
-    //&__rail-right &__item__main {
-  	//	padding-left: $page-gutter;
-    //}
-  
-	  &__rail-left &__item__rail,
+    &__rail-left &__item__rail,
 	  &__rail-right &__item__rail {
 	  	width: percentage(4/$grid-columns);
-	  	//padding-left: $page-gutter;
-	  	//padding-right: $page-gutter;
 	  }
 	}
   
@@ -139,15 +137,55 @@
     flex-flow: row wrap;
     align-items: stretch;
     justify-content: space-between;
+    
+    @include media($medium-up) {
+			margin-right: - $page-gutter;
+		}
 	}
 	
 	&--trio-small &__item {
-		width: 50%;
+		padding-bottom: $page-gutter;
+		width: 100%;
 
-    @include media($large-up) {
+    @include media($medium-up) {
+			width: 50%;
+			padding-right: $page-gutter;
+		}
+
+    @include media($xxlarge-up) {
 			width: 32%;
 		}
 	}
+
+
+  // The name denotes that this is a 2/3 1/3 column balance
+  &__third-right > &__item:first-child,
+  &__third-left > &__item:last-child {
+    
+    @include media($small-up) {
+			width: percentage(7/$grid-columns);
+		}
+		@include media($medium-up) {
+			width: percentage(8/$grid-columns);
+		}
+		@include media($large-up) {
+			width: percentage(9/$grid-columns);
+		}
+  }
+  
+  &__third-right > &__item:last-child,
+  &__third-left > &__item:first-child {
+    
+    @include media($small-up) {
+			width: percentage(5/$grid-columns);
+		}
+		@include media($medium-up) {
+			width: percentage(4/$grid-columns);
+		}
+		@include media($large-up) {
+			width: percentage(3/$grid-columns);
+		}
+  }
 
 
 	// This one grows from a single col to a two and stops at four
@@ -166,7 +204,11 @@
 	
 	// This one starts at a two column and goes up to four
 	&--quartet-small &__item {
-		width: 48%;
+		width: 100%;
+
+    @include media($small-up) {
+			width: 48%;
+		}
 
     @include media($medium-up) {
 			width: 23.5%;

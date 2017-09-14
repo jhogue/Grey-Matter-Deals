@@ -17,10 +17,11 @@ $font-mono: $monospace;
 
 // Declare the custom font and fallback
 // Declare font weights as specified by the custom family: Google usually prefers numeric weights
-$font-custom: 'Fira Mono', $font-mono;
+$font-custom: 'Roboto', $font-mono;
 $font-weight-normal: 400;
-$font-weight-medium: 500;
+$font-weight-italic: 400i;
 $font-weight-bold: 700;
+$font-weight-bold-italic: 700i;
 
 
 // Grid Settings
