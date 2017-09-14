@@ -87,11 +87,6 @@
     background-color: rgba(palette(brand, red), .75);
     color: palette(mono, white);
     
-    .flow-2-body & {
-      left: 0;
-      right: auto;
-    }
-    
     @include media($small-up) {
       position: absolute;
       right: 0;
@@ -132,7 +127,9 @@
 
   &__offer {
 
-    &__content {}
+    &__content {
+      font-weight: $font-weight-normal;
+    }
   }
 
   //<footer class="deal-card__actions">
@@ -143,10 +140,10 @@
     padding-top: $vert-line-height/2;
     
     .button {
-      @include hide();
+      //@include hide();
       
       @include media($small-up) {
-        @include show(inline-block);
+        //@include show(inline-block);
       }
     }
   }

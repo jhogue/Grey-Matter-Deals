@@ -16,3 +16,34 @@
     @extend .sign-in__wrapper;
   }
 }
+
+// From Refills
+//<ul class="accordion-tabs menu">
+//  <li class="tab-header-and-content">
+//    <a href="javascript:void(0)" class="is-active tab-link">Sign In</a>
+.tab-link {
+  @extend .delta;
+  text-transform: none;
+
+  @include touch-hover() {
+    color: palette(brand);
+    text-decoration: underline;
+  }
+  @include touch-hover('hover') {
+    color: palette(mono, 75);
+    text-decoration: none;
+  }
+}
+
+.tab-link.is-active {
+  
+  @include touch-hover() {
+    color: palette(mono, 75);
+    text-decoration: none;
+    cursor: default;
+  }
+  @include touch-hover('hover') {
+    color: palette(mono, 75);
+    text-decoration: none;
+  }
+}

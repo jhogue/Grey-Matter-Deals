@@ -13,3 +13,85 @@
 }
 
 // Other switches based on context or content
+.flow-2-body {
+  
+  .deal .deal__column--show,
+  .deal .deal__aside {
+    @include hide();
+  }
+  
+  @include media($large-up) {
+    
+    .deal .deal__column--hide {
+      @include hide();
+    }
+    
+    .deal .deal__column--show,
+    .deal .deal__aside {
+      @include show();
+    }
+    
+    .deal__column__container {
+      display: grid;
+      grid-template-columns: 69% 1fr;
+      grid-template-rows: auto;
+      grid-column-gap: 0;
+      grid-row-gap: 0;
+      grid-template-areas:
+        "title title"
+        "header aside"
+        "article aside";
+    }
+    
+    .deal__title {
+      grid-area: title;
+      margin: 2rem 0;
+    }
+    
+    .deal__header {
+      grid-area: header;
+      display: block;
+      padding-top: 0;
+    }
+    
+    .deal__brand__logo {
+      max-height: 50px;
+      margin: 1rem auto;
+      padding: 0;
+    }
+    
+    .deal__featured {
+      margin-right: 0;
+      padding-right: 1rem;
+    }
+    
+    .deal__details {
+      grid-area: article;
+      width: 100%;
+    }
+    
+    .deal__aside {
+      grid-area: aside;
+      position: relative;
+    }
+  }
+}
+
+
+// Waypoints
+.deal__aside .js-adhesive.stuck {
+  position: fixed;
+  top: 0;
+  left: calc(66.66% + #{$page-gutter});
+  right: $page-gutter;
+  bottom: 0;
+  overflow-y: scroll ;
+}
+
+.deal__aside .js-adhesive.stuck.hit-bottom {
+  position: absolute;
+  top: auto;
+  left: $page-gutter;
+  bottom: ($page-gutter * 2);
+  right: $page-gutter;
+}

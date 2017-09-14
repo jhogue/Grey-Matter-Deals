@@ -1,42 +1,195 @@
 .paragraph {
   
   &__hero {
-    background-color: palette(mono, 15);
-    padding: $vert-line-height $page-gutter;
+    background-color: palette(mono, 10);
+    border-bottom: 1px solid $color-borders;
+    padding: ($vert-line-height * 1.5) $vert-line-height $page-gutter ($vert-line-height/2);
+    text-align: center;
     
     @include media($medium-up) {
-      padding: ($vert-line-height * 1.5) ($page-gutter * 2);
+      padding: ($vert-line-height * 2) ($page-gutter * 2) $vert-line-height;
     }
 
-    @include media($medium-up) {
-      padding: ($vert-line-height * 2) ($page-gutter * 4);
+    @include media($large-up) {
+      padding: ($vert-line-height * 2.5) ($page-gutter * 4) ($vert-line-height * 1.5);
     }
   }
-  
+
+
   &__cards {
     border-bottom: 1px solid $color-borders;
     
     .grid__item {
-      padding: $page-gutter;
+      padding: $vert-line-height $page-gutter 0;
       
       @include media($medium-up) {
-        padding: $vert-line-height ($page-gutter * 2);
+        padding: $vert-line-height ($page-gutter * 2) ($vert-line-height/2);
       }
       
       @include media($large-up) {
-        padding: ($vert-line-height * 1.5) ($page-gutter * 4);
+        padding: ($vert-line-height * 1.5) ($page-gutter * 3) $vert-line-height;
       }
     }
+  }
+
+
+  //<div class="paragraph paragraph__map grid grid__rail-right">
+  //  <div class="grid__item__main">
+  //    <iframe src="#" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+  //  </div>
+  //  <div class="grid__item__rail entry-content">
+  //    <h3>Fitness in your neighborhood</h3>
+  //    <p>With 9,500 locations, find fitness facilities that fit you and your needs. Locations include select Anytime Fitness®, Curves®, Snap Fitness® and a limited number of Gold&rsquo;s Gyms.</p>
+  //  </div>
+  //</div>
+  &__map {
+    border-bottom: 1px solid $color-borders;
     
-    & > .grid__item:first-child {
-      border-right: 1px solid $color-borders;
+    iframe {
+      width: 100%;
+    }
+    
+    .grid__item__rail {
+      background-color: palette(mono, 10);
+      padding: $vert-line-height $page-gutter ($vert-line-height/2);
+      
+      @include media($large-up) {
+        padding: $vert-line-height ($page-gutter * 2) ($vert-line-height/2);
+      }
+    }
+  }
+
+
+  //<div class="paragraph paragraph__video grid grid__third-left">
+  //  <div class="grid__item grid__item__video">
+  //    <div class="embed-container">
+  //      <iframe width="560" height="315" src="https://www.youtube.com/embed/VpjsvwnxnZk?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+  //    </div>
+  //  </div>
+  //  <div class="grid__item entry-content">
+  //    <h3>Getting Healthy Starts with Tivity Health®</h3>
+  //    <p>Good health isn&rsquo;t just a destination, its a lifestyle. Be proactive, get moving, and get empowered to live healthier</p>
+  //  </div>
+  //</div>
+  &__video {
+    border-bottom: 1px solid $color-borders;
+    
+    .grid__item {
+      background-color: palette(mono, 10);
+      padding: $vert-line-height $page-gutter ($vert-line-height/2);
+      
+      @include media($large-up) {
+        padding: $vert-line-height ($page-gutter * 2) ($vert-line-height/2);
+      }
+      
+      &__video {
+        padding: 0;
+      }
     }
   }
   
+
+  //<div class="paragraph paragraph__gallery">
+  //  <ul class="paragraph__gallery__container">
+  //    <li><img class="deal__featured__image" src="http://fpoimg.com/800x450?text=16:9 Gallery Thumbnail"></li>
+  //    <li><img class="deal__featured__image" src="http://fpoimg.com/800x500?text=8:5 Gallery Thumbnail"></li>
+  //    <li><img class="deal__featured__image" src="http://fpoimg.com/800x600?text=4:3 Gallery Thumbnail"></li>
+  //    <li><img class="deal__featured__image" src="http://fpoimg.com/600x600?text=1:1 Gallery Thumbnail"></li>
+  //  </ul>
+  //</div>
+  &__gallery {
+    background-color: palette(mono, 66);
+    
+    &__container {
+      display: flex;
+      flex-flow: row nowrap;
+      align-content: stretch;
+      list-style: none;
+      overflow-x: scroll;
+      margin: 0;
+      padding: $page-gutter 0 $page-gutter $page-gutter;
+      
+      li {
+        padding-right: $page-gutter;
+      }
+      
+      img {
+        @include fluid-units( height, 150px, 300px, 480px, 1200px );
+        //height: 42.5vw;
+        max-width: none;
+      }
+    }
+  }
+
+  
+  //<div class="paragraph paragraph__promo grid grid__rail-left">
+  //  <div class="grid__item__rail entry-content">
+  //    <h3 class="bravo"><span class="b365">Blue<span>365</span></span> says:</h3>
+  //  </div>
+  //  <div class="grid__item__main entry-content">
+  //    <blockquote>
+  //      <p>If you sit at a computer all day be sure to take short breaks to stretch and walk around throughout the day. Gentle hand, wrist, and forearm stretches are particularly helpful and will prevent carpal tunnel syndrome.</p>
+  //    </blockquote>
+  //  </div>
+  //</div>
+  &__promo {
+    background-color: percent-color(palette(brand), 20%);
+
+    .grid__item__rail,
+    .grid__item__main {
+      padding-left: $page-gutter;
+      padding-right: $page-gutter;
+    }
+    
+    & > div:first-child {
+      padding-top: $vert-line-height;
+    }
+    
+    & > div:last-child {
+      padding-bottom: ($vert-line-height/2);
+      
+      @include media($small-up) {
+        padding-top: $vert-line-height;
+      }
+    }
+  }
+
+
+  //<div class="paragraph paragraph__image grid grid__third-right">
+  //  <div class="grid__item grid__item__image">
+  //    <img src="http://fpoimg.com/800x450?text=16:9 Gallery Thumbnail">
+  //  </div>
+  //  <div class="grid__item entry-content">
+  //    <h3>Getting Healthy Starts with Tivity Health®</h3>
+  //    <p>Good health isn&rsquo;t just a destination, its a lifestyle. Be proactive, get moving, and get empowered to live healthier</p>
+  //  </div>
+  //</div>
+  &__image {
+    border-bottom: 1px solid $color-borders;
+    
+    .grid__item {
+      background-color: palette(mono, 10);
+      padding: $vert-line-height $page-gutter ($vert-line-height/2);
+      
+      @include media($large-up) {
+        padding: $vert-line-height ($page-gutter * 2) ($vert-line-height/2);
+      }
+    }
+    
+    .grid__item__image {
+      padding: 0;
+    }
+    
+    &.grid__third-right .grid__item__image {
+      //order: 2;
+    }
+  }
+  
+
   &__body {
     padding: $vert-line-height $page-gutter;
     
-    &__wrapper {
+    &__container {
       margin: 0 auto;
       max-width: em(760);
     }
