@@ -48,17 +48,12 @@ Review the Gemfile to see which versions of Jekyll, Rake and SASS are required a
 ### Run the Local server and SASS compiler
 From the project root, run: 
 
-`$ rake serve`
+`$ jekyll serve`
 
-If needed, the two commands that Rake is running are (which you can run in two Terminal windows): 
+As of Jekyll 2.0, it will compile changes from SASS, JS, or HTML files. If needed, SASS commands will also work just to compile SASS if errors do not bubble up to the Jekyll serve window: 
 
 ```
-$ bundle exec sass -r sass-globbing --watch _sass:assets/css &
-# - or -
 $ sass --watch _sass/greymatter.scss:assets/css/greymatter.css
-
-# then in another window
-$ jekyll serve -w
 ```
 
 The server is available at `http://localhost:4080/b365/` or  `http://0.0.0.0:4080/b365/`. If the compiled file URLs need to be prefixed, add a prefix to the `rakefile` line 21, and serve from that project root as well, i.e. `http://localhost:4080/[baseurl]`. When you upload the sites content to a server, all URLs will be prefixed with `/[baseurl]`.

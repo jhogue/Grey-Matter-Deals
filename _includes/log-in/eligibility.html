@@ -1,19 +1,26 @@
       <div class="form--login-form">
         <form class="form">
+          <h4><span>Step 1 of 2</span></h4>
           <legend class="screen-reader-text">Can I Join Blue365?</legend>
           <div class="form__group">
-            <p>The Blue365 program is available to members who have Blue Cross Blue Shield health insurance through one of the 23 plans that have opted into the program. Supply your email and the 3-letter prefix located on your Blue ID card, and we will check whether or not your Blue plan participates.</p>
+            <p>Blue365 is available to members of participating Blue Cross Blue Shield companies. Supply your email and the 3-letter prefix located on your Blue ID card, and we will check whether or not your Blue company participates.</p>
           </div>
           <div class="form__group">
             <label for="email">Email</label>
             <input class="form__input" type="email" id="email" placeholder="name@domain.com">
           </div>
-          <div class="form__group">
-            <label for="threeletter">3-letter Prefix</label>
-            <input class="form__input" type="text" id="threeletter">
-          </div>
-          <div class="form__group">
-            <img src="{{ site.baseurl }}assets/img/member-card.png" alt="Sample of what a BCBS card looks like">
+          <div class="grid grid__third-left">
+            <div class="grid__item">
+              <div class="form__group">
+                <img src="{{ site.baseurl }}assets/img/member-card.png" alt="Sample of what a BCBS card looks like">
+              </div>
+            </div>
+            <div class="grid__item">
+              <div class="form__group">
+                <label for="threeletter">3-letter Prefix</label>
+                <input class="form__input" type="text" id="threeletter">
+              </div>
+            </div>
           </div>
           
           <div class="form__actions">

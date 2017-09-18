@@ -13,6 +13,10 @@
     @include media($large-up) {
       padding: ($vert-line-height * 2.5) ($page-gutter * 4) ($vert-line-height * 1.5);
     }
+    
+    @include media($xlarge-up) {
+      padding: ($vert-line-height * 3) ($page-gutter * 8) ($vert-line-height * 2);
+    }
   }
 
 
@@ -155,7 +159,7 @@
   }
 
 
-  //<div class="paragraph paragraph__image grid grid__third-right">
+  //<div class="paragraph paragraph__image paragraph__image--right grid grid__third-right">
   //  <div class="grid__item grid__item__image">
   //    <img src="http://fpoimg.com/800x450?text=16:9 Gallery Thumbnail">
   //  </div>
@@ -165,10 +169,11 @@
   //  </div>
   //</div>
   &__image {
+    background-color: palette(mono, 10);
     border-bottom: 1px solid $color-borders;
+    align-items: center;
     
     .grid__item {
-      background-color: palette(mono, 10);
       padding: $vert-line-height $page-gutter ($vert-line-height/2);
       
       @include media($large-up) {
@@ -180,8 +185,11 @@
       padding: 0;
     }
     
-    &.grid__third-right .grid__item__image {
-      //order: 2;
+    &--right .grid__item.grid__item__image {
+      order: 2;
+    }
+    &--right .grid__item {
+      order: 1;
     }
   }
   
@@ -192,6 +200,33 @@
     &__container {
       margin: 0 auto;
       max-width: em(760);
+    }
+  }
+}
+
+
+.gallery {
+  
+  &__wrapper {}
+  
+  &__thumbs {
+    background-color: palette(mono, 66);
+    //overflow: hidden;
+    width: 100%;
+    
+    &__list {
+      flex-flow: row wrap;
+      padding: 1rem 0 0 1rem;
+      
+      li {
+        padding-right: 1rem;
+        padding-bottom: 1rem; 
+      }
+      
+      img {
+        @include fluid-units( height, 60px, 120px, 480px, 1200px );
+        max-width: none;
+      }
     }
   }
 }

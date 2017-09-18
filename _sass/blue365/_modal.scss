@@ -5,6 +5,33 @@
   padding: $page-gutter;
   width: auto;
   
+  .form {
+    & > h4 {
+      margin-bottom: $vert-line-height;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      
+      &:before {
+        content: '';
+        display: block;
+        border-top: 2px solid palette(mono, 75);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        z-index: 0;
+      }
+      
+      span {
+        background-color: palette(mono, white);
+        padding: 0 $page-gutter;
+        position: relative;
+        z-index: 2;
+      }
+    }
+  }
+  
   $gutter-as-ems: strip-units($page-gutter) * 1em;
   
   @include media($small-up) {
