@@ -45,6 +45,7 @@
   
   &__header {
     padding-top: $vert-line-height;
+    width: 100%;
   }
   
   &__brand {
@@ -128,6 +129,12 @@
     margin: 0 (- $page-gutter);
   }
   
+  &__value-prop {
+    background-color: percent-color(palette(brand), 20%);
+    margin-top: $vert-line-height;
+    padding: $vert-line-height ($page-gutter*2);
+  }
+  
   &__footer {
     
     &__title {
@@ -193,6 +200,16 @@
     
     &__meta {
       grid-area: meta;
+    }
+  }
+  
+  &__footer {
+    
+    .grid--duo .grid__item:first-child {
+      padding-right: ($page-gutter/2);
+    }
+    .grid--duo .grid__item:last-child {
+      padding-left: ($page-gutter/2);
     }
   }
   
@@ -270,9 +287,19 @@
     .logged-in &__meta {
       align-self: center;
     }
+    
+    &__footer {
+      
+      .grid--duo .grid__item:first-child {
+        padding-right: ($page-gutter/2);
+      }
+      .grid--duo .grid__item:last-child {
+        padding-left: ($page-gutter/2);
+      }
+    }
   }
   
-  @include media($large-up) {
+  @include media($xlarge-up) {
   
     &__meta__grid > div {
       padding-left: ($page-gutter/2);

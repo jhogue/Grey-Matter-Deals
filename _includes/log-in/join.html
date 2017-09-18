@@ -1,5 +1,6 @@
 <div class="form--join-form">
         <form class="form">
+          <h4><span>Step 2 of 2</span></h4>
           <legend class="screen-reader-text">Become a Member</legend>
           <div class="form__group">
             <h3>Create a Profile with an external Account</h3>
@@ -11,9 +12,15 @@
           </div>
           <fieldset>
             <legend>Account Information</legend>
-            <div class="form__group">
-              <label for="name">Name</label>
-              <input class="form__input" type="text" id="name" placeholder="First (Middle) Last">
+            <div class="grid grid--duo">
+              <div class="grid__item form__group">
+                <label for="first">First Name</label>
+                <input class="form__input" type="text" id="first" placeholder="">
+              </div>
+              <div class="grid__item form__group">
+                <label for="last">Last Name</label>
+                <input class="form__input" type="text" id="last" placeholder="">
+              </div>
             </div>
             <div class="form__group">
               <div class="flow-1">
@@ -29,14 +36,11 @@
               <label for="password">Password</label>
               <input class="form__input" type="password" id="password">
             </div>
-          </fieldset>
-          <fieldset>
-            <legend>BlueCross BlueShield Information</legend>
             <div class="grid grid--trio">
               <div class="grid__item form__group">
                 <div class="flow-1">
                   <label for="alphaprefix">ID Card Prefix</label>
-                  <input class="form__input" type="text" id="alphaprefix" value="ABC">
+                  <input class="form__input" type="text" id="alphaprefix" value="ABC (prefilled)">
                 </div>
                 <div class="flow-2">
                   <label for="alphaprefix">ID Card Prefix</label>
@@ -54,7 +58,6 @@
             </div>
           </fieldset>
           <fieldset>
-            <legend>Legal Terms Opt-In</legend>
             <div class="form__group">
               <label for="memberauth">Member and E-mail Authorization</label>
               <div style="height: 10em; overflow-y: scroll; border: 1px solid #d2d2d2; padding: 1em; margin-bottom: 1.75em;">
@@ -68,14 +71,12 @@
               </div>
             </div>
             <div class="form__group">
-              <label for="terms1">Terms &amp; Conditions 1</label>
               <div class="form__checkbox">
                 <input type="checkbox" id="edit-field-terms-and-conditions-1-und-agree" name="field_terms_and_conditions_1[und][agree]" value="agree" class="form-checkbox">
                 <label class="option" for="edit-field-terms-and-conditions-1-und-agree">I read, considered, understand and agree to the entire contents of the Member and Email Authorization that appears in the scroll down screen above. I understand that, by clicking on the "REGISTER" button, below, I am confirming my authorization for the use and disclosure of information about me, as described therein.</label>
               </div>
             </div>
             <div class="form__group">
-              <label for="terms2">Terms &amp; Conditions 2</label>
               <div class="form__checkbox">
                 <input type="checkbox" id="edit-field-terms-and-conditions-2-und-agree" name="field_terms_and_conditions_2[und][agree]" value="agree" class="form-checkbox">
                 <label class="option" for="edit-field-terms-and-conditions-2-und-agree">I have read and agree to Blue 365's <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a></label>
