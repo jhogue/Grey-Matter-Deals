@@ -1,0 +1,33 @@
+---
+layout: deal
+nav-title: For Employers
+title: For Employers
+permalink: /for-employers-flow-2
+body-class: 'for-employers flow-2-body'
+---
+
+<div class="grid grid__rail-left sidebar--rail-left">
+  <aside id="wayfinding" class="grid__item grid__item__rail">
+    <div class="wayfinding__wrapper js-adhesive">
+      
+      <div class="sidebar sidebar--navigation">
+        <h4 class="sidebar__title">About Blue365</h4>
+        <ul class="sidebar__list menu" role="navigation">
+    			{% include navigation/about-b365.html %}
+    		</ul>
+  		</div>
+  		
+    </div>
+  </aside>
+  <div class="grid__item grid__item__main">
+    
+{% include for-employers.html %}
+
+  </div>
+</div>
+
+<div id="eligible-modal" class="modal mfp-hide">
+  <div class="modal__wrapper">
+    {% include modals/signin-eligibility.html %}
+  </div>
+</div>
