@@ -12,10 +12,25 @@
     align-content: center;
     background-color: percent-color(palette(brand), 75%);
     color: palette(mono, white);
-    padding: $vert-line-height $page-gutter;
+    padding: $vert-line-height $page-gutter ($vert-line-height/2);
     
-    h3 {
+    h3,
+    h4 {
       color: palette(mono, white);
+    }
+  }
+
+
+  // Overrides
+  &--lifestyle-quiz {}
+
+  &--lifestyle-quiz &__wrapper {
+    background-color: percent-color(palette(brand), 25%);
+    color: palette(mono, 90);
+    
+    h3,
+    h4 {
+      color: palette(mono, 75);
     }
   }
 }

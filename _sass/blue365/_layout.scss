@@ -10,10 +10,21 @@
     /*body*/.full-width & {
       //max-width: none;
     }
+  
+    &--text {
+      min-width: $min-width;
+      max-width: $text-max-width;
+      margin: 0 auto;
+    }
   }
 
   &__content {
     padding: 0 $page-gutter;
+    
+    .for-employers &,
+    .contact-us & {
+      padding: 0;
+    }
   }
 
   // ! HEADER - - - - -

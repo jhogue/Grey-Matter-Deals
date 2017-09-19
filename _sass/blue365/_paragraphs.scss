@@ -1,10 +1,24 @@
 .paragraph {
   
+  // Helper classes
+  .align-center {
+    align-self: center;
+  }
+  
   &__hero {
     background-color: palette(mono, 10);
     border-bottom: 1px solid $color-borders;
     padding: ($vert-line-height * 1.5) $vert-line-height $page-gutter ($vert-line-height/2);
     text-align: center;
+    
+    & > div {
+      margin: 0 auto;
+      max-width: $text-max-width;
+    }
+    
+    p {
+      @include one-element-size(h4);
+    }
     
     @include media($medium-up) {
       padding: ($vert-line-height * 2) ($page-gutter * 2) $vert-line-height;
