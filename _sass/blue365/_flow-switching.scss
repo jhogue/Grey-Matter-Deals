@@ -76,22 +76,3 @@
     }
   }
 }
-
-
-// Waypoints
-.deal__aside .js-adhesive.stuck {
-  position: fixed;
-  top: 0;
-  left: calc(66.66% + #{$page-gutter});
-  right: $page-gutter;
-  bottom: 0;
-  overflow-y: scroll ;
-}
-
-.deal__aside .js-adhesive.stuck.hit-bottom {
-  position: absolute;
-  top: auto;
-  left: $page-gutter;
-  bottom: ($page-gutter * 2);
-  right: $page-gutter;
-}

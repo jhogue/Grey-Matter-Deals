@@ -1,0 +1,35 @@
+//<div class="grid grid__rail-left sidebar--rail-left">
+//  <aside id="wayfinding" class="grid__item grid__item__aside">
+//    <div class="wayfinding__wrapper js-adhesive">
+//      
+//      <div class="sidebar sidebar--navigation">
+//        <h4 class="sidebar__title">About Blue365</h4>
+//        <ul class="sidebar__list menu" role="navigation">
+//    			{% include navigation/about-b365.html %}
+//    		</ul>
+//  		</div>
+
+.sidebar {
+  padding: $vert-line-height $page-gutter;
+  
+  &__title {
+    margin-bottom: $vert-line-height;
+  }
+  
+  &__list  {}
+
+  @include media($large-up) {
+    padding: $vert-line-height ($page-gutter * 2);
+  }
+
+  &--navigation {}
+  
+  &--rail-left,
+  &--rail-right {
+    
+    .grid__item__rail {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

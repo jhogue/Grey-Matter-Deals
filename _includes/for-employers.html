@@ -6,29 +6,37 @@
 </header>
 
 <article>
-  <div class="paragraph paragraph__cards">
-    <h2 style="text-align: center; padding-top: 1.5em;">Why Blue365?</h2>
-    <div class="grid grid--trio">
-      <div class="grid__item entry-content">
-        <span style="display: block; font-size: 300%; text-align: center;"><span class="fa fa-money" aria-hidden="true"></span></span>
-        <h3 style="text-align: center;">Reduce Health Care Costs</h3>
-        <p>Investment in employees social, mental, and physical health pays off, with an estimated return of $2.71 for every dollar spent on wellness programs.</p>
-        <p>&ndash; <a href="https://hbr.org/2010/12/whats-the-hard-return-on-employee-wellness-programs" rel="external" target="_blank">Harvard Business Review, 2010</a></p>
+  
+  <div class="flow-1">
+    <div class="paragraph paragraph__cards">
+      <h2 style="text-align: center; padding-top: 1.5em;">Why Blue365?</h2>
+      <div class="grid grid--trio">
+        <div class="grid__item entry-content">
+          <span style="display: block; font-size: 300%; text-align: center;"><span class="fa fa-money" aria-hidden="true"></span></span>
+          <h3 style="text-align: center;">Reduce Health Care Costs</h3>
+          <p>Investment in employees social, mental, and physical health pays off, with an estimated return of $2.71 for every dollar spent on wellness programs.</p>
+          <p>&ndash; <a href="https://hbr.org/2010/12/whats-the-hard-return-on-employee-wellness-programs" rel="external" target="_blank">Harvard Business Review, 2010</a></p>
+        </div>
+        <div class="grid__item entry-content">
+          <span style="display: block; font-size: 300%; text-align: center;"><span class="fa fa-line-chart" aria-hidden="true"></span></span>
+          <h3 style="text-align: center;">Increase Employee Productivity</h3>
+          <p>Promoting wearables in the workplace increases productivity by as much as 8.5% and increases employee satisfaction by 3.5%. </p>
+          <p>&ndash; <a href="https://www.cognizant.com/whitepapers/Wearables-At-Work-Are-They-Fit-for-the-Workplace-codex1542.pdf" rel="external" target="_blank">Cognizant, 2016</a></p>
+        </div>
+        <div class="grid__item entry-content">
+          <span style="display: block; font-size: 300%; text-align: center;"><span class="fa fa-user-plus" aria-hidden="true"></span></span>
+          <h3 style="text-align: center;">It&rsquo;s a Free Benefit</h3>
+          <p>Access through Blue365 to discounted gym memberships, wearables, weight loss programs and more comes with your company&rsquo;s participation in Blue Cross Blue Shield*. </p>
+        </div>
       </div>
-      <div class="grid__item entry-content">
-        <span style="display: block; font-size: 300%; text-align: center;"><span class="fa fa-line-chart" aria-hidden="true"></span></span>
-        <h3 style="text-align: center;">Increase Employee Productivity</h3>
-        <p>Promoting wearables in the workplace increases productivity by as much as 8.5% and increases employee satisfaction by 3.5%. </p>
-        <p>&ndash; <a href="https://www.cognizant.com/whitepapers/Wearables-At-Work-Are-They-Fit-for-the-Workplace-codex1542.pdf" rel="external" target="_blank">Cognizant, 2016</a></p>
-      </div>
-      <div class="grid__item entry-content">
-        <span style="display: block; font-size: 300%; text-align: center;"><span class="fa fa-user-plus" aria-hidden="true"></span></span>
-        <h3 style="text-align: center;">It&rsquo;s a Free Benefit</h3>
-        <p>Access through Blue365 to discounted gym memberships, wearables, weight loss programs and more comes with your company&rsquo;s participation in Blue Cross Blue Shield*. </p>
+      <div class="entry-content">
+        <p style="text-align: center;">* Most individual Blue Cross Blue Shield state partners participate in Blue365, but not all. <a href="#get-started">Check your plan&rsquo;s eligibility</a>. </p>
       </div>
     </div>
-    <div class="entry-content">
-      <p style="text-align: center;">* Most individual Blue Cross Blue Shield state partners participate in Blue365, but not all. <a href="#get-started">Check your plan&rsquo;s eligibility</a>. </p>
+  </div>
+  <div class="flow-2">
+    <div class="embed-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/OpLgl6Vr9BQ" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
   
@@ -59,6 +67,10 @@
   </div>
   
   
+  {% comment %}
+  
+  Walking Works Content
+  
   <div class="paragraph paragraph__hero entry-content">
     <h2>Encourage Fitness with WalkingWorks<sup>®</sup></h2>
     <p>Investing in a wellness program is only one step towards developing a healthy work culture. Activity tracking through the WalkingWorks program will continue to motivate employees to maintain an active lifestyle.
@@ -84,7 +96,32 @@
       </div>
     </div>
   </div>
+  {% endcomment %}
   
+
+
+  <div class="flow-1">
+    <div style="padding: 1rem;">
+      <h3 style="text-align: center; padding-bottom: 1rem;">Featured Deals for Employers</h3>
+      <div class="grid grid--quartet related__deals">
+        {% include deal-card.html %}
+        {% include deal-card.html %}
+        {% include deal-card.html %}
+        {% include deal-card.html %}
+      </div>
+    </div>
+  </div>
+  <div class="flow-2">
+    <div style="padding: 1rem 0;">
+      <h3 style="text-align: center; padding-bottom: 1rem;">Featured Deals for Employers</h3>
+      <div class="grid grid--trio related__deals">
+        {% include deal-card.html %}
+        {% include deal-card.html %}
+        {% include deal-card.html %}
+      </div>
+    </div>
+  </div>
+
 
   <div class="paragraph paragraph__hero entry-content">
     <h2>Start Benefitting from Blue365</h2>
@@ -92,19 +129,41 @@
   </div>
 
   <div id="get-started" class="paragraph paragraph__cards">
-    <div class="grid grid--duo">
+    <div class="grid grid--trio">
+      
       <div class="grid__item entry-content">
         <h3 style="text-align: center;">Check Eligibility</h3>
         <p>Check if your Blue Company is participating in Blue365. Blue365 is currently available in select locations for Blue Cross and Blue Shield members and nationwide for those in the Federal Employee Program.</p>
-        <p style="text-align: center;"><a href="#" class="button button__primary">Check Eligibility Now</a></p>
+        <p style="text-align: center;"><a href="#eligible-modal" class="button button__primary js-inline-modal">Check Eligibility Now</a></p>
       </div>
-      <div class="grid__item entry-content">
-        <h3 style="text-align: center;">Spread the Word</h3>
-        <ul>
-          <li><a href="#">Download a flyer</a> and share with your workforce to promote the benefits of Blue365.</li>
-          <li>Share the registration link with your colleagues: <a href="https://www.blue365deals.com/user/register">www.blue365deals.com/user/register</a></li>
-          <li>Enjoy a new way to make living well more affordable!</li>
-        </ul>
+      
+      <div class="grid__item entry-content" style="text-align: center">
+        <h3>Share and Print</h3>
+
+        <h4 class="echo">Share the registration link</h4>
+        <div class="form__group form__input-button-pair redeem__copycode">
+          <input class="form__input redeem__input" value="https://www.blue365deals.com/user/register" readonly>
+          <a href="#" class="button button__primary" title="Copy to Clipboard"><span class="fa fa-clipboard" aria-hidden="true"></span>Copy</a>
+        </div>
+        
+        <h4 class="echo">Print and Share a Flyer</h4>
+        <p><a href="#" class="button button__primary" title="Print for in-store use"><span class="fa fa-print" aria-hidden="true"></span>Download</a></p>  
+        <p>Download and print the flyer to promote the benefits of Blue365.</li></p>
+      </div>
+      
+      <div class="grid__item entry-content" style="text-align: center">
+        <h3 style="text-align: center;">Use our Email Template</h3>
+        <p>Use our easy message template to explain the benefits of Blue365 and how employees can join. Customize the message as you see fit. </p>
+        <p>
+          <textarea class="form__textarea" readonly rows="2">
+Blue365 is a great way to make living well more affordable.
+For members of participating Blue Cross and Blue Shield Companies, Blue365 offers discounts on fitness gear, gym memberships, healthy eating options and more. Blue365 offers access to savings on items that members purchase right on the Blue365 website or on the healthy-living Vendor's websites. These items are different from those covered under policies with local Blue Cross and Blue Shield Companies, Blue Plan contracts with Medicare, or any other applicable federal healthcare program.
+Want to get started? Blue365 is currently available in select locations for Blue Cross and Blue Shield members and nationwide for those in the Federal Employee Program. Click here for a list of all participating Blue Companies.
+          </textarea>
+          <div style="text-align: center">
+            <a href="#" class="button button__primary" title="Copy to Clipboard"><span class="fa fa-clipboard" aria-hidden="true"></span>Copy to Clipboard</a>
+          </div>
+        </p>
       </div>
     </div>
   </div>
@@ -113,8 +172,34 @@
   <div class="paragraph paragraph__cards">
     <div class="grid__item entry-content">
       <p><strong>Need Help?</strong> Have a question or comment about Blue365? The best way to reach us is to use the Blue365 contact form. Alternatively, you can call 1-(855)-511-BLUE (2583). Tell us how we can help, and our Customer Service team will be in touch soon.</p> 
+      {% comment %}
       <p>For more information about WalkingWorks, please send an email to WalkingWorks or visit the WalkingWorks FAQs page and contact us using the form on the page. We look forward to hearing from you!</p>
+      {% endcomment %}
     </div>
   </div>
 
-</article>  
+
+  <div class="flow-1">
+    <div class="paragraph paragraph__hero">
+      <div class="entry-content">
+        <h2>Still not convinced?</h2>
+        <p>A <abbr title="BlueCross BlueShield Association">BCBSA</abbr> representative can give you and your associates a personalized demonstration of the Blue365 program. Also, for a limited time, enter to win a $50 Amazon gift card!</p>
+        <p style="text-align: center"><a href="#request-modal" class="button button__primary js-inline-modal">Request a Demo</a></p>
+      </div>
+    </div>
+  </div>
+    
+  <div class="flow-2">
+    <div class="paragraph paragraph__hero">
+      <div class="grid__item entry-content align-center">
+        <h2>Still not convinced? Request a Demo!</h2>
+        <p>A <abbr title="BlueCross BlueShield Association">BCBSA</abbr> representative can give you and your associates a personalized demonstration of the Blue365 program. Also, for a limited time, enter to win a $50 Amazon gift card!</p>
+      </div>
+    </div>
+    <div class="grid__item">
+      {% include modals/request-demo.html %}
+    </div>
+  </div>
+
+  
+</article>

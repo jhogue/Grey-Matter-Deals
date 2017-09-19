@@ -2,6 +2,24 @@
 
 $(document).ready(function() {
   
+  
+  // Set and/or Get Cookies for log in
+  // https://github.com/js-cookie/js-cookie
+  $( '.js-set-login' ).on( 'click', function() {
+    Cookies.set('authentication', '1');
+  });
+  $( '.js-set-logout' ).on( 'click', function() {
+    Cookies.remove('authentication');
+  });
+  var loggedin = Cookies.get('authentication');
+  //console.log(loggedin);
+  if (loggedin === '1') {
+    $('body').addClass('logged-in');
+  } else {
+    $('body').addClass('logged-out');
+  }
+  
+  
   // Clone the Main nav to create the mobile drawer
   $('#b365-mainnav .utility').clone().prop('id', 'utility__js-clone' ).addClass('drawer__nav').appendTo('.drawer');
   $('#b365-mainnav .catnav').clone().prop('id', 'catnav__js-clone' ).addClass('drawer__nav').appendTo('.drawer');
@@ -13,6 +31,26 @@ $(document).ready(function() {
   }
 
 
+  /* 
+   * Animate some scrolling for smoother transitions 
+   * http://css-tricks.com/snippets/jquery/smooth-scrolling/
+   */
+  $(function() {
+    $('.js-smooth-scroll').click(function(e) {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 500);
+          e.preventDefault();
+        }
+      }
+    });
+  });
+  
+  
   // Initialize Magnific popups
   if ( document.getElementsByClassName('js-inline-modal') !== null ) {
     $('.js-inline-modal').magnificPopup({
@@ -41,26 +79,6 @@ $(document).ready(function() {
       type: 'inline'
     }).magnificPopup('open');
   }
-
-
-  /* 
-   * Animate some scrolling for smoother transitions 
-   * http://css-tricks.com/snippets/jquery/smooth-scrolling/
-   */
-  $(function() {
-    $('.js-smooth-scroll').click(function(e) {
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-        if (target.length) {
-          $('html,body').animate({
-            scrollTop: target.offset().top
-          }, 500);
-          e.preventDefault();
-        }
-      }
-    });
-  });
 });
 
 
@@ -81,8 +99,8 @@ $(window).load(function() {
 
   // Accordions
   if ( document.getElementsByClassName('js-accordion') !== null ) {
-    $('.js-accordion').on('click', '.js-accordion-trigger', function(g) {
-      g.preventDefault();
+    $('.js-accordion').on('click', '.js-accordion-trigger', function(f) {
+      f.preventDefault();
       target_id = $(this).attr('href');
       $(this).toggleClass('open');
       $(target_id).toggleClass('open');
