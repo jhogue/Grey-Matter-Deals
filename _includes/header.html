@@ -18,7 +18,7 @@
               <a class="button button__secondary js-inline-modal" href="#signin-modal">Sign In</a> <a class="button button__primary js-inline-modal" href="#eligible-modal">Join</a>
             </div>
             <div class="logged-in">
-              <a href="#" class="button button__not-button">Hello, Giovana</a> <a href="{{ site:baseurl }}flow-1.html" class="button button__secondary js-set-logout">Sign Out</a>
+              <a href="{{ site.baseurl }}user-profile-flow-1.html" class="button button__not-button">Hello, Giovana</a> <a href="#" class="button button__secondary js-set-logout">Sign Out</a>
             </div>
           </li>
         </ul>
@@ -31,7 +31,7 @@
       </div>
 
       <div class="flow-2 mainnav">
-        <ul class="mainnav__list menu" role="navigation">
+        <ul class="mainnav__list mainnav__list__parent menu" role="navigation">
           <li>
             <div class="search">
               <form class="">
@@ -44,7 +44,14 @@
             </div>
           </li>
           <li class="logged-out"><a href="{{ site.baseurl }}sign-in-flow-2.html">Sign In</a> / <a href="{{ site.baseurl }}sign-in-flow-2.html#join">Join</a></li>
-          <li class="logged-in"><a href="#">Hello, Giovana</a> <a href="{{ site:baseurl }}flow-2.html" class="js-set-logout">Sign Out</a>
+          <li class="logged-in">
+            <a href="{{ site.baseurl }}user-profile-flow-2.html">Hello, Giovana</a>
+            <ul class="mainnav__list mainnav__submenu menu">
+              <li><a href="{{ site.baseurl }}user-profile-flow-2.html">My Account</a></li>
+              <li><a href="#">My Favorites</a></li>
+              <li><a href="#">My History</a></li>
+              <li><a href="#" class="js-set-logout">Sign Out</a></li>
+            </ul>
           </li>
         </ul>
       </div>

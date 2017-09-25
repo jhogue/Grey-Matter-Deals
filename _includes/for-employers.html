@@ -100,35 +100,13 @@
   
 
 
-  <div class="flow-1">
-    <div style="padding: 1rem;">
-      <h3 style="text-align: center; padding-bottom: 1rem;">Featured Deals for Employers</h3>
-      <div class="grid grid--quartet related__deals">
-        {% include deal-card.html %}
-        {% include deal-card.html %}
-        {% include deal-card.html %}
-        {% include deal-card.html %}
-      </div>
-    </div>
-  </div>
-  <div class="flow-2">
-    <div style="padding: 1rem 0;">
-      <h3 style="text-align: center; padding-bottom: 1rem;">Featured Deals for Employers</h3>
-      <div class="grid grid--trio related__deals">
-        {% include deal-card.html %}
-        {% include deal-card.html %}
-        {% include deal-card.html %}
-      </div>
-    </div>
-  </div>
-
-
   <div class="paragraph paragraph__hero entry-content">
     <h2>Start Benefitting from Blue365</h2>
     <p>Want to get started? We know a healthy, productive workforce is your priority. Here&rsquo;s a few steps for your organization to start enjoying the benefits of Blue365.</p>
   </div>
 
-  <div id="get-started" class="paragraph paragraph__cards">
+  <div class="flow-1">
+    <div id="get-started" class="paragraph paragraph__cards">
     <div class="grid grid--trio">
       
       <div class="grid__item entry-content">
@@ -167,6 +145,62 @@ Want to get started? Blue365 is currently available in select locations for Blue
       </div>
     </div>
   </div>
+  </div>
+  <div class="flow-2">
+    <div id="get-started" class="paragraph paragraph__cards">
+      
+      <div class="grid grid__third-left">
+        <div class="grid__item align-center no-pad">
+          <img src="http://fpoimg.com/400x400?text=Supporting Image" alt="">
+        </div>
+        <div class="grid__item entry-content">
+          <h3 style="text-align: center;">Check Eligibility</h3>
+          <p>Check if your Blue Company is participating in Blue365. Blue365 is currently available in select locations for Blue Cross and Blue Shield members and nationwide for those in the Federal Employee Program.</p>
+          <p style="text-align: center;"><a href="#eligible-modal" class="button button__primary js-inline-modal">Check Eligibility Now</a></p>
+        </div>
+      </div>
+      
+      <div class="grid grid__third-left reverse-order">
+        <div class="grid__item align-center no-pad">
+          <img src="http://fpoimg.com/400x400?text=Supporting Image" alt="">
+        </div>
+        <div class="grid__item entry-content" style="text-align: center">
+          <h3>Share and Print</h3>
+  
+          <h4 class="echo">Share the registration link</h4>
+          <div class="form__group form__input-button-pair redeem__copycode">
+            <input class="form__input redeem__input" value="https://www.blue365deals.com/user/register" readonly>
+            <a href="#" class="button button__primary" title="Copy to Clipboard"><span class="fa fa-clipboard" aria-hidden="true"></span>Copy</a>
+          </div>
+          
+          <h4 class="echo">Print and Share a Flyer</h4>
+          <p><a href="#" class="button button__primary" title="Print for in-store use"><span class="fa fa-print" aria-hidden="true"></span>Download</a></p>  
+          <p>Download and print the flyer to promote the benefits of Blue365.</li></p>
+        </div>
+      </div>
+      
+      <div class="grid grid__third-left">
+        <div class="grid__item align-center no-pad">
+          <img src="http://fpoimg.com/400x400?text=Supporting Image" alt="">
+        </div>
+        <div class="grid__item entry-content" style="text-align: center">
+          <h3 style="text-align: center;">Use our Email Template</h3>
+          <p>Use our easy message template to explain the benefits of Blue365 and how employees can join. Customize the message as you see fit. </p>
+          <p>
+            <textarea class="form__textarea" readonly rows="2">
+  Blue365 is a great way to make living well more affordable.
+  For members of participating Blue Cross and Blue Shield Companies, Blue365 offers discounts on fitness gear, gym memberships, healthy eating options and more. Blue365 offers access to savings on items that members purchase right on the Blue365 website or on the healthy-living Vendor's websites. These items are different from those covered under policies with local Blue Cross and Blue Shield Companies, Blue Plan contracts with Medicare, or any other applicable federal healthcare program.
+  Want to get started? Blue365 is currently available in select locations for Blue Cross and Blue Shield members and nationwide for those in the Federal Employee Program. Click here for a list of all participating Blue Companies.
+            </textarea>
+            <div style="text-align: center">
+              <a href="#" class="button button__primary" title="Copy to Clipboard"><span class="fa fa-clipboard" aria-hidden="true"></span>Copy to Clipboard</a>
+            </div>
+          </p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
 
   <div class="paragraph paragraph__cards">
@@ -178,7 +212,7 @@ Want to get started? Blue365 is currently available in select locations for Blue
     </div>
   </div>
 
-
+  
   <div class="flow-1">
     <div class="paragraph paragraph__hero">
       <div class="entry-content">
@@ -200,6 +234,33 @@ Want to get started? Blue365 is currently available in select locations for Blue
       {% include modals/request-demo.html %}
     </div>
   </div>
+  
+  
 
+  
+  <div class="flow-1">
+    <div style="padding: 1rem;">
+      <h3 style="text-align: center; padding-bottom: 1rem;">Featured Deals for Employers</h3>
+      <div class="grid grid--quartet related__deals">
+        {% include deal-card.html %}
+        {% include deal-card.html %}
+        {% include deal-card.html %}
+        {% include deal-card.html %}
+      </div>
+    </div>
+  </div>
+  <div class="flow-2">
+    <div style="padding: 1rem 0;">
+      <h3 style="text-align: center; padding-bottom: 1rem;">Featured Deals for Employers</h3>
+      <div class="grid grid--trio related__deals">
+        {% include deal-card.html %}
+        {% include deal-card.html %}
+        {% include deal-card.html %}
+      </div>
+    </div>
+  </div>
+  
+  
+  
   
 </article>

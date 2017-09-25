@@ -1,0 +1,102 @@
+<div class="layout__padding">
+  <header class="entry-content">
+    <h1 class="page__title">Welcome, Giovana</h1>
+  </header>
+  
+  
+  
+  <div class="grid grid--trio entry-content">
+    <div class="grid__item">
+      <h2>My Profile</h2>
+      <p><a href="#">Edit your Profile</a></p>
+    </div>
+    <div class="grid__item">
+      <p>
+        <b>Name:</b> Giovana Quigley<br>
+        <b>Email:</b> giovana.quigley@bcbsa.com<br>
+        <b>Zip Code:</b> 60647<br>
+        <b>Birth Year:</b> 1994<br>
+      </p>
+      <div class="flow-2">
+        <hr />
+        <p>
+          <b>Gender:</b> Female<br>
+          <b>Age Group:</b> 18-25<br>
+        </p>
+      </div>
+    </div>
+    <div class="grid__item">
+      <p>
+        <b>Member Since:</b> 2012<br>
+        <b>Password:</b> ••••••••  &nbsp;|&nbsp; <a href="#">Change</a><br>
+        <b>BCBS Plan Prefix:</b> BCBSA &nbsp;|&nbsp; <a href="#">Edit</a><br>
+        <b>Email Preferences:</b> Monthly Newsletter (Yes) &nbsp;|&nbsp; <a href="#">Edit</a>
+      </p>
+      <div class="flow-2">
+        <hr />
+        <p>
+          <b>Preferred Location:</b> Chicago, Illinois<br>
+          <b>Preferred Categories:</b> Fitness, Nutrition<br>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  <div class="flow-1">
+    <div class="promo__wrapper">
+      <div class="grid grid--trio entry-content">
+        <div class="grid__item align-center">
+          <h4>Complete your Profile for Better Personalization</h4>
+        </div>
+        <div class="grid__item align-center">
+          <p>A complete profile allows Blue365 to show you more deals that will interest you. Take our Lifestyle Quiz to help complete your profile!</p>
+        </div>
+        <div class="grid__item align-center">
+          <p><a href="#" class="button button__primary">Start Lifestyle Quiz</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="deals-list deals-list--favorites">
+    <div class="grid grid--quartet">
+      <div class="grid__item entry-content">
+        <h2>My Favorites</h2>
+        <p><a href="#">More of my Favorites</a></p>
+      </div>
+      {% include deal-card.html %}
+      {% include deal-card.html %}
+      {% include deal-card.html %}
+    </div>
+    <div class="special-message">
+      <p><a href="#">Expired Favorites</a>. You have a few favorite deals that have expired. <a href="#">Opt in to a notification when new similar deals come online!</a></p>
+    </div>
+  </div>
+  
+  
+  <div class="deals-list deals-list--history">
+    <h2>My Redeemed Deals</h2>
+    <div class="grid grid__third-left">
+      <div class="grid__item entry-content">
+        <p><a href="#">More from my History</a></p>
+        <p><i>A deal is considered “redeemed” when the copy coupon code, continue shopping, print, email, text, or phone links are clicked.</i></p>
+      </div>
+      <div class="grid__item entry-content">
+        <p>September 10, 2017: <b>Molecular Fitness: Genetic Composition Testing</b><br>
+          <a href="#">View active deal</a>
+        </p>
+        <p>August 29, 2017: <b>Eyemed: $50 Eye Exams and 35% Off Frames when Paired with Prescription Lenses</b><br>
+          <a href="#">View active deal</a>
+        </p>
+        <p>
+          May 16, 2017: <b>Skechers Direct: 30% Off Select Men‘s and Woman‘s SKECHERS styles year-round</b><br>
+          <em>Expired deal</em>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
