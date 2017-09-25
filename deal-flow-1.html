@@ -2,8 +2,8 @@
 layout: deal
 nav-title: Tivity Health® Fitness Your Way
 title: Tivity Health® Fitness Your Way
-permalink: /flow-1-logged-in
-body-class: 'flow-1-body logged-in'
+permalink: /deal-flow-1
+body-class: 'deal-single flow-1-body'
 ---
 
 {% include deals/deal-1.html %}
@@ -11,8 +11,18 @@ body-class: 'flow-1-body logged-in'
 {% include deals/recirculation.html %}
 
 <!-- Modals -->
+<div id="signin-modal" class="modal mfp-hide">
+  <div class="modal__wrapper">
+    {% include modals/signin-join.html %}
+  </div>
+</div>
 <div id="redeem-modal" class="modal mfp-hide">
   <div class="modal__wrapper">
     {% include modals/redeem.html %}
+  </div>
+</div>
+<div id="join-modal" class="modal mfp-hide">
+  <div class="modal__wrapper">
+    {% include modals/join.html %}
   </div>
 </div>

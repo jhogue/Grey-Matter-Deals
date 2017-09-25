@@ -5,11 +5,15 @@ $(document).ready(function() {
   
   // Set and/or Get Cookies for log in
   // https://github.com/js-cookie/js-cookie
-  $( '.js-set-login' ).on( 'click', function() {
+  $( '.js-set-login' ).on( 'click', function(li) {
+    li.preventDefault();
     Cookies.set('authentication', '1');
+    location.reload();
   });
-  $( '.js-set-logout' ).on( 'click', function() {
+  $( '.js-set-logout' ).on( 'click', function(lo) {
+    lo.preventDefault();
     Cookies.remove('authentication');
+    location.reload();
   });
   var loggedin = Cookies.get('authentication');
   //console.log(loggedin);
@@ -75,7 +79,7 @@ $(document).ready(function() {
   
   // In Flow-1, open the pop-up immediately after a user signs in
   if ( document.getElementsByClassName('js-inline-modal-redeem') !== null ) {
-    $('body.flow-1-body.logged-in .js-inline-modal-redeem').magnificPopup({
+    $('body.flow-1-body.deal-single.logged-in .js-inline-modal-redeem').magnificPopup({
       type: 'inline'
     }).magnificPopup('open');
   }

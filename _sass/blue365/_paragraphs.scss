@@ -2,9 +2,14 @@
   
   // Helper classes
   .align-center {
-    align-self: center;
+    align-self: center; // For flex or grid items
   }
   
+  .no-pad {
+    padding: 0 !important; // Blunt force trauma
+  }
+
+
   &__hero {
     background-color: palette(mono, 10);
     border-bottom: 1px solid $color-borders;
