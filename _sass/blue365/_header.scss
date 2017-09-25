@@ -243,16 +243,60 @@ $medium-breakpoint: 800px;
   
   &__list {
     text-align: right;
+    
+     &__parent > li > a {
+      @include one-element-size(h4);
+    }
   }
   
   li {
     display: inline-block;
+    position: relative;
     
     a {
-      @include one-element-size(h4);
       line-height: 1.33;
       padding: ($page-gutter / 2);
     }
+  }
+  
+  //<li class="logged-in">
+  //  <a href="/b365/20sep2017/user-profile-flow-2.html">Hello, Giovana</a>
+  //  <ul class="mainnav__list mainnav__submenu menu">
+  //    <li><a href="/b365/20sep2017/user-profile-flow-2.html">My Account</a></li>
+  //    <li><a href="#">My Favorites</a></li>
+  //    <li><a href="#">My History</a></li>
+  //    <li><a href="#" class="js-set-logout">Sign Out</a></li>
+  //  </ul>
+  //</li>
+  &__submenu {
+    background-color: palette(mono,white);
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+    opacity: 0;
+    position: absolute;
+    top: -99em;
+    right: 0;
+    transition: opacity 250ms ease;
+    min-width: 100%;
+    width: auto;
+    z-index: 100;
+
+    li {
+      display: block;
+      text-align: center;
+
+      &:first-child a {
+        padding-top: .875em;
+      }
+      &:last-child a {
+        padding-bottom: 1em;
+      }
+    }
+  }
+
+  &__list > li:hover &__submenu {
+    top: 100%;
+    opacity: 1;
   }
 }
 
@@ -545,43 +589,4 @@ body {
       margin-top: - $vert-line-height;
     }
   }
-  
-  //@include media($medium-up) {
-  //  
-  //  .mainhead {
-  //    display: flex;
-  //    flex-flow: row wrap;
-  //    align-items: center;
-  //    
-  //    .utility__list {
-  //      display: block;
-  //    }
-  //  }
-  //  
-  //  .utility,
-  //  .catnav {
-  //    width: 100%;
-  //  }
-  //  
-  //  .brand {
-  //    text-align: left;
-  //    width: 40%;
-  //    
-  //    @include media($medium-up) {
-  //      margin-top: - $vert-line-height;
-  //    }
-  //    
-  //    img {
-  //      margin: 0;
-  //    }
-  //  }
-  //  
-  //  .mainnav {
-  //    width: 60%;
-  //    
-  //    @include media($medium-up) {
-  //      margin-bottom: ($vert-line-height / 2);
-  //    }
-  //  }
-  //}
 }

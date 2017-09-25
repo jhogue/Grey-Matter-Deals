@@ -186,6 +186,15 @@
 			width: percentage(3/$grid-columns);
 		}
   }
+  
+  // Used when we have columns that need to be image first for mobile
+  // but then image last for desktop
+  .reverse-order {
+    
+    @include media($small-up) {
+      flex-flow: row-reverse wrap;
+    }
+  }
 
 
 	// This one grows from a single col to a two and stops at four

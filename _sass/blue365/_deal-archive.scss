@@ -290,3 +290,64 @@
     }
   }
 }
+
+
+
+.special-message {
+  border: 1px solid $color-borders;
+  border-radius: 4px;
+  margin: $vert-line-height 0;
+  padding: $page-gutter;
+}
+
+
+.deals-list {
+  margin-top: $vert-line-height;
+  border-top: 1px solid $color-borders;
+  padding-top: $vert-line-height;
+  padding-bottom: $vert-line-height;
+
+  
+  &--favorites {
+    
+    .special-message {
+      @include media($large-up) {
+        margin-left: 25.5%;
+      }
+    }
+    
+    .deal-card__expiring,
+    .deal-card__flash,
+    .deal-card__location,
+    .deal-card__favorite--off {
+      @include hide;
+    }
+    
+    .deal-card__favorite--on {
+      @include show(inline-block);
+    }
+  }
+
+  &--history {
+    
+    @include media($small-up) {
+
+      .grid__item:first-child {
+        padding-right: $page-gutter;
+      }
+      .grid__item:last-child {
+        padding-left: $page-gutter;
+      }
+    }
+
+    @include media($large-up) {
+
+      .grid__item:first-child {
+        padding-right: ($page-gutter * 2);
+      }
+      .grid__item:last-child {
+        padding-left: ($page-gutter * 2);
+      }
+    }
+  }
+}
