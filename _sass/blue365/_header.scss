@@ -321,17 +321,6 @@ $medium-breakpoint: 800px;
     background-color: $body-bg-color;
     position: relative;
 
-    &:after {
-      content: '';
-      background: linear-gradient(to right, rgba(#000,0) 0%,rgba(#000,.15) 100%);
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 2em;
-    }
-
     &__wrapper {
       overflow-x: scroll;
     }
@@ -354,9 +343,20 @@ $medium-breakpoint: 800px;
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
+      
+      &:after {
+        content: '';
+        background: linear-gradient(to right, rgba(#000,0) 0%,rgba(#000,.15) 100%);
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 2em;
+      }
     }
     
-    @media (min-width: 1440px) {
+    @media (min-width: 1220px) {
       &:after {
         @include hide();
       }

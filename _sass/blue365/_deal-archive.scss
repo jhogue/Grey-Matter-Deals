@@ -291,14 +291,42 @@
   }
 }
 
-
-
-.special-message {
-  border: 1px solid $color-borders;
-  border-radius: 4px;
-  margin: $vert-line-height 0;
-  padding: $page-gutter;
+.for-employers__footer .grid {
+  
+  // Hide all options
+  .grid__item {
+    
+    .deal-card__flash,
+    .deal-card__expiring,
+    .deal-card__location {
+      @include hide();
+    }
+  }
+  
+  .grid__item:nth-child(1) {
+    
+    // Show specific ones
+    .deal-card__expiring {
+      @include show(inline-block);
+    }
+  }
+  
+  .grid__item:nth-child(3) {
+    
+    .deal-card__flash {
+      @include show();
+    }
+  }
 }
+
+
+
+//.special-message {
+//  border: 1px solid $color-borders;
+//  border-radius: 4px;
+//  margin: $vert-line-height 0;
+//  padding: $page-gutter;
+//}
 
 
 .deals-list {
@@ -329,6 +357,12 @@
   }
 
   &--history {
+    
+    &__item {
+      border-bottom: 1px solid $color-borders;
+      margin-bottom: ($vert-line-height / 2);
+      padding-bottom: ($vert-line-height / 2);
+    }
     
     @include media($small-up) {
 

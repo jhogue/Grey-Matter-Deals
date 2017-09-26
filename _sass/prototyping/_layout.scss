@@ -85,6 +85,16 @@
 	  &__rail-right &__item__rail {
 	  	width: percentage(4/$grid-columns);
 	  }
+	  
+	  .for-employers &__rail-left &__item__main,
+	  .for-employers &__rail-right &__item__main {
+  		width: percentage(8.5/$grid-columns);
+    }
+    
+    .for-employers &__rail-left &__item__rail,
+	  .for-employers &__rail-right &__item__rail {
+	  	width: percentage(3.5/$grid-columns);
+	  }
 	}
   
 	@include media($large-up) {
@@ -106,6 +116,32 @@
 	  	width: percentage(3.5/$grid-columns);
 	  	padding-left: $page-gutter;
 	  	padding-right: $page-gutter;
+	  }
+	}
+	
+	@include media($xlarge-up) {
+  
+	  .for-employers &__rail-left &__item__main,
+	  .for-employers &__rail-right &__item__main {
+  		width: 75%;
+    }
+    
+    .for-employers &__rail-left &__item__rail,
+	  .for-employers &__rail-right &__item__rail {
+	  	width: 25%;
+	  }
+	}
+	
+	@include media($xlarge-up) {
+  
+	  .for-employers &__rail-left &__item__main,
+	  .for-employers &__rail-right &__item__main {
+  		width: 78%;
+    }
+    
+    .for-employers &__rail-left &__item__rail,
+	  .for-employers &__rail-right &__item__rail {
+	  	width: 22%;
 	  }
 	} // end &__rail-left
 
