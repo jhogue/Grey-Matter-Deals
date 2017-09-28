@@ -87,11 +87,11 @@
     background-color: rgba(palette(brand, red), .75);
     color: palette(mono, white);
     
-    @include media($small-up) {
+    //@include media($small-up) {
       position: absolute;
       right: 0;
       top: 0;
-    }
+    //}
   }
 
   &__expiring {
@@ -108,11 +108,11 @@
     background-color: rgba(palette(brand), .75);
     color: palette(mono, white);
     
-    @include media($small-up) {
+    //@include media($small-up) {
       position: absolute;
       right: 0;
       bottom: 0;;
-    }
+    //}
   }
 
   &__brand,

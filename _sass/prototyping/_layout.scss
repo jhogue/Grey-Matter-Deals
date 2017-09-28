@@ -195,6 +195,10 @@
 
 
   // The name denotes that this is a 2/3 1/3 column balance
+  // <div class="grid grid__third-right">
+  //   <div class="grid__item"></div>
+  //   <div class="grid__item"></div>
+  // </div>
   &__third-right > &__item:first-child,
   &__third-left > &__item:last-child {
     
@@ -204,7 +208,7 @@
 		@include media($medium-up) {
 			width: percentage(8/$grid-columns);
 		}
-		@include media($large-up) {
+		@include media($xlarge-up) {
 			width: percentage(9/$grid-columns);
 		}
   }
@@ -218,14 +222,15 @@
 		@include media($medium-up) {
 			width: percentage(4/$grid-columns);
 		}
-		@include media($large-up) {
+		@include media($xlarge-up) {
 			width: percentage(3/$grid-columns);
 		}
   }
   
   // Used when we have columns that need to be image first for mobile
   // but then image last for desktop
-  .reverse-order {
+  .reverse-order,
+  &.reverse-order {
     
     @include media($small-up) {
       flex-flow: row-reverse wrap;
@@ -252,17 +257,17 @@
 		width: 100%;
 
     @include media($small-up) {
-			width: 48%;
+			width: 48.5%;
 		}
 
-    @include media($medium-up) {
-			width: 23.5%;
+    @include media($large-up) {
+			width: 24%;
 		}
 	}
 
 
 	// This one starts at two over threee, then three over two, then six across
-	//&__sextet &--item {
+	//&__sextet &__item {
   //  width: percentage(6/$grid-columns);
   //
 	//	@include media($small) {
@@ -273,4 +278,25 @@
 	//		width: percentage(2/$grid-columns);
 	//	}
 	//}
+	
+	&__octet {
+  	align-items: stretch;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+	}
+	
+	&__octet &__item {
+  	width: percentage(6/$grid-columns);
+  	
+  	@include media($small) {
+    	width: percentage(4/$grid-columns);
+  	}
+  	@include media($medium) {
+    	width: percentage(3/$grid-columns);
+  	}
+  	@include media($large-up) {
+    	width: 12.5%;
+  	}
+  }
 }

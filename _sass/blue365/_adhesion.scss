@@ -6,7 +6,8 @@
 .js-adhesive.stuck {
   position: fixed;
   top: 0;
-  overflow-y: scroll;
+  height: 100vh;
+  overflow-y: auto;
 
   .deal__aside & {
     left: calc(66.66% + #{$page-gutter});

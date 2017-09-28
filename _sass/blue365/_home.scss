@@ -1,0 +1,215 @@
+
+.b365-home {
+
+  .layout__content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  //<div class="b365-home__about">
+  //  <h2 class="screen-reader-text">What is Blue365?</h2>
+  //  <p>Blue365 offers access to health and wellness deals exclusive to Blue members. We feature exclusive deals from brands that you trust that are easy to redeem. There are no membership fees or limits on how much you could save!</p>
+  //  <p><a href="#signin-modal" class="button button__primary js-inline-modal">Join Now!</a></p>
+  &__about {
+    background-color: percent-color(palette(brand), 20%);
+    text-align: center;
+
+    & > div {
+      padding: $vert-line-height $page-gutter .0625em;
+    }
+  }
+  
+  &__section {
+    
+    .delta {
+      margin: $page-gutter;
+    }
+    
+    .blog-card__wrapper {
+      padding: $page-gutter;
+    }
+  }
+  
+  .featured-deals,
+  .suggested-deals {
+    border-top: 1px solid $color-borders;
+    
+    @include media($small-up) {
+      padding-left: $page-gutter;
+      padding-right: $page-gutter;
+      
+      .delta {
+        margin: $page-gutter 0;
+      }
+      
+      .grid__item {
+        margin-bottom: $page-gutter;
+      }
+    }
+    
+    .deal-card__actions {
+      @include hide();
+    }
+  }
+  
+  &__categories {
+    background-color: percent-color(palette(brand), 20%);
+    padding: $vert-line-height $page-gutter;
+    text-align: center;
+    
+    .fa {
+      color: palette(mono, 75);
+      display: block;
+      font-size: 150%;
+      margin: 0 auto .5rem;
+    }
+    
+    .grid__item {
+      padding-top: ($page-gutter * 2);
+    }
+  }
+  
+  .related__news {
+    
+    @include media($xlarge-up) {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+}
+
+//<div class="b365-home__feature feature">
+//  <img src="http://fpoimg.com/1050x450?text=21:9 Feature" alt="">
+//  <div class="feature__content">
+//    <div class="feature__label">This week’s deal from <a href="{{ site.baseurl }}flow-1.html">Personal Care</a></div>
+//    <div class="feature__title">
+//      <img src="{{ site.baseurl }}assets/img/Dental_Solutions.png" alt="Dental Solutions">
+//      <h2>20-50% Discounts to a Network of Dentists</h2>
+//    </div>
+//    <div class="feature__action">
+//      <a href="{{ site.baseurl }}deal-flow-1.html" class="button button__primary">Details</a>
+//    </div>
+//  </div>
+//</div>
+
+.feature {
+  position: relative;
+  
+  &__link {
+    display: block;
+  }
+  
+  &__content {
+    padding: 0 $page-gutter $page-gutter;  
+    
+    @include media($medium-up) {
+    	 background: rgba(0,0,0,0.25);
+    	 position: absolute;
+    	 top: 50%;
+    	 left: 1rem;
+    	 transform: translateY(-50%);
+    	 width: 66.66%;
+    	 z-index: 10;
+    }
+    
+    @include media($large-up) {
+      width: 50%;
+    }
+  }
+  
+  &__image {
+    @include proportional-container(8 5);
+    
+    img {
+      @include image-cover('auto 100%');
+    }
+    
+    @media (min-width: 480px) {
+      padding-bottom: percentage(9/16);
+    }
+    
+    @include media($medium-up) {
+      padding-bottom: percentage(1/1);
+    }
+    
+    @media (min-width: 800px) {
+      padding-bottom: percentage(3/4);
+    }
+    
+    @include media($large-up) {
+      padding-bottom: percentage(5/8);
+    }
+    
+    @include media($xlarge-up) {
+      padding-bottom: percentage(9/16);
+    }
+    
+    @include media($xxlarge-up) {
+      padding-bottom: percentage(9/21);
+      
+      img {
+        @include image-cover('100% auto');
+      }
+    }
+  }
+  
+  &__label {
+    @extend .micro;
+    background-color: palette(brand);
+    color: palette(mono, white);
+    font-weight: $font-weight-bold;
+    padding: ($page-gutter / 2);
+    text-transform: uppercase;
+    
+    &.inside {
+      @include hide();
+      margin: 0 (- $page-gutter);
+      
+      @include media($medium-up) {
+        @include show();
+      }
+    }
+    
+    &.outside {
+      
+      @include media($medium-up) {
+        @include hide();
+      }
+    }
+    
+    a {
+      @include touch-hover() {
+        color: palette(mono, white);
+      }
+      @include touch-hover('hover') {
+        color: palette(mono, white);
+      }
+    }
+  }
+  
+  &__title {
+    padding: $vert-line-height 0;
+  }
+  
+  &__action {}
+}
+
+
+// <h2 class="delta header-w-link">Featured Deals <a href="{{ site.baseurl }}flow-1.html">Browse All Deals</a></h2>
+.header-w-link {
+  position: relative;
+  
+  &.delta a {
+    font-size: 87.5%;
+  }
+  
+  //@include media($small-up) {
+    a {
+      position: absolute;
+      top: .25rem;
+      right: 0;
+    }
+  //}
+}

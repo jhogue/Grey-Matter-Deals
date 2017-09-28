@@ -319,6 +319,42 @@
   }
 }
 
+.featured-deals .grid,
+.suggested-deals .grid {
+  
+  // Hide all options
+  .grid__item {
+    
+    .deal-card__flash,
+    .deal-card__expiring,
+    .deal-card__location {
+      @include hide();
+    }
+  }
+  
+  .grid__item:nth-child(1) {
+    
+    // Show specific ones
+    .deal-card__flash {
+      @include show();
+    }
+  }
+  
+  .grid__item:nth-child(2) {
+    
+    .deal-card__expiring {
+      @include show(inline-block);
+    }
+  }
+  
+  .grid__item:nth-child(4) {
+    
+    .deal-card__location {
+      @include show();
+    }
+  }
+}
+
 
 
 //.special-message {
