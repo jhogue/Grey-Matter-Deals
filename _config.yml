@@ -6,7 +6,7 @@ highlighter: pygments
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
 
-baseurl: '/b365/20sep2017/'
+baseurl: '/b365/29sep2017/'
 port: 4080
 url: //jhogue.dev.oomphcloud.com
 twitter_handle: oomphinc
