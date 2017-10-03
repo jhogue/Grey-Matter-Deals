@@ -1,5 +1,5 @@
 <header>
-  <div class="paragraph paragraph__hero entry-content">
+  <div class="paragraph paragraph__hero entry-content" style="border: 0; background-color: #fff;">
     <h1>Blue365 For Employers</h1>
     <p>Encourage your Employees to join Blue365 to build a culture of health and wellness at your workplace. Gain access to bulk discounts on wearable devices and more. </p>
   </div>
@@ -79,7 +79,7 @@
   
 
 
-  <div id="get-started" class="paragraph paragraph__hero entry-content">
+  <div id="get-started" class="paragraph paragraph__hero entry-content" style="border: 0; background-color: #fff;">
     <h2>Start Benefitting from Blue365</h2>
     <p>Want to get started? We know a healthy, productive workforce is your priority. Here&rsquo;s a few steps for your organization to start enjoying the benefits of Blue365.</p>
   </div>
@@ -89,15 +89,19 @@
     <div class="grid grid--trio">
       
       <div class="grid__item entry-content">
-        <span style="display: block; font-size: 300%; text-align: center;"><span class="fa" aria-hidden="true">&#10122;</span></span>
-        <h3 style="text-align: center; margin-top: 1rem;">Check Eligibility</h3>
+        <h3 style="text-align: center; margin-top: 1rem;">
+          <span style="font-size: 150%; position: relative; top: .0625em;"><span class="fa" aria-hidden="true">&#10122;</span></span>
+          Check Eligibility
+        </h3>
         <p>Check if your Blue Company is participating in Blue365. Blue365 is currently available in select locations for Blue Cross and Blue Shield members and nationwide for those in the Federal Employee Program.</p>
         <p style="text-align: center;"><a href="#eligible-modal" class="button button__primary js-inline-modal">Check Eligibility Now</a></p>
       </div>
       
       <div class="grid__item entry-content" style="text-align: center">
-        <span style="display: block; font-size: 300%; text-align: center;"><span class="fa" aria-hidden="true">&#10123;</span></span>
-        <h3 style="margin-top: 1rem;">Share and Print</h3>
+        <h3 style="margin-top: 1rem;">
+          <span style="font-size: 150%; position: relative; top: .0625em;"><span class="fa" aria-hidden="true">&#10123;</span></span>
+          Share and Print
+        </h3>
 
         <h4 class="echo">Share the registration link</h4>
         <div class="form__group form__input-button-pair redeem__copycode">
@@ -111,8 +115,10 @@
       </div>
       
       <div class="grid__item entry-content" style="text-align: center">
-        <span style="display: block; font-size: 300%; text-align: center;"><span class="fa" aria-hidden="true">&#10124;</span></span>
-        <h3 style="margin-top: 1rem;">Use our Email Template</h3>
+        <h3 style="margin-top: 1rem;">
+          <span style="font-size: 150%; position: relative; top: .0625em;"><span class="fa" aria-hidden="true">&#10124;</span></span>
+          Use our Email Template
+        </h3>
         <p>Use our easy message template to explain the benefits of Blue365 and how employees can join. Customize the message as you see fit. </p>
         <p>
           <textarea class="form__textarea" readonly rows="2">
@@ -184,16 +190,6 @@ Want to get started? Blue365 is currently available in select locations for Blue
     </div>
   </div>
 
-
-  <div class="paragraph paragraph__cards">
-    <div class="grid__item entry-content">
-      <p><strong>Need Help?</strong> Have a question or comment about Blue365? The best way to reach us is to use the Blue365 contact form. Alternatively, you can call 1-(855)-511-BLUE (2583). Tell us how we can help, and our Customer Service team will be in touch soon.</p> 
-      {% comment %}
-      <p>For more information about WalkingWorks, please send an email to WalkingWorks or visit the WalkingWorks FAQs page and contact us using the form on the page. We look forward to hearing from you!</p>
-      {% endcomment %}
-    </div>
-  </div>
-
   
   <div class="flow-1">
     <div class="paragraph paragraph__hero">
@@ -217,16 +213,23 @@ Want to get started? Blue365 is currently available in select locations for Blue
     </div>
   </div>
   
+
+  <div class="paragraph paragraph__cards promo__wrapper">
+    <div class="grid__item entry-content">
+      <p><strong>Need Help?</strong> Have a question or comment about Blue365? The best way to reach us is to use the Blue365 contact form. Alternatively, you can call 1-(855)-511-BLUE (2583). Tell us how we can help, and our Customer Service team will be in touch soon.</p> 
+      {% comment %}
+      <p>For more information about WalkingWorks, please send an email to WalkingWorks or visit the WalkingWorks FAQs page and contact us using the form on the page. We look forward to hearing from you!</p>
+      {% endcomment %}
+    </div>
+  </div>
   
 
   <div class="flow-1 for-employers__footer">
     <div style="padding: 1rem;">
-      <h3 style="text-align: center; padding-bottom: 1rem;">Featured Deals for Employers</h3>
-      <div class="grid grid--quartet related__deals">
-        {% include deal-card.html %}
-        {% include deal-card.html %}
-        {% include deal-card.html %}
-        {% include deal-card.html %}
+      <h3 style="text-align: center; padding-bottom: 1rem;">Check Out the Great Deals from Blue365</h3>
+      <div class="grid grid--duo related__deals">
+        {% include deal-card-1.html %}
+        {% include deal-card-1.html %}
       </div>
     </div>
   </div>

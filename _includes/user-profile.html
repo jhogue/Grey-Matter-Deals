@@ -29,7 +29,7 @@
       <p>
         <b>Member Since:</b> 2012<br>
         <b>Password:</b> ••••••••  &nbsp;|&nbsp; <a href="#">Change</a><br>
-        <b>BCBS Plan Prefix:</b> BCBSA <!--&nbsp;|&nbsp; <a href="#">Edit</a>--><br>
+        <b>BCBS Plan Prefix:</b> AFG &ndash; BlueCross Blue Shield of Illinois <!--&nbsp;|&nbsp; <a href="#">Edit</a>--><br>
         <b>Email Preferences:</b> Monthly Newsletter (Yes) <!--&nbsp;|&nbsp; <a href="#">Edit</a>-->
       </p>
       <div class="flow-2">
@@ -62,18 +62,30 @@
   
   
   <div class="deals-list deals-list--favorites">
-    <div class="grid grid--quartet">
-      <div class="grid__item entry-content">
-        <h2>My Favorites</h2>
-        <p><a href="#" class="button button__secondary">More Favorites</a></p>
+    
+    <div class="flow-1">
+      <div class="grid grid--quartet related__deals">
+        <div class="grid__item entry-content">
+          <h2>My Favorites</h2>
+          <p><a href="#" class="button button__secondary">More Favorites</a></p>
+        </div>
+        {% include deal-card-1.html %}
+        {% include deal-card-1.html %}
+        {% include deal-card-1.html %}
       </div>
-      {% include deal-card.html %}
-      {% include deal-card.html %}
-      {% include deal-card.html %}
     </div>
-    <!--<div class="special-message">
-      <p><a href="#">Expired Favorites</a>. You have a few favorite deals that have expired. <a href="#">Opt in to a notification when new similar deals come online!</a></p>
-    </div>-->
+    
+    <div class="flow-2">
+      <div class="grid grid--quartet related__deals">
+        <div class="grid__item entry-content">
+          <h2>My Favorites</h2>
+          <p><a href="#" class="button button__secondary">More Favorites</a></p>
+        </div>
+        {% include deal-card-2.html %}
+        {% include deal-card-2.html %}
+        {% include deal-card-2.html %}
+      </div>
+    </div>
   </div>
   
   
@@ -93,7 +105,7 @@
     <h2>My Redeemed Deals</h2>
     <div class="grid grid__third-left">
       <div class="grid__item entry-content">
-        <p><a href="#">More from my History</a></p>
+        <p><a href="#" class="button button__secondary">More from my History</a></p>
         <p><i>A deal is considered “redeemed” when the copy coupon code, continue shopping, print, email, text, or phone links are clicked.</i></p>
       </div>
       <div class="grid__item">
