@@ -13,10 +13,18 @@
   padding: $vert-line-height $page-gutter;
   
   &__title {
-    margin-bottom: $vert-line-height;
+    margin-bottom: .125rem;
   }
   
-  &__list  {}
+  &__list  {
+    
+    li {
+      // Tighten line height on multi-line items
+      line-height: 1.25;
+      // Visually space things out to reflect the overall vertical rhythm
+      margin-bottom: .5625rem;
+    }
+  }
 
   @include media($large-up) {
     padding: $vert-line-height ($page-gutter * 2);

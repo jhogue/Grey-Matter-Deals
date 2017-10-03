@@ -10,6 +10,7 @@
   overflow-y: auto;
 
   .deal__aside & {
+    height: auto;
     left: calc(66.66% + #{$page-gutter});
     right: $page-gutter;
     bottom: 0;
@@ -29,6 +30,20 @@
     }
   }
   
+  .for-employers .sidebar--rail-left &,
+  .for-employers .sidebar--rail-right &,
+  .terms-of-use .sidebar--rail-left &,
+  .terms-of-use .sidebar--rail-right & {
+    
+    @include media($xlarge-up) {
+      width: 25%;
+    }
+    
+    @include media($xxlarge-up) {
+      width: 22%;
+    }
+  }
+  
   .sidebar--rail-left & {
     left: 0;
   }
@@ -44,15 +59,11 @@
   bottom: ($page-gutter * 2);
 
   .deal__aside & {
-    left: $page-gutter;
-    right: $page-gutter;
-  }
-  
-  .sidebar--rail-left & {
     left: 0;
-    width: 100%;
+    right: 0;
   }
   
+  .sidebar--rail-left &,
   .sidebar--rail-right & {
     left: 0;
     width: 100%;

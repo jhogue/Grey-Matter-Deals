@@ -145,13 +145,55 @@
     &__container {
       padding-bottom: ($vert-line-height * 1.5);
     }
+    
+    // Jumping out of the flow a bit here, since I have found
+    // a few other places that this code can be used for
+    .flow-1-body & .grid.related__deals {
+      
+      @include media($large-up) {
+
+        .child-wrapper {
+          width: 48.5%;
+        }
+      }
+    }
+    
+    @at-root {
+    
+      .flow-1-body & .grid.related__deals,
+      .flow-1-body .deals-list--favorites .grid.related__deals {
+        
+        @include media($large-up) {
+          
+          .child-wrapper {
+            
+            .deal-card__1 {
+              display: block;
+              
+              .deal-card__flash {
+                right: 0;
+              }
+              
+              .deal-card__offer__content {
+                position: relative;
+                bottom: auto;
+                margin-top: -2rem;
+                color: palette(mono, 75);
+                background-color: palette(mono, white);
+              }
+              
+              .deal-card__actions {
+                border-top: 1px solid $color-borders;
+              }
+            }
+          }
+        }
+      }
+    }
   }
-}
 
 
-// Media & CSS Grid FTW!
-.deal {
-
+  // Media & CSS Grid FTW!
   @include media($small-up) {
     
     &__header {
@@ -171,8 +213,16 @@
     .flow-2-body &__header {
       grid-template-areas:
         "brand brand title title title title"
-        "featured featured featured meta meta meta"
-        "redeem redeem redeem redeem redeem redeem";
+        "featured featured featured featured redeem redeem"
+        "featured featured featured featured meta meta";
+    }
+    
+    .flow-2-body &__meta__grid {
+      flex-flow: row wrap;
+      
+      & > div {
+        width: 50%;
+      }
     }
     
     &__brand {
@@ -203,20 +253,20 @@
     }
   }
   
-  &__footer {
-    
-    .grid--duo .grid__item:first-child {
-      padding-right: ($page-gutter/2);
-    }
-    .grid--duo .grid__item:last-child {
-      padding-left: ($page-gutter/2);
-    }
-  }
+  //&__footer {
+  //  
+  //  .grid--duo .grid__item:first-child {
+  //    margin-right: ($page-gutter/2);
+  //  }
+  //  .grid--duo .grid__item:last-child {
+  //    margin-left: ($page-gutter/2);
+  //  }
+  //}
   
   @include media($medium-up) {
     
     &__title {
-      margin-bottom: $vert-line-height;
+      //margin-bottom: $vert-line-height; Not needed for Flow 1
     }
     
     &__footer {
@@ -239,16 +289,18 @@
     
     &__header {
       grid-template-areas:
-        "title title title title title title"
-        "featured featured featured featured brand brand"
+        "brand title title title title title"
         "featured featured featured featured redeem redeem"
         "featured featured featured featured meta meta";
     }
     
+    .flow-2-body &__header .redeem {
+      padding-top: 0;
+    }
+    
     .flow-2-body &__header {
       grid-template-areas:
-        "title title title title title title"
-        "featured featured featured featured brand brand"
+        "brand title title title title title"
         "featured featured featured featured meta meta"
         "featured featured featured featured redeem redeem";
     }
@@ -258,14 +310,6 @@
       margin-top: $page-gutter;
       margin-bottom: $page-gutter;
     }
-    
-    //.logged-in &__header {
-    //  grid-template-areas:
-    //    "title title title title title title"
-    //    "featured featured featured featured brand brand"
-    //    "featured featured featured featured meta meta"
-    //    "redeem redeem redeem redeem redeem redeem";
-    //}
     
     &__title {
       margin-bottom: ($page-gutter * 2);
@@ -287,16 +331,6 @@
     .logged-in &__meta {
       align-self: center;
     }
-    
-    &__footer {
-      
-      .grid--duo .grid__item:first-child {
-        padding-right: ($page-gutter/2);
-      }
-      .grid--duo .grid__item:last-child {
-        padding-left: ($page-gutter/2);
-      }
-    }
   }
   
   @include media($xlarge-up) {
@@ -307,16 +341,6 @@
       width: 25%;
     }
   }
-  
-  //@include media($large-up) {
-  //  
-  //  .logged-in &__header {
-  //    grid-template-areas:
-  //      "brand title title title title title"
-  //      "featured featured featured featured meta meta"
-  //      "featured featured featured featured redeem redeem";
-  //  }
-  //}
 }
 
 
@@ -362,7 +386,6 @@
   }
   
   &__title {
-    @include hide();
     padding-bottom: $vert-line-height/2;
     
     .modal & {
@@ -555,7 +578,7 @@
   
   @include media($large-up) {
     
-    // Now appearing only in the adesive menu
+    // Now appearing only in the adhesive menu
     & .flow-2 .logged-in {
       text-align: center;
       

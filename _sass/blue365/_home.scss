@@ -213,3 +213,18 @@
     }
   //}
 }
+
+.flow-1-body.b365-home {
+  
+  .grid--quartet-small {
+    padding: 0 $page-gutter;
+    
+    @include media($large-up) {
+      
+      .grid__item {
+        margin-bottom: $page-gutter;
+        width: 49%;
+      }
+    }
+  }
+}

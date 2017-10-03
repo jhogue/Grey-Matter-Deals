@@ -22,27 +22,30 @@
   padding-bottom: $vert-line-height;
   
   @include media($medium-up) {
-    padding-right: ($page-gutter * 2);
+
+    .flow-1-body & {
+      padding-right: ($page-gutter * 2);
+    }
   }
-  
+
   h3 a {
-    
+
     .fa {
       @include hide();
     }
   }
-  
+
   &__group {
     border-bottom: 1px solid $color-borders;
     padding-bottom: ($vert-line-height/2);
     margin-bottom: ($vert-line-height/2);
-    
+
     &:last-child {
       border-bottom: 0;
       margin-bottom: 0;
     }
   }
-  
+
   &__sub-group {
     padding-bottom: $vert-line-height;
   }
@@ -50,7 +53,8 @@
 
 
 .accordion {
-  
+  position: relative;
+
   &__container {
     padding-top: $page-gutter;
   }
@@ -89,14 +93,85 @@
   .js .js-accordion-container {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 250ms ease;
+    transition: max-height 400ms ease;
     
     &.open {
-      max-height: 360px;
+      max-height: 900px;
     }
     
     .deal-filters__group {
       padding: 0 $page-gutter;
     }
   }
+  
+  //#filters {
+  //  @include hide();
+  //}
+}
+
+
+// Make the Filters drop down persistent on the Flow 2 version
+// The drop down floats over the content
+.flow-2-body {
+
+  .accordion__container {
+    background-color: palette(mono, white);
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .js & .js-accordion-container.open {
+    box-shadow: 0 4px 3px rgba(#000, .25);
+  }
+}
+
+// Repeat of the Media Query above, since Flow 2
+// uses the drop down filter style throughout the RWD cycle
+@media (min-width: 760px) {
+  
+  .js .flow-2-body .js-accordion h3 {
+    border: 1px solid $color-borders;
+    padding: .5rem 1rem .375rem;
+    position: relative;
+    
+    a {
+      display: block;
+      padding-right: 3rem;
+    }
+    
+    .fa {
+      @include show(inline);
+      font-size: 125%;
+      position: absolute;
+      top: .875rem;
+      right: 1rem;
+    }
+    
+    a .fa-minus-square {
+      opacity: 0;
+      transition: opacity 250ms ease;
+    }
+    a.open .fa-minus-square {
+      opacity: 1;
+    }
+  }
+  
+  .js .flow-2-body .js-accordion-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 400ms ease;
+    
+    &.open {
+      max-height: 900px;
+    }
+    
+    .deal-filters__group {
+      padding: 0 $page-gutter;
+    }
+  }
+  
+  //#filters {
+  //  @include show();
+  //}
 }
