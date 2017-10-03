@@ -37,7 +37,7 @@ body-class: 'b365-home flow-1-body'
       <!-- Feature -->
       <div class="b365-home__feature feature">
         <div class="feature__label outside">This week’s deal from <a href="{{ site.baseurl }}flow-1.html"><span class="fa fa-shower" aria-hidden="true"></span> Personal Care</a></div>
-        <a href="{{ site.baseurl }}deal-flow-1.html" class="feature__link">
+        <a href="#" class="feature__link">
           <div class="feature__image js-ratio">
             <img src="http://fpoimg.com/1600x900?text=16:9 Feature" alt="">
             <span class="js-ratio-output"></span>
@@ -59,62 +59,18 @@ body-class: 'b365-home flow-1-body'
   </div>
   
   <div class="b365-home__section">
+    
     <div class="logged-out featured-deals">
       <h2 class="delta header-w-link">Featured Deals <a href="{{ site.baseurl }}flow-1.html">Browse All Deals</a></h2>
-      <div class="grid grid--quartet-small related__deals">
-        {% include deal-card.html %}
-        {% include deal-card.html %}
-        {% include deal-card.html %}
-        {% include deal-card.html %}
-      </div>
     </div>
     <div class="logged-in suggested-deals">
       <h2 class="delta header-w-link">Suggested For You <a href="#" title="Find out why we picked these deals for you">Why?</a></h2>
-      <div class="grid grid--quartet-small related__deals">
-        {% include deal-card.html %}
-        {% include deal-card.html %}
-        {% include deal-card.html %}
-        {% include deal-card.html %}
-      </div>
     </div>
-  </div>
-  
-  
-  <div class="b365-home__section b365-home__categories">
-    <h2 class="delta" style="text-align: center">Explore Blue365 Deal Categories</h2>
-    <div class="grid grid__octet">
-      <div class="grid__item" style="text-align: center;">
-        <span class="fa fa-globe" aria-hidden="true"></span>
-        <a href="{{ site.baseurl }}flow-1.html"><b>All Deals</b></a>
-      </div>
-      <div class="grid__item" style="text-align: center;">
-        <span class="fa fa-shirtsinbulk" aria-hidden="true"></span>
-        <a href="{{ site.baseurl }}flow-1.html"><b>Apparel & Footwear</b></a>
-      </div>
-      <div class="grid__item" style="text-align: center;">
-        <span class="fa fa-home" aria-hidden="true"></span>
-        <a href="{{ site.baseurl }}flow-1.html"><b>Home & Family</b></a>
-      </div>
-      <div class="grid__item" style="text-align: center;">
-        <span class="fa fa-futbol-o" aria-hidden="true"></span>
-        <a href="{{ site.baseurl }}flow-1.html"><b>Fitness</b></a>
-      </div>
-      <div class="grid__item" style="text-align: center;">
-        <span class="fa fa-cutlery" aria-hidden="true"></span>
-        <a href="{{ site.baseurl }}flow-1.html"><b>Nutrition</b></a>
-      </div>
-      <div class="grid__item" style="text-align: center;">
-        <span class="fa fa-shower" aria-hidden="true"></span>
-        <a href="{{ site.baseurl }}flow-1.html"><b>Personal Care</b></a>
-      </div>
-      <div class="grid__item" style="text-align: center;">
-        <span class="fa fa-black-tie" aria-hidden="true"></span>
-        <a href="{{ site.baseurl }}flow-1.html"><b>Seniors</b></a>
-      </div>
-      <div class="grid__item" style="text-align: center;">
-        <span class="fa fa-plane" aria-hidden="true"></span>
-        <a href="{{ site.baseurl }}flow-1.html"><b>Travel</b></a>
-      </div>
+    <div class="grid grid--quartet-small related__deals">
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
     </div>
   </div>
   

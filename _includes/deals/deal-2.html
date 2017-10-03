@@ -1,6 +1,7 @@
-<div class="deal__column__container">
+<div class="deal__column__container deal-single--2">
   
   <h1 class="deal__title deal__column--show">
+    <img class="deal__brand__logo" src="https://www.blue365deals.com/sites/default/files/styles/merchant_logo/public/merchant/logos/fitnessyourway_4c_300.jpg?itok=Fk8AXYbD" alt="" style="float: left; margin-right: 1rem;"> 
     Access to 9,500+ Gyms Nationwide through Tivity Health® Fitness Your Way
   </h1>
   
@@ -19,14 +20,27 @@
     <div id="redeem" class="deal__redeem redeem deal__column--hide">
       <div class="logged-out">
         <p>
-          <a href="{{ site.baseurl }}sign-in-flow-2.html" class="button button__primary redeem__button redeem__button--signin">Sign In</a>
-          <a href="{{ site.baseurl }}sign-in-flow-2.html#join" class="button button__primary redeem__button redeem__button--join">Join</a>
+          <a href="{{ site.baseurl }}sign-in-flow-2.html#join" class="button button__primary redeem__button redeem__button--join">Join Blue365 to Redeem</a>
         </p>
       </div>
-      <div class="logged-in">
-        <h3 class="redeem__title">Redemption Options:</h3>
-        {% include deals/deal-redemption.html %}
-      </div>
+      <div class="logged-in" style="margin-bottom: 0.875em;">
+          
+          <h4 class="redeem__title">Redemption Instructions:</h4>
+          <ol style="text-align: left; padding: 0 1rem;">
+            <li>Click “Shop on Partner Site” to be redirected to the <a href="#external-notice" class="js-inline-modal">Fitness Your Way by Tivity Health</a> website.</li>
+            <li>Enter redemption code <b>FIT4FALL</b> to receive the $25 waived enrollment fee at checkout.</li>
+          </ol>
+          
+          <div class="" style="text-align: center;">
+            <h5 class="echo screen-reader-text">Online Coupon Code</h5>
+            <div class="form__group form__input-button-pair redeem__copycode" style="padding: .75rem 1rem">
+              <input class="form__input redeem__input" value="FIT4FALL" readonly>
+              <a href="#" class="button button__primary" title="Copy Online Coupon Code"><span class="fa fa-clipboard" aria-hidden="true"></span>Copy Code</a>
+            </div>
+            <a href="#external-notice" class="button button__primary js-inline-modal" target="_blank"><span class="fa fa-external-link-square" aria-hidden="true"></span>Shop on Partner Site</a>
+          </div>
+            
+        </div>
     </div><!-- End Redeem -->
   
     
@@ -64,16 +78,17 @@
     <div class="deal__featured">
       <div class="gallery gallery__container">
         <div class="gallery__main">
-          <img class="deal__featured__image" src="http://fpoimg.com/1600x900?text=16:9 Deal Image Gallery">
+          <img class="deal__featured__image" src="http://fpoimg.com/1200x675?text=16:9 Deal Image Gallery">
         </div>
         <div class="gallery__thumbs">
-          <ul class="gallery__thumbs__list paragraph__gallery__container">
-            <li><img class="deal__featured__image" src="http://fpoimg.com/400x300?text=4:3 Deal Thumb"></li>
-            <li><img class="deal__featured__image" src="http://fpoimg.com/400x300?text=4:3 Deal Thumb"></li>
-            <li><img class="deal__featured__image" src="http://fpoimg.com/400x300?text=4:3 Deal Thumb"></li>
-            <li><img class="deal__featured__image" src="http://fpoimg.com/400x300?text=4:3 Deal Thumb"></li>
-            <li><img class="deal__featured__image" src="http://fpoimg.com/400x300?text=4:3 Deal Thumb"></li>
-            <li><img class="deal__featured__image" src="http://fpoimg.com/400x300?text=4:3 Deal Thumb"></li>
+          <ul class="gallery__thumbs__list">
+            <li><img class="deal__featured__image" src="http://fpoimg.com/200x150?text=4:3 Deal Thumb"></li>
+            <li><img class="deal__featured__image" src="http://fpoimg.com/200x150?text=4:3 Deal Thumb"></li>
+            <li><img class="deal__featured__image" src="http://fpoimg.com/200x150?text=4:3 Deal Thumb"></li>
+            <li><img class="deal__featured__image" src="http://fpoimg.com/200x150?text=4:3 Deal Thumb"></li>
+            <li><img class="deal__featured__image" src="http://fpoimg.com/200x150?text=4:3 Deal Thumb"></li>
+            <li><img class="deal__featured__image" src="http://fpoimg.com/200x150?text=4:3 Deal Thumb"></li>
+            <li><img class="deal__featured__image" src="http://fpoimg.com/200x150?text=4:3 Deal Thumb"></li>
           </ul>
         </div>
       </div>
@@ -115,6 +130,10 @@
     <!-- Map paragraph -->
     <div class="paragraph paragraph__map grid grid__rail-right">
       <div class="grid__item__main">
+        <div class="form__group form__input-button-pair" style="padding: .5rem .5rem .5rem 0">
+          <input class="form__input redeem__input" value="" placeholder="Enter your Zipcode">
+          <a href="#" class="button button__primary" title="Find locations near you"><span class="fa fa-map-marker" aria-hidden="true"></span>Search</a>
+        </div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d380242.44513300515!2d-87.90056677495271!3d41.87900306683395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2cbb24a58c1f%3A0x469c0c8118eb74b2!2sChicago+Loop%2C+Chicago%2C+IL!5e0!3m2!1sen!2sus!4v1504799273817" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
       </div>
       <div class="grid__item__rail entry-content">
@@ -198,23 +217,30 @@
       Repeat some elements here to make it easier to mock up an adhesive sidebar 
     -->
     <div class="wayfinding__wrapper js-adhesive">
-      <div class="deal__brand">
-        <img class="deal__brand__logo" src="https://www.blue365deals.com/sites/default/files/styles/merchant_logo/public/merchant/logos/fitnessyourway_4c_300.jpg?itok=Fk8AXYbD" alt="">
-        <div id="deal-brand" class="deal__brand__name">Fitness Your Way:</div>
-      </div>
       
       <div id="redeem" class="deal__redeem redeem">
         <div class="logged-out">
           <p>
-            <a href="{{ site.baseurl }}sign-in-flow-2.html" class="button button__primary redeem__button redeem__button--signin">Sign In</a>
-            <a href="{{ site.baseurl }}sign-in-flow-2.html#join" class="button button__primary redeem__button redeem__button--join">Join</a>
+            <a href="{{ site.baseurl }}sign-in-flow-2.html#join" class="button button__primary redeem__button redeem__button--join">Join Blue365 to Redeem</a>
           </p>
         </div>
-        <div class="flow-2">
-          <div class="logged-in">
-            <h3 class="redeem__title">Redemption Options:</h3>
-            {% include deals/deal-redemption.html %}
+        <div class="logged-in" style="margin-bottom: 0.875em;">
+          
+          <h4 class="redeem__title">Redemption Instructions:</h4>
+          <ol style="text-align: left; padding: 0 1rem;">
+            <li>Click “Shop on Partner Site” to be redirected to the <a href="#external-notice" class="js-inline-modal">Fitness Your Way by Tivity Health</a> website.</li>
+            <li>Enter redemption code <b>FIT4FALL</b> to receive the $25 waived enrollment fee at checkout.</li>
+          </ol>
+          
+          <div class="" style="text-align: center;">
+            <h5 class="echo screen-reader-text">Online Coupon Code</h5>
+            <div class="form__group form__input-button-pair redeem__copycode" style="padding: .75rem 1rem">
+              <input class="form__input redeem__input" value="FIT4FALL" readonly>
+              <a href="#" class="button button__primary" title="Copy Online Coupon Code"><span class="fa fa-clipboard" aria-hidden="true"></span>Copy Code</a>
+            </div>
+            <a href="#external-notice" class="button button__primary js-inline-modal" target="_blank"><span class="fa fa-external-link-square" aria-hidden="true"></span>Shop on Partner Site</a>
           </div>
+            
         </div>
       </div><!-- End Redeem -->
     
@@ -249,8 +275,8 @@
           <div class="addthis_sharing_toolbox"></div>
         </div>
         <div class="logged-out deal__value-prop">
-          <h5>Blue365 is free and easy to join!</h5>
-          <p>Members of BlueCross BlueShield Companies can redeem great deals on fitness, nutrition, and healthy lifestyle support. <a href="{{ site.baseurl }}sign-in-flow-2.html#join">Get started now</a>!</p>
+          <h5>What is Blue365?</h5>
+          <p class="micro">Blue365 offers access to health and wellness deals exclusive to Blue members. We feature exclusive deals from brands that you trust with no membership fees or limits to how much you can save! <a href="{{ site.baseurl }}sign-in-flow-2.html#join">Get started now</a>!</p>
         </div>
       </div>
     
