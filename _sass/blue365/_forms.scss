@@ -20,14 +20,16 @@
     input {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-      width: calc(100% - 108px);
+      width: calc(100% - 155px); // CAUTION: Magic number
     }
     
     .button {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       margin-left: -10px;
+      min-width: 155px;
       padding: 0.625em 1em 0.5em;
+      text-align: center;
     }
   }
   

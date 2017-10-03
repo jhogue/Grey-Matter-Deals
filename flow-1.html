@@ -8,31 +8,37 @@ body-class: 'flow-1-body'
   
 <div class="grid grid__rail-left deal-archive">
 	
+	<h1 class="layout__title">All Deals</h1>
+	
 	<aside class="grid__item grid__item__rail deal__filters">
 		{% include deals/search-filters.html %}
 	</aside>
 	
 	<div class="grid__item grid__item__main">
 		
-		<div class="grid grid--trio-small">
-      {% include deal-card.html %}
-      {% include deal-card.html %}
-      {% include deal-card.html %}
+		<div class="grid grid--flow-1-archive">
+      {% include deal-card-1.html %}
       
-      {% include deal-card.html %}
-      {% include deal-card.html %}
-      {% include deal-card.html %}
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
       
-      {% include deal-card.html %}
-      {% include deal-card.html %}
-      {% include deal-card.html %}
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
       
-      {% include deal-card.html %}
-      {% include deal-card.html %}
-      {% include deal-card.html %}
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
+      
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
     </div>
     
-    {% include pagination.html %}
+    <div class="load-more">
+      <a href="#" class="button button__primary">Load More +</a>
+    </div>
     
 	</div>
 </div>
@@ -42,13 +48,18 @@ body-class: 'flow-1-body'
     {% include modals/signin-join.html %}
   </div>
 </div>
-<div id="redeem-modal" class="modal mfp-hide">
+<div id="eligible-modal" class="modal mfp-hide">
   <div class="modal__wrapper">
-    {% include modals/redeem.html %}
+    {% include modals/signin-eligibility.html %}
   </div>
 </div>
 <div id="join-modal" class="modal mfp-hide">
   <div class="modal__wrapper">
     {% include modals/join.html %}
+  </div>
+</div>
+<div id="redeem-modal" class="modal mfp-hide">
+  <div class="modal__wrapper">
+    {% include modals/redeem.html %}
   </div>
 </div>

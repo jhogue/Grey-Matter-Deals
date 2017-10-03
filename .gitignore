@@ -1,8 +1,6 @@
 # The rendered site
 _site/
 
-# Rendered CSS
-assets/css/*
 
 .DS_Store
 */.DS_Store

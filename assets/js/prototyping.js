@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(window).load(function() {
 
 	// Development Only scripts
 
@@ -7,6 +7,21 @@ $(document).ready(function() {
 
 	function showSize() {
 		$('#size').html( $(window).width() + 'px x ' + $(window).height() + 'px');
+	}
+	
+	
+	// Same idea as window size, but applied to individual divs
+	$(window).on('resize', showRatio);
+	showRatio();
+	
+	function showRatio() {
+		var obj = $('.js-ratio');
+		$.each( obj, function() {
+  		var thiswidth = $(this).innerWidth(),
+  		  thisheight = $(this).innerHeight(),
+  		  thisratio = reduce(thiswidth, thisheight);
+  		$(this).children(".js-ratio-output").html( 'aspect ratio ' + thisratio );
+		});
 	}
 	
 	
@@ -29,3 +44,16 @@ $(document).ready(function() {
   });
 
 });
+
+
+// Functions
+
+// Reduce a fraction by finding the Greatest Common Divisor and dividing by it.
+function reduce(numerator,denominator){
+  var gcd = function gcd(a,b){
+    return b ? gcd(b, a%b) : a;
+  };
+  gcd = gcd(numerator,denominator);
+  //return [numerator/gcd, denominator/gcd];
+  return numerator/gcd + ':' + denominator/gcd;
+}

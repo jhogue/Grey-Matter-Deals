@@ -1,15 +1,15 @@
+// Helper classes
+.align-center {
+  align-self: center; // For single flex or grid items
+}
+
+.no-pad {
+  padding: 0 !important; // Blunt force trauma
+}
+
+
 .paragraph {
   
-  // Helper classes
-  .align-center {
-    align-self: center; // For flex or grid items
-  }
-  
-  .no-pad {
-    padding: 0 !important; // Blunt force trauma
-  }
-
-
   &__hero {
     background-color: palette(mono, 10);
     border-bottom: 1px solid $color-borders;
@@ -124,13 +124,13 @@
     background-color: palette(mono, 66);
     
     &__container {
-      display: flex;
-      flex-flow: row nowrap;
-      align-content: stretch;
-      list-style: none;
-      overflow-x: scroll;
-      margin: 0;
-      padding: $page-gutter 0 $page-gutter $page-gutter;
+      //display: flex;
+      //flex-flow: row nowrap;
+      //align-content: stretch;
+      //list-style: none;
+      //overflow-x: scroll;
+      //margin: 0;
+      //padding: $page-gutter 0 $page-gutter $page-gutter;
       
       li {
         padding-right: $page-gutter;
@@ -230,11 +230,13 @@
   
   &__thumbs {
     background-color: palette(mono, 66);
-    //overflow: hidden;
     width: 100%;
     
     &__list {
+      display: flex;
       flex-flow: row wrap;
+      list-style: none;
+      margin: 0;
       padding: 1rem 0 0 1rem;
       
       li {
@@ -243,9 +245,52 @@
       }
       
       img {
-        @include fluid-units( height, 60px, 120px, 480px, 1200px );
+        @include fluid-units( height, 50px, 100px, 480px, 1200px );
         max-width: none;
       }
+    }
+  }
+
+
+  @include media($large-up) {
+
+    .deal-single--2 &__container {
+      display: flex;
+      flex-flow: row-reverse wrap;
+    }
+
+    .deal-single--2 &__main {
+      width: 75%;
+    }
+
+    .deal-single--2 &__thumbs {
+      width: 25%;
+    }
+    
+    .deal-single--2 &__thumbs__list {
+      padding-right: .5rem;
+      
+      li {
+        padding-right: .5rem;
+        padding-bottom: .5rem;
+        width: 50%;
+      }
+      
+      img {
+        height: auto;
+        max-width: 100%;
+      }
+    }
+  }
+  
+  @include media($xlarge-up) {
+
+    .deal-single--2 &__main {
+      width: 80%;
+    }
+
+    .deal-single--2 &__thumbs {
+      width: 20%;
     }
   }
 }

@@ -1,33 +1,18 @@
-//<div class="grid__item">
-//  <article class="deal-card">
-//    <div class="deal-card__header">
-//      <div class="deal-card__category">
-//        <a class="deal-card__category__link" href="#">Fitness</a>
-//      </div>
-//    </div>
-//    <a class="deal-card__link" href="deal-simple.html">
-//      <div class="deal-card__thumb">
-//        <img src="http://fpoimg.com/800x450?text=Deal Thumbnail" alt="">
-//        <div class="deal-card__expiring">
-//          <span class="deal-card__expiring__days">4</span> days left
-//        </div>
-//      </div>
-//      <h2 class="charlie deal-card__brand">Gym Network 360</h2>
-//      <div class="deal-card__offer">
-//        <h3 class="delta deal-card__offer__content">5%&ndash;20% Off Gym Memberships for Seniors</h3>
-//      </div>
-//    </a>
-//    <footer class="deal-card__actions">
-//      <span class="button button__primary">More Details</span>
-//      <span class="deal-card__favorite deal-card__favorite--off"><span class="fa fa-heart-o" aria-hidden="true"></span>
-//    </footer>
-//  </article>
-//</div>
+// Move the border to the grid element so it gets align-items: stretch
+.deal-archive .child-wrapper {
+  border: 1px solid $color-borders;
+  margin-bottom: $vert-line-height/2;
+}
+.related__deals .child-wrapper {
+  border: 1px solid $color-borders;
+}
+.flow-1 > .related__deals .child-wrapper {
+  margin-bottom: $page-gutter;
+}
 
 .deal-card {
-  border: 1px solid $color-borders;
+  //border: 1px solid $color-borders;
   //margin-bottom: $vert-line-height/2;
-  padding-bottom: $vert-line-height/2;
 
   &__header {}
 
@@ -80,18 +65,18 @@
   &__location {
     display: inline-block;
     line-height: 1;
-    padding: .375em .75em;
+    padding: .625em .75em .5em;
   }
   
   &__flash {
     background-color: rgba(palette(brand, red), .75);
     color: palette(mono, white);
     
-    @include media($small-up) {
+    //@include media($small-up) {
       position: absolute;
       right: 0;
       top: 0;
-    }
+    //}
   }
 
   &__expiring {
@@ -108,11 +93,11 @@
     background-color: rgba(palette(brand), .75);
     color: palette(mono, white);
     
-    @include media($small-up) {
+    //@include media($small-up) {
       position: absolute;
       right: 0;
       bottom: 0;;
-    }
+    //}
   }
 
   &__brand,
@@ -140,11 +125,8 @@
     padding-top: $vert-line-height/2;
     
     .button {
-      //@include hide();
-      
-      @include media($small-up) {
-        //@include show(inline-block);
-      }
+      font-size: 87.5%;
+      font-weight: $font-weight-bold;
     }
   }
   
@@ -153,6 +135,11 @@
     display: inline-block;
     position: relative;
     margin-left: .75em;
+    
+    &__count {
+      margin-left: .75em;
+      white-space: nowrap;
+    }
     
     .fa:before {
       font-size: 150%;
@@ -174,6 +161,15 @@
     &--off:hover .fa-heart {
       opacity: 1;
       transform: scale(1);
+      
+      &:after {
+        position: absolute;
+        top: 25%;
+        left: 125%;
+        background-color: palette(mono, white);
+        content: ' Favorite';
+        font-size: 87.75%;
+      }
     }
     
     &--on .fa-heart-o {
@@ -193,12 +189,404 @@
         position: absolute;
         top: 25%;
         left: 125%;
-        content: ' Remove';
+        background-color: palette(mono, white);
+        content: ' Unfavorite';
+        font-size: 87.75%;
       }
     }
   }
   
   &__favorite--on {
     @include hide;
+  }
+}
+
+
+// Resets for the different flows
+.deal-card {
+  
+  &__1 {
+    padding-bottom: 0;
+  }
+  
+  &__1 &__category {
+    position: relative;
+    grid-area: category;
+  }
+  
+  &__1 &__header {
+    grid-area: header;
+    position: relative;
+  }
+  
+  &__1 &__thumb {
+    // Start with a 21:9 aspect ratio
+    @include proportional-container(21 9);
+    
+    img {
+      // Image is naturally 16:9, so we are cropping the top and bottom
+      @include image-cover('100% auto');
+    }
+  }
+  
+  &__1 &__offer__content {
+    padding: ($page-gutter/2) $page-gutter;
+    margin: -2rem 1.5rem 0;
+    background-color: palette(mono, white);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+
+    span {
+      font-weight: $font-weight-bold;
+    }
+  }
+  
+  &__1 &__flash {
+    background-color: palette(brand, red);
+  }
+  
+  &__1 &__link {
+    text-align: center;
+  }
+  
+  &__1 &__actions {
+    border-top: 1px solid $color-borders;
+    padding: $vert-line-height/2 0;
+    margin: 0 $page-gutter;
+    text-align: center;
+    grid-area: actions;
+  }
+  
+  &__1 &__brand {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: $vert-line-height/2;
+  }
+  
+  @include media($small-up) {
+    
+    &__1 {
+      display: grid;
+      grid-template-columns: 6fr 4fr;
+      grid-template-rows: auto;
+      grid-column-gap: 0;
+      grid-row-gap: 0;
+      grid-template-areas: 
+        "header category"
+        "header actions";
+    }
+    
+    &__1 &__flash {
+      right: 100%;
+      white-space: nowrap;
+      z-index: 10;
+    }
+    
+    &__1 &__expiring {
+      position: static;
+      top: 0;
+    }
+    
+    &__1 &__brand {
+      line-height: 1.33;
+    }
+    
+    &__1 &__actions {
+      border-top: 0;
+      
+      .button {
+        margin-bottom: ($vert-line-height / 2);
+      }
+    }
+  }
+  
+  @include media($medium-up) {
+    
+    // Go to a 16:9 aspect ratio
+    &__1 &__thumb {
+      padding-bottom: percentage(9/16);
+    }
+  }
+  
+  @include media($large-up) {
+    
+    &__1 &__offer__content {
+      position: absolute;
+      bottom: 1rem;
+      margin-top: 0;
+      color: palette(mono, white);
+      background-color: rgba(#000, 0.5);
+    }
+    
+    // Change to a 8:5 aspect ratio
+    &__1 &__thumb {
+      padding-bottom: percentage(5/8);
+      
+      img {
+        // Image is naturally 16:9, so now we are cropping the left and right
+        @include image-cover('auto 100%');
+      }
+    }
+    
+    &__1 &__expiring {
+      background-color: rgba(palette(mono, 75), .33);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+  }
+  
+  //@include media($xlarge-up) {
+  @media (min-width: 1200px) and (max-width: 1439px) {
+
+    // Kill the grid for every card BUT the first one
+    .deal-archive .child-wrapper:nth-child(n+2) &__1 {
+      display: block;
+    }
+
+    // Kill the headline abs. positioning
+    .deal-archive .child-wrapper:nth-child(n+2) &__1 &__offer__content {
+      position: relative;
+      bottom: auto;
+      margin-top: -2rem;
+      color: inherit;
+      background-color: palette(mono, white);
+      
+      span {
+        font-size: 87.5%;
+      }
+    }
+
+    // Make all images less tall, and change the crop
+    .deal-archive .child-wrapper &__1 &__thumb {
+      padding-bottom: percentage(9/21);
+      
+      img {
+        @include image-cover('100% auto');
+      }
+    }
+    
+    .deal-archive .child-wrapper:nth-child(n+2) &__1 &__actions {
+      border-top: 1px solid $color-borders;
+    }
+
+    // Remove the right position on the Flash flag
+    .deal-archive .child-wrapper:nth-child(n+2) &__1 &__flash {
+      right: 0;
+    }
+  }
+  
+  @include media($xxlarge-up) {
+    
+    .deal-archive .child-wrapper:nth-child(n+2) &__1 {
+      align-items: center;
+      grid-template-areas: 
+        "category actions"
+        "header actions"
+        "header actions";
+    }
+    
+    // Change the image again... first one, make less tall
+    .deal-archive .child-wrapper:nth-child(1) &__1 &__thumb {
+      padding-bottom: percentage(1/2);
+      
+      img {
+        @include image-cover('100% auto');
+      }
+    }
+
+    .deal-archive .child-wrapper:nth-child(n+2) &__1 &__thumb {
+      padding-bottom: percentage(5/8);
+      
+      img {
+        @include image-cover('auto 100%');
+      }
+    }
+
+    .deal-archive .child-wrapper:nth-child(n+2) &__1 &__flash {
+      right: 0;
+    }
+
+    .deal-archive .child-wrapper:nth-child(n+2) &__1 &__offer__content {
+      
+      span {
+        font-size: 87.5%;
+      }
+    }
+  }
+  
+  @media (min-width: 1600px) {
+
+    &__1 &__brand {
+      line-height: 1.75;
+    }
+  }
+  
+  
+  // FLOW 2
+  &__2 &__actions {
+    padding-bottom: ($vert-line-height/2);
+  }
+}
+
+
+// Make one look featured in Flow 2
+.grid--flow-2-archive {
+  
+  .grid__item {
+
+    .action-clone {
+      text-align: center;
+    }
+
+    //@media (min-width: 480px) and (max-width: 759px) {
+    //@include media($small-up) {
+    //
+    //  // Hide things we do not need
+    //  .deal-card__header,
+    //  .deal-card__actions {
+    //    @include hide();
+    //  }
+    //  
+    //  // Use grid to make laying things out easier
+    //  .deal-card__link {
+    //    display: grid;
+    //    grid-template-columns: 1.1fr 0.9fr;
+    //    grid-template-rows: auto;
+    //    grid-row-gap: 0;
+    //    grid-template-areas:
+    //      "category category"
+    //      "image brand"
+    //      "image offer"
+    //      "actions actions";
+    //  }
+    //  
+    //  div.category-clone {
+    //    @include show();
+    //    grid-area: category;
+    //    margin-left: - $page-gutter;
+    //    margin-right: - $page-gutter;
+    //  }
+    //  
+    //  .deal-card__brand {
+    //    grid-area: brand;
+    //  }
+    //  
+    //  .deal-card__offer {
+    //    grid-area: offer;
+    //  }
+    //  
+    //  .deal-card__thumb {
+    //    grid-area: image;
+    //  }
+    //  
+    //  div.action-clone {
+    //    @include show();
+    //    grid-area: actions;
+    //    border-top: 1px solid $color-borders;
+    //    margin-top: .75em;
+    //    padding-top: .75em;
+    //  }
+    //  
+    //  span.deal-card--featured-element {
+    //    //@include show(inline-block);
+    //  }
+    //}
+    //
+    //@include media($small) {
+    //  
+    //  .deal-card__link {
+    //    grid-template-columns: 1fr 1fr;
+    //  }
+    //}
+
+
+    // Do it all again for the first-child only
+    @include media($small-up) {
+      
+      &:first-child {
+        //width: 100%;
+        
+        // Hide things we do not need
+        .deal-card__header,
+        .deal-card__actions {
+          @include hide();
+        }
+        
+        // Use grid to make laying things out easier
+        .deal-card__link {
+          display: grid;
+          grid-template-columns: 1.1fr 0.9fr;
+          grid-template-rows: auto;
+          grid-row-gap: 0;
+          grid-template-areas:
+            "category category"
+            "image brand"
+            "image offer"
+            "actions actions";
+        }
+        
+        div.category-clone {
+          @include show();
+          grid-area: category;
+          margin-left: - $page-gutter;
+          margin-right: - $page-gutter;
+        }
+        
+        .deal-card__brand {
+          grid-area: brand;
+        }
+        
+        .deal-card__offer {
+          grid-area: offer;
+        }
+        
+        .deal-card__thumb {
+          grid-area: image;
+        }
+        
+        div.action-clone {
+          @include show();
+          grid-area: actions;
+          border-top: 1px solid $color-borders;
+          padding-top: .75em;
+          padding-bottom: .75em;
+        }
+      }
+    }
+    
+    @include media($large-up) {
+      
+      &:first-child {
+        
+        .deal-card {
+          padding-bottom: 0;
+        }
+        
+        .deal-card__link {
+          grid-template-areas:
+            "category category"
+            "image brand"
+            "image offer"
+            "image actions";
+        }
+      }
+    }
+    
+    @include media($xlarge-up) {
+      
+      &:first-child {
+        
+        .deal-card__link {
+          grid-template-areas:
+            "image category"
+            "image brand"
+            "image offer"
+            "image actions";
+        }
+      }
+    }
   }
 }

@@ -1,4 +1,9 @@
-// @file styles.scss
+---
+---
+
+// See: https://jekyllrb.com/docs/assets/
+// The load path '_sass' is assumed and inserted here for every include
+// To change the load path, go to _config.yml and change the value of 'sass_dir'
 
 
 // #Requirements
@@ -31,7 +36,7 @@
 @import 
   "prototyping/1_mixins",
   "prototyping/abstracts",
-  "prototyping/content",
+  //"prototyping/content",
   "prototyping/fonts",
   "prototyping/layout",
   "prototyping/pagination",
@@ -59,6 +64,7 @@
   "blue365/layout",
   "blue365/forms",
   "blue365/content",
+  "blue365/home",
   "blue365/deal-archive",
   "blue365/deal-filters",
   "blue365/deal",

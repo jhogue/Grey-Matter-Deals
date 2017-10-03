@@ -6,35 +6,37 @@ permalink: /flow-2
 body-class: 'flow-2-body'
 ---
   
-<div class="grid grid__rail-left deal-archive">
+<div class="deal-archive">
 	
-	<aside class="grid__item grid__item__rail deal__filters">
-		{% include deals/search-filters.html %}
-	</aside>
-	
-	<div class="grid__item grid__item__main">
-		
-		<div class="grid grid--trio-small">
-      {% include deal-card.html %}
-      
-      {% include deal-card.html %}
-      {% include deal-card.html %}
-      {% include deal-card.html %}
-      
-      {% include deal-card.html %}
-      {% include deal-card.html %}
-      {% include deal-card.html %}
-      
-      {% include deal-card.html %}
-      {% include deal-card.html %}
-      {% include deal-card.html %}
-      
-      {% include deal-card.html %}
-      {% include deal-card.html %}
-      {% include deal-card.html %}
-    </div>
+	<div class="grid grid__rail-right">
+  	<div class="grid__item grid__item__main">
+  		<h1 class="layout__title">All Deals</h1>
+		</div>
+		<aside class="grid__item grid__item__rail deal__filters">
+  		{% include deals/search-filters.html %}
+  	</aside>
+  </div>
+
+	<div class="grid grid--flow-2-archive">
+    {% include deal-card-2.html %}
+
+    {% include deal-card-2.html %}
+    {% include deal-card-2.html %}
+    {% include deal-card-2.html %}
+
+    {% include deal-card-2.html %}
+    {% include deal-card-2.html %}
+    {% include deal-card-2.html %}
+
+    {% include deal-card-2.html %}
+    {% include deal-card-2.html %}
+    {% include deal-card-2.html %}
+
+    {% include deal-card-2.html %}
+    {% include deal-card-2.html %}
+    {% include deal-card-2.html %}
+  </div>
     
-    {% include pagination.html %}
+  {% include pagination.html %}
     
-	</div>
 </div>

@@ -76,3 +76,95 @@
     }
   }
 }
+
+
+// Make it appear as if we have more than one deal
+.grid {
+  
+  .child-1,
+  .child-2,
+  .child-3 {
+    display: none;
+  }
+  
+  .child-wrapper:nth-child(1),
+  .child-wrapper:nth-child(4),
+  .child-wrapper:nth-child(7),
+  .child-wrapper:nth-child(10),
+  .child-wrapper:nth-child(13) {
+    .child-1 { display: block; }
+    
+    .deal-card__offer__content .child-1 { display: inline-block; }
+  }
+  
+  .child-wrapper:nth-child(2),
+  .child-wrapper:nth-child(5),
+  .child-wrapper:nth-child(8),
+  .child-wrapper:nth-child(11),
+  .child-wrapper:nth-child(14) {
+    .child-2 { display: block; }
+    
+    .deal-card__offer__content .child-2 { display: inline-block; }
+  }
+  
+  .child-wrapper:nth-child(3),
+  .child-wrapper:nth-child(6),
+  .child-wrapper:nth-child(9),
+  .child-wrapper:nth-child(12),
+  .child-wrapper:nth-child(15) {
+    .child-3 { display: block; }
+    
+    .deal-card__offer__content .child-3 { display: inline-block; }
+  }
+}
+
+
+// Turn elements on an off to make it look like we have
+// different types of deals flagged with labels
+.grid {
+  
+  // Hide all options
+  .child-wrapper {
+    
+    .deal-card__flash,
+    .deal-card__expiring,
+    .deal-card__location {
+      @include hide();
+    }
+  }
+  
+  // Show specific ones
+  .child-wrapper:nth-child(1),
+  .child-wrapper:nth-child(5) {
+    
+    .deal-card__flash {
+      @include show();
+    }
+  }
+  
+  .child-wrapper:nth-child(3),
+  .child-wrapper:nth-child(4),
+  .child-wrapper:nth-child(7) {
+    
+    .deal-card__location {
+      @include show();
+    }
+    
+    .deal-card__favorite--off {
+      @include hide;
+    }
+    
+    .deal-card__favorite--on {
+      @include show(inline-block);
+    }
+  }
+  
+  .child-wrapper:nth-child(1),
+  .child-wrapper:nth-child(5),
+  .child-wrapper:nth-child(6) {
+    
+    .deal-card__expiring {
+      @include show(inline-block);
+    }
+  }
+}

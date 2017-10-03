@@ -244,8 +244,15 @@ $medium-breakpoint: 800px;
   &__list {
     text-align: right;
     
-     &__parent > li > a {
+     &__parent > li > a.button {
       @include one-element-size(h4);
+      padding-left: 1rem;
+      padding-right: 1rem;
+      
+      @include media($small-up) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
     }
   }
   
@@ -321,17 +328,6 @@ $medium-breakpoint: 800px;
     background-color: $body-bg-color;
     position: relative;
 
-    &:after {
-      content: '';
-      background: linear-gradient(to right, rgba(#000,0) 0%,rgba(#000,.15) 100%);
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 2em;
-    }
-
     &__wrapper {
       overflow-x: scroll;
     }
@@ -354,9 +350,20 @@ $medium-breakpoint: 800px;
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
+      
+      &:after {
+        content: '';
+        background: linear-gradient(to right, rgba(#000,0) 0%,rgba(#000,.15) 100%);
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 2em;
+      }
     }
     
-    @media (min-width: 1440px) {
+    @media (min-width: 1220px) {
       &:after {
         @include hide();
       }
@@ -365,6 +372,11 @@ $medium-breakpoint: 800px;
         overflow-x: hidden;
       }
     }
+  }
+  
+  // Hide completely for the entire FLow 2
+  .flow-2-body & {
+    @include hide();
   }
 }
 
@@ -538,7 +550,7 @@ body {
     .brand {
       order: 2;
       text-align: left;
-      width: 50%;
+      width: 45%;
       
       img {
         margin: 0;
@@ -550,14 +562,14 @@ body {
       padding-top: 0;
       padding-bottom: $page-gutter;
       text-align: right;
-      width: 50%;
+      width: 55%;
     }
     
-    .catnav {
-      @include show();
-      order: 4;
-      width: 100%;
-    }
+    //.catnav {
+    //  @include show();
+    //  order: 4;
+    //  width: 100%;
+    //}
   }
   
   @include media($large-up) {
@@ -570,17 +582,25 @@ body {
       font-size: 112.5%;
     }
     
-    .catnav {
-      
-      &:after {
-        @include hide;
-      }
-      
-      &__wrapper {
-        overflow-x: hidden;
-        text-align: center;
-      }
+    .brand {
+      width: 40%;
     }
+    
+    .mainnav {
+      width: 60%;
+    }
+    
+    //.catnav {
+    //  
+    //  &:after {
+    //    @include hide;
+    //  }
+    //  
+    //  &__wrapper {
+    //    overflow-x: hidden;
+    //    text-align: center;
+    //  }
+    //}
   }
   
   @include media($xlarge-up) {

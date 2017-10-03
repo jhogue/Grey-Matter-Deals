@@ -8,7 +8,7 @@
   <div class="grid grid--trio entry-content">
     <div class="grid__item">
       <h2>My Profile</h2>
-      <p><a href="#">Edit your Profile</a></p>
+      <p><a href="#" class="button button__secondary">Edit your Profile</a></p>
     </div>
     <div class="grid__item">
       <p>
@@ -29,8 +29,8 @@
       <p>
         <b>Member Since:</b> 2012<br>
         <b>Password:</b> ••••••••  &nbsp;|&nbsp; <a href="#">Change</a><br>
-        <b>BCBS Plan Prefix:</b> BCBSA &nbsp;|&nbsp; <a href="#">Edit</a><br>
-        <b>Email Preferences:</b> Monthly Newsletter (Yes) &nbsp;|&nbsp; <a href="#">Edit</a>
+        <b>BCBS Plan Prefix:</b> AFG &ndash; BlueCross Blue Shield of Illinois <!--&nbsp;|&nbsp; <a href="#">Edit</a>--><br>
+        <b>Email Preferences:</b> Monthly Newsletter (Yes) <!--&nbsp;|&nbsp; <a href="#">Edit</a>-->
       </p>
       <div class="flow-2">
         <hr />
@@ -62,17 +62,41 @@
   
   
   <div class="deals-list deals-list--favorites">
-    <div class="grid grid--quartet">
-      <div class="grid__item entry-content">
-        <h2>My Favorites</h2>
-        <p><a href="#">More of my Favorites</a></p>
+    
+    <div class="flow-1">
+      <div class="grid grid--quartet related__deals">
+        <div class="grid__item entry-content">
+          <h2>My Favorites</h2>
+          <p><a href="#" class="button button__secondary">More Favorites</a></p>
+        </div>
+        {% include deal-card-1.html %}
+        {% include deal-card-1.html %}
+        {% include deal-card-1.html %}
       </div>
-      {% include deal-card.html %}
-      {% include deal-card.html %}
-      {% include deal-card.html %}
     </div>
-    <div class="special-message">
-      <p><a href="#">Expired Favorites</a>. You have a few favorite deals that have expired. <a href="#">Opt in to a notification when new similar deals come online!</a></p>
+    
+    <div class="flow-2">
+      <div class="grid grid--quartet related__deals">
+        <div class="grid__item entry-content">
+          <h2>My Favorites</h2>
+          <p><a href="#" class="button button__secondary">More Favorites</a></p>
+        </div>
+        {% include deal-card-2.html %}
+        {% include deal-card-2.html %}
+        {% include deal-card-2.html %}
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="share-story paragraph paragraph__image grid grid__third-left">
+    <div class="grid__item grid__item__image">
+      <img src="http://fpoimg.com/800x450?text=16:9 Image Row">
+    </div>
+    <div class="grid__item entry-content">
+      <h3>Share Your Success with Blue365</h3>
+      <p>Blue365 wants to help people lead healthier lives through activity and the right kids of support. Have you had an experience with a product or service on the site that has helped you reach your health goals? Share your courage, challenge, and accomplishments.</p>
+      <p><a href="#" class="button button__primary">Tell us your Story!</a></p>
     </div>
   </div>
   
@@ -81,20 +105,52 @@
     <h2>My Redeemed Deals</h2>
     <div class="grid grid__third-left">
       <div class="grid__item entry-content">
-        <p><a href="#">More from my History</a></p>
+        <p><a href="#" class="button button__secondary">More from my History</a></p>
         <p><i>A deal is considered “redeemed” when the copy coupon code, continue shopping, print, email, text, or phone links are clicked.</i></p>
       </div>
-      <div class="grid__item entry-content">
-        <p>September 10, 2017: <b>Molecular Fitness: Genetic Composition Testing</b><br>
-          <a href="#">View active deal</a>
-        </p>
-        <p>August 29, 2017: <b>Eyemed: $50 Eye Exams and 35% Off Frames when Paired with Prescription Lenses</b><br>
-          <a href="#">View active deal</a>
-        </p>
-        <p>
-          May 16, 2017: <b>Skechers Direct: 30% Off Select Men‘s and Woman‘s SKECHERS styles year-round</b><br>
-          <em>Expired deal</em>
-        </p>
+      <div class="grid__item">
+        
+        <div class="deals-list--history__item grid grid__third-left">
+          <div class="grid__item grid__item__image">
+            <img src="http://fpoimg.com/400x225?text=16:9 Deal Thumb">
+          </div>
+          <div class="grid__item entry-content">
+            <div class="flow-1">
+              <h4><a href="{{ site.baseurl }}deal-flow-1.html">Molecular Fitness: Genetic Composition Testing</a></h4>
+            </div>
+            <div class="flow-2">
+              <h4><a href="{{ site.baseurl }}deal-flow-2.html">Molecular Fitness: Genetic Composition Testing</a></h4>
+            </div>
+            <p><b>Last Redeemed:</b> September 10, 2017<br>
+              <b>Expiration:</b> December 31, 2017</p>
+          </div>
+        </div>
+        <div class="deals-list--history__item grid grid__third-left">
+          <div class="grid__item grid__item__image">
+            <img src="http://fpoimg.com/400x225?text=16:9 Deal Thumb">
+          </div>
+          <div class="grid__item entry-content">
+            <div class="flow-1">
+              <h4><a href="{{ site.baseurl }}deal-flow-1.html">Eyemed: $50 Eye Exams and 35% Off Frames when Paired with Prescription Lenses</a></h4>
+            </div>
+            <div class="flow-2">
+              <h4><a href="{{ site.baseurl }}deal-flow-2.html">Eyemed: $50 Eye Exams and 35% Off Frames when Paired with Prescription Lenses</a></h4>
+            </div>
+            <p><b>Last Redeemed:</b> August 29, 2017<br>
+              <b>Expiration:</b> November 1, 2017</p>
+          </div>
+        </div>
+        <div class="deals-list--history__item grid grid__third-left">
+          <div class="grid__item grid__item__image">
+            <img src="http://fpoimg.com/400x225?text=16:9 Deal Thumb">
+          </div>
+          <div class="grid__item entry-content">
+            <h4>Skechers Direct: 30% Off Select Men‘s and Woman‘s SKECHERS styles year-round</h4>
+            <p><b>Last Redeemed:</b> May 16, 2017<br>
+              <b>Expired:</b> July 1, 2017</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

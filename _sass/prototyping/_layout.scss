@@ -85,6 +85,16 @@
 	  &__rail-right &__item__rail {
 	  	width: percentage(4/$grid-columns);
 	  }
+	  
+	  .for-employers &__rail-left &__item__main,
+	  .for-employers &__rail-right &__item__main {
+  		width: percentage(8.5/$grid-columns);
+    }
+    
+    .for-employers &__rail-left &__item__rail,
+	  .for-employers &__rail-right &__item__rail {
+	  	width: percentage(3.5/$grid-columns);
+	  }
 	}
   
 	@include media($large-up) {
@@ -106,6 +116,48 @@
 	  	width: percentage(3.5/$grid-columns);
 	  	padding-left: $page-gutter;
 	  	padding-right: $page-gutter;
+	  }
+	}
+	
+	@include media($xlarge-up) {
+  
+	  &__rail-left.deal-archivet &__item__main,
+    &__rail-right.deal-archivet &__item__main,
+	  .for-employers &__rail-left &__item__main,
+	  .for-employers &__rail-right &__item__main,
+	  .terms-of-use &__rail-left &__item__main,
+	  .terms-of-use &__rail-right &__item__main {
+  		width: 75%;
+    }
+    
+    &__rail-left.deal-archive &__item__rail,
+	  &__rail-right.deal-archive &__item__rail,
+    .for-employers &__rail-left &__item__rail,
+	  .for-employers &__rail-right &__item__rail,
+	  .terms-of-use &__rail-left &__item__rail,
+	  .terms-of-use &__rail-right &__item__rail {
+	  	width: 25%;
+	  }
+	}
+	
+	@include media($xxlarge-up) {
+  
+	  &__rail-left.deal-archive &__item__main,
+	  &__rail-right.deal-archive &__item__main,
+	  .for-employers &__rail-left &__item__main,
+	  .for-employers &__rail-right &__item__main,
+	  .terms-of-use &__rail-left &__item__main,
+	  .terms-of-use &__rail-right &__item__main {
+  		width: 78%;
+    }
+    
+    &__rail-left.deal-archive &__item__rail,
+	  &__rail-right.deal-archive &__item__rail,
+    .for-employers &__rail-left &__item__rail,
+	  .for-employers &__rail-right &__item__rail,
+	  .terms-of-use &__rail-left &__item__rail,
+	  .terms-of-use &__rail-right &__item__rail {
+	  	width: 22%;
 	  }
 	} // end &__rail-left
 
@@ -143,13 +195,20 @@
 		}
 	}
 	
+	//.flow-1-body .deal-archive &--trio-small &__item {
+  //	
+  //	@media (min-width: 580px) {
+  //  	width: 48.5%;
+  //	}
+	//}
+	
 	&--trio-small &__item {
 		padding-bottom: $page-gutter;
 		width: 100%;
 
     @include media($medium-up) {
 			width: 50%;
-			padding-right: $page-gutter;
+			//padding-right: $page-gutter; Dont want this on the flow-2 archive
 		}
 
     @include media($xxlarge-up) {
@@ -159,6 +218,10 @@
 
 
   // The name denotes that this is a 2/3 1/3 column balance
+  // <div class="grid grid__third-right">
+  //   <div class="grid__item"></div>
+  //   <div class="grid__item"></div>
+  // </div>
   &__third-right > &__item:first-child,
   &__third-left > &__item:last-child {
     
@@ -168,7 +231,7 @@
 		@include media($medium-up) {
 			width: percentage(8/$grid-columns);
 		}
-		@include media($large-up) {
+		@include media($xlarge-up) {
 			width: percentage(9/$grid-columns);
 		}
   }
@@ -182,14 +245,15 @@
 		@include media($medium-up) {
 			width: percentage(4/$grid-columns);
 		}
-		@include media($large-up) {
+		@include media($xlarge-up) {
 			width: percentage(3/$grid-columns);
 		}
   }
   
   // Used when we have columns that need to be image first for mobile
   // but then image last for desktop
-  .reverse-order {
+  .reverse-order,
+  &.reverse-order {
     
     @include media($small-up) {
       flex-flow: row-reverse wrap;
@@ -216,17 +280,17 @@
 		width: 100%;
 
     @include media($small-up) {
-			width: 48%;
+			width: 48.5%;
 		}
 
-    @include media($medium-up) {
-			width: 23.5%;
+    @include media($large-up) {
+			width: 24%;
 		}
 	}
 
 
 	// This one starts at two over threee, then three over two, then six across
-	//&__sextet &--item {
+	//&__sextet &__item {
   //  width: percentage(6/$grid-columns);
   //
 	//	@include media($small) {
@@ -237,4 +301,97 @@
 	//		width: percentage(2/$grid-columns);
 	//	}
 	//}
+	
+	&__octet {
+  	align-items: stretch;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+	}
+	
+	&__octet &__item {
+  	width: percentage(6/$grid-columns);
+  	
+  	@include media($small) {
+    	width: percentage(4/$grid-columns);
+  	}
+  	@include media($medium) {
+    	width: percentage(3/$grid-columns);
+  	}
+  	@include media($large-up) {
+    	width: 12.5%;
+  	}
+  }
+
+
+  // Specials
+  &--flow-1-archive {
+    
+    @include media($xlarge-up) {
+      
+      // The first one
+      .child-wrapper:nth-child(1) {
+        width: 100%;
+      }
+
+      // All but the first one
+      .child-wrapper:nth-child(n+2) {
+        width: 49%;
+      }
+    }
+  }
+
+
+  // FLOW 2
+  &--flow-2-archive {
+
+    @include media($small-up) {
+      //display: block;
+      //column-count: 2;
+      //column-gap: $page-gutter;
+      //column-fill: auto;
+      //
+      //.grid__item {
+      //  display: inline-block;
+      //  column-break-inside: avoid;
+      //}
+      //
+      //.grid__item:first-child {
+      //  display: block;
+      //  column-span: all;
+      //}
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: $page-gutter;
+      grid-template-rows: auto;
+
+      .grid__item:first-child {
+        grid-column: 1 / span 2;
+      }
+    }
+
+    @include media($large-up) {
+      //column-count: 3;
+
+      grid-template-columns: 1fr 1fr 1fr;
+      
+      .grid__item:first-child {
+        grid-column: 1 / span 3;
+      }
+    }
+
+    @include media($xxlarge-up) {
+      //column-count: 4;
+      
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    @include media($huge-up) {
+
+      .grid__item:first-child {
+        grid-column: 1 / span 2;
+      }
+    }
+  }
 }
