@@ -2,8 +2,8 @@
 $breakpoints: (
 	// List as unitless pixels
 	base: 480,
-	small: 660, // 480 + 180
-	medium: 760, // 640 + 100
+	small: 640, // 480 + 160
+	medium: 760, // 640 + 120
 	large: 980, // 760 + 220
 	x-large: 1200, // 980 + 220
 	xx-large: 1440, // 1200 + 240
@@ -27,3 +27,6 @@ $xlarge-up: new-breakpoint( min-width bppx(x-large) );
 $xlarge: new-breakpoint( min-width ( bppx(x-large) ) max-width (bppx(xx-large)-1px) );
 
 $xxlarge-up: new-breakpoint( min-width bppx(xx-large) );
+$xxlarge: new-breakpoint( min-width ( bppx(xx-large) ) max-width (bppx(huge)-1px) );
+
+$huge-up: new-breakpoint( min-width bppx(huge) );
