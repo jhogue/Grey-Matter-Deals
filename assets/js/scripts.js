@@ -6,12 +6,12 @@ $(document).ready(function() {
   // Set and/or Get Cookies for log in
   // https://github.com/js-cookie/js-cookie
   $( '.js-set-login' ).on( 'click', function(li) {
-    li.preventDefault();
+    //li.preventDefault();
     Cookies.set('authentication', '1');
     location.reload();
   });
   $( '.js-set-logout' ).on( 'click', function(lo) {
-    lo.preventDefault();
+    //lo.preventDefault();
     Cookies.remove('authentication');
     location.reload();
   });
@@ -79,9 +79,25 @@ $(document).ready(function() {
   
   // In Flow-1, open the pop-up immediately after a user signs in
   if ( document.getElementsByClassName('js-inline-modal-redeem') !== null ) {
-    $('body.flow-1-body.deal-single.logged-in .js-inline-modal-redeem').magnificPopup({
-      type: 'inline'
-    }).magnificPopup('open');
+    //console.log('.js-inline-modal-redeem has been found on the page');
+    var body = $('body');
+    
+    //if ( body.is('.deal-single.flow-1-body') ) {
+    //  //console.log('Template appears to be the single deal page for Flow 1');
+    //  
+    //  $('.js-inline-modal').click(function() {
+    //    body.addClass('sign-in-or-join-modal-clicked');
+    //  });
+    //  $('.js-inline-modal-signin').click(function() {
+    //    body.addClass('sign-in-or-join-modal-clicked');
+    //  });
+    //}
+    
+    if ( body.is('.deal-single.flow-1-body.logged-in') ) {
+      $('.js-inline-modal-redeem').magnificPopup({
+        type: 'inline'
+      }).magnificPopup('open');
+    }
   }
 });
 
