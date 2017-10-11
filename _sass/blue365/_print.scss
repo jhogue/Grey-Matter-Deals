@@ -1,0 +1,249 @@
+@media print {
+
+  // Thanks https://www.lockedowndesign.com/chrome-print-preview-differs-from-dev-tools/
+  * {
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+
+  @page {
+    margin: 0.5in 0.25in;
+  }
+
+  body {
+    background-color: palette(mono, white);
+    color: palette(mono, 90);
+    line-height: 1.5;
+  }
+  
+  a {
+    background-color: transparent;
+    color: palette(mono, 90);
+  }
+
+  iframe,
+  object,
+  embed,
+  .mainhead,
+  .mainfoot,
+  #size,
+  .print-template .coupon__header {
+    @include hide();
+    line-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  h1 {
+    font-size: 28pt;
+  }
+  
+  h2 {
+    font-size: 20pt;
+  }
+  
+  h3 {
+    font-size: 16pt;
+  }
+  
+  h4 {
+    font-size: 14pt;
+  }
+  
+  h5,
+  h6,
+  p,
+  li,
+  dt,
+  dd,
+  th,
+  td,
+  address,
+  input,
+  button,
+  select,
+  textarea {
+    font-size: 11pt;
+  }
+
+  p a[href^="http"]:not(.no-preview):after {
+    content: " (" attr(href) ")";
+    font-size: 87.5%;
+    word-wrap: break-word;
+  }
+  
+  // Page breaks
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  img {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  a,
+  blockquote,
+  table,
+  pre {
+    page-break-inside:avoid;
+  }
+
+  ul,
+  ol,
+  dl {
+    page-break-before: avoid;
+  }
+
+  .print-template .layout {
+    padding: 0 !important;
+  }
+  
+  .print-template .entry-content ul li,
+  .print-template .entry-content ol li {
+    line-height: 1.5;
+    padding-bottom: 3pt;
+  }
+}
+
+.print-template {
+
+  .mainhead,
+  .mainfoot {
+    @include hide();
+    line-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .layout {
+    background-color: transparent;
+    padding: $vert-line-height 0;
+  }
+
+  // (1)  @72dpi, an 8.5 x 11 with .75/.5in margin (7.5 x 9.5") is 540 x 684px
+  //      Scale that up to 1024 wide, and we have a 1024 x 1297px document 
+  .layout__container {
+    background-color: palette(mono, white);
+    color: palette(mono, 90);
+    margin: 0 auto;
+    max-width: 1024px; // (1)
+    min-height: 1297px;
+    padding: $page-gutter;
+  }
+  
+  // Need to redefine these here because our original declarations rely on
+  // a media query size, which will not be present here
+  .align-left {
+    float: left;
+    margin-right: $page-gutter;
+    max-width: 33%;
+  }
+
+  .align-right {
+    float: right;
+    margin-left: $page-gutter;
+    max-width: 33%;
+  }
+}
+
+
+//<div class="coupon__container">
+//  <header class="coupon__header">
+//    <h1 class="coupon__title">Congratulations!</h1>
+//    <p class="charlie">Follow the instructions below to redeem your offer</p>
+//  </header>
+//  <div class="coupon__offer">
+//    <div class="coupon__image">
+//      <img src="http://fpoimg.com/1200x400?text=3:1 Coupon Image" alt="">
+//    </div>
+//    <div class="coupon__content">
+//      <div class="coupon__brand">
+//        <h2 class="coupon__offer__title">
+//          Basket Originals Café & Gourmet Shop
+//        </h2>
+//        <div class="coupon__offer__logo">
+//          <img src="http://fpoimg.com/180x90?text=Logo" alt="Basket Originals logo">
+//        </div>
+//      </div>
+//      <div class="coupon__offer__content entry-content">
+//        [ ... ]
+//      </div>
+//    </div>
+//  </div>
+//  <div class="coupon__terms">
+//    <p>Redemption of this offer is subject to Terms published at the following website: <a href="https://www.blue365deals.com/terms-use">blue365deals.com/terms-use</a></p>
+//  </div>
+//</div>
+.coupon {
+
+  &__container {}
+
+  &__header {
+    background-color: palette(brand);
+    color: palette(mono, white);
+    padding: $vert-line-height ($page-gutter * 2);
+    margin-bottom: $page-gutter;
+
+    & > * {
+      color: palette(mono, white);
+    }
+  }
+  
+  &__title {}
+
+  &__offer {
+    border: 3px dashed palette(brand);
+    padding: ($page-gutter * 2) ($page-gutter * 2) 0;
+    position: relative;
+    
+    &:after {
+      content: '\2703';
+      color: palette(brand);
+      font-size: 400%;
+      position: absolute;
+      top: 33%;
+      right: -3.125rem;
+      transform: rotate(-90deg);
+    }
+
+    &__title {
+      width: 75%;
+    }
+
+    &__logo {
+      text-align: right;
+      width: 25%;
+      
+      img {
+        display: inline-block;
+      }
+    }
+
+    &__content {}
+  }
+
+  &__image {}
+  
+  &__content {}
+
+  //<div class="coupon__brand">
+  //  <h2 class="coupon__offer__title">
+  //    Basket Originals Café &amp; Gourmet Shop
+  //  </h2>
+  //  <div class="coupon__offer__logo">
+  //    <img src="http://fpoimg.com/180x90?text=Logo" alt="Basket Originals logo">
+  //  </div>
+  //</div>
+  &__brand {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: $vert-line-height 0;
+  }
+  
+  &__terms {
+    padding-top: ($page-gutter/2);
+  }
+}
