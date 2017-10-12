@@ -1,5 +1,4 @@
-//Insert awesome js here!
-
+// When the DOM is ready, do these things. 
 $(document).ready(function() {
   
   
@@ -24,9 +23,18 @@ $(document).ready(function() {
   }
   
   
-  // Clone the Main nav to create the mobile drawer
-  $('#b365-mainnav .utility').clone().prop('id', 'utility__js-clone' ).addClass('drawer__nav').appendTo('.drawer');
-  $('#b365-mainnav .catnav').clone().prop('id', 'catnav__js-clone' ).addClass('drawer__nav').appendTo('.drawer');
+  // Cloning content
+  // For fun and profit... er, I mean, for cleaner source code and better A11y
+  
+  // Clone the contents of the Category Nav and put it into the Overflow
+  $('#categories.js-clone').clone().removeClass('js-clone').removeAttr('id').appendTo('#categories__clone');
+  
+  // Clone the contents of the Search box and put it into the Catnav
+  $('#searchbox.js-clone').clone().removeClass('js-clone').removeAttr('id').appendTo('#searchbox__clone');
+  
+  // The above code could be made into a pattern that iterates on .js-clone elements,
+  // grabs the elements #id, and finds the other element with the same #id appended with __clone
+  
   
   // Deals page
   // Clone the Sign In/Join and Redeem actions, no matter the Flow we are in, for an adhesive bottom bar
@@ -102,6 +110,7 @@ $(document).ready(function() {
 });
 
 
+// When the page and assets are ready, do some more things
 $(window).load(function() {
 
   // Javascript to toggle the mobile menus
@@ -114,6 +123,20 @@ $(window).load(function() {
   $( '.js-menu-close' ).on( 'click', function(f) {
     f.preventDefault();
     $( 'body' ).removeClass( 'js-menu-open' );
+  });
+
+
+  // Tiggle the visibility of the Search bar for Mobile
+  $('.js-search-trigger').on( 'click', function(se) {
+    se.preventDefault();
+    $(this).toggleClass('open');
+  });
+  
+
+  // Toggle the visibility of the Overflow Category Nav
+  $('.js-catoverflow-trigger').on( 'click', function(co) {
+    co.preventDefault();
+    $(this).toggleClass('open');
   });
 
 
