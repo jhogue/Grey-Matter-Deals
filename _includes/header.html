@@ -64,20 +64,20 @@
         <ul class="userauth__list menu">
           <li class="userauth__search">
             
-            <div id="searchbox" class="search js-clone">
-              <form class="search__form userauth__search__form">
-                <fieldset class="search__wrapper">
-                  <label class="screen-reader-text">Search Deals</label>
-                  <input class="search__input" type="search" placeholder="Search our Deals">
-                  <input class="search__button" type="submit" value="Go">
+            <div id="searchbox" class="sitesearch js-clone">
+              <form class="sitesearch__form userauth__search__form">
+                <fieldset class="sitesearch__wrapper">
+                  <label class="screen-reader-text form__label">Search Deals</label>
+                  <input class="sitesearch__input form__input" type="search" placeholder="Search the Site">
+                  <input class="sitesearch__button form__action" type="submit" value="Go">
                 </fieldset>
               </form>
             </div>
             
           </li>
           <li class="userauth__actions logged-out">
-            <a href="{{ site.baseurl }}sign-in.html" class="button button__secondary">Sign In</a> 
-            <a href="{{ site.baseurl }}sign-in.html#join" class="button button__primary">Join</a>
+            <a href="#signin-modal" class="button button__secondary js-inline-modal">Sign In</a> 
+            <a href="#eligible-modal" class="button button__primary js-inline-modal">Join</a>
           </li>
           <li class="userauth__actions logged-in">
             <a href="{{ site.baseurl }}user-profile.html">Hello, Giovana</a>

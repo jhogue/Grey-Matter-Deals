@@ -131,32 +131,31 @@ body {
   padding: $page-gutter $page-gutter 0;
 
 
-  // Structure
+  // Structure for the header elements
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: flex-end;
 
-  // 1. in order
+  // 1. in source order
   &__mobilenav {
     margin-right: auto;
   }
   
-  // 2. in order
+  // 2. in source order
   &__utility {}
   
-  // 3. in order
+  // 3. in source order
   &__userauth {
     margin-left: $page-gutter;
   }
   
-  // 4. in order
+  // 4. in source order
   &__brand {
     width: 100%;
     
     .brand__img {
       margin: 0 auto;
-      //max-width: 400px;
       
       @media (min-width: 432px) {
         max-width: 400px;
@@ -165,18 +164,18 @@ body {
   }
   
   @include media($small-up) {
-    
+
     &__userauth {
       margin-left: auto;
       order: 4;
       text-align: right;
       width: 45%;
     }
-    
+
     &__brand {
       order: 3;
       width: 55%;
-      
+
       .brand__img {
         margin: 0;
         max-width: 328px;
@@ -186,6 +185,36 @@ body {
 
   @include media($medium-up) {
     padding-top: ($page-gutter / 2);
+
+    &__userauth {
+      width: 50%;
+    }
+
+    &__brand {
+      width: 50%;
+
+      .brand__img {
+        max-width: none;
+      }
+    }
+  }
+
+  @include media($large-up) {
+    padding-left: ($page-gutter * 2);
+    padding-right: ($page-gutter * 2);
+
+    &__utility {
+      text-align: right;
+      width: 100%;
+    }
+
+    &__userauth {
+      width: 55%;
+    }
+
+    &__brand {
+      width: 45%;
+    }
   }
 }
 
@@ -316,12 +345,12 @@ body {
 //  <ul class="userauth__list menu">
 //    <li id="searchbox" class="userauth__search js-clone">
 //      
-//      <div class="search">
-//        <form class="search__form userauth__search__form">
-//          <fieldset class="search__wrapper">
+//      <div class="sitesearch">
+//        <form class="sitesearch__form userauth__search__form">
+//          <fieldset class="sitesearch__wrapper">
 //            <label class="screen-reader-text">Search Deals</label>
-//            <input class="search__input" type="search" placeholder="Search our Deals">
-//            <input class="search__button" type="submit" value="Go">
+//            <input class="sitesearch__input" type="search" placeholder="Search our Deals">
+//            <input class="sitesearch__button" type="submit" value="Go">
 //          </fieldset>
 //        </form>
 //      </div>
@@ -344,11 +373,92 @@ body {
 //</div>
 
 .userauth {
-  
-  &__list {}
-  
+
+  @include media($large-up) {
+    padding: ($vert-line-height/2) 0 $vert-line-height;
+  }
+
+  &__list {
+    
+    li {
+      display: inline-block;
+    }
+  }
+
+  .sitesearch {
+    margin-right: 2em;
+
+    .sitesearch__wrapper {
+      position: relative;
+
+      &:before {
+        @include icon-font('\f002');
+        position: absolute;
+        top: .875em;
+        left: .75em;
+      }
+    }
+  }
+
+  .sitesearch__input {
+    padding-left:  1.75em;
+  }
+
+  .sitesearch__button {
+    @include hide();
+  }
+
   &__search {
     @include hide();
+  }
+
+  @media (min-width: $bp-drawer-not-in-use) {
+
+    &__search {
+      @include show(inline-block);
+    }
+
+    .sitesearch__input {
+      width: 25vw;
+    }
+  }
+
+  @include media($xlarge-up) {
+
+    .sitesearch__input {
+      //width: ;
+    }
+  }
+}
+
+
+//<div id="searchbox" class="sitesearch js-clone">
+//  <form class="sitesearch__form userauth__search__form">
+//    <fieldset class="sitesearch__wrapper">
+//      <label class="screen-reader-text form__label">Search Deals</label>
+//      <input class="sitesearch__input form__input" type="search" placeholder="Search the Site">
+//      <input class="sitesearch__button form__action" type="submit" value="Go">
+//    </fieldset>
+//  </form>
+//</div>
+            
+.sitesearch {
+
+  &__wrapper {
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__input,
+  &__button {
+    border-radius: 0;
+    margin: 0;
+  }
+
+  &__input {
+    width: auto;
   }
 }
 
@@ -362,6 +472,10 @@ body {
 
 .brand {
   padding: $vert-line-height 0;
+
+  @include media($large-up) {
+    padding: 0;
+  }
 }
 
 
@@ -402,6 +516,10 @@ $icon-width: 44px; // Magic number
   width: 100%;
   position: relative;
   z-index: zindex(catnav);
+
+  @include media($large-up) {
+    padding: ($page-gutter/2) $page-gutter;
+  }
 
   &__search-glass,
   &__overflow {
@@ -463,24 +581,15 @@ $icon-width: 44px; // Magic number
     width: 0;
     transition: width 500ms ease;
 
-    fieldset {
-      border: 0;
-      border-radius: 0;
-      margin-bottom: 0;
-      padding: 0;
-    }
-    
-    .search__input {
+    .sitesearch__input {
       border: 0;
       padding: 9px 8px 7px;
       margin: 0 -4px 0 0; // The -4px accounts for space around an inline-block object
       width: calc(100% - 52px); // width of the GO button
     }
     
-    .search__button {
+    .sitesearch__button {
       border: 0;
-      border-radius: 0;
-      margin: 0;
       padding: 9px 16px 7px;
     }
     
