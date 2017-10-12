@@ -54,3 +54,15 @@ $form-button-border-color-default: palette(mono, 33);
 $form-button-border-width: 1px;
 $form-button-border-radius: $default-border-radius;
 $form-button-padding: .5em 1em .375em;
+
+
+// Z-indices
+@function zindex($key) {
+  @return map-get($zindex, $key);
+}
+
+$zindex: (
+  catnav: 100,
+  overflownav: 1000,
+  top: 2147483647
+);

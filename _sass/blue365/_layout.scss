@@ -37,18 +37,6 @@
     padding: 0 0 ($vert-line-height/2);
     width: 100%;
   }
-
-  // ! HEADER - - - - -
-  &__utlility {}
-
-  &__mainnav {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__catnav {}
 }
 
 .flow-1-body .for-employers__footer {
