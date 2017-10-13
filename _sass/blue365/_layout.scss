@@ -38,21 +38,3 @@
     width: 100%;
   }
 }
-
-.flow-1-body .for-employers__footer {
-  
-  @include media($small-up) {
-  
-    .grid--duo .grid__item {
-      margin-bottom: $page-gutter;
-      width: 48.5%;
-    }
-    
-    .grid--duo .grid__item:first-child {
-      margin-right: .75%;
-    }
-    .grid--duo .grid__item:last-child {
-      margin-left: .75%;
-    }
-  }
-}

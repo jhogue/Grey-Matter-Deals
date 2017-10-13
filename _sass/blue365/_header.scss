@@ -378,12 +378,7 @@ body {
     padding: ($vert-line-height/2) 0 $vert-line-height;
   }
 
-  &__list {
-    
-    li {
-      display: inline-block;
-    }
-  }
+  &__list {}
 
   .sitesearch {
     margin-right: 2em;
@@ -422,11 +417,56 @@ body {
       width: 25vw;
     }
   }
+  
+  
+  // Signed in users get a drop down
+  //<li class="userauth__actions logged-in">
+  //  <a href="#" class="js-usermenu-trigger">Hello, Giovana</a>
+  //  <ul class="menu">
+  //    <li><a href="{{ site.baseurl }}user-profile.html">My Account</a></li>
+  //    <li><a href="#">My Favorites</a></li>
+  //    <li><a href="#">My History</a></li>
+  //    <li><a href="#" class="js-set-logout">Sign Out</a></li>
+  //  </ul>
+  //</li>
+  &__actions {
+    position: relative;
 
-  @include media($xlarge-up) {
+    .logged-out &.logged-out,
+    .logged-in &.logged-in {
+      display: inline-block;
+    }
 
-    .sitesearch__input {
-      //width: ;
+    & > a {
+      font-weight: $font-weight-bold;
+    }
+
+    ul {
+      top: -999em;
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      z-index: zindex(usernav);
+      background-color: palette(mono, white);
+      border: 1px solid $color-borders;
+      box-shadow: 0 1px 3px rgba(#000, 0.25);
+      transition: opacity 250ms ease 0, top 0 linear 250ms;
+
+      li {
+        display: list-item;
+        
+        a {
+          display: block;
+          padding: $link-padding;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .js-usermenu-trigger.open + ul {
+      top: 100%;
+      opacity: 1;
+      transition: opacity 250ms ease 0, top 0 linear 0;
     }
   }
 }
@@ -475,6 +515,17 @@ body {
 
   @include media($large-up) {
     padding: 0;
+  }
+  
+  @include media($xlarge-up) {
+    
+    &__img {
+      // Force it to be bigger right now... which reminds me,
+      // MAKE THE LOGO BIG... MAKE THE LOGO BIG-GAH AH AH!
+      width: 480px;
+      position: relative;
+      top: -.5rem;
+    }
   }
 }
 

@@ -33,8 +33,8 @@
     justify-content: space-between;
   }
 
-	&__item {
-  	//padding: 0 $page-gutter;
+	&--space &__item {
+  	padding: ($page-gutter/2) $page-gutter;
 	}
 
   &--sample &--item {
@@ -121,8 +121,8 @@
 	
 	@include media($xlarge-up) {
   
-	  &__rail-left.deal-archivet &__item__main,
-    &__rail-right.deal-archivet &__item__main,
+	  &__rail-left.deal-archive &__item__main,
+    &__rail-right.deal-archive &__item__main,
 	  .for-employers &__rail-left &__item__main,
 	  .for-employers &__rail-right &__item__main,
 	  .terms-of-use &__rail-left &__item__main,
@@ -194,13 +194,6 @@
 			margin-right: - $page-gutter;
 		}
 	}
-	
-	//.flow-1-body .deal-archive &--trio-small &__item {
-  //	
-  //	@media (min-width: 580px) {
-  //  	width: 48.5%;
-  //	}
-	//}
 	
 	&--trio-small &__item {
 		padding-bottom: $page-gutter;
@@ -325,7 +318,7 @@
 
 
   // Specials
-  &--flow-1-archive {
+  &--archive {
     
     @include media($xlarge-up) {
       
@@ -337,60 +330,6 @@
       // All but the first one
       .child-wrapper:nth-child(n+2) {
         width: 49%;
-      }
-    }
-  }
-
-
-  // FLOW 2
-  &--flow-2-archive {
-
-    @include media($small-up) {
-      //display: block;
-      //column-count: 2;
-      //column-gap: $page-gutter;
-      //column-fill: auto;
-      //
-      //.grid__item {
-      //  display: inline-block;
-      //  column-break-inside: avoid;
-      //}
-      //
-      //.grid__item:first-child {
-      //  display: block;
-      //  column-span: all;
-      //}
-
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-column-gap: $page-gutter;
-      grid-template-rows: auto;
-
-      .grid__item:first-child {
-        grid-column: 1 / span 2;
-      }
-    }
-
-    @include media($large-up) {
-      //column-count: 3;
-
-      grid-template-columns: 1fr 1fr 1fr;
-      
-      .grid__item:first-child {
-        grid-column: 1 / span 3;
-      }
-    }
-
-    @include media($xxlarge-up) {
-      //column-count: 4;
-      
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
-    @include media($huge-up) {
-
-      .grid__item:first-child {
-        grid-column: 1 / span 2;
       }
     }
   }

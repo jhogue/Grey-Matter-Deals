@@ -5,9 +5,9 @@
 //			<ul class="mainfoot__group__list" role="navigation">
 
 .mainfoot {
-  @include container-light('1px 0 0 0');
-  padding-top: $vert-line-height;
-  padding-bottom: $vert-line-height/2;
+  background-color: palette(mono, 15);
+  border-top: 1px solid $color-borders;
+  padding: $vert-line-height $page-gutter $vert-line-height/2;
 
   &__title {
     @extend .charlie;
