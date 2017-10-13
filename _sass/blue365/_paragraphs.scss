@@ -67,11 +67,75 @@
   //</div>
   &__map {
     border-bottom: 1px solid $color-borders;
-    
+
+    //<div class="paragraph__map__location">
+    //  <a href="#" class="button button__primary" title="Use my current location"><span class="fa fa-crosshairs" aria-hidden="true"></span></a>
+    //  <input class="form__input redeem__input" value="" placeholder="Enter a Zipcode, City name, or Address">
+    //  <a href="#" class="button button__primary" title="Find locations near you"><span class="fa fa-map-marker" aria-hidden="true"></span>Search</a>
+    //</div>
+    &__location {
+      display: flex;
+      flex-flow: row nowrap;
+      padding: .5rem .5rem .5rem 0;
+      
+      .button {
+        white-space: nowrap;
+        
+        &:first-child {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        
+        &:last-child {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+      
+      input {
+        border-radius: 0;
+        margin: 0;
+      }
+      
+      .fa-crosshairs {
+        margin-right: 0;
+      }
+    }
+
     iframe {
       width: 100%;
     }
-    
+
+    //<div class="paragraph__map__results">
+    //  <h4>These are the 5 locations closest to you:</h4>
+    //  <ul>
+    //    <li>LA FITNESS - PAWTUCKET<br>
+    //      615 Pawtucket Ave. - Pawtucket, RI
+    //      <span class="distance">1.3 miles</span>
+    //    </li>
+    //  </ul>
+    //</div>
+    &__results {
+      padding: $page-gutter $page-gutter $page-gutter 0;
+      
+      ul {
+        @include list-reset;
+        border-bottom: 1px solid $color-borders;
+        margin-bottom: $page-gutter;
+        
+        li {
+          border-top: 1px solid $color-borders;
+        }
+      }
+      
+      @include media($small-up) {
+
+        .distance {
+          float: right;
+        }
+      }
+    }
+
     .grid__item__rail {
       background-color: palette(mono, 10);
       padding: $vert-line-height $page-gutter ($vert-line-height/2);

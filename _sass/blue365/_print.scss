@@ -25,6 +25,7 @@
   object,
   embed,
   .mainhead,
+  .catnav,
   .mainfoot,
   #size,
   .print-template .coupon__header {
@@ -110,7 +111,8 @@
 .print-template {
 
   .mainhead,
-  .mainfoot {
+  .mainfoot,
+  .catnav {
     @include hide();
     line-height: 0 !important;
     overflow: hidden !important;

@@ -1,15 +1,35 @@
+// "Watch" the body:after { content } to find out how wide the viewport is.
+// Thanks to http://adactio.com/journal/5429/ for details about this method
+function mqtag() {
+  return window.getComputedStyle(document.body,':after').getPropertyValue('content');
+}
+var mq_tag = mqtag();
+//console.log( "mq_tag= " + mq_tag );
+
+
+// Do things when the viewport dimensions or orientation change
+// It is safe to put ALL resize or onLoad events in here
+function on_resize_orientationchange() {
+
+  // Check again on resize/orientation change
+  var mq_tag = mqtag();
+  //console.log( "mq_tag is now= " + mq_tag );
+
+};
+
+
 // When the DOM is ready, do these things. 
 $(document).ready(function() {
-  
-  
+
+
   // Set and/or Get Cookies for log in
   // https://github.com/js-cookie/js-cookie
-  $( '.js-set-login' ).on( 'click', function(li) {
+  $('.js-set-login').on( 'click', function(li) {
     //li.preventDefault();
     Cookies.set('authentication', '1');
     location.reload();
   });
-  $( '.js-set-logout' ).on( 'click', function(lo) {
+  $('.js-set-logout').on( 'click', function(lo) {
     //lo.preventDefault();
     Cookies.remove('authentication');
     location.reload();
@@ -26,27 +46,23 @@ $(document).ready(function() {
   // Cloning content
   // For fun and profit... er, I mean, for cleaner source code and better A11y
   
+  // Use unwrap() here instead of removing attributes? 
+  
   // Clone the contents of the Category Nav and put it into the Overflow
   $('#categories.js-clone').clone().removeClass('js-clone').removeAttr('id').appendTo('#categories__clone');
   
   // Clone the contents of the Search box and put it into the Catnav
   $('#searchbox.js-clone').clone().removeClass('js-clone').removeAttr('id').appendTo('#searchbox__clone');
   
+  // Clone the contents of the Meta information and put it into the Adhesive sidebar
+  $('#dealmeta.js-clone').clone().removeClass('js-clone').removeAttr('id').appendTo('#dealmeta__clone');
+  
   // The above code could be made into a pattern that iterates on .js-clone elements,
   // grabs the elements #id, and finds the other element with the same #id appended with __clone
-  
-  
-  // Deals page
-  // Clone the Sign In/Join and Redeem actions, no matter the Flow we are in, for an adhesive bottom bar
-  if ( $('body').hasClass('flow-1-body') ) {
-    $('#redeem').clone().prop('id', 'redeem__js-clone' ).addClass('redeem redeem--adhesive').appendTo('#deal-wrapper');
-  }
 
 
-  /* 
-   * Animate some scrolling for smoother transitions 
-   * http://css-tricks.com/snippets/jquery/smooth-scrolling/
-   */
+  // Animate some scrolling for smoother transitions 
+  // http://css-tricks.com/snippets/jquery/smooth-scrolling/
   $(function() {
     $('.js-smooth-scroll').click(function(e) {
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -71,54 +87,26 @@ $(document).ready(function() {
     });
   }
   
-  if ( document.getElementsByClassName('js-inline-modal-signin') !== null ) {
-    $('.js-inline-modal-signin').magnificPopup({
-      type: 'inline',
-      midClick: true
-    });
-  }
-  
-  if ( document.getElementsByClassName('js-inline-modal-redeem') !== null ) {
-    $('.js-inline-modal-redeem').magnificPopup({
-      type: 'inline',
-      midClick: true
-    });
-  }
-  
-  // In Flow-1, open the pop-up immediately after a user signs in
-  if ( document.getElementsByClassName('js-inline-modal-redeem') !== null ) {
-    //console.log('.js-inline-modal-redeem has been found on the page');
-    var body = $('body');
-    
-    //if ( body.is('.deal-single.flow-1-body') ) {
-    //  //console.log('Template appears to be the single deal page for Flow 1');
-    //  
-    //  $('.js-inline-modal').click(function() {
-    //    body.addClass('sign-in-or-join-modal-clicked');
-    //  });
-    //  $('.js-inline-modal-signin').click(function() {
-    //    body.addClass('sign-in-or-join-modal-clicked');
-    //  });
-    //}
-    
-    if ( body.is('.deal-single.flow-1-body.logged-in') ) {
-      $('.js-inline-modal-redeem').magnificPopup({
-        type: 'inline'
-      }).magnificPopup('open');
-    }
-  }
 });
 
 
 // When the page and assets are ready, do some more things
 $(window).load(function() {
 
+  // Clone this element now, after the js cookie has been checked
+  // and the class logged-in or logged-out has been added to body
+  
+  // Clone the Sign In/Join and Redeem actions, no matter the Flow we are in, for an adhesive bottom bar
+  if ( $('body').hasClass('deal-single logged-out') ) {
+    $('#dealredeem.js-clone').clone().removeClass('js-clone').removeAttr('id').appendTo('#dealredeem__clone');
+  }
+
+
   // Javascript to toggle the mobile menus
   $( '.js-menu-toggle' ).on( 'click', function(e) {
     e.preventDefault();
     $( 'body' ).toggleClass( 'js-menu-open' );
   });
-  
   // Close it with the close overlay
   $( '.js-menu-close' ).on( 'click', function(f) {
     f.preventDefault();
@@ -126,7 +114,7 @@ $(window).load(function() {
   });
 
 
-  // Tiggle the visibility of the Search bar for Mobile
+  // Toggle the visibility of the Search bar for Mobile
   $('.js-search-trigger').on( 'click', function(se) {
     se.preventDefault();
     $(this).toggleClass('open');
@@ -138,6 +126,25 @@ $(window).load(function() {
     co.preventDefault();
     $(this).toggleClass('open');
   });
+  
+  
+  // Toggle the visibility of the User Menu
+  $('.js-usermenu-trigger').on( 'click', function(co) {
+    co.preventDefault();
+    $(this).toggleClass('open');
+  });
+  
+  // Huh, all of those above could be combined into one action
+
+
+  // Check the body { content: '' } to see if we have a match
+  // If so, move the contents of the adhesive redemption to the adhesive aside
+  if (mq_tag.indexOf("deal-sidebar-adhesive") !=-1) {
+    //console.log( "'deal-sidebar-adhesive' found in body { content:''}" );
+
+    // Append content: move from inside one element to another
+    $('#dealredeem.js-clone').clone().unwrap().appendTo('#dealredeem__moved');
+  }
 
 
   // Accordions
@@ -152,14 +159,16 @@ $(window).load(function() {
   
 
   // Waypoints for the redeem options
-  if ( document.getElementById('deal-wrapper') !== null ) {
+  
+  // Viewport bottom bar for mobile
+  if ( document.getElementsByClassName('deal__column__container') !== null ) {
     var waypoint = new Waypoint({
-      element: $('#deal-wrapper')[0],
+      element: $('#dealredeem')[0],
       handler: function(direction) {
         // Action
-        //console.log('#deal-wrapper has hit the top of the viewport');
-        $('body').toggleClass('js-adhesive-redeem');
-        $('#redeem__js-clone').toggleClass('redeem--visible');
+        //console.log('#dealredeem__clone has hit the top of the viewport');
+        //$('body').toggleClass('js-adhesive-redeem');
+        $('#dealredeem__clone').toggleClass('deal__adhesion--footer--visible');
       },
       offset: 0
     });
@@ -186,3 +195,27 @@ $(window).load(function() {
     });
   }
 });
+
+
+// Keep this at the bottom
+//
+// Load, Resize and Orientation change methods
+// http://css-tricks.com/forums/discussion/16123/reload-jquery-functions-on-ipad-orientation-change/p1 */
+
+// initial load
+$(window).load( function() { on_resize_orientationchange(); });
+
+//bind to resize
+var resizeTimer;
+$(window).resize(function () {
+  if (resizeTimer) { clearTimeout(resizeTimer); }
+  // set new timer
+  resizeTimer = setTimeout(function() {
+    resizeTimer = null;
+    // put your resize logic here and it will only be called when there's been a pause in resize events
+    on_resize_orientationchange();
+  }, 350);
+});
+
+//check for the orientation event and bind accordingly
+if (window.DeviceOrientationEvent) { window.addEventListener('orientationchange', on_resize_orientationchange, false); }

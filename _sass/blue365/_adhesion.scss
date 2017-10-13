@@ -9,13 +9,6 @@
   height: 100vh;
   overflow-y: auto;
 
-  .deal__aside & {
-    height: auto;
-    left: calc(66.66% + #{$page-gutter});
-    right: $page-gutter;
-    bottom: 0;
-  }
-  
   .sidebar--rail-left &,
   .sidebar--rail-right & {
     
@@ -57,11 +50,6 @@
   position: absolute;
   top: auto;
   bottom: ($page-gutter * 2);
-
-  .deal__aside & {
-    left: 0;
-    right: 0;
-  }
   
   .sidebar--rail-left &,
   .sidebar--rail-right & {
