@@ -37,7 +37,7 @@ body-class: 'b365-home'
       <!-- Feature -->
       <div class="b365-home__feature feature">
         <div class="feature__label outside">This week’s deal from <a href="{{ site.baseurl }}category.html"><span class="fa fa-shower" aria-hidden="true"></span> Personal Care</a></div>
-        <a href="#" class="feature__link">
+        <a href="{{ site.baseurl }}deal.html" class="feature__link">
           <div class="feature__image js-ratio">
             <img src="http://fpoimg.com/1600x900?text=16:9 Feature" alt="">
             <span class="js-ratio-output"></span>
@@ -66,7 +66,7 @@ body-class: 'b365-home'
     <div class="logged-in suggested-deals">
       <h2 class="delta header-w-link">Suggested For You <a href="#" title="Find out why we picked these deals for you">Why?</a></h2>
     </div>
-    <div class="grid grid--quartet-small related__deals">
+    <div class="grid grid--duo grid--space">
       {% include deal-card-1.html %}
       {% include deal-card-1.html %}
       {% include deal-card-1.html %}
