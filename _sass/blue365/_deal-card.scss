@@ -4,10 +4,16 @@
   margin-bottom: $vert-line-height/2;
 }
 
+.deal-archive .deal-card {
+  border: 0;
+}
+
 
 .deal-card {
   background-color: palette(mono, white);
   border: 1px solid $color-borders;
+
+  &--feature {}
 
   &__header {}
 
