@@ -1,177 +1,205 @@
 //<div class="deal-filters">
-//  <div class="accordion js-accordion">
-//    <h3><a href="#" class="js-accordion-trigger">Filter Deals <span class="fa fa-plus-square" aria-hidden="true"></span></a></h3>
-//    
-//    <div id="filters" class="js-accordion-container accordion__container">
-//      <div class="deal-filters__group">
-//        <h4>Sort by:</h4>
-//        <p><span class="fa fa-circle-o" aria-hidden="true"></span> Expiring Soon</p>
-//      </div>
-//      <div class="deal-filters__group">
-//        <h4>Locations:</h4>
-//        <div class="deal-filters__sub-group">
-//          <h5>Regions</h5>
-//          <p><span class="fa fa-circle-o" aria-hidden="true"></span> Upper West</p>
-//        </div>
-//        <div class="deal-filters__sub-group">
-//          <h5>Select a State</h5>
-//          <select>
-//            <option [...]
+//  <h4>60 deals</h4>
+//  <div class="deal-filters__container">
+//    <ul class="deal-filters__group menu">
+//      <li class="deal-filters__group--categories has-submenu">
+//        <a href="javascript:;" class="js-menu-trigger">Category <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
+//        <ul class="deal-filters__group__list has-submenu__list menu">
+//    			<li><a href="{{ site.baseurl }}category.html"><span class="fa fa-check-square-o" aria-hidden="true"> All Deals</a> (60)</li>
+//    			[...]
+//    		</ul>
+//      </li>
+//      <li class="deal-filters__group--sort has-submenu">
+//        <a href="javascript:;" class="js-menu-trigger">Sort <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
+//        <ul class="deal-filters__group__list has-submenu__list menu">
+//          <li><a href="#"><span class="fa fa-check-square-o" aria-hidden="true"></span> Flash Sales</a></li>
+//          [...]
+//        </ul>
+//      </li>
+//      <li class="deal-filters__group--location has-submenu">
+//        <a href="javascript:;" class="js-menu-trigger">Location <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
+//        <ul class="deal-filters__group__list has-submenu__list menu">
+//          <li>
+//            <div class="deal-filters__sub-group">
+//              <h5>Select a State</h5>
+//              <select>
+//              	<option value="AL">Alabama (AL)</option>
+//              	[...]
+//              </select>
+//            </div>
+//          </li>
+//        </ul>
+//      </li>
+//      <li class="deal-filters__group--keyword has-submenu">
+//        <a href="javascript:;" class="js-menu-trigger">Keyword <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
+//        <ul class="deal-filters__group__list has-submenu__list menu">
+//          <li class="deal-filter__search">
+//            <form class="sitesearch__form">
+//              <fieldset class="sitesearch__wrapper">
+//                <label class="screen-reader-text form__label">Search Deals</label>
+//                <input class="sitesearch__input form__input" type="search" placeholder="Search the Site">
+//                <input class="sitesearch__button form__action" type="submit" value="Go">
+//              </fieldset>
+//            </form>
+//          </li>
+//        </ul>
+//      </li> 
+//    </ul>
+//  </div>
+//</div>
 
 .deal-filters {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
   padding-bottom: $vert-line-height;
-  
-  @include media($medium-up) {
-
-    .flow-1-body & {
-      padding-right: ($page-gutter * 2);
-    }
-  }
-
-  h3 a {
-
-    .fa {
-      @include hide();
-    }
-  }
 
   &__group {
-    border-bottom: 1px solid $color-borders;
-    padding-bottom: ($vert-line-height/2);
-    margin-bottom: ($vert-line-height/2);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
 
-    &:last-child {
-      border-bottom: 0;
-      margin-bottom: 0;
+    & > li {
+      padding: 0 .375em;
+      
+      @include media($small-up) {
+        padding: 0 .625em;
+      }
+    }
+
+    &--categories .has-submenu__list {
+
+      li {
+        padding-right: .5em;
+
+        a {
+          display: inline-block;
+          padding-right: .25em
+        }
+      }
+    }
+
+    &--location .has-submenu__list {
+      padding: $page-gutter;
+    }
+
+    &--keyword {
+      @include hide();
+
+      @media (min-width: em(480)) {
+        @include show(list-item);
+      }
+      
+      .sitesearch__form {
+        padding: $page-gutter;
+        
+        label {
+          display: block;
+        }
+      }
     }
   }
 
-  &__sub-group {
-    padding-bottom: $vert-line-height;
-  }
-}
 
+  // Lots of changes needed to "open" up the previously hidden drop down menus
+  @include media($medium-up) {
 
-.accordion {
-  position: relative;
-
-  &__container {
-    padding-top: $page-gutter;
-  }
-}
-
-
-@media (max-width: 759px) {
-  
-  .js .js-accordion h3 {
-    border: 1px solid $color-borders;
-    padding: .5rem 1rem .375rem;
-    position: relative;
-    
-    a {
+    // Remove display flex
+    &,
+    &__group {
       display: block;
-      padding-right: 3rem;
     }
-    
-    .fa {
-      @include show(inline);
-      font-size: 125%;
-      position: absolute;
-      top: .875rem;
-      right: 1rem;
+
+    // Need some space below the title
+    h4 {
+      margin-bottom: $page-gutter;
     }
-    
-    a .fa-minus-square {
-      opacity: 0;
-      transition: opacity 250ms ease;
-    }
-    a.open .fa-minus-square {
-      opacity: 1;
+
+    &__group {
+
+      // Remove padding between top level list items
+      & > li {
+        padding: 0;
+      }
+
+      // Hide the down chevron icons
+      & > li > a .fa {
+        @include hide();
+      }
+
+      // Remove drop down styling
+      .has-submenu__list {
+        opacity: 1;
+        position: static;
+        border-width: 0 0 1px;
+        box-shadow: none;
+        margin-bottom: $page-gutter;
+      }
+      
+      // Cancel out the padding we added above
+      &--location .has-submenu__list,
+      &--keyword .sitesearch__form {
+        padding: 0 0 $page-gutter;
+      }
+      
+      &--keyword .sitesearch__input {
+        width: 180px;
+      }
     }
   }
-  
-  .js .js-accordion-container {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 400ms ease;
-    
-    &.open {
-      max-height: 900px;
-    }
-    
-    .deal-filters__group {
-      padding: 0 $page-gutter;
-    }
-  }
-  
-  //#filters {
-  //  @include hide();
-  //}
 }
 
 
-// Make the Filters drop down persistent on the Flow 2 version
-// The drop down floats over the content
-.flow-2-body {
+//.accordion {
+//  position: relative;
+//
+//  &__container {
+//    padding-top: $page-gutter;
+//  }
+//}
 
-  .accordion__container {
-    background-color: palette(mono, white);
-    position: absolute;
-    width: 100%;
-    z-index: 1000;
-  }
-  
-  .js & .js-accordion-container.open {
-    box-shadow: 0 4px 3px rgba(#000, .25);
-  }
-}
 
-// Repeat of the Media Query above, since Flow 2
-// uses the drop down filter style throughout the RWD cycle
-@media (min-width: 760px) {
-  
-  .js .flow-2-body .js-accordion h3 {
-    border: 1px solid $color-borders;
-    padding: .5rem 1rem .375rem;
-    position: relative;
-    
-    a {
-      display: block;
-      padding-right: 3rem;
-    }
-    
-    .fa {
-      @include show(inline);
-      font-size: 125%;
-      position: absolute;
-      top: .875rem;
-      right: 1rem;
-    }
-    
-    a .fa-minus-square {
-      opacity: 0;
-      transition: opacity 250ms ease;
-    }
-    a.open .fa-minus-square {
-      opacity: 1;
-    }
-  }
-  
-  .js .flow-2-body .js-accordion-container {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 400ms ease;
-    
-    &.open {
-      max-height: 900px;
-    }
-    
-    .deal-filters__group {
-      padding: 0 $page-gutter;
-    }
-  }
-  
-  //#filters {
-  //  @include show();
-  //}
-}
+//@media (max-width: 759px) {
+//  
+//  .js .js-accordion h3 {
+//    border: 1px solid $color-borders;
+//    padding: .5rem 1rem .375rem;
+//    position: relative;
+//    
+//    a {
+//      display: block;
+//      padding-right: 3rem;
+//    }
+//    
+//    .fa {
+//      @include show(inline);
+//      font-size: 125%;
+//      position: absolute;
+//      top: .875rem;
+//      right: 1rem;
+//    }
+//    
+//    a .fa-minus-square {
+//      opacity: 0;
+//      transition: opacity 250ms ease;
+//    }
+//    a.open .fa-minus-square {
+//      opacity: 1;
+//    }
+//  }
+//  
+//  .js .js-accordion-container {
+//    max-height: 0;
+//    overflow: hidden;
+//    transition: max-height 400ms ease;
+//    
+//    &.open {
+//      max-height: 900px;
+//    }
+//    
+//    .deal-filters__group {
+//      padding: 0 $page-gutter;
+//    }
+//  }
+//}
