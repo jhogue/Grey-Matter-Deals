@@ -4,6 +4,8 @@
 //  <a href="#" class="button button__primary" title="Copy to Clipboard"><span class="fa fa-clipboard" aria-hidden="true"></span> Copy</a>
 //</div>
 
+$copy-code-button-width: 120px; // Magic number
+
 .form {
   
   &__input {}
@@ -20,14 +22,14 @@
     input {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-      width: calc(100% - 155px); // CAUTION: Magic number
+      width: calc(100% - #{$copy-code-button-width});
     }
     
     .button {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       margin-left: -10px;
-      min-width: 155px;
+      min-width: $copy-code-button-width;
       padding: 0.625em 1em 0.5em;
       text-align: center;
     }

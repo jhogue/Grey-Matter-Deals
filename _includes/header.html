@@ -1,98 +1,127 @@
-  <div id="sitetop" class="drawer"></div>
+<!--
+  I envisioned the blocks working like this: 
+  - 1. The hamburger menu icon trigger
+  - 2. The Utility navigation, which shows just Language for small screens and 
+       reveals more and more and the viewport increases
+  - 3. The Sign In / Join (Authentication) block
+  - 4. The logo
+  - 5. The category bar
+  - 6. Mobile nav drawer contents
+  
+  The Search box moves from one location (the category bar for mobile) to another
+  (the header, alongside the Sign In / Join for desktop. Since the form itself is
+  hidden for mobile behind the search glass trigger, we move the markup with JS
+  from the Sign In / Join block to the category bar for mobile screens. 
+  
+  The mobile nav drawer's contents are slightly different that the way links are
+  otherwise presented, and will need its own menu in Drupal. We might want to conditionally
+  load this content with JS so as not to overload the markup with a menu that other
+  viewports will not need. 
+  
+  We also clone the contents of the category navigation (5) and move a copy into the 
+  drop down menu to show the mobile user overflow. We do this to reduce markup and 
+  duplication for screen-readers. 
+-->
+
+  <!-- 6. Mobile nav drawer -->
+  <div id="sitetop" class="drawer">
+    <ul class="drawer__list menu">
+      <li><a href="#">Healthy Tips Blog</a></li>
+      <li><a href="{{ site.baseurl }}category.html">Browse All Deals</a></li>
+      <li><a href="#">About Blue365</a></li>
+      <li><a href="#">Frequently Asked Questions</a></li>
+      <li><a href="#">Our Mission & Focus</a></li>
+      <li><a href="#">Participating Blue Companies</a></li>
+      <li><a href="{{ site.baseurl }}for-employers-flow-1.html">For Employers</a></li>
+      <li><a href="#">Promote Your Deals</a></li>
+      <li><a href="{{ site.baseurl }}terms-of-use-flow-1.html">Terms of Use</a></li>
+      <li><a href="{{ site.baseurl }}contact-flow-1.html">Contact</a></li>
+    </ul>
+  </div>
   
   <div class="layout">
-    <header id="b365-mainnav" class="mainhead">
+    <header class="mainhead">
 
-      <div class="utility layout__utility">
+      <!-- 1. Hamburger menu icon trigger -->
+      <div class="mobilenav mainhead__mobilenav">
         <div class="menu-action">
           <a href="#sitefoot" class="menu-action__button js-menu-toggle"><span class="fa fa-bars" aria-hidden="true"></span></a>
         </div>
-        
-        <ul class="flow-1 utility__list menu" role="navigation">
+      </div>
+
+      <!-- 2. Utility navigation -->
+      <div class="utility mainhead__utility">
+        <ul class="utility__list menu">
+          <li class="utility__lang"><a href="#" data-abbr="En"><span>English</span></a> / <a href="#" data-abbr="Es"><span>Español</span></a></li>
           <li><a href="#">Healthy Tips Blog</a></li>
           <li><a href="{{ site.baseurl }}for-employers-flow-1.html">For Employers</a></li>
-          <li class="utility__lang"><a href="#">English</a> / <a href="#">Español</a></li>
-          <li><a href="#">About Blue365</a></li>
-          <li class="utility__user">
-            <div class="logged-out">
-              <a class="button button__secondary js-inline-modal" href="#signin-modal">Sign In</a> <a class="button button__primary js-inline-modal" href="#eligible-modal">Join</a>
-            </div>
-            <div class="logged-in">
-              <a href="{{ site.baseurl }}user-profile-flow-1.html" class="button button__not-button">Hello, Giovana</a> <a href="#" class="button button__secondary js-set-logout">Sign Out</a>
-            </div>
-          </li>
-        </ul>
-        <ul class="flow-2 utility__list menu" role="navigation">
-          <li class="utility__lang"><a href="#">English</a> / <a href="#">Español</a></li>
-          <li><a href="#">Healthy Tips Blog</a></li>
-          <li><a href="{{ site.baseurl }}for-employers-flow-2.html">For Employers</a></li>
           <li><a href="#">About Blue365</a></li>
         </ul>
       </div>
 
-      <div class="flow-2 mainnav">
-        <ul class="mainnav__list mainnav__list__parent menu" role="navigation">
-          <li>
-            <div class="search">
-              <form class="">
-                <fieldset class="search__wrapper">
-                  <label class="screen-reader-text">Search Deals</label>
-                  <input class="search__input" type="search" placeholder="Search our Deals">
-                  <input class="search__button" type="submit" value="Go">
+      <!-- 3. Authentication navigation -->
+      <div class="userauth mainhead__userauth">
+        <ul class="userauth__list menu">
+          <li class="userauth__search">
+            
+            <div id="searchbox" class="sitesearch js-clone">
+              <form class="sitesearch__form userauth__search__form">
+                <fieldset class="sitesearch__wrapper">
+                  <label class="screen-reader-text form__label">Search Deals</label>
+                  <input class="sitesearch__input form__input" type="search" placeholder="Search the Site">
+                  <input class="sitesearch__button form__action" type="submit" value="Go">
                 </fieldset>
               </form>
             </div>
+            
           </li>
-          <li class="browse-all-deals">
-            <a href="{{ site.baseurl }}flow-2.html"><span>Browse </span>All Deals</a>
+          <li class="userauth__actions logged-out">
+            <a href="#signin-modal" class="button button__secondary js-inline-modal">Sign In</a> 
+            <a href="#eligible-modal" class="button button__primary js-inline-modal">Join</a>
           </li>
-          <li class="logged-out">
-            <a href="{{ site.baseurl }}sign-in-flow-2.html" class="button button__secondary">Sign In</a> 
-            <a href="{{ site.baseurl }}sign-in-flow-2.html#join" class="button button__primary">Join</a></li>
-          <li class="logged-in">
-            <a href="{{ site.baseurl }}user-profile-flow-2.html">Hello, Giovana</a>
-            <ul class="mainnav__list mainnav__submenu menu">
-              <li><a href="{{ site.baseurl }}user-profile-flow-2.html">My Account</a></li>
-              <li><a href="#">My Favorites</a></li>
-              <li><a href="#">My History</a></li>
+          <li class="userauth__actions logged-in has-submenu">
+            <a href="#" class="js-menu-trigger">Hello, Giovana <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
+            <ul class="has-submenu__list menu">
+              <li><a href="{{ site.baseurl }}user-profile-flow-1.html">My Profile</a></li>
+              <li><a href="{{ site.baseurl }}favorites.html">My Favorites</a></li>
+              <li><a href="{{ site.baseurl }}history.html">My Redeemed Deals</a></li>
               <li><a href="#" class="js-set-logout">Sign Out</a></li>
             </ul>
           </li>
         </ul>
+      </div><!-- // 3 -->
+
+
+      <!-- 4. Logo -->
+      <div class="brand mainhead__brand">
+        <a class="brand__link" href="{{ site.baseurl }}index.html" title="Back to Home">
+          <img class="brand__img" src="{{ site.baseurl }}assets/img/placeholder-logo.jpg" alt="BlueCross BlueShield of Illinois | Blue365" />
+        </a>
       </div>
 
-      <div class="brand layout__brand">
-        <span class="flow-1">
-          <a class="mainhead__title" href="{{ site.baseurl }}index.html">
-            <img src="{{ site.baseurl }}assets/img/placeholder-logo.jpg" alt="Blue365">
-          </a>
-          Flow 1
-        </span>
-        <span class="flow-2">
-          <a class="mainhead__title" href="{{ site.baseurl }}index-flow-2.html">
-            <img src="{{ site.baseurl }}assets/img/placeholder-logo.jpg" alt="Blue365">
-          </a>
-          Flow 2
-        </span>
-      </div>
+    </header><!-- // .mainhead -->
 
-      <div class="catnav layout__catnav">
-        
-        <div class="flow-1 search">
-          <form class="">
-            <fieldset class="search__wrapper">
-              <label class="screen-reader-text">Search Blue365 Deals</label>
-              <input class="search__input" type="search" placeholder="Search our Deals">
-              <input class="search__button" type="submit" value="Go">
-            </fieldset>
-          </form>
-        </div>
-        
-        <nav class="catnav__wrapper">
-          <ul class="catnav__list">
+
+    <!-- 5. Category Bar -->
+    <div class="catnav">
+      <div class="catnav__search-glass">
+        <a href="javascript:;" class="js-menu-trigger" title="Search the Site">
+          <span class="fa fa-search open" aria-hidden="true"></span>
+          <span class="fa fa-times close" aria-hidden="true"></span>
+        </a>
+        <div id="searchbox__clone" class="catnav__search"></div>
+      </div>
+      <nav class="catnav__wrapper">
+        <div class="catnav__scroller">
+          <ul id="categories" class="catnav__list menu js-clone">
             {% include navigation/deal-categories.html %}
           </ul>
-        </nav>
+        </div>
+      </nav>
+      <div class="catnav__overflow has-submenu">
+        <a href="javascript:;" class="js-menu-trigger">
+          <span class="fa fa-ellipsis-v" aria-hidden="true"></span>
+        </a>
+        <div id="categories__clone" class="catnav__overflow__subnav has-submenu__list"></div>
       </div>
-
-    </header>
+    </div>

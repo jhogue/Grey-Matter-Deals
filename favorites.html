@@ -1,0 +1,42 @@
+---
+layout: deal
+nav-title: My Favorites
+title: My Favorite Blue365 Deals
+permalink: /favorites
+body-class: 'favorites'
+---
+  
+<div class="grid grid__rail-left deal-archive">
+	
+	<h1 class="layout__title">My Favorites</h1>
+	
+	<aside class="grid__item grid__item__rail deal__filters">
+		<p>Click again on any Heart icon to remove a Deal from your list of favorites.</p>
+	</aside>
+	
+	<div class="grid__item grid__item__main">
+
+		<div class="grid grid--archive">
+  		<!-- 
+    		This one gets hidden by CSS. 
+    		I didn't bother rewriting a bunch of nth-child rules that are being used to treat it as a feature. 
+    		
+    		Call me lazy. 
+      -->
+      {% include deal-feature.html %}
+      
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
+      
+      {% include deal-card-1.html %}  
+      {% include deal-card-1.html %}
+      
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
+      
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
+    </div>
+
+	</div>
+</div>

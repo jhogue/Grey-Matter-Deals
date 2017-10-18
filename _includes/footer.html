@@ -22,36 +22,15 @@
       			<h4 class="mainfoot__group__title">Members</h4>
       			<div class="flow-1 logged-out">
         			<ul class="mainfoot__group__list" role="navigation">
-          			<li><a href="{{ site:baseurl }}sign-in-flow-1.html">Sign In / Join</a></li>
+          			<li><a href="#signin-modal" class="js-inline-modal">Sign In / Join</a></li>
           			<li><a href="{{ site:baseurl }}contact-flow-1.html">Contact</a></li>
-          			<li><a href="{{ site:baseurl }}index.html">Redemption Flow 1</a></li>
-          			<li><a href="{{ site:baseurl }}index-flow-2.html">Redemption Flow 2</a></li>
           		</ul>
         		</div>
-        		<div class="flow-1 logged-in">
+        		<div class="logged-in">
         			<ul class="mainfoot__group__list" role="navigation">
-          			<li><a href="{{ site:baseurl }}flow-1.html" class="js-set-logout">Sign Out</a></li>
+          			<li><a href="#" class="js-set-logout">Sign Out</a></li>
           			<li><a href="{{ site:baseurl }}user-profile-flow-1.html">My Profile</a></li>
           			<li><a href="{{ site:baseurl }}contact-flow-1.html">Contact</a></li>
-          			<li><a href="{{ site:baseurl }}index.html">Redemption Flow 1</a></li>
-          			<li><a href="{{ site:baseurl }}index-flow-2.html">Redemption Flow 2</a></li>
-          		</ul>
-        		</div>
-        		<div class="flow-2 logged-out">
-        			<ul class="mainfoot__group__list" role="navigation">
-          			<li><a href="{{ site:baseurl }}sign-in-flow-2.html">Sign In / Join</a></li>
-          			<li><a href="{{ site:baseurl }}contact-flow-2.html">Contact</a></li>
-          			<li><a href="{{ site:baseurl }}index.html">Redemption Flow 1</a></li>
-          			<li><a href="{{ site:baseurl }}index-flow-2.html">Redemption Flow 2</a></li>
-          		</ul>
-        		</div>
-        		<div class="flow-2 logged-in">
-        			<ul class="mainfoot__group__list" role="navigation">
-          			<li><a href="{{ site:baseurl }}flow-2.html" class="js-set-logout">Sign Out</a></li>
-          			<li><a href="{{ site:baseurl }}user-profile-flow-2.html">My Profile</a></li>
-          			<li><a href="{{ site:baseurl }}contact-flow-2.html">Contact</a></li>
-          			<li><a href="{{ site:baseurl }}index.html">Redemption Flow 1</a></li>
-          			<li><a href="{{ site:baseurl }}index-flow-2.html">Redemption Flow 2</a></li>
           		</ul>
         		</div>
       		</div>
@@ -61,7 +40,26 @@
   	</footer>
 	</div>
   <a href="javascript:;" class="drawer__close js-menu-close"></a>
-	
+
+
+  <!-- Modals -->
+  <div id="signin-modal" class="modal mfp-hide">
+    <div class="modal__wrapper">
+      {% include modals/signin-join.html %}
+    </div>
+  </div>
+  <div id="eligible-modal" class="modal mfp-hide">
+    <div class="modal__wrapper">
+      {% include modals/signin-eligibility.html %}
+    </div>
+  </div>
+  <div id="join-modal" class="modal mfp-hide">
+    <div class="modal__wrapper">
+      {% include modals/join.html %}
+    </div>
+  </div>
+
+
 	<!-- Prototyping only -->
 	<div id="size"></div>
 
@@ -69,6 +67,3 @@
   <script src="{{ "assets/js/plugins.js" | prepend: site.baseurl }}"></script>
   <script src="{{ "assets/js/prototyping.js" | prepend: site.baseurl }}"></script>
   <script src="{{ "assets/js/scripts.js" | prepend: site.baseurl }}"></script>
-  
-  <!-- Go to www.addthis.com/dashboard to customize your tools -->
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f44fb314874a367"></script>

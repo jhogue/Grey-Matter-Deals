@@ -1,437 +1,108 @@
-//<div id="sitetop" class="drawer"></div>
-//<div class="layout">
-//	<header id="b365-mainnav" class="mainhead">
-//		<div class="utility layout__utility">
-//			<div class="menu-action">
-//        <a href="#sitefoot" class="menu-action__button js-menu-toggle"><span class="fa fa-bars" aria-hidden="true"><!--<span class="menu-action__icon" aria-hidden="true">&equiv;</span>--></span></a>
-//      </div>
-//			<ul class="utility__list menu" role="navigation">
-//  			<li><a href="#">Healthy Tips Blog</a></li>
-//        [ ... ]
-//  		</ul>
-//    </div>
-//  	<div class="brand layout__brand">
-//    	<a class="mainhead__title" href="{{ site.baseurl }}">Blue365</a>
-//    	<span class="flow-1">Flow 1</span>
-//    	<span class="flow-2">Flow 2</span>
-//    </div>
-//  	<div class="catnav layout__catnav">
-//  		<div class="search">
-//      	<form class="">
-//    			<fieldset class="search__wrapper">
-//      			<label class="screen-reader-text">Search Blue365 Deals</label>
-//      			<input class="search__input" type="search" placeholder="Search our Deals">
-//      			<input class="search__button" type="submit" value="Go">
-//      		</fieldset>
-//        </form>
-//      </div>
-//  		<nav class="catnav__wrapper">
-//  			<ul class="catnav__list">
-//          [ ... ]
-//  			</ul>
-//  		</nav>
-//  	</div>
-
 $drawer-width: 280px;
 $body-bg-color: palette(mono, 15);
 $layout-bg-color: palette(mono, white);
-$medium-breakpoint: 800px;
-
-%link-style {
-  display: block;
-  
-  @include touch-hover('idle') {
-    color: palette(brand);
-  }
-
-  @include touch-hover('hover') {
-    color: palette(mono, 90);
-    text-decoration: none;
-  }
-}
-
-
-// Global stuff
-.mainhead {
-  background-color: $layout-bg-color;
-  border-bottom: 1px solid $color-borders;
-  color: palette(mono, 66);
-}
-
-
-// Utility navigation
-.utility {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  padding: $page-gutter 0;
-
-  &__list {
-    
-    a:not(.button) {
-      @extend %link-style;
-      padding: .5em $page-gutter .375em;
-    }
-    
-    // Initially, hide everything but the Sign In
-    li {
-      @include hide();
-    }
-    
-    li.utility__user {
-      @include show(inline-block);
-      padding: 0 ($page-gutter/2);
-    }
-    
-    @media (min-width: 480px) {
-      .flow-1-body & li:nth-child(4) {
-        @include show(inline-block);
-      }
-    }
-    
-    @media (min-width: 640px) {
-      .flow-1-body & li.utility__lang {
-        @include show(inline-block);
-      }
-    }
-    
-    @media (min-width: $medium-breakpoint) {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: flex-end;
-      width: 100%;
-      
-      .flow-1-body & li:nth-child(1) {
-        @include show(inline-block);
-        margin-right: auto;
-      }
-    }
-
-    @media (min-width: 960px) {
-      .flow-1-body & li:nth-child(1) {
-        margin-right: 0;
-      }
-      .flow-1-body & li:nth-child(2) {
-        @include show(inline-block);
-        margin-right: auto;
-      }
-    }
-  }
-
-  // Needs more specificity here
-  &__list &__lang {
-
-    a {
-      display: inline-block;
-    }
-
-    a:first-child {
-      padding-right: 0;
-    }
-
-    a:last-child {
-      padding-left: 0;
-    }
-  }
-
-  &__user {}
-}
-
-
-// Brand / Logo container
-.brand {
-  padding: $page-gutter $page-gutter 0;
-  text-align: center;
-
-  @media (min-width: $medium-breakpoint) {
-    padding-top: 0;
-  }
-
-  img {
-    margin: 0 auto;
-  }
-}
-
-
-// Search form
-.search {
-
-  form {}
-
-  &__wrapper {
-    display: block;
-    padding: 0;
-    position: relative;
-    margin-bottom: 0;
-    
-    &:after {
-      @include icon-font('\f002');
-      font-size: 1.25em;
-      padding: .9375rem 1rem .875rem;
-    }
-  }
-
-  &__input,
-  &__button {
-    @include hide();
-  }
-
-  @media (min-width: 540px) {
-    
-    .flow-2-body &__wrapper {
-      border: 0;
-      
-      &:after {
-        position: absolute;
-        top: 0;
-        left: -.25em;
-      }
-    }
-    
-    .flow-2-body &__input {
-      @include show(inline-block);
-      padding: 0.5em .75em 0.375em 1.5em;
-      width: 180px;
-    }
-  }
-
-  // The drawer is hidden now, so these styles apply only to the search in the catnav now
-  @include media($large-up) {
-    
-    .flow-1-body &__wrapper {
-      
-      &:after {
-        position: absolute;
-        top: 0;
-        left: -.25em;
-      }
-    }
-
-    .flow-1-body &__input {
-      @include show(inline-block);
-      padding: 0.5em .75em 0.375em 1.5em;
-      width: 260px;
-    }
-  }
-}
-
-
-// Hamburger button
-.menu-action {
-  border: $form-input-border-width solid $form-input-border-color;
-  border-radius: $form-input-border-radius;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: ($page-gutter/2);
-
-  @media (min-width: $medium-breakpoint) {
-    @include hide();
-  }
-
-  &__button {
-    display: block;
-    font-size: 1.25em;
-    padding: .25rem $page-gutter .125rem;
-  }
-
-  &__icon {}
-}
-
-
-// Main menu option in Flow 2
-.mainnav {
-  
-  &__list {
-    text-align: right;
-    
-     &__parent > li > a.button {
-
-      @include media($small-up) {
-        font-size: 106.25%;
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-
-      @include media($large-up) {
-        font-size: 112.5%;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-    }
-  }
-  
-  li {
-    display: inline-block;
-    position: relative;
-    
-    a {
-      line-height: 1.33;
-      padding: ($page-gutter / 2);
-    }
-  }
-  
-  //<li class="logged-in">
-  //  <a href="/b365/20sep2017/user-profile-flow-2.html">Hello, Giovana</a>
-  //  <ul class="mainnav__list mainnav__submenu menu">
-  //    <li><a href="/b365/20sep2017/user-profile-flow-2.html">My Account</a></li>
-  //    <li><a href="#">My Favorites</a></li>
-  //    <li><a href="#">My History</a></li>
-  //    <li><a href="#" class="js-set-logout">Sign Out</a></li>
-  //  </ul>
-  //</li>
-  &__submenu {
-    background-color: palette(mono,white);
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.25);
-    opacity: 0;
-    position: absolute;
-    top: -99em;
-    right: 0;
-    transition: opacity 250ms ease;
-    min-width: 100%;
-    width: auto;
-    z-index: 100;
-
-    li {
-      display: block;
-      text-align: center;
-
-      &:first-child a {
-        padding-top: .875em;
-      }
-      &:last-child a {
-        padding-bottom: 1em;
-      }
-    }
-  }
-
-  &__list > li:hover &__submenu {
-    top: 100%;
-    opacity: 1;
-  }
-}
-
-
-// Category navigation with search box inside it
-.catnav {
-
-  &__wrapper {}
-
-  &__list {
-
-    a {
-      @extend %link-style;
-      padding: .5em ($page-gutter/2) .375em;
-    }
-  }
-  
-  // Only the exposed element in the .layout, not the one in the .drawer
-  .mainhead & {
-    // Initially hide for mobile, show only in the drawer
-    @include hide();
-    background-color: $body-bg-color;
-    position: relative;
-
-    &__wrapper {
-      overflow-x: scroll;
-    }
-
-    &__list {
-      text-align: right;
-      white-space: nowrap;
-
-      li {
-        display: inline-block;
-      }
-
-      a {
-        padding: .75em $page-gutter .625em;
-      }
-    }
-
-    @media (min-width: $medium-breakpoint) {
-      @include show(flex);
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
-      
-      &:after {
-        content: '';
-        background: linear-gradient(to right, rgba(#000,0) 0%,rgba(#000,.15) 100%);
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 2em;
-      }
-    }
-    
-    @media (min-width: 1220px) {
-      &:after {
-        @include hide();
-      }
-      
-      &__wrapper {
-        overflow-x: hidden;
-      }
-    }
-  }
-  
-  // Hide completely for the entire FLow 2
-  .flow-2-body & {
-    @include hide();
-  }
-}
-
-
-// The drawer as a wrapper to take the same elements and do some different things
-
-// Need a transition here, some color, and actions when a new class is added
-body {
-  @include transition( transform 250ms ease );
-  background-color: $body-bg-color;
-  overflow-x: hidden;
-
-  &.js-menu-open {
-    @include transform( translateX($drawer-width) );
-  }
-}
+$bp-drawer-not-in-use: bp(large);
+$link-padding: .5675rem .75rem .4375rem;
 
 
 // Structure
+//<div id="sitetop" class="drawer">
+//  <ul class="drawer__list menu">
+//  </ul>
+//</div>
+//<div class="layout">
+//  <header class="mainhead">
+//    <div class="mobilenav mainhead__mobilenav"></div>
+//    <div class="utility mainhead__utility">
+//      <ul class="utility__list menu">
+//        <li class="utility__lang"><a href="#"><span data-abbr="En">English</span></a></li>
+//      </ul>
+//    </div>
+//    <div class="userauth mainhead__userauth">
+//      <ul class="userauth__list menu">
+//        <li id="searchbox" class="userauth__search js-clone"></li>
+//        <li class="userauth__actions"></li>
+//      </ul>
+//    </div>
+//    <div class="brand mainhead__brand">
+//      <a class="brand__link" href="#"></a>
+//    </div>
+//  </header>
+//  <div class="catnav">
+//    <div class="catnav__search-glass"></div>
+//    <nav class="catnav__wrapper"></nav>
+//    <div class="catnav__overflow"></div>
+//  </div>
+//</div>
+//<a href="javascript:;" class="drawer__close js-menu-close"></a>
+
+
+// Need a transition here, some color, and actions when a new class is added
+body {
+  background-color: $body-bg-color;
+  overflow-x: hidden;
+
+  @media (max-width: $bp-drawer-not-in-use) {
+    transition: transform 250ms ease;
+
+    &.js-menu-open {
+      transform: translateX($drawer-width);
+    }
+  }
+}
+
+
 .drawer {
-  @include transition( transform 350ms ease );
-  @include transform( translateX( - ($drawer-width * 2) ) );
   position: absolute;
   top: 0;
   left: 0;
   width: $drawer-width;
   height: 100vh;
   overflow-y: scroll;
+  transition: transform 350ms ease;
+  transform: translateX( - ($drawer-width * 2) );
 
+  &__list {
+
+    // Because... specificity
+    &.menu {
+      margin-top: $page-gutter;
+    }
+
+    a {
+      padding: $link-padding;
+    }
+
+    // A bit brittle, I know. But Drupal may not help us here much later, either
+    li:nth-child(2) {
+      padding-bottom: $vert-line-height;
+    }
+  }
+
+
+  // Ruleset for the open/close effect
   body.js-menu-open & {
-    @include transform( translateX(- $drawer-width) );
+    transform: translateX(- $drawer-width);
   }
 
   body &__close {
-    @include transition(all 500ms ease);
+    transition: all 500ms ease;
+    position: absolute;
   }
 
   // Position a transparent element over the exposed area to make it clickable
   body.js-menu-open &__close {
-    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: zindex(top);
     background-color: rgba(palette(mono, white), .5);
     // This is fun...
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(6px);
 
     &:before {
-      @include transition(all 250ms ease);
       @include icon-font('\f00d');
       border: $form-input-border-width solid palette(mono, 75);
       border-radius: $form-input-border-radius;
@@ -441,6 +112,7 @@ body {
       top: 1rem;
       left: 1rem;
       padding: .5rem .75rem;
+      transition: all 250ms ease;
     }
 
     // No need to support touch events here
@@ -453,178 +125,616 @@ body {
 }
 
 
-// Show/Hide elements that are from the Mainhead but present in the cloned drawer
-.drawer {
+.mainhead {
+  background-color: $layout-bg-color;
+  color: palette(mono, 66);
+  padding: $page-gutter $page-gutter 0;
 
-  // Hide these duplicated elements
-  .menu-action {
-    @include hide();
+
+  // Structure for the header elements
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-end;
+
+  // 1. in source order
+  &__mobilenav {
+    margin-right: auto;
   }
   
-  // Change the color 
-  .mainhead {
-    background-color: transparent;
+  // 2. in source order
+  &__utility {}
+  
+  // 3. in source order
+  &__userauth {
+    margin-left: $page-gutter;
   }
   
-  .utility {
-    padding: $page-gutter 0 0;
+  // 4. in source order
+  &__brand {
+    width: 100%;
     
-    &__list {
-      display: flex;
-      flex-flow: column-reverse wrap;
+    .brand__img {
+      margin: 0 auto;
       
-      // Show all list items in the utility navigation
-      li {
-        @include show(block);
+      @media (min-width: 432px) {
+        max-width: 400px;
+      }
+    }
+  }
+  
+  @include media($small-up) {
+
+    &__userauth {
+      margin-left: auto;
+      order: 4;
+      text-align: right;
+      width: 45%;
+    }
+
+    &__brand {
+      order: 3;
+      width: 55%;
+
+      .brand__img {
+        margin: 0;
+        max-width: 328px;
       }
     }
   }
 
-  .search {
-    
-    &__wrapper {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-around;
-      padding: 0 $page-gutter 0 ($page-gutter * 2.5);
-      position: relative;
-      
-      &:after {
-        position: absolute;
-        top: 0;
-        left: -.25em;
+  @include media($medium-up) {
+    padding-top: ($page-gutter / 2);
+
+    &__userauth {
+      width: 50%;
+    }
+
+    &__brand {
+      width: 50%;
+
+      .brand__img {
+        max-width: none;
       }
     }
-    
-    &__input {
-      @include show(inline-block);
-      width: 220px;
+  }
+
+  @include media($large-up) {
+    padding-left: ($page-gutter * 2);
+    padding-right: ($page-gutter * 2);
+
+    &__utility {
+      text-align: right;
+      width: 100%;
     }
-  }
-  
-  // Add some padding to this list item
-  .utility__user {
-    padding: 0 $page-gutter ($page-gutter/2);
-  }
-  
-  .catnav__list a {
-    padding-left: $page-gutter;
-    padding-right: $page-gutter;
+
+    &__userauth {
+      width: 55%;
+    }
+
+    &__brand {
+      width: 45%;
+    }
   }
 }
 
 
-// Flow 2 header changes
-.flow-2-body .mainhead {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  
-  .menu-action__button {
-    padding: 0.5rem 1rem 0.375rem;
+// Hamburger button
+//<div class="mobilenav mainhead__mobilenav">
+//  <div class="menu-action">
+//    <a href="#sitefoot" class="menu-action__button js-menu-toggle"><span class="fa fa-bars" aria-hidden="true"></span></a>
+//  </div>
+//</div>
+
+.mobilenav {
+
+  @media (min-width: $bp-drawer-not-in-use) {
+    @include hide();
+  }
+}
+
+.menu-action {
+  border: $form-input-border-width solid $form-input-border-color;
+  border-radius: $form-input-border-radius;
+
+  &__button {
+    display: block;
+    font-size: 1.25em;
+    padding: .25rem $page-gutter .125rem;
+  }
+
+  &__icon {}
+}
+
+
+// Utility Navigation
+//<div class="utility mainhead__utility">
+//  <ul class="utility__list menu">
+//    <li class="utility__lang"><a href="#" data-abbr="En"><span>English</span></a> / <a href="#" data-abbr="Es"><span>Español</span></a></li>
+//    <li><a href="#">Healthy Tips Blog</a></li>
+//  </ul>
+//</div>
+
+.utility {
+
+  // Iniitially hide all but the first one
+  li:nth-child(n+2) {
+    @include hide();
+  }
+
+  &__list {
+    
+    li {
+      display: inline-block;
+      margin-right: -4px;
+      vertical-align: middle;
+    }
+    
+    a {
+      padding: $link-padding;
+    }
+  }
+
+  &__lang {
+
+    a {
+      display: inline-block;
+      vertical-align: middle;
+
+      &:first-child {
+        padding-right: 0;
+      }
+      
+      &:last-child {
+        padding-left: 0;
+      }
+
+      &:after {
+        // Show the abbreviation
+        content: attr(data-abbr);
+      }
+
+      span {
+        // Hide the non-abbreviated content
+        @include hide();
+      }
+
+      @include media($small-up) {
+
+        &:after {
+          // Hide the abbreviation
+          content: '';
+        }
+
+        span {
+          // Show the non-abbreviated content
+          @include show(inline);
+        }
+      }
+    }
   }
   
-  .mainnav {
-    padding: $page-gutter $page-gutter 0 0;
+  @media (min-width: bp(base)) {
+    
+    // Show the last one, which should be About Us
+    li:nth-child(4) {
+      @include show(inline-block);
+    }
   }
   
-  .brand {
-    width: 100%;
+  @include media($small-up) {
+    
+    // Show the second one, which should be Healthy Tips
+    li:nth-child(2) {
+      @include show(inline-block);
+    }
   }
   
-  
-  // Show the utility & catnav menus now
   @include media($medium-up) {
     
-    .menu-action {
-      @include hide();
+    // Show all
+    li:nth-child(n+2) {
+      @include show(inline-block);
     }
-    
-    .utility {
-      order: 1;
-      justify-content: flex-end;
-      width: 100%;
-      
-      li {
-        @include show(inline-block);
+  }
+}
+
+
+// User Authentication & Search
+//<div class="userauth mainhead__userauth">
+//  <ul class="userauth__list menu">
+//    <li id="searchbox" class="userauth__search js-clone">
+//      
+//      <div class="sitesearch">
+//        <form class="sitesearch__form userauth__search__form">
+//          <fieldset class="sitesearch__wrapper">
+//            <label class="screen-reader-text">Search Deals</label>
+//            <input class="sitesearch__input" type="search" placeholder="Search our Deals">
+//            <input class="sitesearch__button" type="submit" value="Go">
+//          </fieldset>
+//        </form>
+//      </div>
+//      
+//    </li>
+//    <li class="userauth__actions logged-out">
+//      <a href="{{ site.baseurl }}sign-in.html" class="button button__secondary">Sign In</a> 
+//      <a href="{{ site.baseurl }}sign-in.html#join" class="button button__primary">Join</a>
+//    </li>
+//    <li class="userauth__actions logged-in">
+//      <a href="{{ site.baseurl }}user-profile.html">Hello, Giovana</a>
+//      <ul class="menu">
+//        <li><a href="{{ site.baseurl }}user-profile.html">My Account</a></li>
+//        <li><a href="#">My Favorites</a></li>
+//        <li><a href="#">My History</a></li>
+//        <li><a href="#" class="js-set-logout">Sign Out</a></li>
+//      </ul>
+//    </li>
+//  </ul>
+//</div>
+
+.userauth {
+
+  @include media($large-up) {
+    padding: ($vert-line-height/2) 0 $vert-line-height;
+  }
+
+  &__list {}
+
+  .sitesearch {
+    margin-right: 2em;
+
+    .sitesearch__wrapper {
+      position: relative;
+
+      &:before {
+        @include icon-font('\f002');
+        position: absolute;
+        top: .875em;
+        left: .75em;
       }
     }
-    
-    .brand {
-      order: 2;
-      text-align: left;
-      width: 38%;
-      
-      img {
-        margin: 0;
-      }
+  }
+
+  .sitesearch__input {
+    padding-left:  1.75em;
+  }
+
+  .sitesearch__button {
+    @include hide();
+  }
+
+  &__search {
+    @include hide();
+  }
+
+  @media (min-width: $bp-drawer-not-in-use) {
+
+    &__search {
+      @include show(inline-block);
     }
-    
-    .mainnav {
-      order: 3;
-      padding-top: 0;
-      padding-bottom: $page-gutter;
-      text-align: right;
-      width: 62%;
+
+    .sitesearch__input {
+      width: 25vw;
     }
-    
-    //.catnav {
-    //  @include show();
-    //  order: 4;
-    //  width: 100%;
-    //}
   }
   
+  
+  // Signed in users get a drop down
+  //<li class="userauth__actions logged-in">
+  //  <a href="#" class="js-usermenu-trigger">Hello, Giovana</a>
+  //  <ul class="menu">
+  //    <li><a href="{{ site.baseurl }}user-profile.html">My Account</a></li>
+  //    <li><a href="#">My Favorites</a></li>
+  //    <li><a href="#">My History</a></li>
+  //    <li><a href="#" class="js-set-logout">Sign Out</a></li>
+  //  </ul>
+  //</li>
+  &__actions {
+    position: relative;
+
+    .logged-out &.logged-out,
+    .logged-in &.logged-in {
+      display: inline-block;
+    }
+
+    & > a {
+      font-weight: $font-weight-bold;
+    }
+  }
+}
+
+
+// Drop Down menu pattern onClick() generalized so we can use it anywhere
+.has-submenu {
+  position: relative;
+
+  &__list {
+    top: -999em;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    z-index: zindex(usernav);
+    background-color: palette(mono, white);
+    border: 1px solid $color-borders;
+    box-shadow: 0 1px 3px rgba(#000, 0.25);
+    transition: opacity 250ms ease 0, top 0 linear 250ms;
+
+    li {
+      display: list-item;
+      white-space: nowrap;
+      
+      a {
+        display: block;
+        padding: $link-padding;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .js-menu-trigger.open {
+    
+    .fa-chevron-circle-down:before {
+      content: '\f139'; // switch to "up" when open
+      color: palette(mono, 66);
+    } 
+  }
+
+  .js-menu-trigger.open + &__list {
+    top: 100%;
+    opacity: 1;
+    transition: opacity 250ms ease 0, top 0 linear 0;
+  }
+}
+
+
+//<div id="searchbox" class="sitesearch js-clone">
+//  <form class="sitesearch__form userauth__search__form">
+//    <fieldset class="sitesearch__wrapper">
+//      <label class="screen-reader-text form__label">Search Deals</label>
+//      <input class="sitesearch__input form__input" type="search" placeholder="Search the Site">
+//      <input class="sitesearch__button form__action" type="submit" value="Go">
+//    </fieldset>
+//  </form>
+//</div>
+            
+.sitesearch {
+
+  &__wrapper {
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__input,
+  &__button {
+    border-radius: 0;
+    margin: 0;
+  }
+
+  &__input {
+    width: auto;
+  }
+}
+
+
+// Brand
+//<div class="brand mainhead__brand">
+//  <a class="brand__link" href="{{ site.baseurl }}index.html">
+//    <img class="brand__img" src="{{ site.baseurl }}assets/img/placeholder-logo.jpg" alt="BlueCross BlueShield of Illinois | Blue365" />
+//  </a>
+//</div>
+
+.brand {
+  padding: $vert-line-height 0;
+
   @include media($large-up) {
-    
-    .search__input {
-      width: 240px;
-    }
-    
-    .mainnav {
-      font-size: 112.5%;
-    }
-    
-    .brand {
-      width: 35%;
-    }
-    
-    .mainnav {
-      width: 65%;
-    }
-    
-    //.catnav {
-    //  
-    //  &:after {
-    //    @include hide;
-    //  }
-    //  
-    //  &__wrapper {
-    //    overflow-x: hidden;
-    //    text-align: center;
-    //  }
-    //}
+    padding: 0;
   }
   
   @include media($xlarge-up) {
     
-    .brand {
-      margin-top: - $vert-line-height;
+    &__img {
+      // Force it to be bigger right now... which reminds me,
+      // MAKE THE LOGO BIG... MAKE THE LOGO BIG-GAH AH AH!
+      width: 480px;
+      position: relative;
+      top: -.5rem;
     }
   }
 }
 
-.browse-all-deals {
-  
-  span {
-    @include hide();
-  }
-  
-  @include media($large-up) {
 
-    span {
-      @include show(inline-block);
+// Utility navigation
+//<div class="catnav">
+//  <div class="catnav__search-glass">
+//    <a href="javascript:;" class="js-search-trigger" title="Search the Site">
+//      <span class="fa fa-search" aria-hidden="true"></span>
+//    </a>
+//    <div id="searchbox__clone" class="catnav__search"></div>
+//  </div>
+//  <nav class="catnav__wrapper">
+//    <div class="catnav__scroller">
+//      <ul id="categories" class="catnav__list js-clone">
+//        {% include navigation/deal-categories.html %}
+//      </ul>
+//    </div>
+//  </nav>
+//  <div class="catnav__overflow">
+//    <a href="javascript:;" class="js-catoverflow-trigger">
+//      <span class="fa fa-ellipsis-v" aria-hidden="true"></span>
+//    </a>
+//    <div class="catnav__overflow__subnav">
+//      <ul id="categories__clone" class="catnav__list"></ul>
+//    </div>
+//  </div>
+//</div>
+
+$icon-width: 44px; // Magic number
+
+.catnav {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  justify-content: center;
+  border-top: 1px solid $color-borders;
+  border-bottom: 1px solid $color-borders;
+  width: 100%;
+  position: relative;
+  z-index: zindex(catnav);
+
+  @include media($large-up) {
+    padding: ($page-gutter/2) $page-gutter;
+  }
+
+  &__search-glass,
+  &__overflow {
+
+    & > a {
+      display: block;
+      padding: .5rem .875rem;
+      width: $icon-width;
+      text-align: center;
+    }
+
+    @media (min-width: $bp-drawer-not-in-use) {
+      @include hide();
     }
   }
+  
+  &__search-glass {
+    border-right: 1px solid $color-borders;
+
+    a {
+      position: relative;
+
+      .close {
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: opacity 250ms ease;
+      }
+      
+      &.js-menu-trigger.open {
+        
+        .open {
+          opacity: 0;
+        }
+        
+        .close {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  
+  //<div id="searchbox__clone" class="catnav__search">
+  //  <div class="search">
+  //    <form class="search__form userauth__search__form">
+  //      <fieldset class="search__wrapper">
+  //        <label class="screen-reader-text">Search Deals</label>
+  //        <input class="search__input" type="search" placeholder="Search our Deals">
+  //        <input class="search__button" type="submit" value="Go">
+  &__search {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: $icon-width + 1;
+    z-index: (zindex(catnav) + 1);
+    white-space: nowrap;
+    width: 0;
+    transition: width 500ms ease;
+
+    .sitesearch__input {
+      border: 0;
+      padding: 9px 8px 7px;
+      margin: 0 -4px 0 0; // The -4px accounts for space around an inline-block object
+      width: calc(100% - 52px); // width of the GO button
+    }
+    
+    .sitesearch__button {
+      border: 0;
+      padding: 9px 16px 7px;
+    }
+    
+    .js-menu-trigger.open + & {
+      width: calc(100% - #{$icon-width + 1px});
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+
+    &:after {
+      content: '';
+      background-image: linear-gradient(to right, rgba(#fff, 0) 0%,rgba(#fff, 1) 100%);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none; // allow click events to "pass through" this element
+      width: 2rem;
+      
+      @media (min-width: $bp-drawer-not-in-use) {
+        @include hide();
+      }
+    }
+  }
+  
+  &__scroller {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    width: calc(100vw - #{$icon-width * 2}); // Magic number times 2
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    @media (min-width: $bp-drawer-not-in-use) {
+      overflow: hidden;
+      width: auto;
+    }
+  }
+  
+  &__list {
+    white-space: nowrap;
+    
+    li {
+      display: inline-block;
+      
+      a {
+        padding: $link-padding;
+      }
+    }
+  }
+
+
+  // The vertical ellipses button and a clone of the category navigation contents
+  &__overflow {
+    border-left: 1px solid $color-borders;
+    position: relative;
+
+    &__subnav.has-submenu__list {
+      right: ($page-gutter / 2);
+      z-index: zindex(overflownav);
+
+      &:before {
+        content: '';
+        display: block;
+        background-color: palette(mono, white);
+        border-top: 1px solid $color-borders;
+        border-left: 1px solid $color-borders;
+        position: absolute;
+        top: -.4rem;
+        right: .4rem;
+        width: .8rem;
+        height: .8rem;
+        transform: rotate(45deg);
+      }
+
+      li {
+        display: list-item;
+      }
+    }
+  } // end &__overflow
 }

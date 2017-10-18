@@ -1,191 +1,404 @@
-//<section class="content__main deal">
+$header-grid: em(850);
+$adhesive-sidebar-px: 1200;
+$adhesive-sidebar: em($adhesive-sidebar-px);
+
+
+//<div class="deal__column__container">
 //  <header class="deal__header">
-//    <div class="deal__brand">
-//      <img class="deal__brand__logo" src="" alt="">
-//      <div id="deal-brand" class="deal__brand__name">Fitness Your Way:</div>
-//    </div>
-//    <h1 class="deal__title">Access to 9,500+ Gyms Nationwide through Tivity Health® Fitness Your Way</h1>
-//    <!-- Start Redeem --><!-- End Redeem -->
-//    <div class="deal__meta">
-//      <p class="deal__price">
-//        <span class="deal__price__after"><ins title="Blue365 Deal Price">$25.00</ins>
-//        <span class="deal__price__before"><del title="Regular Price">$35.00</del></span>
-//        <span class="deal__price__recurrence">Monthly</span>
-//      </span></p>
-//      <div class="deal__meta__grid">
-//        <div class="deal__meta__expiration">
-//          <span class="fa fa-clock-o" aria-hidden="true"></span>
-//          <p title="This deal will expire on 9-30-2017">24 days left</p>
-//        </div>
-//        <div class="deal__meta__location">
-//          <span class="fa fa-map-marker" aria-hidden="true"></span>
-//          <p title="Locations are available in your area">Close to you!</p>
-//        </div>
-//        <div class="deal__meta__favorite">
-//          <span class="fa fa-heart-o" aria-hidden="true"></span>
-//          <p title="User have marked this deal as a favorite">123 favorites</p>
-//        </div>
-//        <div class="deal__meta__category">
-//          <a href="#" title="More from this category">
-//            <span class="fa fa-universal-access" aria-hidden="true"></span>
-//            <p>Fitness</p>
-//          </a>
-//        </div>
-//      </div>
-//      <div class="deal__meta__share">
-//        <div class="addthis_sharing_toolbox"></div>
-//      </div>
-//    </div>
-//    <div class="deal__featured">
-//      <img class="deal__featured__image" src="http://fpoimg.com/800x450?text=16:9 Deal Thumbnail">
-//    </div>
+//    [...]
 //  </header>
+//  <div class="deal__main">
+//    <div class="deal__header__container">
+//      <div id="redeem" class="deal__redeem">
+//        [...]
+//      </div>
+//      <div class="deal__meta deal__column--hide">
+//        [...]
+//      </div>
+//      <div class="deal__featured">
+//        [...]
+//      </div>
+//    </div>
+//    <article class="deal__article">
+//      [...]
+//    </article>
+//  </div>
+//  <aside class="deal__aside">
+//    [...]
+//  </aside>
+//</div>
 
 .deal {
-  
+
+  // Structural, for the left main column and right adhesive rail
+  &__column__container {
+    margin: 0 (- $page-gutter); // negate the page margins
+
+    @media (min-width: $adhesive-sidebar) {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: stretch;
+    }
+  }
+
   &__header {
-    padding-top: $vert-line-height;
     width: 100%;
   }
+
+  &__main {
+
+    @media (min-width: $adhesive-sidebar) {
+      width: 75%;
+    }
+  }
+
+  &__aside {
+    @include hide();
+
+    @media (min-width: $adhesive-sidebar) {
+      @include show();
+      width: 25%;
+    }
+
+    // Adhesive sidebar, when stuck to the top
+    .js-adhesive.stuck {
+      height: auto;
+      left: 75%;
+      right: 0;
+      bottom: 0;
+    }
+
+    // When stuck to the bottom
+    .js-adhesive.stuck.hit-bottom {
+      left: 0;
+    }
+  }
+
+
+  // Structural, for the main Deal components
+  &__header__container {
+    
+    @media (min-width: $header-grid) and (max-width: em($adhesive-sidebar-px - 1px)) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-column-gap: 0;
+      grid-row-gap: 0;
+      grid-template-areas:
+        "featured redeem"
+        "featured meta";
+      align-items: flex-start; // align along row axis
+    }
+  }
   
-  &__brand {
+  // Grid structure, when needed
+  &__redeem {
+    grid-area: redeem;
+  }
+  
+  &__meta {
+    grid-area: meta;
+  }
+  
+  &__featured {
+    grid-area: featured;
+  }
+  
+  // When the adhesive sidebar is displayed, hide the original element copies
+  @media (min-width: $adhesive-sidebar) {
     
-    &:not(empty) {
-      padding-bottom: $vert-line-height/2;
-    }
-    
-    &__logo {
-      margin: 0 auto;
-      max-height: 50px;
-    }
-    
-    // If there is a logo AND a brand name, hide the brand name
-    &__logo[src] + &__name {
+    &__header__container &__redeem,
+    &__header__container &__meta {
       @include hide();
     }
   }
   
+  
+  // Persistent Styles
+  
+  //<header class="deal__header">
+  //  <div class="deal__brand">
+  //    <img class="deal__brand__logo" src="https://www.blue365deals.com/sites/default/files/styles/merchant_logo/public/merchant/logos/fitnessyourway_4c_300.jpg?itok=Fk8AXYbD" alt="">
+  //    <div id="deal-brand" class="deal__brand__name">Fitness Your Way:</div>
+  //  </div>
+  //  <h1 class="deal__title">
+  //    Access to 9,500+ Gyms Nationwide through Tivity Health® Fitness Your Way
+  //  </h1>
+  //</header>
+  &__header {
+    padding: $vert-line-height $page-gutter;
+    width: 100%;
+    
+    @include media($small-up) {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+  }
+  
+  &__brand {
+
+    &:not(empty) {
+      padding-bottom: $vert-line-height/2;
+    }
+
+    &__logo {
+      margin: 0 auto;
+      max-height: 50px;
+    }
+
+    // If there is a logo AND a brand name, hide the brand name
+    &__logo[src] + &__name {
+      @include hide();
+    }
+
+    @include media($small-up) {
+      min-width: 31%;
+      padding-right: $page-gutter;
+    }
+
+    @include media($medium-up) {
+      min-width: 28%;
+      padding-right: ($page-gutter * 2);
+    }
+
+    @include media($large-up) {
+      min-width: 25%;
+      max-width: 25%;
+    }
+  }
+
   &__title {
     line-height: 1.33;
     text-align: center;
+    
+    @include media($small-up) {
+      text-align: left;
+    }
   }
   
-  &__meta {
+  
+  //<div id="dealredeem" class="deal__redeem js-clone">
+  //  <div class="logged-out">
+  //    <p><a href="{{ site.baseurl }}sign-in-flow-2.html#join" class="button button__primary redeem__button redeem__button--join">Join Blue365 to Redeem</a></p>
+  //  </div>
+  //  <div class="logged-in">
+  //    <div class="deal__redeem__instructions">
+  //      <h4 class="deal__redeem__title">Redemption Instructions:</h4>
+  //      <ol>
+  //        <li>Click “Shop on Partner Site” to be redirected to the <a href="#external-notice" class="js-inline-modal">Fitness Your Way by Tivity Health</a> website.</li>
+  //        <li>Enter redemption code <b>FIT4FALL</b> to receive the $25 waived enrollment fee at checkout.</li>
+  //      </ol>
+  //    </div>
+  //    <div class="deal__redeem__online">
+  //      <h5 class="echo screen-reader-text">Online Coupon Code</h5>
+  //      <div class="form__group form__input-button-pair redeem__copycode">
+  //        <input class="form__input redeem__input" value="FIT4FALL" readonly>
+  //        <a href="#" class="button button__primary" title="Copy Online Coupon Code"><span class="fa fa-clipboard" aria-hidden="true"></span>Copy Code</a>
+  //      </div>
+  //      <a href="#external-notice" class="button button__primary js-inline-modal" target="_blank"><span class="fa fa-external-link-square" aria-hidden="true"></span>Shop on Partner Site</a>
+  //    </div>
+  //  </div>
+  //</div>
+  &__redeem {
+    padding: $page-gutter;
     text-align: center;
+
+    .logged-in & {
+      color: palette(mono, 90);
+      background-color: percent-color(palette(brand), 20%);
+    }
+
+    &__instructions {
+      
+      p,
+      ul,
+      ol {
+        margin-bottom: ($vert-line-height/2);
+      }
+      
+      ul,
+      ol {
+        text-align: left;
+      }
+    }
     
-    &__container {}
+    &__title {
+      font-weight: $font-weight-bold;
+      margin-bottom: ($page-gutter/2);
+    }
     
+    &__online {
+      
+      .form__group {
+        padding-bottom: ($vert-line-height/2);
+      }
+      
+      .button {
+        padding: 0.4375em 1em 0.375em;
+        white-space: nowrap;
+      }
+      
+      @media (min-width: em(550)) {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        
+        .form__group {
+          padding-bottom: 0;
+        }
+      }
+      
+      @media (min-width: $header-grid) {
+        display: block;
+        
+        .form__group {
+          padding-bottom: ($vert-line-height/2);
+        }
+      }
+    }
+  }
+  
+  
+  //<div id="dealmeta" class="deal__meta js-clone">
+  //  <p class="deal__meta__price">
+  //    <strong class="deal__price__after"><ins title="Blue365 Deal Price">$25.00</ins></strong>
+  //    <span class="deal__price__before"><del title="Regular Price">$35.00</del></span>
+  //    <span class="deal__price__recurrence">Monthly</span>
+  //  </p>
+  //  <div class="deal__meta__grid deal__meta__grid--quatro">
+  //    <div class="deal__meta__category">
+  //      <a href="{{ site.baseurl }}category.html" title="More from this category">
+  //        <span class="fa fa-male" aria-hidden="true"></span>
+  //        <p>Fitness</p>
+  //      </a>
+  //    </div>
+  //    <div class="deal__meta__expiration" title="This deal will expire on 11-30-2017">
+  //      <span class="fa fa-clock-o" aria-hidden="true"></span>
+  //      <p>12 days left</p>
+  //    </div>
+  //    <div class="deal__meta__location" title="Locations are available in your area">
+  //      <span class="fa fa-map-marker" aria-hidden="true"></span>
+  //      <p>Close to you!</p>
+  //    </div>
+  //    <div class="deal__meta__favorite" title="Users have marked this deal as a favorite">
+  //      <span class="fa fa-heart-o" aria-hidden="true"></span>
+  //      <p>123 favorites</p>
+  //    </div>
+  //  </div>
+  //</div>
+  &__meta {
+    //border-top: 1px solid $color-borders;
+    //border-bottom: 1px solid $color-borders;
+    //margin: $vert-line-height $page-gutter;
+    margin: 0 $page-gutter;
+    padding: ($vert-line-height/2) 0;
+    text-align: center;
+
+    //@media (min-width: $header-grid) {
+    //  border: 0;
+    //}
+
     .fa {
       color: palette(mono, 25);
       font-size: 250%;
     }
-    
+
+    &__price {
+      font-size: 125%;
+      padding-bottom: $vert-line-height/2;
+
+      &__before {}
+
+      &__after {}
+
+      &__recurrence {}
+    }
+
     &__grid {
       border-top: 1px solid $color-borders;
-      border-bottom: 1px solid $color-borders;
       display: flex;
       flex-flow: row nowrap;
       align-items: flex-start;
-      justify-content: space-between;
-      padding: ($vert-line-height/2) 0;
-      
+      justify-content: space-around;
+      padding-top: ($vert-line-height/2);
+
       p {
         @include one-element-size(micro);
       }
     }
-    
+
     &__expiration {}
-    
+
     &__location {}
-    
+
     &__favorite {}
-    
+
     &__category {}
-    
-    &__share {
-      padding: ($vert-line-height/2) 0;
-    }
   }
-  
-  &__price {
-    font-size: 125%;
-    padding-bottom: $vert-line-height/2;
 
-    &__before {}
 
-    &__after {}
-
-    &__recurrence {}
-  }
-  
-  &__featured {
-    margin: 0 (- $page-gutter);
-    
-    &__image {}
-  }
-  
-  &__details {
-    // The content inside here right now is paragraphs, so, negate the padding
-    margin: 0 (- $page-gutter);
-  }
-  
+  // Present in the adhesive sidebar when someone is not logged in
   &__value-prop {
     background-color: percent-color(palette(brand), 20%);
     margin-top: $vert-line-height;
     padding: $vert-line-height ($page-gutter*2);
   }
-  
-  &__footer {
-    
-    &__title {
-      line-height: 1.5;
-      padding-bottom: ($vert-line-height/2);
-    }
-    
-    &__container {
-      padding-bottom: ($vert-line-height * 1.5);
-    }
-    
-    // Jumping out of the flow a bit here, since I have found
-    // a few other places that this code can be used for
-    .flow-1-body & .grid.related__deals {
-      
-      @include media($large-up) {
 
-        .child-wrapper {
-          width: 48.5%;
+
+  //<div class="deal__featured">
+  //  <div class="gallery gallery__container">
+  //    <div class="gallery__main">
+  //      <img class="deal__featured__image" src="http://fpoimg.com/1200x675?text=16:9 Deal Image Gallery">
+  //    </div>
+  //    <div class="gallery__thumbs">
+  //      <ul class="gallery__thumbs__list">
+  //        <li><img class="deal__featured__image" src="http://fpoimg.com/200x150?text=4:3 Deal Thumb"></li>
+  //      </ul>
+  //    </div>
+  //  </div>
+  //</div>
+  &__featured {
+
+    &__image {}
+    
+    @include media($xlarge-up) {
+      
+      .gallery__container {
+        display: flex;
+        flex-flow: row-reverse nowrap;
+      }
+      
+      .gallery__thumbs {
+        width: 400px;
+        
+        .gallery__thumbs__list {
+          display: flex;
+          flex-flow: row wrap;
+          
+          li {
+            width: 50%;
+          }
+        }
+
+        img {
+          max-width: 100%;
+          height: auto;
         }
       }
     }
-    
-    @at-root {
-    
-      .flow-1-body & .grid.related__deals,
-      .flow-1-body .deals-list--favorites .grid.related__deals {
+
+    @include media($xxlarge-up) {
+      
+      .gallery__thumbs {
+        width: 158px;
         
-        @include media($large-up) {
+        .gallery__thumbs__list {
+          flex-flow: column nowrap;
           
-          .child-wrapper {
-            
-            .deal-card__1 {
-              display: block;
-              
-              .deal-card__flash {
-                right: 0;
-              }
-              
-              .deal-card__offer__content {
-                position: relative;
-                bottom: auto;
-                margin-top: -2rem;
-                color: palette(mono, 75);
-                background-color: palette(mono, white);
-              }
-              
-              .deal-card__actions {
-                border-top: 1px solid $color-borders;
-              }
-            }
+          li {
+            width: 100%;
           }
         }
       }
@@ -193,424 +406,317 @@
   }
 
 
-  // Media & CSS Grid FTW!
-  @include media($small-up) {
-    
-    &__header {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-      grid-template-rows: auto;
-      grid-column-gap: $page-gutter;
-      grid-row-gap: 0;
-      grid-template-areas:
-        "brand brand title title title title"
-        "redeem redeem redeem redeem redeem redeem"
-        "featured featured featured meta meta meta";
-      justify-items: center; // align along column axis
-      align-items: flex-start; // align along row axis
-    }
-    
-    .flow-2-body &__header {
-      grid-template-areas:
-        "brand brand title title title title"
-        "featured featured featured featured redeem redeem"
-        "featured featured featured featured meta meta";
-    }
-    
-    .flow-2-body &__meta__grid {
-      flex-flow: row wrap;
-      
-      & > div {
-        width: 50%;
-      }
-    }
-    
-    &__brand {
-      grid-area: brand;
-      
-      &__logo {
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-    
-    &__title {
-      grid-area: title;
-      text-align: left;
-    }
-    
-    &__redeem {
-      grid-area: redeem;
-      width: 100%;
-    }
-    
-    &__featured {
-      grid-area: featured;
-    }
-    
-    &__meta {
-      grid-area: meta;
-    }
-  }
-  
-  //&__footer {
-  //  
-  //  .grid--duo .grid__item:first-child {
-  //    margin-right: ($page-gutter/2);
-  //  }
-  //  .grid--duo .grid__item:last-child {
-  //    margin-left: ($page-gutter/2);
-  //  }
-  //}
-  
-  @include media($medium-up) {
-    
-    &__title {
-      //margin-bottom: $vert-line-height; Not needed for Flow 1
-    }
-    
-    &__footer {
-      display: flex;
-      flex-flow: row nowrap;
-      align-content: flex-start;
-      
-      &__container:first-child {
-        width: 66%;
-      }
-      
-      &__container:last-child {
-        padding-left: $page-gutter;
-        width: 34%;
-      }
-    }
-  }
-  
-  @include media($large-up) {
-    
-    &__header {
-      grid-template-areas:
-        "brand title title title title title"
-        "featured featured featured featured redeem redeem"
-        "featured featured featured featured meta meta";
-    }
-    
-    .flow-2-body &__header .redeem {
-      padding-top: 0;
-    }
-    
-    .flow-2-body &__header {
-      grid-template-areas:
-        "brand title title title title title"
-        "featured featured featured featured meta meta"
-        "featured featured featured featured redeem redeem";
-    }
-    
-    &__brand__logo {
-      //max-height: 60px;
-      margin-top: $page-gutter;
-      margin-bottom: $page-gutter;
-    }
-    
-    &__title {
-      margin-bottom: ($page-gutter * 2);
-    }
-    
-    &__meta__grid {
-      flex-flow: row wrap;
-      
-      & > div {
-        width: 50%;
-        
-        &:first-child,
-        &:nth-child(2) {
-          padding-bottom: $page-gutter;
-        }
-      }
-    }
-    
-    .logged-in &__meta {
-      align-self: center;
-    }
-  }
-  
-  @include media($xlarge-up) {
-  
-    &__meta__grid > div {
-      padding-left: ($page-gutter/2);
-      padding-right: ($page-gutter/2);
-      width: 25%;
-    }
-  }
-}
+  // Article
+  &__article {}
 
 
-// Redeem items
-%bottom-border-spacing {
-  //border-bottom: 1px solid $color-borders;
-  //margin-bottom: $vert-line-height/2;
-  padding-bottom: $vert-line-height/2;
-}
-
-.redeem {
-  padding: $vert-line-height 0;
-  text-align: center;
-
-  // Make it blue and noticeable when it goes full width
-  .logged-in &:not(.redeem--adhesive) {
-    background-color: percent-color(palette(brand), 20%);
-    //margin-left: - $page-gutter;
-    //margin-right: - $page-gutter;
-  }
-
-  &--adhesive {
-    @include transition(opacity 500ms ease);
-    background-color: palette(mono, white);
-    box-shadow: 0 -.25em .5em rgba(#000, .15);
-    opacity: 0;
+  // Footer recirculation
+  &__footer {
+    background-color: palette(mono, 10);
+    border-top: 1px solid $color-borders;
     padding: $page-gutter;
-    position: fixed;
-    left: 0;
-    bottom: -100%;
-    right: 0;
-    text-align: center;
-    z-index: 9999;
+    margin: 0 (- $page-gutter);
     
-    .flow-1-body & {
-      background-color: percent-color(palette(brand), 20%);
+    &__title {
+      line-height: 1.5;
+      padding: ($vert-line-height/2) 0 $vert-line-height;
+    }
+    
+    &__container {
+      padding-bottom: ($vert-line-height * 1.5);
+    }
+
+
+    @include media($large-up) {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      &__container.related__deals__container {
+        padding-right: $page-gutter;
+        width: 66.66%;
+      }
+  
+      &__container.blog-card__container {
+        padding-left: $page-gutter;
+        width: 33.33%;
+      }
+    }
+    
+    @include media($xlarge-up) {
+
+      &__container.related__deals__container {
+        width: 60%;
+      }
+  
+      &__container.blog-card__container {
+        width: 40%;
+      }
+    }
+    
+    @include media($xxlarge-up) {
+      padding-left: ($page-gutter * 2);
+      padding-right: ($page-gutter * 2);
+
+      &__container.related__deals__container {
+        width: 50%;
+      }
+  
+      &__container.blog-card__container {
+        width: 50%;
+      }
     }
   }
 
-  &--visible {
-    bottom: 0;
-    opacity: 1;
+  &__footer .deal-card {
+    margin-bottom: $page-gutter;
   }
   
-  &__title {
-    padding-bottom: $vert-line-height/2;
-    
-    .modal & {
-      @include show();
-    }
-  }
-  
+
+  // Adhesive elements
+
   @at-root {
-    // The Adhesive clone of the Redeem actions bar
 
-    /*body*/.logged-in #redeem__js-clone &__title,
-    .logged-in #redeem__js-clone h4 {
-      @include hide();
-    }
-  }
-  
-
-  //<div class="redeem__continue">
-  //  <h4 class="echo">Continue Shopping</h4>
-  //  <a href="#" class="button button__primary" target="_blank"><span class="fa fa-external-link-square" aria-hidden="true"></span>Shop Online</a>
-  //  <p class="redeem__message"><b>No code needed!</b> Your discount will be added at checkout.</p>
-  //</div>
-  &__continue {
-    @extend %bottom-border-spacing;
-    
-    @include media($large-up) {
-      display: flex;
-      flex-flow: row wrap;
-      align-items: center;
-      
-      h4 {
-        margin-right: .75em;
-      }
+    // Pass a variable to JS for the adhesive sidebar
+    @media (min-width: $adhesive-sidebar) {
+      @include javascript-listener('deal-sidebar-adhesive');
     }
   }
 
+  //<div id="dealredeem__clone" class="deal__adhesive--footer"></div>
+  &__adhesive {
 
-  //<div class="redeem__online">
-  //  <h4 class="echo">Your Online Coupon Code</h4>
-  //  <div class="form__group form__input-button-pair redeem__copycode">
-  //    <input class="form__input deal__redeem__input" value="XYZ123" readonly="">
-  //    <a href="#" class="button button__primary" title="Copy to Clipboard"><span class="fa fa-clipboard" aria-hidden="true"></span> Copy</a>
-  //  </div>
-  //  <p class="redeem__url">Visit <a href="#">OrganwiseGuys.com/shop</a> and use the code at checkout.</p>
-  //</div>
-  &__online {
-    @extend %bottom-border-spacing;
-
-    .form__group {
-      padding-bottom: $vert-line-height/2;
-    }
-
-    @include media($large-up) {
-      display: flex;
-      flex-flow: row wrap;
-      align-items: center;
-
-      h4,
-      .form__group {
-        padding-bottom: 0;
-        margin-right: .75em;
-      }
-    }
-  }
-
-  &__message {
-
-    @include media($large-up) {
-      width: 100%;
-    }
-  }
-
-  &__instore {
-    @extend %bottom-border-spacing;
-
-    @include media($large-up) {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      
-      & > * {
-        margin-right: .75em;
-      }
-      
-      & > *:last-child {
-        margin-right: 0;
-      }
-    }
-  }
-
-  &__copycode {}
-
-
-  //<div class="redeem__instructions typography">
-  //  <h3>Instructions:</h3>
-  //  <p>To redeem this offer, follow these steps:</p>
-  //  <ol>
-  //    <li>Call <a href="tel:18884186763">1-888-418-6763</a> to find your nearest Beltone location.</li>
-  //  </ol>
-  //</div>
-  &__instructions {
-    @extend %bottom-border-spacing;
-    
-    ol {
-      padding-left: 1em;
-    }
-  }
-  
-
-  @include media($small) {
-
-    &__continue &__message {
-      padding-left: $page-gutter;
-      display: inline-block;
-      visibility: visible;
-      vertical-align: middle;
-    }
-  }
-  
-  @include media($medium) {
-    
-    &__continue &__message {
-      padding-top: 1.125em;
-    }
-    
-    // Appearing under the deal header in Flow 2
-    & .flow-2 .logged-in {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
-      grid-column-gap: $page-gutter;
-      grid-row-gap: 0;
-      grid-template-areas:
-        "title title"
-        "continue online"
-        "instore instore";
-      justify-items: center;
-      
-      .button:first-child {
-        margin-right: $page-gutter;
-      }
-    }
-    
-    & .flow-2 .logged-in &__title {
-      grid-area: title;
-    }
-    
-    & .flow-2 .logged-in &__continue {
-      grid-area: continue;
-    }
-    
-    & .flow-2 .logged-in &__online {
-      grid-area: online;
-    }
-    
-    & .flow-2 .logged-in &__instore {
-      grid-area: instore;
-    }
-    
-    &.redeem--adhesive .flow-2 .logged-in {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      justify-content: center;
-      
-      .redeem__continue,
-      .redeem__online,
-      .redeem__instore {
-        border-bottom: 0;
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
-      
-      .form__group {
-        padding-bottom: 0;
-      }
-      
-      .redeem__online .redeem__input,
-      .redeem__message {
-        @include hide();
-      }
-      
-      .redeem__online .button {
-        margin: 0 .5em;
-        padding: .5em 1em .375em;
-        border-radius: 4px;
-      }
-    }
-  }
-  
-  @include media($large-up) {
-    
-    // Now appearing only in the adhesive menu
-    & .flow-2 .logged-in {
+    &--footer {
+      background-color: percent-color(palette(brand), 20%);
+      box-shadow: 0 -.25em .5em rgba(#000, .15);
+      opacity: 0;
+      padding: $page-gutter;
+      position: fixed;
+      left: 0;
+      bottom: -100%;
+      right: 0;
       text-align: center;
-      
-      .redeem__continue,
-      .redeem__online,
-      .redeem__instore {
-        display: block;
+      transition: opacity 500ms ease 0, bottom 0 linear 500ms;
+      z-index: 9999;
+
+      &--visible {
+        bottom: 0;
+        opacity: 1;
+        transition: opacity 500ms ease 0, bottom 0 linear 0;
       }
-      
-      .redeem__continue h4,
-      .redeem__online h4 {
+
+      // Hide if the user is logged in, as it is too large
+      .logged-in & {
+        @include hide();
+      }
+
+      // Also hide if the viewport is large enough to support the adhesive right rail
+      @media (min-width: $adhesive-sidebar) {
         @include hide();
       }
     }
   }
-  
-  @include media($large) {
-    
-    & .flow-2 .logged-in {
-      
-      .button {
-        padding-left: .5em;
-        padding-right: .5em;
-        
-        .fa {
-          margin-right: .25em;
-        }
-      }
-      
-      .redeem__instore > * {
-        margin-right: .25em;
-      }
-    }
-  }
-}
+
+} // .deal
+
+
+
+
+//
+//// Redeem items
+//.redeem {
+//  
+//  &__title {
+//    padding-bottom: $vert-line-height/2;
+//    
+//    .modal & {
+//      @include show();
+//    }
+//  }
+//  
+//
+//  //<div class="redeem__continue">
+//  //  <h4 class="echo">Continue Shopping</h4>
+//  //  <a href="#" class="button button__primary" target="_blank"><span class="fa fa-external-link-square" aria-hidden="true"></span>Shop Online</a>
+//  //  <p class="redeem__message"><b>No code needed!</b> Your discount will be added at checkout.</p>
+//  //</div>
+//  &__continue {
+//    @extend %bottom-border-spacing;
+//    
+//    @include media($large-up) {
+//      display: flex;
+//      flex-flow: row wrap;
+//      align-items: center;
+//      
+//      h4 {
+//        margin-right: .75em;
+//      }
+//    }
+//  }
+//
+//
+//  //<div class="redeem__online">
+//  //  <h4 class="echo">Your Online Coupon Code</h4>
+//  //  <div class="form__group form__input-button-pair redeem__copycode">
+//  //    <input class="form__input deal__redeem__input" value="XYZ123" readonly="">
+//  //    <a href="#" class="button button__primary" title="Copy to Clipboard"><span class="fa fa-clipboard" aria-hidden="true"></span> Copy</a>
+//  //  </div>
+//  //  <p class="redeem__url">Visit <a href="#">OrganwiseGuys.com/shop</a> and use the code at checkout.</p>
+//  //</div>
+//  &__online {
+//    @extend %bottom-border-spacing;
+//
+//    .form__group {
+//      padding-bottom: $vert-line-height/2;
+//    }
+//
+//    @include media($large-up) {
+//      display: flex;
+//      flex-flow: row wrap;
+//      align-items: center;
+//
+//      h4,
+//      .form__group {
+//        padding-bottom: 0;
+//        margin-right: .75em;
+//      }
+//    }
+//  }
+//
+//  &__message {
+//
+//    @include media($large-up) {
+//      width: 100%;
+//    }
+//  }
+//
+//  &__instore {
+//    @extend %bottom-border-spacing;
+//
+//    @include media($large-up) {
+//      display: flex;
+//      flex-flow: row nowrap;
+//      align-items: center;
+//      
+//      & > * {
+//        margin-right: .75em;
+//      }
+//      
+//      & > *:last-child {
+//        margin-right: 0;
+//      }
+//    }
+//  }
+//
+//  &__copycode {}
+//  
+//  @include media($medium) {
+//    
+//    &__continue &__message {
+//      padding-top: 1.125em;
+//    }
+//    
+//    // Appearing under the deal header in Flow 2
+//    & .flow-2 .logged-in {
+//      display: grid;
+//      grid-template-columns: 1fr 1fr;
+//      grid-template-rows: auto;
+//      grid-column-gap: $page-gutter;
+//      grid-row-gap: 0;
+//      grid-template-areas:
+//        "title title"
+//        "continue online"
+//        "instore instore";
+//      justify-items: center;
+//      
+//      .button:first-child {
+//        margin-right: $page-gutter;
+//      }
+//    }
+//    
+//    & .flow-2 .logged-in &__title {
+//      grid-area: title;
+//    }
+//    
+//    & .flow-2 .logged-in &__continue {
+//      grid-area: continue;
+//    }
+//    
+//    & .flow-2 .logged-in &__online {
+//      grid-area: online;
+//    }
+//    
+//    & .flow-2 .logged-in &__instore {
+//      grid-area: instore;
+//    }
+//    
+//    &.redeem--adhesive .flow-2 .logged-in {
+//      display: flex;
+//      flex-flow: row nowrap;
+//      align-items: center;
+//      justify-content: center;
+//      
+//      .redeem__continue,
+//      .redeem__online,
+//      .redeem__instore {
+//        border-bottom: 0;
+//        margin-bottom: 0;
+//        padding-bottom: 0;
+//      }
+//      
+//      .form__group {
+//        padding-bottom: 0;
+//      }
+//      
+//      .redeem__online .redeem__input,
+//      .redeem__message {
+//        @include hide();
+//      }
+//      
+//      .redeem__online .button {
+//        margin: 0 .5em;
+//        padding: .5em 1em .375em;
+//        border-radius: 4px;
+//      }
+//    }
+//  }
+//  
+//  @include media($large-up) {
+//    
+//    // Now appearing only in the adhesive menu
+//    & .flow-2 .logged-in {
+//      text-align: center;
+//      
+//      .redeem__continue,
+//      .redeem__online,
+//      .redeem__instore {
+//        display: block;
+//      }
+//      
+//      .redeem__continue h4,
+//      .redeem__online h4 {
+//        @include hide();
+//      }
+//    }
+//  }
+//  
+//  @include media($large) {
+//    
+//    & .flow-2 .logged-in {
+//      
+//      .button {
+//        padding-left: .5em;
+//        padding-right: .5em;
+//        
+//        .fa {
+//          margin-right: .25em;
+//        }
+//      }
+//      
+//      .redeem__instore > * {
+//        margin-right: .25em;
+//      }
+//    }
+//  }
+//}

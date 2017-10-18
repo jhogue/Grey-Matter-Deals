@@ -1,9 +1,9 @@
 .layout {
   background-color: $layout-bg-color;
   position: relative;
+  min-width: $min-width;
 
   &__container {
-    min-width: $min-width;
     max-width: $max-width;
     margin: 0 auto;
 
@@ -36,35 +36,5 @@
   &__title {
     padding: 0 0 ($vert-line-height/2);
     width: 100%;
-  }
-
-  // ! HEADER - - - - -
-  &__utlility {}
-
-  &__mainnav {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__catnav {}
-}
-
-.flow-1-body .for-employers__footer {
-  
-  @include media($small-up) {
-  
-    .grid--duo .grid__item {
-      margin-bottom: $page-gutter;
-      width: 48.5%;
-    }
-    
-    .grid--duo .grid__item:first-child {
-      margin-right: .75%;
-    }
-    .grid--duo .grid__item:last-child {
-      margin-left: .75%;
-    }
   }
 }

@@ -3,16 +3,17 @@
   border: 1px solid $color-borders;
   margin-bottom: $vert-line-height/2;
 }
-.related__deals .child-wrapper {
-  border: 1px solid $color-borders;
-}
-.flow-1 > .related__deals .child-wrapper {
-  margin-bottom: $page-gutter;
+
+.deal-archive .deal-card {
+  border: 0;
 }
 
+
 .deal-card {
-  //border: 1px solid $color-borders;
-  //margin-bottom: $vert-line-height/2;
+  background-color: palette(mono, white);
+  border: 1px solid $color-borders;
+
+  &--feature {}
 
   &__header {}
 
@@ -23,7 +24,7 @@
       font-size: .875em;
       padding: .375em .75em;
       text-transform: uppercase;
-      
+
       @include touch-hover() {
         background-color: palette(brand);
         color: palette(mono, white);
@@ -71,12 +72,6 @@
   &__flash {
     background-color: rgba(palette(brand, red), .75);
     color: palette(mono, white);
-    
-    //@include media($small-up) {
-      position: absolute;
-      right: 0;
-      top: 0;
-    //}
   }
 
   &__expiring {
@@ -87,6 +82,13 @@
     &__days {
       font-weight: $font-weight-bold;
     }
+  }
+  
+  &__flash,
+  &__expiring {
+    position: absolute;
+    right: 0;
+    top: 0;
   }
   
   &__location {
@@ -277,15 +279,11 @@
         "header actions";
     }
     
-    &__1 &__flash {
+    &__1 &__flash,
+    &__1 &__expiring {
       right: 100%;
       white-space: nowrap;
       z-index: 10;
-    }
-    
-    &__1 &__expiring {
-      position: static;
-      top: 0;
     }
     
     &__1 &__brand {
@@ -329,13 +327,13 @@
       }
     }
     
-    &__1 &__expiring {
-      background-color: rgba(palette(mono, 75), .33);
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 10;
-    }
+    //&__1 &__expiring {
+    //  background-color: rgba(palette(mono, 75), .33);
+    //  position: absolute;
+    //  top: 0;
+    //  left: 0;
+    //  z-index: 10;
+    //}
   }
   
   //@include media($xlarge-up) {
@@ -373,7 +371,8 @@
     }
 
     // Remove the right position on the Flash flag
-    .deal-archive .child-wrapper:nth-child(n+2) &__1 &__flash {
+    .deal-archive .child-wrapper:nth-child(n+2) &__1 &__flash,
+    .deal-archive .child-wrapper:nth-child(n+2) &__1 &__expiring {
       right: 0;
     }
   }
@@ -405,7 +404,8 @@
       }
     }
 
-    .deal-archive .child-wrapper:nth-child(n+2) &__1 &__flash {
+    .deal-archive .child-wrapper:nth-child(n+2) &__1 &__flash,
+    .deal-archive .child-wrapper:nth-child(n+2) &__1 &__expiring {
       right: 0;
     }
 

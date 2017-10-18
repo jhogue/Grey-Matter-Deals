@@ -1,105 +1,109 @@
 <div class="deal-filters">
-  <div class="accordion js-accordion">
-    <h3><a href="#filters" class="js-accordion-trigger">Filter Deals <span class="fa fa-plus-square" aria-hidden="true"></span><span class="fa fa-minus-square" aria-hidden="true"></span></a></h3>
     
-    <div id="filters" class="js-accordion-container accordion__container">
-      <div class="deal-filters__group categories">
-        <h4>By Category:</h4>
-        <ul class="deal-filters__group__list menu" role="navigation">
-    			<li class="flow-1"><a href="{{ site.baseurl }}flow-1.html"><span class="fa fa-check-square-o" aria-hidden="true"></span> <span class="flow-2">Browse </span>All Deals</a></li><li class="flow-1"
-    				><a href="{{ site.baseurl }}flow-1.html"><span class="fa fa-square-o" aria-hidden="true"></span> Apparel &amp; Footwear</a></li><li class="flow-1"
-    				><a href="{{ site.baseurl }}flow-1.html"><span class="fa fa-square-o" aria-hidden="true"></span> Hearing & Vision</a></li><li class="flow-1"
-    				><a href="{{ site.baseurl }}flow-1.html"><span class="fa fa-square-o" aria-hidden="true"></span> Home &amp; Family</a></li><li class="flow-1"
-    				><a href="{{ site.baseurl }}flow-1.html"><span class="fa fa-square-o" aria-hidden="true"></span> Fitness</a></li><li class="flow-1"
-    				><a href="{{ site.baseurl }}flow-1.html"><span class="fa fa-square-o" aria-hidden="true"></span> Personal Care</a></li><li class="flow-1"
-    				><a href="{{ site.baseurl }}flow-1.html"><span class="fa fa-square-o" aria-hidden="true"></span> Nutrition</a></li><li class="flow-1"
-    				><a href="{{ site.baseurl }}flow-1.html"><span class="fa fa-square-o" aria-hidden="true"></span> Travel</a></li>
-
-    				<li class="flow-2"><a href="{{ site.baseurl }}flow-2.html"><span class="flow-2"><span class="fa fa-check-square-o" aria-hidden="true"></span> Browse </span>All Deals</a> (60)</li><li class="flow-2"
-    				><a href="{{ site.baseurl }}flow-2.html"><span class="fa fa-square-o" aria-hidden="true"></span> Apparel &amp; Footwear</a> (8)</li><li class="flow-2"
-    				><a href="{{ site.baseurl }}flow-2.html"><span class="fa fa-square-o" aria-hidden="true"></span> Hearing & Vision</a> (10)</li><li class="flow-2"
-    				><a href="{{ site.baseurl }}flow-2.html"><span class="fa fa-square-o" aria-hidden="true"></span> Home &amp; Family</a> (4)</li><li class="flow-2"
-    				><a href="{{ site.baseurl }}flow-2.html"><span class="fa fa-square-o" aria-hidden="true"></span> Fitness</a> (12)</li><li class="flow-2"
-    				><a href="{{ site.baseurl }}flow-2.html"><span class="fa fa-square-o" aria-hidden="true"></span> Personal Care</a> (12)</li><li class="flow-2"
-    				><a href="{{ site.baseurl }}flow-2.html"><span class="fa fa-square-o" aria-hidden="true"></span> Nutrition</a> (8)</li><li class="flow-2"
-    				><a href="{{ site.baseurl }}flow-2.html"><span class="fa fa-square-o" aria-hidden="true"></span> Travel</a> (2)</li>
-    		</ul>
-      </div>
-      <div class="deal-filters__group">
-        <h4>Sort by:</h4>
-        <p><span class="fa fa-circle" aria-hidden="true"></span> Most Popular</p>
-        <p><span class="fa fa-circle-o" aria-hidden="true"></span> Newest</p>
-        <p><span class="fa fa-circle-o" aria-hidden="true"></span> Expiring Soon</p>
-        <p><span class="fa fa-circle-o" aria-hidden="true"></span> Flash Sales</p>
-      </div>
-      <div class="deal-filters__group">
-        <h4>By Location:</h4>
-        <div class="deal-filters__sub-group">
-          <h5>Select a State</h5>
-          <select>
-          	<option value="AL">Alabama (AL)</option>
-          	<option value="AK">Alaska (AK)</option>
-          	<option value="AZ">Arizona (AZ)</option>
-          	<option value="AR">Arkansas (AR)</option>
-          	<option value="CA">California (CA)</option>
-          	<option value="CO">Colorado (CO)</option>
-          	<option value="CT">Connecticut (CT)</option>
-          	<option value="DE">Delaware (DE)</option>
-          	<option value="DC">District Of Columbia (DC)</option>
-          	<option value="FL">Florida (FL)</option>
-          	<option value="GA">Georgia (GA)</option>
-          	<option value="HI">Hawaii (HI)</option>
-          	<option value="ID">Idaho (ID)</option>
-          	<option value="IL">Illinois (IL)</option>
-          	<option value="IN">Indiana (IN)</option>
-          	<option value="IA">Iowa (IA)</option>
-          	<option value="KS">Kansas (KS)</option>
-          	<option value="KY">Kentucky (KY)</option>
-          	<option value="LA">Louisiana (LA)</option>
-          	<option value="ME">Maine (ME)</option>
-          	<option value="MD">Maryland (MD)</option>
-          	<option value="MA">Massachusetts (MA)</option>
-          	<option value="MI">Michigan (MI)</option>
-          	<option value="MN">Minnesota (MN)</option>
-          	<option value="MS">Mississippi (MS)</option>
-          	<option value="MO">Missouri (MO)</option>
-          	<option value="MT">Montana (MT)</option>
-          	<option value="NE">Nebraska (NE)</option>
-          	<option value="NV">Nevada (NV)</option>
-          	<option value="NH">New Hampshire (NH)</option>
-          	<option value="NJ">New Jersey (NJ)</option>
-          	<option value="NM">New Mexico (NM)</option>
-          	<option value="NY">New York (NY)</option>
-          	<option value="NC">North Carolina (NC)</option>
-          	<option value="ND">North Dakota (ND)</option>
-          	<option value="OH">Ohio (OH)</option>
-          	<option value="OK">Oklahoma (OK)</option>
-          	<option value="OR">Oregon (OR)</option>
-          	<option value="PA">Pennsylvania (PA)</option>
-          	<option value="RI">Rhode Island (RI)</option>
-          	<option value="SC">South Carolina (SC)</option>
-          	<option value="SD">South Dakota (SD)</option>
-          	<option value="TN">Tennessee (TN)</option>
-          	<option value="TX">Texas (TX)</option>
-          	<option value="UT">Utah (UT)</option>
-          	<option value="VT">Vermont (VT)</option>
-          	<option value="VA">Virginia (VA)</option>
-          	<option value="WA">Washington (WA)</option>
-          	<option value="WV">West Virginia (WV)</option>
-          	<option value="WI">Wisconsin (WI)</option>
-          	<option value="WY">Wyoming (WY)</option>
-          </select>
-        </div>
-        <div class="deal-filters__sub-group">
-          <h5>Cities</h5>
-          <p><span class="fa fa-circle-o" aria-hidden="true"></span> Champaign</p>
-          <p><span class="fa fa-circle-o" aria-hidden="true"></span> Chicago</p>
-          <p><span class="fa fa-circle-o" aria-hidden="true"></span> Davenport</p>
-          <p><span class="fa fa-circle-o" aria-hidden="true"></span> Marion</p>
-          <p><span class="fa fa-circle-o" aria-hidden="true"></span> Peoria</p>
-        </div>
-      </div>
-    </div>
+  <h4><b>60 deals</b></h4>
   
+  <div class="deal-filters__container">
+    <ul class="deal-filters__group menu">
+      <li class="deal-filters__group--categories has-submenu">
+        <a href="javascript:;" class="js-menu-trigger">Category <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
+        <ul class="deal-filters__group__list has-submenu__list menu">
+    			<li><a href="{{ site.baseurl }}category.html"><span class="fa fa-check-square-o" aria-hidden="true"> All Deals</a> (60)</li>
+    			<li><a href="{{ site.baseurl }}category.html"><span class="fa fa-square-o" aria-hidden="true"></span> Apparel &amp; Footwear</a> (8)</li>
+    			<li><a href="{{ site.baseurl }}category.html"><span class="fa fa-square-o" aria-hidden="true"></span> Hearing & Vision</a> (10)</li>
+    			<li><a href="{{ site.baseurl }}category.html"><span class="fa fa-square-o" aria-hidden="true"></span> Home &amp; Family</a> (4)</li>
+          <li><a href="{{ site.baseurl }}category.html"><span class="fa fa-square-o" aria-hidden="true"></span> Fitness</a> (12)</li>
+          <li><a href="{{ site.baseurl }}category.html"><span class="fa fa-square-o" aria-hidden="true"></span> Personal Care</a> (12)</li>
+    		  <li><a href="{{ site.baseurl }}category.html"><span class="fa fa-square-o" aria-hidden="true"></span> Nutrition</a> (8)</li>
+    		  <li><a href="{{ site.baseurl }}category.html"><span class="fa fa-square-o" aria-hidden="true"></span> Travel</a> (2)</li>
+    		</ul>
+      </li>
+      <li class="deal-filters__group--sort has-submenu">
+        <a href="javascript:;" class="js-menu-trigger">Sort <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
+        <ul class="deal-filters__group__list has-submenu__list menu">
+          <li><a href="#"><span class="fa fa-check-square-o" aria-hidden="true"></span> Flash Sales</a></li>
+          <li><a href="#"><span class="fa fa-square-o" aria-hidden="true"></span> Expiring Soon</a></li>
+          <li><a href="#"><span class="fa fa-square-o" aria-hidden="true"></span> Newest</a></li>
+          <li><a href="#"><span class="fa fa-square-o" aria-hidden="true"></span> Most Popular</a></li>
+        </ul>
+      </li>
+      <li class="deal-filters__group--location has-submenu">
+        <a href="javascript:;" class="js-menu-trigger">Location <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
+        <ul class="deal-filters__group__list has-submenu__list menu">
+          <li>
+            <div class="deal-filters__sub-group">
+              <h5>Select a State</h5>
+              <select>
+              	<option value="AL">Alabama (AL)</option>
+              	<option value="AK">Alaska (AK)</option>
+              	<option value="AZ">Arizona (AZ)</option>
+              	<option value="AR">Arkansas (AR)</option>
+              	<option value="CA">California (CA)</option>
+              	<option value="CO">Colorado (CO)</option>
+              	<option value="CT">Connecticut (CT)</option>
+              	<option value="DE">Delaware (DE)</option>
+              	<option value="DC">District Of Columbia (DC)</option>
+              	<option value="FL">Florida (FL)</option>
+              	<option value="GA">Georgia (GA)</option>
+              	<option value="HI">Hawaii (HI)</option>
+              	<option value="ID">Idaho (ID)</option>
+              	<option value="IL">Illinois (IL)</option>
+              	<option value="IN">Indiana (IN)</option>
+              	<option value="IA">Iowa (IA)</option>
+              	<option value="KS">Kansas (KS)</option>
+              	<option value="KY">Kentucky (KY)</option>
+              	<option value="LA">Louisiana (LA)</option>
+              	<option value="ME">Maine (ME)</option>
+              	<option value="MD">Maryland (MD)</option>
+              	<option value="MA">Massachusetts (MA)</option>
+              	<option value="MI">Michigan (MI)</option>
+              	<option value="MN">Minnesota (MN)</option>
+              	<option value="MS">Mississippi (MS)</option>
+              	<option value="MO">Missouri (MO)</option>
+              	<option value="MT">Montana (MT)</option>
+              	<option value="NE">Nebraska (NE)</option>
+              	<option value="NV">Nevada (NV)</option>
+              	<option value="NH">New Hampshire (NH)</option>
+              	<option value="NJ">New Jersey (NJ)</option>
+              	<option value="NM">New Mexico (NM)</option>
+              	<option value="NY">New York (NY)</option>
+              	<option value="NC">North Carolina (NC)</option>
+              	<option value="ND">North Dakota (ND)</option>
+              	<option value="OH">Ohio (OH)</option>
+              	<option value="OK">Oklahoma (OK)</option>
+              	<option value="OR">Oregon (OR)</option>
+              	<option value="PA">Pennsylvania (PA)</option>
+              	<option value="RI">Rhode Island (RI)</option>
+              	<option value="SC">South Carolina (SC)</option>
+              	<option value="SD">South Dakota (SD)</option>
+              	<option value="TN">Tennessee (TN)</option>
+              	<option value="TX">Texas (TX)</option>
+              	<option value="UT">Utah (UT)</option>
+              	<option value="VT">Vermont (VT)</option>
+              	<option value="VA">Virginia (VA)</option>
+              	<option value="WA">Washington (WA)</option>
+              	<option value="WV">West Virginia (WV)</option>
+              	<option value="WI">Wisconsin (WI)</option>
+              	<option value="WY">Wyoming (WY)</option>
+              </select>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li class="deal-filters__group--keyword has-submenu">
+        <a href="javascript:;" class="js-menu-trigger">Keyword <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
+        <ul class="deal-filters__group__list has-submenu__list menu">
+          <li class="deal-filter__search">
+            <form class="sitesearch__form">
+              <fieldset class="sitesearch__wrapper">
+                <label class="form__label">Search by Keyword</label>
+                <input class="sitesearch__input form__input" type="search" placeholder="Ex: Brand Name">
+                <input class="sitesearch__button form__action" type="submit" value="Go">
+              </fieldset>
+            </form>
+          </li>
+        </ul>
+      </li> 
+    </ul>
   </div>
+  
 </div>

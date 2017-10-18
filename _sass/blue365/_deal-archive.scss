@@ -3,6 +3,13 @@
   padding: $vert-line-height 0;
 }
 
+.favorites .deal-archive {
+
+  .child-wrapper:nth-child(1) {
+    @include hide();
+  }
+}
+
 
 .deals-list {
   margin-top: $vert-line-height;
@@ -65,8 +72,25 @@
   padding: $vert-line-height 0;
   text-align: center;
 
+  &__current {
+    padding-bottom: ($vert-line-height/2);
+  }
+
   .button {
     padding-left: 3rem;
     padding-right: 3rem;
+  }
+
+  @include media($large-up) {
+
+    &__current {
+      padding-right: $page-gutter;
+      padding-bottom: 0;
+    }
+
+    & > p {
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
 }
