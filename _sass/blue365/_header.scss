@@ -440,34 +440,49 @@ body {
     & > a {
       font-weight: $font-weight-bold;
     }
+  }
+}
 
-    ul {
-      top: -999em;
-      opacity: 0;
-      position: absolute;
-      right: 0;
-      z-index: zindex(usernav);
-      background-color: palette(mono, white);
-      border: 1px solid $color-borders;
-      box-shadow: 0 1px 3px rgba(#000, 0.25);
-      transition: opacity 250ms ease 0, top 0 linear 250ms;
 
-      li {
-        display: list-item;
-        
-        a {
-          display: block;
-          padding: $link-padding;
-          white-space: nowrap;
-        }
+// Drop Down menu pattern onClick() generalized so we can use it anywhere
+.has-submenu {
+  position: relative;
+
+  &__list {
+    top: -999em;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    z-index: zindex(usernav);
+    background-color: palette(mono, white);
+    border: 1px solid $color-borders;
+    box-shadow: 0 1px 3px rgba(#000, 0.25);
+    transition: opacity 250ms ease 0, top 0 linear 250ms;
+
+    li {
+      display: list-item;
+      white-space: nowrap;
+      
+      a {
+        display: block;
+        padding: $link-padding;
+        white-space: nowrap;
       }
     }
+  }
 
-    .js-usermenu-trigger.open + ul {
-      top: 100%;
-      opacity: 1;
-      transition: opacity 250ms ease 0, top 0 linear 0;
-    }
+  .js-menu-trigger.open {
+    
+    .fa-chevron-circle-down:before {
+      content: '\f139'; // switch to "up" when open
+      color: palette(mono, 66);
+    } 
+  }
+
+  .js-menu-trigger.open + &__list {
+    top: 100%;
+    opacity: 1;
+    transition: opacity 250ms ease 0, top 0 linear 0;
   }
 }
 
@@ -602,7 +617,7 @@ $icon-width: 44px; // Magic number
         transition: opacity 250ms ease;
       }
       
-      &.js-search-trigger.open {
+      &.js-menu-trigger.open {
         
         .open {
           opacity: 0;
@@ -644,7 +659,7 @@ $icon-width: 44px; // Magic number
       padding: 9px 16px 7px;
     }
     
-    .js-search-trigger.open + & {
+    .js-menu-trigger.open + & {
       width: calc(100% - #{$icon-width + 1px});
     }
   }
@@ -699,17 +714,9 @@ $icon-width: 44px; // Magic number
     border-left: 1px solid $color-borders;
     position: relative;
 
-    &__subnav ul {
-      top: -999em;
-      opacity: 0;
-      position: absolute;
+    &__subnav.has-submenu__list {
       right: ($page-gutter / 2);
       z-index: zindex(overflownav);
-      background-color: palette(mono, white);
-      border: 1px solid $color-borders;
-      box-shadow: 0 1px 3px rgba(#000, 0.25);
-      margin-top: $page-gutter;
-      transition: opacity 250ms ease 0, top 0 linear 250ms;
 
       &:before {
         content: '';
@@ -727,12 +734,6 @@ $icon-width: 44px; // Magic number
 
       li {
         display: list-item;
-      }
-
-      .js-catoverflow-trigger.open + & {
-        top: 100%;
-        opacity: 1;
-        transition: opacity 250ms ease 0, top 0 linear 0;
       }
     }
   } // end &__overflow

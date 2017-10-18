@@ -79,12 +79,12 @@
             <a href="#signin-modal" class="button button__secondary js-inline-modal">Sign In</a> 
             <a href="#eligible-modal" class="button button__primary js-inline-modal">Join</a>
           </li>
-          <li class="userauth__actions logged-in">
-            <a href="#" class="js-usermenu-trigger">Hello, Giovana <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
-            <ul class="menu">
-              <li><a href="{{ site.baseurl }}user-profile-flow-1.html">My Account</a></li>
-              <li><a href="#">My Favorites</a></li>
-              <li><a href="#">My History</a></li>
+          <li class="userauth__actions logged-in has-submenu">
+            <a href="#" class="js-menu-trigger">Hello, Giovana <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
+            <ul class="has-submenu__list menu">
+              <li><a href="{{ site.baseurl }}user-profile-flow-1.html">My Profile</a></li>
+              <li><a href="{{ site.baseurl }}favorites.html">My Favorites</a></li>
+              <li><a href="{{ site.baseurl }}history.html">My Redeemed Deals</a></li>
               <li><a href="#" class="js-set-logout">Sign Out</a></li>
             </ul>
           </li>
@@ -105,7 +105,7 @@
     <!-- 5. Category Bar -->
     <div class="catnav">
       <div class="catnav__search-glass">
-        <a href="javascript:;" class="js-search-trigger" title="Search the Site">
+        <a href="javascript:;" class="js-menu-trigger" title="Search the Site">
           <span class="fa fa-search open" aria-hidden="true"></span>
           <span class="fa fa-times close" aria-hidden="true"></span>
         </a>
@@ -118,10 +118,10 @@
           </ul>
         </div>
       </nav>
-      <div class="catnav__overflow">
-        <a href="javascript:;" class="js-catoverflow-trigger">
+      <div class="catnav__overflow has-submenu">
+        <a href="javascript:;" class="js-menu-trigger">
           <span class="fa fa-ellipsis-v" aria-hidden="true"></span>
         </a>
-        <div id="categories__clone" class="catnav__overflow__subnav"></div>
+        <div id="categories__clone" class="catnav__overflow__subnav has-submenu__list"></div>
       </div>
     </div>

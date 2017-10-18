@@ -115,26 +115,12 @@ $(window).load(function() {
 
 
   // Toggle the visibility of the Search bar for Mobile
-  $('.js-search-trigger').on( 'click', function(se) {
+  // Toggle the visibility of the Overflow Category Nav
+  // Toggle the visibility of the User Menu
+  $('.js-menu-trigger').on( 'click', function(se) {
     se.preventDefault();
     $(this).toggleClass('open');
   });
-  
-
-  // Toggle the visibility of the Overflow Category Nav
-  $('.js-catoverflow-trigger').on( 'click', function(co) {
-    co.preventDefault();
-    $(this).toggleClass('open');
-  });
-  
-  
-  // Toggle the visibility of the User Menu
-  $('.js-usermenu-trigger').on( 'click', function(co) {
-    co.preventDefault();
-    $(this).toggleClass('open');
-  });
-  
-  // Huh, all of those above could be combined into one action
 
 
   // Check the body { content: '' } to see if we have a match
