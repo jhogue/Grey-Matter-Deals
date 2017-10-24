@@ -1,26 +1,26 @@
       <div class="form--login-form">
         <form class="form">
-          <h4><span>Step 1 of 2</span></h4>
+          <h4>Register with Blue365</h4>
+          <p style="margin-bottom: 1.5rem">Joining Blue365 is a simple 2-step process. First, we need to validate if your Blue Cross Blue Shield Company you are affiliated with is currently participating.</p>
+          
           <legend class="screen-reader-text">Can I Join Blue365?</legend>
-          <div class="form__group">
-            <p>Blue365 is available to members of participating Blue Cross Blue Shield companies. Supply your email and the 3-letter prefix located on your Blue ID card, and we will check whether or not your Blue company participates.</p>
-          </div>
           <div class="form__group">
             <label for="email">Email</label>
             <input class="form__input" type="email" id="email" placeholder="name@domain.com">
           </div>
-          <div class="grid grid__third-left">
-            <div class="grid__item">
-              <div class="form__group">
-                <img src="{{ site.baseurl }}assets/img/member-card.png" alt="Sample of what a BCBS card looks like">
-              </div>
-            </div>
-            <div class="grid__item">
-              <div class="form__group">
-                <label for="threeletter">3-letter Prefix</label>
-                <input class="form__input" type="text" id="threeletter">
-              </div>
-            </div>
+
+          <div class="form__group">
+            
+            <label for="threeletter">
+              Enter the first 3 characters of the Member ID from your BCBS Plan card. (
+              <a href="#" class="tooltip tooltip--right" title="View a sample BCBS member card">
+                {% comment %}<span class="fa fa-question-circle-o"></span>{% endcomment %}
+                Where can I find this?
+                <span class="tooltip__inner"><img src="{{ site.baseurl }}assets/img/member-card.png"></span>
+              </a>
+              )
+            </label>
+            <input class="form__input" type="text" id="threeletter" placeholder="3-digit ID card prefix">
           </div>
           
           <div class="form__actions">
@@ -29,3 +29,5 @@
           
         </form>
       </div>
+
+

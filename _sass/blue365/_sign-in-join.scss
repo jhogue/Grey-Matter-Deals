@@ -1,3 +1,36 @@
+.text-over-line {
+  margin-bottom: $vert-line-height;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  
+  span {
+    display: inline-block;
+    padding: 0 $page-gutter;
+    position: relative;
+    z-index: 2;
+    
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      border-top: 2px solid palette(mono, 25);
+      position: absolute;
+      top: 50%;
+      width: 250%;
+      z-index: 0;
+    }
+
+    &:before {
+      right: 100%;
+    }
+    
+    &:after {
+      left: 100%;
+    }
+  }
+}
+
 .sign-in {
   
   &__wrapper {
@@ -6,6 +39,24 @@
     border-radius: 3px;
     padding: $page-gutter;
     margin-bottom: $vert-line-height;
+  }
+}
+
+.form--login-form {
+
+  .form__actions {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.form--login-form,
+.form--join-form {
+  
+  .social-logins {
+    text-align: center;
   }
 }
 
