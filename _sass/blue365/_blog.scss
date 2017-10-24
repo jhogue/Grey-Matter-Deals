@@ -1,4 +1,439 @@
-// Simple blog card in recirculation area
+.blog {
+  
+  &__features {
+    
+    &__main {
+      padding-top: $vert-line-height;
+      
+      .blog-card__content {
+        padding-top: ($vert-line-height/2);
+      }
+      
+      @include media($small-up) {
+
+        .blog-card__content {
+          padding-right: $page-gutter;
+        }
+      }
+    }
+    
+    &__more {
+      
+      .grid__item {
+        padding-top: $page-gutter;
+      }
+      
+      .entry-content .blog-card__title {
+        margin-top: 1rem;
+      }
+      
+      .blog-card__link img {
+        float: none;
+        width: auto;
+      }
+    }
+  }
+  
+  //<div class="blog__signup">
+  //  <div class="blog__signup__title">
+  //    <h2>The Healthy Tips Newsletter</h2>
+  //  </div>
+  //  <div class="blog__signup__blurb">
+  //    <p>The latest deals, once a week. Simple as that.</p>
+  //  </div>
+  //  <div class="form__group form__input-button-pair">
+  //    <label class="screen-reader-text">Email address</label>
+  //    <input class="form__input" placeholder="you@domain.com">
+  //    <a href="#" class="button button__primary">Sign Up</a>
+  //  </div>
+  //</div>
+  &__signup {
+    @include clearfix;
+    border-top: 1px solid $color-borders;
+    margin-top: ($vert-line-height/2);
+    padding-top: ($vert-line-height/2);
+    padding-bottom: $vert-line-height;
+    text-align: center;
+
+    &__blurb {
+      padding-top: ($vert-line-height/2);
+    }
+
+    .form__group {
+      padding-bottom: 0;
+    }
+    
+    @include media($small-up) {
+      text-align: left;
+      display: grid;
+      grid-template-columns: .55fr .45fr;
+      grid-template-rows: auto;
+      grid-column-gap: $page-gutter;
+      grid-row-gap: 0;
+      grid-template-areas: "headline input"
+        "blurb input";
+      align-items: center;
+      
+      &__title {
+        grid-area: headline;
+      }
+      &__blurb {
+        grid-area: blurb;
+      }
+      .form__group {
+        grid-area: input;
+      }
+    }
+    
+    @include media($medium-up) {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    @include media($xlarge-up) {
+      text-align: center;
+      display: block;
+
+      &__title,
+      &__blurb,
+      .form__group {
+        display: inline-block;
+        margin: 0 ($page-gutter/2);
+      }
+    }
+  }
+
+
+  &__trending {
+    background-color: percent-color(palette(brand), 20%);
+    margin: 0 (- $page-gutter);
+    padding: $page-gutter;
+
+    &__label {
+      display: inline-block;
+      color: palette(mono, white);
+      background-color: palette(brand);
+      padding: .375em .75em .25em;
+      margin-top: $page-gutter;
+    }
+
+    .entry-content .blog-card__title {
+      margin-top: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    @media (min-width: bp(base)) and (max-width: (bppx(small) - 1px)) {
+
+      &__label {
+        float: left;
+        margin-right: $page-gutter;
+      }
+      
+      .blog-card__title {
+        clear: none;
+      }
+      
+      .blog-card__excerpt {
+        clear: left;
+      }
+    }
+    
+    @include media($small-up) {
+
+      .blog-card__content {
+        padding-left: $page-gutter;
+      }
+    }
+  }
+  
+  //<div class="blog__more">
+  //  <div class="blog__more__container">
+  //    <div class="blog__more__headline">
+  //      <h3>How One Simple Vending Machine Tweak Could Prompt Healthier Choices </h3>
+  //    </div>
+  //    <div class="blog__more__meta">
+  //      <img src="http://fpoimg.com/800x343?text=21:9 Post Image">
+  //      <div class="blog__more__meta__container">
+  //        <a href="#" class="blog__more__meta__category">Category Name</a>
+  //        <a href="#" class="blog__more__meta__related">View Related Deals</a>
+  //      </div>
+  //    </div>
+  //  </div>
+  //</div>
+  &__more {
+    
+    &__container {
+      border-bottom: 1px solid $color-borders;
+      margin: ($vert-line-height/2) 0;
+      padding: 0 0 ($vert-line-height/2) 0;
+    }
+    
+    &__headline {
+      padding-bottom: ($vert-line-height/2);
+    }
+    
+    &__meta {
+      
+      img {
+        margin-bottom: ($vert-line-height/2);
+      }
+      
+      &__container {
+        
+        a {
+          font-size: .875rem;
+          font-weight: $font-weight-bold;
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      
+      &__category {
+        margin-right: $page-gutter;
+      }
+      
+      @include media($xsmall-up) {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+
+        img {
+          margin-right: $page-gutter;
+          width: 50%;
+        }
+        
+        &__category {
+          margin-bottom: $page-gutter;
+        }
+      }
+    }
+    
+    @include media($small-up) {
+
+      &__container {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+      }
+      
+      &__headline {
+        padding-right: $page-gutter;
+        padding-bottom: 0;
+        width: 35%;
+      }
+      
+      &__meta {
+        width: 65%;
+        
+        img {
+          margin-bottom: 0;
+        }
+      }
+    }
+    
+    @include media($medium-up) {
+
+      &__headline {
+        width: 45%;
+      }
+      
+      &__meta {
+        width: 55%;
+      }
+    }
+    
+    @include media($large-up) {
+
+      &__container {
+        align-items: center;
+      }
+
+      &__headline {
+        width: 55%;
+      }
+      
+      &__meta {
+        width: 45%;
+      }
+    }
+    
+    @include media($xlarge-up) {
+
+      &__headline {
+        width: 65%;
+      }
+      
+      &__meta {
+        width: 35%;
+      }
+    }
+  }
+
+
+  // Single blog post
+
+  //<header class="blog__header">
+  //  <div class="grid grid__third-right reverse-order">
+  //    <div class="grid__item">
+  //      <img src="http://fpoimg.com/1050x450?text=21:9 Feature Post Image">
+  //    </div>
+  //    <div class="grid__item">
+  //      <div class="blog__header__title__wrapper">
+  //        <h1 class="blog__header__title">Nine Ways to Sneak Fitness into Your Day</h1>
+  //      </div>
+  //    </div>
+  //  </div>
+  //</header>
+  //
+  //<div class="blog__meta">
+  //  <div class="blog__meta__date">
+  //    <time datetime="20171019">October 19, 2017</time>
+  //  </div>
+  //  <div class="blog__meta__taxonomy">
+  //    <a href="#">Category Name 1</a>, <a href="#">Category Name 2</a>
+  //  </div>
+  //  <div class="blog__meta__share">
+  //    <div class="form__group form__input-button-pair">
+  //      <input class="form__input" value="https://blue365deals.com/this-post-slug" readonly>
+  //      <a href="#" class="button button__secondary" title="Copy URL and Share"><span class="fa fa-clipboard" aria-hidden="true"></span>Share URL</a>
+  //    </div>
+  //  </div>
+  //</div>
+  //
+  //<article class="blog__content">
+  &__header {
+    padding: 0 0 $vert-line-height 0;
+    
+    .grid {
+      align-items: center;
+
+      .grid__item:first-child {
+        margin: 0 (- $page-gutter);
+      }
+    }
+    
+    &__title {
+      
+      &__wrapper {
+        padding-top: ($vert-line-height/2);
+      }
+    }
+    
+    @include media($small-up) {
+      padding: $vert-line-height 0;
+      
+      &__title__wrapper {
+        padding-top: 0;
+      }
+    }
+
+    @include media($xlarge-up) {
+      padding: 0;
+      
+      .grid .grid__item:first-child {
+        // Hacky
+        overflow: hidden;
+        
+        img {
+          margin: -5% 0;
+        }
+      }
+    }
+
+    @include media($xxlarge-up) {
+      
+      .grid .grid__item:first-child {
+        
+        img {
+          margin: -7.5% 0;
+        }
+      }
+    }
+  }
+  
+  &__meta {
+    border-top: 1px solid $color-borders;
+    border-bottom: 1px solid $color-borders;
+    padding-bottom: ($vert-line-height/2);
+    text-align: center;
+    
+    &__date {
+      padding: ($vert-line-height/2) 0
+    }
+    
+    &__taxonomy {
+      padding: ($vert-line-height/2) 0
+    }
+    
+    &__share {
+      
+      .form__group {
+        padding-bottom: 0;
+      }
+      
+      .form__input-button-pair input {
+        width: calc(100% - 9.5em); // More magic-ness
+      }
+    }
+    
+    @include media($xsmall-up) {
+      text-align: left;
+      
+      &__date,
+      &__taxonomy {
+        display: inline-block;
+        vertical-align: top;
+      }
+      
+      &__date {
+        
+        &:after {
+          content: '. ';
+        }
+      }
+    }
+    
+    @include media($medium-up) {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding-top: ($vert-line-height/2);
+      
+      &__date,
+      &__taxonomy {
+        white-space: nowrap;
+      }
+      
+      &__taxonomy {
+        margin-right: auto;
+        
+        &:after {
+          content: '. ';
+        }
+      }
+      
+      &__share {
+        max-width: 45%;
+      }
+    }
+  } // end &__meta
+  
+  &__content {
+    border-bottom: 1px solid $color-borders;
+    padding: $vert-line-height 0;
+    
+    .entry-content {
+      color: palette(mono, 75);
+      
+      p:first-of-type {
+        @include one-element-size(h4);
+        color: palette(mono, 90);
+      }
+    }
+  }
+}
+
+
 //<div class="grid__item blog-card__wrapper">
 //  <div class="blog-card__content entry-content">
 //    <a href="#" class="blog-card__link">
