@@ -1,0 +1,84 @@
+// Tooltips
+// <a href="#" class="tooltip" title="View a sample BCBS member card">
+//  <i class="icon icon-question-circle"></i>
+//  <span class="tooltip--inner"><img src="' . $member_card . '" /></span>
+// </a>
+.tooltip {
+  display: inline-block;
+  position: relative;
+  z-index: map-get($zindex, tooltip-base);
+
+  .fa {
+    font-size: 200%;
+  }
+
+  &__inner {
+    @include transition( opacity 250ms ease );
+    @include transition-delay(250ms);
+    @include transform( translateY(-50%));
+    background-color: palette(mono, white);
+    box-shadow: 0 1px 3px rgba(#000, .33);
+    border: 1px solid palette(brand);
+    display: block;
+    opacity: 0;
+    padding: .75rem;
+    position: absolute;
+      top: 50%; left: -999em;
+    white-space: nowrap;
+    z-index: map-get($zindex, tooltip-content);
+
+    img {
+      max-width: 230px;
+
+      @include media($xsmall-up) {
+        max-width: 260px;
+      }
+      
+      @include media($small-up) {
+        max-width: 360px;
+      }
+    }
+
+    &:before {
+      @include transform( rotate(45deg) );
+      background-color: palette(mono, white);
+      border-color: palette(brand);
+      border-style: solid;
+      border-width: 0 0 1px 1px;
+      content: '';
+      height: 1rem;
+      margin-top: -.5em;
+      position: absolute;
+        top: 50%; left: -.625em;
+      width: 1rem;
+    }
+  }
+  
+  &--right &__inner {
+    
+    &:before {
+      border-width: 1px 1px 0 0;
+      left: auto;
+      right: -.5em;
+    }
+  }
+
+  &:hover,
+  &:focus {
+
+    .tooltip--inner {
+      left: 100%;
+      opacity: 1;
+    }
+  }
+  
+  &--right:hover,
+  &--right:focus {
+
+    .tooltip__inner {
+      left: auto;
+      right: 100%;
+      opacity: 1;
+    }
+  }
+}

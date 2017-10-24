@@ -11,13 +11,13 @@
 
 .sidebar {
   padding: $vert-line-height $page-gutter;
-  
+
   &__title {
     margin-bottom: .125rem;
   }
-  
+
   &__list  {
-    
+
     li {
       // Tighten line height on multi-line items
       line-height: 1.25;
@@ -27,14 +27,14 @@
   }
 
   @include media($large-up) {
-    padding: $vert-line-height ($page-gutter * 2);
+    padding-right: ($page-gutter * 2);
   }
 
   &--navigation {}
-  
+
   &--rail-left,
   &--rail-right {
-    
+
     .grid__item__rail {
       padding-left: 0;
       padding-right: 0;
