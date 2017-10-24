@@ -318,6 +318,23 @@
 
 
   // Specials
+  
+  // Full width, dont let the cards go two column too soon
+  &--home {
+    padding: 0 $page-gutter;
+    
+    .child-wrapper {
+      padding-bottom: $page-gutter;
+    }
+    
+    @include media($large-up) {
+      
+      .child-wrapper {
+        width: 48.5%;
+      }
+    }
+  }
+  
   &--archive {
     
     @include media($xlarge-up) {

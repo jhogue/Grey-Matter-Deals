@@ -213,3 +213,50 @@
     }
   //}
 }
+
+
+//<div class="emo__join logged-out">
+//  <p>Blue365 is free for eligible members. Registration takes 2 minutes… sign up today!</p>
+//  <div class="emo__join__actions">
+//    <a href="#signin-modal" class="button button__secondary js-inline-modal">Sign In</a> 
+//    <a href="#eligible-modal" class="button button__primary js-inline-modal">Join</a>
+//  </div>
+//</div>
+.emo {
+
+  &__join {
+    background-color: percent-color(palette(brand), 20%);
+    color: palette(mono, 75);
+    padding: $vert-line-height $page-gutter;
+    text-align: center;
+    
+    &__actions {
+      padding-top: $vert-line-height;
+    }
+    
+    @include media($large-up) {
+      
+      p,
+      &__actions {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0;
+      }
+    }
+  }
+  
+  &__deals {}
+  
+  &__get-started {
+    
+    &.paragraph__hero { background-color: percent-color(palette(brand), 20%); }
+    
+    &__actions {
+      padding: $vert-line-height 0;
+      
+      .button {
+        margin-bottom: $page-gutter;
+      }
+    }
+  }
+}

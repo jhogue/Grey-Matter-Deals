@@ -7,8 +7,10 @@
     max-width: $max-width;
     margin: 0 auto;
 
-    /*body*/.full-width & {
-      //max-width: none;
+    &.default-page {
+      max-width: em(960);
+      margin: 0 auto;
+      padding: $vert-line-height 0;
     }
 
     &--text {

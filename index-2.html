@@ -1,0 +1,102 @@
+---
+layout: deal
+nav-title: Home
+title: Welcome to Blue365
+permalink: /index-2
+body-class: 'b365-home'
+---
+
+<div class="emo">
+  
+  <div class="emo__feature">
+    <div class="paragraph paragraph__cards">
+      <h1 style="text-align: center; padding: 2em 0 1em;">Because Health is  Big Deal</h1>
+      <div class="grid grid--duo" style="padding: 0 0 1em;">
+        <div class="grid__item">
+          <p>Gain access to health- and wellness-related deals on fitness products, gym memberships, healthy eating and more. Open to businesses, families and individuals who are members of participating BlueCross BlueShield companies. <a href="#">Learn More</a></p>
+        </div>
+        <div class="grid__item">
+          <figure>
+            <blockquote>
+              <p>With Blue365 I got a great discount on a gym membership. I stuck with it and am currently keeping off 25 pounds.</p>
+            </blockquote>
+            <figcaption>– Jim Derentis, Grand Rapids, Michigan</figcaption>
+          </figure> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {% comment %}
+• Handpicked deals from premium brands that you recognize
+• Better discounts than other health savings programs across nearly all categories
+• Exclusive offers only available to Blue365 members
+• Year-round discounts—no limited supplies, no limits on employee savings
+• No setup or administrative support required
+• Enterprise discounts to support employee health and wellness programs
+  {% endcomment %}
+  
+  <div class="emo__features">
+    <div class="paragraph paragraph__cards">
+      <h2 class="screen-reader-text">Blue365 Features</h2>
+      <div class="grid grid--quartet">
+        <div class="grid__item entry-content">
+          <span style="display: block; font-size: 300%; text-align: center;"><span class="fa fa-hand-peace-o" aria-hidden="true"></span></span>
+          <p style="text-align: center;">Handpicked deals from premium brands that you recognize</p>
+        </div>
+        <div class="grid__item entry-content">
+          <span style="display: block; font-size: 300%; text-align: center;"><span class="fa fa-money" aria-hidden="true"></span></span>
+          <p style="text-align: center;">Better discounts than other health savings programs across nearly all categories</p>
+        </div>
+        <div class="grid__item entry-content">
+          <span style="display: block; font-size: 300%; text-align: center;"><span class="fa fa-users" aria-hidden="true"></span></span>
+          <p style="text-align: center;">Exclusive offers only available to Blue365 members</p>
+        </div>
+        <div class="grid__item entry-content">
+          <span style="display: block; font-size: 300%; text-align: center;"><span class="fa fa-calendar" aria-hidden="true"></span></span>
+          <p style="text-align: center;">Year-round discounts—no limited supplies, no limits on savings</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="emo__join logged-out">
+    <p>Blue365 is free for eligible members. Registration takes 2 minutes… sign up today!</p>
+    <div class="emo__join__actions">
+      <p>
+        <a href="#signin-modal" class="button button__secondary js-inline-modal">Sign In</a> 
+        <a href="#eligible-modal" class="button button__primary js-inline-modal">Join</a>
+      </p>
+    </div>
+  </div>
+  
+  
+  <div class="b365-home__section">
+    
+    <div class="logged-out featured-deals" style="padding-top: 1rem;">
+      <h3 class="header-w-link">Featured Deals <a href="{{ site.baseurl }}category.html">Browse All Deals</a></h3>
+    </div>
+    <div class="logged-in suggested-deals">
+      <h3 class="header-w-link">Suggested For You <a href="#" title="Find out why we picked these deals for you">Why?</a></h3>
+    </div>
+    <div class="grid grid--home" style="padding-top: 1rem;">
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
+      {% include deal-card-1.html %}
+    </div>
+  </div>
+
+
+  <div class="paragraph paragraph__hero emo__get-started">
+    <h2>Get Started</h2>
+    <p>Blue365 can help you lead a healthier live without breaking the bank. Its a free benefit of your BlueCross BlueShield plan, and registration is easy.</p>
+    <div class="emo__get-started__actions">
+      <p><a href="#eligible-modal" class="button button__primary js-inline-modal">Join Now</a></p>
+      <p><a href="{{ site.baseurl }}for-employers-flow-1.html">Learn more about Blue365 For Employers</a></p>
+    </div>
+  </div>
+  
+</div>
