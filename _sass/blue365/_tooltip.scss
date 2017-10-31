@@ -13,9 +13,6 @@
   }
 
   &__inner {
-    @include transition( opacity 250ms ease );
-    @include transition-delay(250ms);
-    @include transform( translateY(-50%));
     background-color: palette(mono, white);
     box-shadow: 0 1px 3px rgba(#000, .33);
     border: 1px solid palette(brand);
@@ -24,6 +21,9 @@
     padding: .75rem;
     position: absolute;
       top: 50%; left: -999em;
+    transition: opacity 250ms ease;
+    transition-delay: 250ms;
+    transform: translateY(-50%);
     white-space: nowrap;
     z-index: map-get($zindex, tooltip-content);
 
@@ -40,7 +40,6 @@
     }
 
     &:before {
-      @include transform( rotate(45deg) );
       background-color: palette(mono, white);
       border-color: palette(brand);
       border-style: solid;
@@ -50,6 +49,7 @@
       margin-top: -.5em;
       position: absolute;
         top: 50%; left: -.625em;
+      transform: rotate(45deg);
       width: 1rem;
     }
   }
