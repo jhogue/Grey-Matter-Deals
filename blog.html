@@ -7,7 +7,22 @@ body-class: 'blog'
 ---
 
 <div class="blog">
-    
+  
+  <div class="blog__features__blurb light-blue">
+    <div class="grid grid__third-left actually-third">
+      <div class="grid__item align-center">
+        <div class="blog-card__content">
+          <h1 class="delta"><b>Healthy Tips from Blue365</b></h1>
+        </div>
+      </div>
+      <div class="grid__item align-center">
+        <div class="blog-card__content blog__features__blurb__content">
+          <p>Making every day a healthy day is easier than you may think. Achieving your healthy lifestyle starts with the right information. Check out the tips below for small everyday steps you can take to make a big impact on your overall health.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <header class="blog__header">
     <div class="grid grid__third-right reverse-order">
       <div class="grid__item">
@@ -21,12 +36,14 @@ body-class: 'blog'
     </div>
   </header>
 
+
+  {% comment %}
   <div class="blog__meta">
     <div class="blog__meta__date">
       <time datetime="20171019">October 19, 2017</time>
     </div>
     <div class="blog__meta__taxonomy">
-      <a href="#">Category Name 1</a>, <a href="#">Category Name 2</a>
+      <a href="#">Fitness</a>, <a href="#">Health at Work</a>
     </div>
     <div class="blog__meta__share">
       <div class="form__group form__input-button-pair">
@@ -35,6 +52,8 @@ body-class: 'blog'
       </div>
     </div>
   </div>
+  {% endcomment %}
+
 
   <article class="blog__content">
     <div class="layout__container--text entry-content">
@@ -54,6 +73,23 @@ body-class: 'blog'
         <li>Stand in front of the couch, and perform 10 to 20 bodyweight lunges, alternating legs.</li>
         <li>Have a back issue? Try Seated Dead Bugs: Sit on the couch with your feet flat on the floor, and lift one knee at a time, squeezing your abs to pull your leg up, and to keep your hips still. </li>
       </ul>
+      
+      
+      {% comment %}
+      <!-- Insert a deal here -->
+      <aside class="blog__inline-deal">
+        <span>Related Deal</span>
+        <a href="{{ site.baseurl }}deal.html" class="blog__inline-deal__wrapper">
+          <h2 class="delta">50% Discount on Enrollment Fees and 5% Discount on Monthly Dues with <b>Snap Fitness</b></h2>
+          <div class="blog__inline-deal__img">
+            <img src="https://www.blue365deals.com/sites/default/files/styles/deal_node_featured_image/public/deal-images/Snap_Fitness_1024x428_0.jpg?itok=hmlQ9Br4" alt="Snap Fitness">
+            <span href="{{ site.baseurl }}deal.html" class="button button__primary">Details</span>
+          </div>
+        </a>
+      </aside>
+      {% endcomment %}
+      
+      
       <h2>Scenario 3: You’re Inside a Plane, Train, or Automobile</h2>
       <p>Isometric exercises (when you squeeze a muscle or group of muscles for a period of time, and then release) won’t necessarily burn as many calories as say, a jog, or typical gym session, but you will be able to gently strengthen your body, boost circulation, and lower your blood pressure. If you’re stuck in a seat for several hours, give these nearly invisible moves a shot at least once each hour.</p>
       <ul>
@@ -63,63 +99,66 @@ body-class: 'blog'
       </ul>
       <hr>
       <p>Whichever scenario you find yourself in, make sure to take the time to take a break and move around. Your body will thank you for it! Fitbit can help you reach your health and fitness goals by tracking your activity, exercise, sleep, weight and more. Check out Blue365 Deals to find and select the activity tracker that fits you best.</p>
-      <p>This content is not intended to substitute for informed medical advice. You should not use this information to diagnose or treat a health problem or condition. Always check with your doctor before changing your diet, altering your sleep habits, taking supplements, or starting a new fitness routine.</p>
       
       <p>— <span class="b365">Blue<span>365</span></span> Healthy Tips</p>
+      <p class="micro">This content is not intended to substitute for informed medical advice. You should not use this information to diagnose or treat a health problem or condition. Always check with your doctor before changing your diet, altering your sleep habits, taking supplements, or starting a new fitness routine.</p>
+      
+      
     </div>
   </article>
   
   
   <div class="blog__more">
+    <h2 class="blog__more-by-cat__title">
+      Explore more Healthy Tips by Category
+      <select>
+        <option value="">All Heathy Tips</option>
+        <option value="">Apparel & Footwear</option>
+        <option value="">Hearing & Vision</option>
+        <option value="">Home & Family</option>
+        <option value="">Fitness</option>
+        <option value="">Personal Care</option>
+        <option value="">Nutrition</option>
+        <option value="">Travel</option>
+      </select>
+      <a href="#" style="font-size: 50%;" class="button button__primary">Go</a>
+    </h2>
+  </div>
+  
+  
+  {% comment %}
+  <div class="blog__more-by-cat">
+    
+    <h3 style="text-align: center">Explore more Healthy Tips</h3>
     
     <div class="blog__more__container">
-      <div class="blog__more__headline">
-        <h3><a href="{{ site.baseurl }}blog.html">The Dietary Perils of Being a Night Owl </a></h3>
-      </div>
-      <div class="blog__more__meta">
+      <a href="#" class="blog__more__meta__category">Fitness</a>
+      <a class="blog__more__img" href="{{ site.baseurl }}blog.html">
         <img src="http://fpoimg.com/480x206?text=21:9 Post Image">
-        <div class="blog__more__meta__container">
-          <a href="#" class="blog__more__meta__category">Category Name</a>
-          <a href="#" class="blog__more__meta__related button button__secondary">View Related Deals</a>
-        </div>
+      </a>
+      <div class="blog__more__headline">
+        <h3><a href="{{ site.baseurl }}blog.html"><a href="{{ site.baseurl }}blog.html">How One Simple Vending Machine Tweak Could Prompt Healthier Choices</a></a></h3>
       </div>
     </div>
     <div class="blog__more__container">
-      <div class="blog__more__headline">
-        <h3><a href="{{ site.baseurl }}blog.html">6 Ways to Use Spring Herbs as Healthy Greens </a></h3>
-      </div>
-      <div class="blog__more__meta">
+      <a href="#" class="blog__more__meta__category">Nutrition</a>
+      <a class="blog__more__img" href="{{ site.baseurl }}blog.html">
         <img src="http://fpoimg.com/480x206?text=21:9 Post Image">
-        <div class="blog__more__meta__container">
-          <a href="#" class="blog__more__meta__category">Category Name</a>
-          <a href="#" class="blog__more__meta__related button button__secondary">View Related Deals</a>
-        </div>
+      </a>
+      <div class="blog__more__headline">
+        <h3><a href="{{ site.baseurl }}blog.html"><a href="{{ site.baseurl }}blog.html">5 Easy Ways to Eat Probiotics Like a Pro</a></a></h3>
       </div>
     </div>
     <div class="blog__more__container">
-      <div class="blog__more__headline">
-        <h3><a href="{{ site.baseurl }}blog.html">Start a Garden and Harvest the Health Benefits </a></h3>
-      </div>
-      <div class="blog__more__meta">
+      <a href="#" class="blog__more__meta__category">Health at Work</a>
+      <a class="blog__more__img" href="{{ site.baseurl }}blog.html">
         <img src="http://fpoimg.com/480x206?text=21:9 Post Image">
-        <div class="blog__more__meta__container">
-          <a href="#" class="blog__more__meta__category">Category Name</a>
-          <a href="#" class="blog__more__meta__related button button__secondary">View Related Deals</a>
-        </div>
-      </div>
-    </div>
-    <div class="blog__more__container">
+      </a>
       <div class="blog__more__headline">
-        <h3><a href="{{ site.baseurl }}blog.html">Chefs Share Their Strategies for Staying Healthy </a></h3>
-      </div>
-      <div class="blog__more__meta">
-        <img src="http://fpoimg.com/480x206?text=21:9 Post Image">
-        <div class="blog__more__meta__container">
-          <a href="#" class="blog__more__meta__category">Category Name</a>
-          <a href="#" class="blog__more__meta__related button button__secondary">View Related Deals</a>
-        </div>
+        <h3><a href="{{ site.baseurl }}blog.html"><a href="{{ site.baseurl }}blog.html">Chefs Share Their Strategies for Staying Health</a></a></h3>
       </div>
     </div>
   </div><!-- // blog__more -->
+  {% endcomment %}
   
 </div>
