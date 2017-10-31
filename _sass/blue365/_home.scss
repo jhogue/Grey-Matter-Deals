@@ -78,7 +78,69 @@
       justify-content: space-between;
     }
   }
+  
+  &__brands {
+    padding: $vert-line-height 0;
+    
+    &__title {
+      padding: 0 $page-gutter;
+      text-align: center;
+    }
+    
+    .grid {
+      margin: 0 1.5rem;
+      position: relative;
+      
+      .fa {
+        font-size: 150%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      
+      .fa-chevron-left {
+        right: 100%;
+      }
+      .fa-chevron-right {
+        left: 100%;
+      }
+    }
+    
+    .grid__item {
+      padding: $page-gutter;
+      
+      @include media($medium-up) {
+        padding: $vert-line-height $page-gutter;
+      }
+      
+      @include media($large-up) {
+        padding: ($vert-line-height * 1.5) ($page-gutter * 2) $vert-line-height;
+      }
+    }
+    
+    .grid__item:nth-child(3),
+    .grid__item:nth-child(4),
+    .grid__item:nth-child(5),
+    .grid__item:nth-child(6) {
+      display: none;
+    }
+    
+    @include media($small-up) {
+      .grid__item:nth-child(3) {
+        display: block;
+      }
+    }
+    
+    @include media($large-up) {
+      .grid__item:nth-child(4),
+      .grid__item:nth-child(5),
+      .grid__item:nth-child(6) {
+        display: block;
+      }
+    }
+  }
 }
+
 
 //<div class="b365-home__feature feature">
 //  <img src="http://fpoimg.com/1050x450?text=21:9 Feature" alt="">
