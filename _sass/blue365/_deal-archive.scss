@@ -38,11 +38,16 @@
   }
 
   &--history {
-    
+
     &__item {
       border-bottom: 1px solid $color-borders;
       margin-bottom: ($vert-line-height / 2);
       padding-bottom: ($vert-line-height / 2);
+      width: 100%;
+    }
+    
+    .expired img {
+      opacity: .5;
     }
     
     @include media($small-up) {
