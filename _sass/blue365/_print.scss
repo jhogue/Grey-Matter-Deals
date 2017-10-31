@@ -97,10 +97,13 @@
     page-break-before: avoid;
   }
 
-  .print-template .layout {
+  .print-template .layout,
+  .print-template .layout__container {
     padding: 0 !important;
+    max-width: none;
+    min-height: intrinsic;
   }
-  
+
   .print-template .entry-content ul li,
   .print-template .entry-content ol li {
     line-height: 1.5;
@@ -131,7 +134,7 @@
     margin: 0 auto;
     max-width: 1024px; // (1)
     min-height: 1297px;
-    padding: $page-gutter;
+    padding: $vert-line-height;
   }
   
   // Need to redefine these here because our original declarations rely on
@@ -161,9 +164,14 @@
 //    </div>
 //    <div class="coupon__content">
 //      <div class="coupon__brand">
-//        <h2 class="coupon__offer__title">
-//          Basket Originals Café & Gourmet Shop
-//        </h2>
+//        <div class="coupon__brand__header">
+//          <h2 class="coupon__offer__title">Basket Originals Café & Gourmet Shop</h2>
+//          <h3 class="coupon__offer__subtitle">Receive one free cappuccino with purchase of breakfast or lunch special.</h3>
+//          <p class="coupon__offer__location">
+//            <strong>Location:</strong> Centro Comercial Suchville Plaza / Suite #110 / Carr. #2 / Guaynabo<br>
+//            <strong>Phone:</strong> (787) 781-3665
+//          </p>
+//        </div>
 //        <div class="coupon__offer__logo">
 //          <img src="http://fpoimg.com/180x90?text=Logo" alt="Basket Originals logo">
 //        </div>
@@ -191,26 +199,33 @@
       color: palette(mono, white);
     }
   }
-  
+
   &__title {}
 
   &__offer {
-    border: 3px dashed palette(brand);
-    padding: ($page-gutter * 2) ($page-gutter * 2) 0;
-    position: relative;
-    
-    &:after {
-      content: '\2703';
-      color: palette(brand);
-      font-size: 400%;
-      position: absolute;
-      top: 33%;
-      right: -3.125rem;
-      transform: rotate(-90deg);
+    //border: 3px dashed palette(brand);
+    //padding: ($page-gutter * 2) ($page-gutter * 2) 0;
+    //position: relative;
+    padding: 0;
+
+    //&:after {
+    //  content: '\2703';
+    //  color: palette(brand);
+    //  font-size: 400%;
+    //  position: absolute;
+    //  top: 33%;
+    //  right: -3.125rem;
+    //  transform: rotate(-90deg);
+    //}
+
+    &__header {
+      width: 75%;
     }
 
-    &__title {
-      width: 75%;
+    &__title {}
+
+    &__location {
+      margin-top: $vert-line-height;
     }
 
     &__logo {
@@ -226,26 +241,20 @@
   }
 
   &__image {}
-  
+
   &__content {}
 
-  //<div class="coupon__brand">
-  //  <h2 class="coupon__offer__title">
-  //    Basket Originals Café &amp; Gourmet Shop
-  //  </h2>
-  //  <div class="coupon__offer__logo">
-  //    <img src="http://fpoimg.com/180x90?text=Logo" alt="Basket Originals logo">
-  //  </div>
-  //</div>
   &__brand {
     display: flex;
     flex-flow: row nowrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     padding: $vert-line-height 0;
   }
-  
+
   &__terms {
+    border-top: 1px solid $color-borders;
+    margin-top: ($page-gutter/2);
     padding-top: ($page-gutter/2);
   }
 }

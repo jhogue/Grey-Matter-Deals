@@ -125,7 +125,7 @@ $(window).load(function() {
 
   // Check the body { content: '' } to see if we have a match
   // If so, move the contents of the adhesive redemption to the adhesive aside
-  if (mq_tag.indexOf("deal-sidebar-adhesive") !=-1) {
+  if ( (mq_tag.indexOf("deal-sidebar-adhesive") !=-1) && ($('body').hasClass('deal-single')) ) {
     //console.log( "'deal-sidebar-adhesive' found in body { content:''}" );
 
     // Append content: move from inside one element to another
@@ -160,8 +160,11 @@ $(window).load(function() {
     });
   }
 
-  // The wayfinding navigation on Flow-2 Deal
+  // The wayfinding navigation on Deal single
   if ( document.getElementsByClassName('js-adhesive') !== null ) {
+    
+    console.log('js-adhesive present on page');
+    
     var sticky = new Waypoint.Sticky({
       element: $('.js-adhesive')[0]
     });
@@ -170,7 +173,7 @@ $(window).load(function() {
         barheight = $("#wayfinding").outerHeight(true),
         height_difference = barheight - navheight - 32;
   
-    //console.log(height_difference + ' = ' + barheight + ' - ' + navheight);
+    console.log(height_difference + ' = ' + barheight + ' - ' + navheight);
   
     var scrolltobottom = new Waypoint({
       element: $("#wayfinding")[0],

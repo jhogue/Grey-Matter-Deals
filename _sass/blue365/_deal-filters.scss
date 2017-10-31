@@ -101,6 +101,14 @@
     }
   }
 
+  .hide-for-mobile {
+    @include hide();
+    
+    @include media($medium-up) {
+      @include show(inline-block);
+    }
+  }
+
 
   // Lots of changes needed to "open" up the previously hidden drop down menus
   @include media($medium-up) {

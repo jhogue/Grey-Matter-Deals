@@ -243,6 +243,23 @@
 		}
   }
   
+  // Sigh, this is terrible. 
+  &__third-right.actually-third > &__item:first-child,
+  &__third-left.actually-third > &__item:last-child {
+    
+    @include media($xlarge-up) {
+			width: percentage(8/$grid-columns);
+		}
+  }
+  
+  &__third-right.actually-third > &__item:last-child,
+  &__third-left.actually-third > &__item:first-child {
+    
+    @include media($xlarge-up) {
+			width: percentage(4/$grid-columns);
+		}
+  }
+  
   // Used when we have columns that need to be image first for mobile
   // but then image last for desktop
   .reverse-order,
@@ -283,41 +300,65 @@
 
 
 	// This one starts at two over threee, then three over two, then six across
-	//&__sextet &__item {
-  //  width: percentage(6/$grid-columns);
-  //
-	//	@include media($small) {
-	//		width: percentage(4/$grid-columns);
-	//	}
-  //
-	//	@include media($large-up) {
-	//		width: percentage(2/$grid-columns);
-	//	}
-	//}
-	
-	&__octet {
+	&--sextet {
   	align-items: stretch;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
 	}
+
+	&--sextet &__item {
+    width: percentage(6/$grid-columns);
+  
+	  @include media($small) {
+	  	width: percentage(4/$grid-columns);
+	  }
+  
+	  @include media($large-up) {
+	  	width: percentage(2/$grid-columns);
+	  }
+	}
 	
-	&__octet &__item {
-  	width: percentage(6/$grid-columns);
-  	
-  	@include media($small) {
-    	width: percentage(4/$grid-columns);
-  	}
-  	@include media($medium) {
-    	width: percentage(3/$grid-columns);
-  	}
-  	@include media($large-up) {
-    	width: 12.5%;
-  	}
-  }
+	//&--octet {
+  //	align-items: stretch;
+  //  display: flex;
+  //  flex-flow: row wrap;
+  //  justify-content: space-between;
+	//}
+	//
+	//&__octet &__item {
+  //	width: percentage(6/$grid-columns);
+  //	
+  //	@include media($small) {
+  //  	width: percentage(4/$grid-columns);
+  //	}
+  //	@include media($medium) {
+  //  	width: percentage(3/$grid-columns);
+  //	}
+  //	@include media($large-up) {
+  //  	width: 12.5%;
+  //	}
+  //}
 
 
   // Specials
+  
+  // Full width, dont let the cards go two column too soon
+  &--home {
+    padding: 0 $page-gutter;
+    
+    .child-wrapper {
+      padding-bottom: $page-gutter;
+    }
+    
+    @include media($large-up) {
+      
+      .child-wrapper {
+        width: 48.5%;
+      }
+    }
+  }
+  
   &--archive {
     
     @include media($xlarge-up) {

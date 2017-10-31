@@ -1,50 +1,61 @@
 <div class="form--join-form">
         <form class="form">
-          <h4><span>Step 2 of 2</span></h4>
-          <legend class="screen-reader-text">Become a Member</legend>
-          <div class="form__group">
-            <h3>Create a Profile with an external Account</h3>
+          
+          <h2>Congrats!</h2>
+          <p style="margin-bottom: 1.5rem"><strong>Blue Cross Blue Shield of Indiana participates in Blue365!</strong> Now let’s finish your registration.</p>
+          
+          <legend class="screen-reader-text">Complete Registration</legend>
+          
+          <div class="form__group social-logins">
+            <h4 class="text-over-line"><span>Register With:</span></h4>
             <p>
-              <input class="button button__secondary" type="submit" value="Facebook">
-              <input class="button button__secondary" type="submit" value="Google+">
-              <input class="button button__secondary" type="submit" value="Apple ID">
+              <button class="button button__secondary" type="submit"><span class="fa fa-facebook-official" aria-hidden="true"></span> Facebook</button>
+              <button class="button button__secondary" type="submit"><span class="fa fa-google-plus-square" aria-hidden="true"></span> Google+</button>
+              <button class="button button__secondary" type="submit"><span class="fa fa-apple" aria-hidden="true"></span> Apple ID</button>
             </p>
           </div>
-          <fieldset>
-            <legend>Account Information</legend>
-            <div class="grid grid--duo">
-              <div class="grid__item form__group">
-                <label for="first">First Name</label>
-                <input class="form__input" type="text" id="first" placeholder="">
-              </div>
-              <div class="grid__item form__group">
-                <label for="last">Last Name</label>
-                <input class="form__input" type="text" id="last" placeholder="">
-              </div>
-            </div>
-            <div class="form__group">
-              <label for="email">Email</label>
-              <input class="form__input" type="email" id="email" value="name@domain.com">
-            </div>
-            <div class="form__group">
+          
+          <h4 class="text-over-line"><span>Or register using your email address:</span></h4>
+          
+          <div class="form__group">
+            <label for="email">Email</label>
+            <input class="form__input" type="email" id="email" value="name@domain.com">
+          </div>
+          
+          <div class="grid grid--duo">
+            <div class="grid__item form__group">
               <label for="password">Password</label>
               <input class="form__input" type="password" id="password">
             </div>
-            <div class="grid grid--trio">
-              <div class="grid__item form__group">
-                <label for="alphaprefix">ID Card Prefix</label>
-                <input class="form__input" type="text" id="alphaprefix" value="XYZ">
-              </div>
-              <div class="grid__item form__group">
-                <label for="birthyear">Birth Year</label>
-                <input class="form__input" type="text" id="birthyear" placeholder="ex: 1990">
-              </div>
-              <div class="grid__item form__group">
-                <label for="zip">Zip Code</label>
-                <input class="form__input" type="text" id="zip" placeholder="ex: 12345">
-              </div>
+            <div class="grid__item form__group">
+              <label for="password">Confirm Password</label>
+              <input class="form__input" type="password" id="password">
             </div>
-          </fieldset>
+            <p style="margin: -1rem 0 1.5rem;"><strong>Requirements:</strong> Passwords must be at least 8 characters in length, use at least one number and one letter (can not be all letters or all numbers)</p>
+          </div>
+          
+          <div class="grid grid--duo">
+            <div class="grid__item form__group">
+              <label for="first">First Name</label>
+              <input class="form__input" type="text" id="first" placeholder="">
+            </div>
+            <div class="grid__item form__group">
+              <label for="last">Last Name</label>
+              <input class="form__input" type="text" id="last" placeholder="">
+            </div>
+          </div>
+          
+          <div class="grid grid--duo">
+            <div class="grid__item form__group">
+              <label for="birthyear">Birth Year</label>
+              <input class="form__input" type="text" id="birthyear" placeholder="ex: 1990">
+            </div>
+            <div class="grid__item form__group">
+              <label for="zip">Zip Code</label>
+              <input class="form__input" type="text" id="zip" placeholder="ex: 12345">
+            </div>
+          </div>
+          
           <fieldset>
             <div class="form__group">
               <label for="memberauth">Member and E-mail Authorization</label>
@@ -56,6 +67,7 @@
                 </ul><p>I understand that BCBSA is not subject to federal health information privacy laws and any information BCBSA receives will no longer be subject to such laws.&nbsp; This authorization is voluntary.&nbsp; My local Blue Company will not condition payment, enrollment in a health plan, or eligibility for benefits on whether I sign this authorization.&nbsp; I may revoke this authorization by sending a request in writing to: Blue365 Member Services, 225 North Michigan Ave., Chicago, IL, 60601-7680, or alternatively, by sending an email to: support@Blue365deals.com.&nbsp; When I revoke this authorization, the revocation will <em>not</em> affect any disclosure my local Blue Company made before the revocation.&nbsp; This authorization expires one year after I disenroll from my local Blue Company.</p>
                 <p>I have had full opportunity to read and consider the contents of this authorization.&nbsp; I understand that, by clicking on the “REGISTER” button, below, I am confirming my authorization for the uses and disclosures of information about me, as described in this form.</p>
                 <p><em>Date: 08/22/2017</em></p>
+                <p><a href="#" class="button button__secondary">Print</a></p>
               </div>
             </div>
             <div class="form__group">
@@ -74,7 +86,7 @@
           
           
           <div class="form__actions">
-            <a href="#" class="form__submit button button__primary js-set-login">Let&rsquo;s Go!</a>
+            <a href="#" class="form__submit button button__primary js-set-login">Register</a>
           </div>
           
           

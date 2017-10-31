@@ -30,8 +30,12 @@ $copy-code-button-width: 120px; // Magic number
       border-bottom-left-radius: 0;
       margin-left: -10px;
       min-width: $copy-code-button-width;
-      padding: 0.625em 1em 0.5em;
+      padding: .5em .75em .375em;
       text-align: center;
+
+      @include media($medium-up) {
+        padding: .625em 1em .5em;
+      }
     }
   }
   
@@ -42,4 +46,20 @@ $copy-code-button-width: 120px; // Magic number
   &__actions {}
   
   &__submit {}
+}
+
+
+// Add some padding to the grid__items when side by side
+.form .grid--duo {
+
+  @include media($small-up) {
+
+    .grid__item:first-child {
+      padding-right: ($page-gutter/2);
+    }
+
+    .grid__item:last-child {
+      padding-left: ($page-gutter/2);
+    }
+  }
 }

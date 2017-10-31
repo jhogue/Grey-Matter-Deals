@@ -5,7 +5,7 @@
   <div class="deal-filters__container">
     <ul class="deal-filters__group menu">
       <li class="deal-filters__group--categories has-submenu">
-        <a href="javascript:;" class="js-menu-trigger">Category <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
+        <a href="javascript:;" class="js-menu-trigger"><span class="hide-for-mobile">Filter by </span>Category <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
         <ul class="deal-filters__group__list has-submenu__list menu">
     			<li><a href="{{ site.baseurl }}category.html"><span class="fa fa-check-square-o" aria-hidden="true"> All Deals</a> (60)</li>
     			<li><a href="{{ site.baseurl }}category.html"><span class="fa fa-square-o" aria-hidden="true"></span> Apparel &amp; Footwear</a> (8)</li>
@@ -17,85 +17,31 @@
     		  <li><a href="{{ site.baseurl }}category.html"><span class="fa fa-square-o" aria-hidden="true"></span> Travel</a> (2)</li>
     		</ul>
       </li>
-      <li class="deal-filters__group--sort has-submenu">
-        <a href="javascript:;" class="js-menu-trigger">Sort <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
-        <ul class="deal-filters__group__list has-submenu__list menu">
-          <li><a href="#"><span class="fa fa-check-square-o" aria-hidden="true"></span> Flash Sales</a></li>
-          <li><a href="#"><span class="fa fa-square-o" aria-hidden="true"></span> Expiring Soon</a></li>
-          <li><a href="#"><span class="fa fa-square-o" aria-hidden="true"></span> Newest</a></li>
-          <li><a href="#"><span class="fa fa-square-o" aria-hidden="true"></span> Most Popular</a></li>
-        </ul>
-      </li>
+      
       <li class="deal-filters__group--location has-submenu">
-        <a href="javascript:;" class="js-menu-trigger">Location <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
+        <a href="javascript:;" class="js-menu-trigger"><span class="hide-for-mobile">Filter by </span>Location <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
         <ul class="deal-filters__group__list has-submenu__list menu">
           <li>
             <div class="deal-filters__sub-group">
-              <h5>Select a State</h5>
+              <h5 class="screen-reader-text">Select a Region</h5>
               <select>
-              	<option value="AL">Alabama (AL)</option>
-              	<option value="AK">Alaska (AK)</option>
-              	<option value="AZ">Arizona (AZ)</option>
-              	<option value="AR">Arkansas (AR)</option>
-              	<option value="CA">California (CA)</option>
-              	<option value="CO">Colorado (CO)</option>
-              	<option value="CT">Connecticut (CT)</option>
-              	<option value="DE">Delaware (DE)</option>
-              	<option value="DC">District Of Columbia (DC)</option>
-              	<option value="FL">Florida (FL)</option>
-              	<option value="GA">Georgia (GA)</option>
-              	<option value="HI">Hawaii (HI)</option>
-              	<option value="ID">Idaho (ID)</option>
-              	<option value="IL">Illinois (IL)</option>
-              	<option value="IN">Indiana (IN)</option>
-              	<option value="IA">Iowa (IA)</option>
-              	<option value="KS">Kansas (KS)</option>
-              	<option value="KY">Kentucky (KY)</option>
-              	<option value="LA">Louisiana (LA)</option>
-              	<option value="ME">Maine (ME)</option>
-              	<option value="MD">Maryland (MD)</option>
-              	<option value="MA">Massachusetts (MA)</option>
-              	<option value="MI">Michigan (MI)</option>
-              	<option value="MN">Minnesota (MN)</option>
-              	<option value="MS">Mississippi (MS)</option>
-              	<option value="MO">Missouri (MO)</option>
-              	<option value="MT">Montana (MT)</option>
-              	<option value="NE">Nebraska (NE)</option>
-              	<option value="NV">Nevada (NV)</option>
-              	<option value="NH">New Hampshire (NH)</option>
-              	<option value="NJ">New Jersey (NJ)</option>
-              	<option value="NM">New Mexico (NM)</option>
-              	<option value="NY">New York (NY)</option>
-              	<option value="NC">North Carolina (NC)</option>
-              	<option value="ND">North Dakota (ND)</option>
-              	<option value="OH">Ohio (OH)</option>
-              	<option value="OK">Oklahoma (OK)</option>
-              	<option value="OR">Oregon (OR)</option>
-              	<option value="PA">Pennsylvania (PA)</option>
-              	<option value="RI">Rhode Island (RI)</option>
-              	<option value="SC">South Carolina (SC)</option>
-              	<option value="SD">South Dakota (SD)</option>
-              	<option value="TN">Tennessee (TN)</option>
-              	<option value="TX">Texas (TX)</option>
-              	<option value="UT">Utah (UT)</option>
-              	<option value="VT">Vermont (VT)</option>
-              	<option value="VA">Virginia (VA)</option>
-              	<option value="WA">Washington (WA)</option>
-              	<option value="WV">West Virginia (WV)</option>
-              	<option value="WI">Wisconsin (WI)</option>
-              	<option value="WY">Wyoming (WY)</option>
+              	<option value="Ch">Champagne</option>
+              	<option value="CHI">Chicago metro area</option>
+              	<option value="DV">Davenport</option>
+              	<option value="MA">Marion</option>
+              	<option value="SPR">Springfield</option>
               </select>
             </div>
           </li>
         </ul>
       </li>
       <li class="deal-filters__group--keyword has-submenu">
-        <a href="javascript:;" class="js-menu-trigger">Keyword <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
+        <a href="javascript:;" class="js-menu-trigger">Search<span class="hide-for-mobile"> by Keyword</span> <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
         <ul class="deal-filters__group__list has-submenu__list menu">
           <li class="deal-filter__search">
             <form class="sitesearch__form">
               <fieldset class="sitesearch__wrapper">
-                <label class="form__label">Search by Keyword</label>
+                <label class="form__label screen-reader-text">Search by Keyword</label>
                 <input class="sitesearch__input form__input" type="search" placeholder="Ex: Brand Name">
                 <input class="sitesearch__button form__action" type="submit" value="Go">
               </fieldset>
@@ -103,6 +49,16 @@
           </li>
         </ul>
       </li> 
+      
+      <li class="deal-filters__group--sort has-submenu">
+        <a href="javascript:;" class="js-menu-trigger">Sort <span class="fa fa-chevron-circle-down" aria-hidden="true"></span></a>
+        <ul class="deal-filters__group__list has-submenu__list menu">
+          <li><a href="#"><span class="fa fa-square-o" aria-hidden="true"></span> Flash Sales</a></li>
+          <li><a href="#"><span class="fa fa-check-square-o" aria-hidden="true"></span> Expiring Soon</a></li>
+          <li><a href="#"><span class="fa fa-square-o" aria-hidden="true"></span> Newest</a></li>
+          <li><a href="#"><span class="fa fa-square-o" aria-hidden="true"></span> Most Popular</a></li>
+        </ul>
+      </li>
     </ul>
   </div>
   
