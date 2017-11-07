@@ -143,6 +143,29 @@ $(window).load(function() {
     });
   }
   
+  
+  // Toggle the readability of the password fields
+  // .js-toggle-type for the inputs
+  // .js-toggle-type-trigger for the input[type=checkbox] Show Passwords
+  if ( document.getElementsByClassName('js-toggle-type-trigger') !== null ) {
+    $('.js-toggle-type-trigger').on('click', function(tt) {
+      
+      //console.log('js-toggle-type-trigger present on page');
+      
+      var toggler = $(this),
+        inputs = $('.js-toggle-type'),
+        label = $('.js-toggle-type-text');
+      
+      if (toggler.is(':checked')) {
+        inputs.attr('type', 'text');
+        label.text('Hide');
+      } else {
+        inputs.attr('type', 'password');
+        label.text('Show');
+      }
+    });
+  }
+
 
   // Waypoints for the redeem options
   
@@ -159,11 +182,12 @@ $(window).load(function() {
       offset: 0
     });
   }
+  
 
   // The wayfinding navigation on Deal single
   if ( document.getElementsByClassName('js-adhesive') !== null ) {
     
-    console.log('js-adhesive present on page');
+    //console.log('js-adhesive present on page');
     
     var sticky = new Waypoint.Sticky({
       element: $('.js-adhesive')[0]
