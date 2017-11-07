@@ -322,3 +322,241 @@
     }
   }
 }
+
+
+// LAST VERSION OF THE HOMEPAGE
+
+.new-home {
+  
+  &__what-is-row {
+    margin: $page-gutter;
+    padding: $page-gutter;
+    text-align: center;
+    
+    p {
+      color: palette(mono, 75);
+      margin-bottom: $page-gutter;
+    }
+  }
+  
+  //<div class="new-home__carousel">
+  //  <div class="new-home__carousel__container">
+  //    <ul class="menu">
+  //      <li>
+  //        <div class="grid grid__third-left new-home__carousel__slide">
+  //          <div class="grid__item new-home__carousel__slide__content">
+  //            <div class="new-home__carousel__slide__flash">
+  //              Flash Sale! <span class="fa fa-bolt" aria-hidden="true"></span> ends in 8hrs
+  //            </div>
+  //            <h2 class="echo">Tivity Health® Fitness Your Way</h2>
+  //            <h3 class="charlie">Access to 9,500+ Gyms Nationwide through Tivity Health® Fitness Your Way</h3>
+  //            <p class="new-home__carousel__slide__action"></p>
+  //          </div>
+  //          <div class="grid__item new-home__carousel__slide__img">
+  //            <a href="/b365/27oct2017/deal.html" class="new-home__carousel__link">
+  //              <img src="http://fpoimg.com/2100x900?text=21:9 Feature" alt="">
+  //            </a>
+  //          </div>
+  //        </div>
+  //      </li>
+  //    </ul>
+  //  </div>
+  //  <div class="new-home__carousel__controls">
+  //    <ul>
+  //      <li><span class="fa fa-chevron-left" aria-hidden="true"></span></li>
+  //      <li><span class="fa fa-disc" aria-hidden="true"></span></li>
+  //      <li><span class="fa fa-disc" aria-hidden="true"></span></li>
+  //      <li><span class="fa fa-disc" aria-hidden="true"></span></li>
+  //      <li><span class="fa fa-disc" aria-hidden="true"></span></li>
+  //      <li><span class="fa fa-chevron-right" aria-hidden="true"></span></li>
+  //  </ul></div>
+  //</div>
+  &__carousel {
+    margin: $page-gutter;
+    
+    &__container {}
+    
+    &__slide {
+      
+      &__content {
+        border: 1px solid $color-borders;
+        padding: $page-gutter;
+        
+        a {
+          display: block;
+        }
+      }
+      
+      &__flash {
+        margin: (0 - $page-gutter) (0 - $page-gutter) $page-gutter;
+        padding: .625rem $page-gutter;
+        color: palette(mono, white);
+        background-color: palette(brand, red);
+        text-align: center;
+      }
+      
+      &__img {
+        
+        @include media($small-up) {
+          overflow: hidden;
+          position: relative;
+          
+          a {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            
+            img {
+              @include image-cover('auto 100%');
+              
+              @include media($large-up) {
+                @include image-cover('100% auto');
+              }
+            }
+          }
+        }
+      }
+      
+      &__action {
+        padding-top: $page-gutter;
+        text-align: center;
+      }
+    }
+    
+    &__controls {
+      text-align: center;
+      
+      li {
+        display: inline-block;
+        padding: .25em .5em;
+      }
+      
+      @include media($small-up) {
+        padding-top: $page-gutter;
+      }
+    }
+  }
+  
+  &__feature-row {
+    // The What Is This block and the Carousel
+    
+    @include media($xlarge-up) {
+      display: flex;
+      flex-flow: row-reverse nowrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: $page-gutter $page-gutter 0;
+      
+      .new-home__what-is-row {
+        margin: 0;
+        width: 25%;
+      }
+      
+      .new-home__carousel {
+        margin: 0;
+        width: 75%;
+      }
+      
+      .new-home__carousel__slide {
+        margin: 0 $page-gutter 0 0;
+      }
+      
+      .grid__third-left > .grid__item:first-child {
+        width: 34%;
+      }
+      
+      .grid__third-left > .grid__item:last-child {
+        width: 66%;
+      }
+      
+      .new-home__carousel__slide__img a img {
+        @include image-cover('auto 100%');
+      }
+    }
+    
+    @include media($xxlarge-up) {
+      
+      .new-home__carousel__slide__content a {
+        padding: $page-gutter 0;
+      }
+      
+      .new-home__carousel__slide__img a img {
+        @include image-cover('100% auto');
+      }
+    }
+  }
+  
+  &__deals-row {
+    padding: $page-gutter;
+    
+    .deal__filters {
+      padding-bottom: $page-gutter;
+      text-align: center;
+      
+      @include media($small-up) {
+        text-align: left;
+      }
+    }
+    
+    @include media($xlarge-up) {
+      
+      .deal-card__1 {
+        display: block;
+      }
+    }
+  }
+  
+  &__who-are-you {
+    padding: $page-gutter;
+    
+    p {
+      color: palette(mono, 75);
+    }
+    
+    & > h1,
+    & > p {
+      padding-bottom: $page-gutter;
+      text-align: center;
+    }
+    
+    .b365-home__brands {
+      background-color: palette(mono, white);
+      margin: $page-gutter 0;
+    }
+    
+    &__testimonial {
+      padding: $page-gutter 0;
+    }
+    
+    &__join-now {
+      padding: $page-gutter 0 0;
+      text-align: center;
+      
+      h4,
+      p {
+        color: palette(mono, 75);
+        padding-bottom: $page-gutter;
+      }
+      
+      &__action {
+        margin-bottom: $page-gutter;
+      }
+      
+      @include media($small-up) {
+        
+        h4,
+        &__action {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        
+        &__action {
+          margin-left: $page-gutter;
+        }
+      }
+    }
+  }
+}

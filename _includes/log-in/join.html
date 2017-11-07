@@ -22,17 +22,25 @@
             <input class="form__input" type="email" id="email" value="name@domain.com">
           </div>
           
+          <span class="screen-reader-text">Create and Confirm Password</span>
+          <p style="margin: 1rem 0;"><strong>Requirements:</strong> Passwords must be at least 8 characters in length, use at least one number and one letter (can not be all letters or all numbers)</p>
           <div class="grid grid--duo">
-            <div class="grid__item form__group">
+            <div class="grid__item form__group form__group__indicators">
               <label for="password">Password</label>
-              <input class="form__input" type="password" id="password">
+              <div class="password__strength indicator">
+                <span class="indicator__label">Strength: </span><span class="indicator__value">Weak</span>
+              </div>
+              <input class="form__input js-toggle-type" type="password" id="password">
             </div>
-            <div class="grid__item form__group">
+            <div class="grid__item form__group form__group__indicators">
               <label for="password">Confirm Password</label>
-              <input class="form__input" type="password" id="password">
+              <div class="password__match indicator">
+                <span class="indicator__label">Passwords Match: </span><span class="indicator__value">No</span>
+              </div>
+              <input class="form__input js-toggle-type" type="password" id="password">
             </div>
-            <p style="margin: -1rem 0 1.5rem;"><strong>Requirements:</strong> Passwords must be at least 8 characters in length, use at least one number and one letter (can not be all letters or all numbers)</p>
           </div>
+          <p style="margin: -1rem 0 2rem;"><label for="showpass"><input name="showpass" id="showpass" type="checkbox" class="js-toggle-type-trigger"> <span class="js-toggle-type-text">Show</span> Passwords</label></p>
           
           <div class="grid grid--duo">
             <div class="grid__item form__group">
