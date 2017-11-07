@@ -41,6 +41,23 @@ $copy-code-button-width: 120px; // Magic number
   
   &__group {
     padding-bottom: $vert-line-height;
+    
+    &__indicators {
+      
+      @media (min-width: bp(base)) and (max-width: em( bppx(small) - 1px )) {
+
+        .indicator {
+          float: right;
+        }
+      }
+      
+      @media (min-width: bp(large)) {
+ 
+        .indicator {
+          float: right;
+        }
+      }
+    }
   }
   
   &__actions {}
@@ -63,3 +80,25 @@ $copy-code-button-width: 120px; // Magic number
     }
   }
 }
+
+
+//<div class="grid__item form__group form__group__indicators">
+//  <label for="password">Password</label>
+//  <div class="password__strength indicator">
+//    <span class="indicator__label">Strength: </span><span class="indicator__value">Weak</span>
+//  </div>
+.indicator {
+  
+  &__label {
+    font-size: 75%;
+    font-weight: $font-weight-bold;
+    letter-spacing: .0625em;
+    text-transform: uppercase;
+  }
+  
+  &__value {
+    color: palette(brand, red);
+    font-weight: $font-weight-bold;
+  }
+}
+      
