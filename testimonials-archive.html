@@ -1,0 +1,126 @@
+---
+layout: deal
+nav-title: Testimonials
+title: Blue365 Testimonials
+permalink: /testimonial-archive
+body-class: 'testimonials'
+---
+
+<div class="testimonial">
+
+  <h1 class="layout__title">What people say about <span class="blue365">Blue<span>365</span></span></h1>
+
+  <!-- 1 feature -->
+  <div class="testimonial__feature">
+    <figure class="testimonial__figure">
+      <blockquote class="testimonial__quote light-blue">
+        <p>Blue365 helped change my life. I saved money on a gym membership and stuck to my routine. After three months, I feel stronger, faster, and I'm ready to take on more challenges. </p>
+      </blockquote>
+      <figcaption class="testimonial__citation">
+        <div class="testimonial__head">
+          <img src="https://randomuser.me/api/portraits/men/91.jpg" alt="Random User">
+        </div>
+        <p>— <cite>Jeffrey Tremblay, Provo, Utah</cite></p>
+      </figcaption>
+    </figure>
+    <div class="testimonial__feature__cta">
+      <p><a href="#submit" class="button button__primary js-smoothscroll">Submit your Story</a></p>
+    </div>
+  </div> 
+
+  <!-- Begin left rail wrapper -->
+  <div class="testimonial__grid">
+	
+  	
+  	<aside class="testimonial__grid__rail testimonial__filter">
+  		<ul class="menu">
+    		<li><a href="#" class="testimonial__filter__link">Feeling my Best</a></li>
+    		<li><a href="#" class="testimonial__filter__link">Weight Loss</a></li>
+    		<li><a href="#" class="testimonial__filter__link">Saving Money</a></li>
+    		<li><a href="#" class="testimonial__filter__link">Healthy Eating</a></li>
+    		<li><a href="#" class="testimonial__filter__link">Staying Active</a></li>
+    		<li><a href="#" class="testimonial__filter__link">For My Employees</a></li>
+      </ul>
+      <!--<div class="testimonial__submit-cta">
+        <a href="#" class="testimonial__submit-cta__link">Share Your Story</a>
+      </div>-->
+  	</aside>
+  	
+  	<div class="testimonial__grid__main">
+  		<div class="testimonial__grid--flip-flop">
+        
+        {% include testimonial.html %}
+        {% include testimonial.html %}
+        {% include testimonial.html %}
+        {% include testimonial.html %}
+        
+      </div>
+      
+      {% comment %}
+      <div class="load-more">
+        <p class="load-more__current">Showing 12 of 60</p>
+        <p><a href="#" class="button button__primary">Load 12 More</a></p>
+      </div>
+      {% endcomment %}
+      
+  	</div>
+  </div><!-- end .testimonial__grid -->
+  	
+  	
+	<div id="submit" class="testimonial__submit">
+  	<div class="layout__container--text">
+    	<form class="form">
+      	<fieldset>
+        	<legend>Submit your Story</legend>
+        	<p>Some text here about what we expect to get from the author and what they should expect to from their submission, where it might get used, what rights they are waiving, etc…</p>
+        	
+        	<p>* Fields are required</p>
+        	<div class="grid grid--duo">
+            <div class="grid__item form__group">
+              <label for="first">First Name *</label>
+              <input class="form__input" type="text" id="first" placeholder="" required>
+            </div>
+            <div class="grid__item form__group">
+              <label for="last">Last Name *</label>
+              <input class="form__input" type="text" id="last" placeholder="" required>
+            </div>
+          </div>
+          
+          <div class="grid grid--duo">
+            <div class="grid__item form__group">
+              <label for="email">Email *</label>
+              <input class="form__input" type="email" id="email" placeholder="name@domain.com" required>
+            </div>
+            <div class="grid__item form__group">
+              <label for="phone">Phone</label>
+              <input class="form__input" type="tel" id="phone" placeholder="Optional">
+            </div>
+          </div>
+          
+          <div class="form__group">
+            <label for="message">Your Story *</label>
+            <textarea id="message" placeholder="Tell us how Blue365 helps you live a healthier life" required></textarea>
+          </div>
+          
+          <div class="form__group">
+            <label for="upload">Please supply a photo of yourself *</label>
+            <input type="file" class="form__input__file" required>
+            <p>Upload a file or connect with social media to use a profile picture.</p>
+            <p>
+              <button class="button button__secondary" type="submit"><span class="fa fa-facebook-official" aria-hidden="true"></span> Facebook</button>
+              <button class="button button__secondary" type="submit"><span class="fa fa-google-plus-square" aria-hidden="true"></span> Google+</button>
+              <button class="button button__secondary" type="submit"><span class="fa fa-apple" aria-hidden="true"></span> Apple ID</button>
+            </p>
+          </div>
+          
+          <div class="form__actions">
+            <input type="submit" class="button button__primary" value="Submit">
+          </div>
+          
+      	</fieldset>
+      </form>
+    </div>
+  </div>
+
+
+</div>

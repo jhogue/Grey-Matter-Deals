@@ -1,0 +1,332 @@
+.testimonial {
+  padding: $vert-line-height 0;
+
+  .layout__title {
+    text-align: center;
+  }
+
+  &__head {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+    
+    @include media($medium-up) {
+      width: 128px;
+      height: 128px;
+    }
+  }
+
+  //<div class="testimonial__card">
+  //  <figure class="testimonial__figure">
+  //    <div class="testimonial__head">
+  //      <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Random User">
+  //    </div>
+  //    <blockquote class="testimonial__quote">
+  //      <p>I love saving money with Blue365. It keeps my wallet fat but it help me stay thin! </p>
+  //    </blockquote>
+  //    <figcaption class="testimonial__citation">
+  //      <p>— <cite>Jeanette Prudhomme, Woonsocket, Rhode Island</cite></p>
+  //    </figcaption>
+  //  </figure>
+  //</div>
+  &__card {
+    border-bottom: 1px solid $color-borders;
+    padding: $vert-line-height $page-gutter;
+    margin-bottom: $vert-line-height;
+  }
+  
+  &__figure {}
+  
+  &__quote {
+    padding: 1.5rem 1rem 1.5rem 0rem;
+
+    &__short p {
+      //@extend .charlie;
+      @include fluid-units('font-size', 1.125rem, 1.375rem, $min-vw, $max-vw);
+    }
+    
+    &__medium p {
+      //@extend .delta;
+      @include fluid-units('font-size', 1rem, 1.25rem, $min-vw, $max-vw);
+    }
+    
+    &__long p {
+      //@extend .echo;
+      @include fluid-units('font-size', .875rem, 1.125rem, $min-vw, $max-vw);
+      text-transform: none;
+    }
+    
+    @include media($medium-up) {
+      padding: 2.5rem 2rem 2.5rem 1rem;
+    }
+  }
+  
+  &__citation {
+    text-align: center;
+    
+    p {}
+    
+    cite {}
+    
+    @include media($large-up) {
+      text-align: left;
+    }
+  }
+
+
+  //<div class="testimonial__feature">
+  //  <figure class="testimonial__figure">
+  //    <blockquote class="testimonial__quote light-blue">
+  //      <p>Blue365 helped change my life. I saved money on a gym membership and stuck to my routine. After three months, I feel stronger, faster, and I'm ready to take on more challenges. </p>
+  //    </blockquote>
+  //    <figcaption class="testimonial__citation">
+  //      <div class="testimonial__head">
+  //        <img src="https://randomuser.me/api/portraits/men/91.jpg" alt="Random User">
+  //      </div>
+  //      <p>— <cite>Jeffrey Tremblay, Provo, Utah</cite></p>
+  //    </figcaption>
+  //  </figure>
+  //  <div class="testimonial__feature__cta">
+  //    <a href="#" class="button button__primary">Submit your Story</a>
+  //  </div>
+  //</div>
+  &__feature {
+    max-width: em(980);
+    margin: 0 auto;
+    padding: 0 0 $vert-line-height 0;
+    position: relative;
+
+    &__cta {
+      padding: $vert-line-height 0;
+      text-align: center;
+    }
+    
+    @include media($small-up) {
+      
+      &__cta {
+        padding: ($vert-line-height * 2) 0;
+      }
+    }
+
+    @include media($xlarge-up) {
+      
+      &__cta {
+        padding: 4.25rem 0;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+  
+  &__feature &__quote {
+    position: relative;
+
+    &:after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-width: 2rem;
+      border-style: solid;
+      border-color: percent-color(palette(brand), 20%) transparent transparent transparent;
+      position: absolute;
+      top: 100%;
+      left: 128px;
+    }
+
+    p {
+      @extend .charlie;
+      font-weight: $font-weight-normal;
+    }
+  }
+  
+  &__feature &__citation {
+
+    & > div,
+    & > p {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    @include media($small-up) {
+      text-align: left;
+      padding-left: 2rem;
+    }
+  }
+  
+  &__feature &__head {
+    margin-top: ($vert-line-height * 2);
+    
+    @include media($small-up) {
+      margin-top: $vert-line-height;
+      margin-right: ($page-gutter * 3);
+    }
+  }
+
+
+  //<aside class="grid__item grid__item__rail testimonial__filter">
+	//	<ul class="menu">
+  //		<li><a href="#" class="testimonial__filter__link">Feeling my Best</a></li>
+  //		<li><a href="#" class="testimonial__filter__link">Weight Loss</a></li>
+  //		<li><a href="#" class="testimonial__filter__link">Saving Money</a></li>
+  //		<li><a href="#" class="testimonial__filter__link">Healthy Eating</a></li>
+  //		<li><a href="#" class="testimonial__filter__link">Staying Active</a></li>
+  //		<li><a href="#" class="testimonial__filter__link">For My Employees</a></li>
+  //  </ul>
+	//</aside>
+  &__filter {
+
+    &__link {
+      display: block !important; // BAH, hate this
+      font-weight: $font-weight-bold;
+      padding: .625em 1em .5em;
+      text-align: center;
+    }
+
+    @for $i from 1 through 6 {
+      & li:nth-child(#{$i}) a {
+        background-color: percent-color(palette(brand), ((5 * $i) + 5));
+      }
+    }
+    
+    @include media($medium) {
+
+      ul {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+
+        li {
+          width: 50%;
+        }
+      }
+    }
+
+    @include media($large) {
+
+      ul {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+
+        li {
+          width: 33.33%;
+        }
+      }
+    }
+    
+    @include media($xlarge-up) {
+      
+      &__link {
+        padding: .875em 1em .75em;
+        text-align: left;
+      }
+    }
+  }
+
+
+  //<div class="testimonial__grid">
+	//  <aside class="testimonial__grid__rail testimonial__filter"></aside>
+  //	<div class="testimonial__grid__main">
+  //		<div class="testimonial__grid--flip-flop"></div>
+  //  </div>
+  //</div>
+  &__grid {
+    margin-left: - $page-gutter;
+    margin-right: - $page-gutter;
+    
+    @include media($xlarge-up) {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: stretch;
+      border-top: 1px solid $color-borders;
+      
+      &__rail {
+        background-color: percent-color(palette(brand), 40%);
+        width: 25%;
+      }
+
+      &__main {
+        width: 75%;
+      }
+    }
+    
+    @include media($xxlarge-up) {
+      
+      &__rail {
+        width: 20%;
+      }
+
+      &__main {
+        width: 80%;
+      }
+    }
+    
+    &--flip-flop {
+
+      @include media($small-up) {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+        justify-content: space-between;
+        
+        .testimonial__card {
+          width: 48.5%;
+        }
+      }
+      
+      @include media($large-up) {
+        
+        .testimonial__card:nth-child(odd) {
+          border-right: 1px solid $color-borders;
+        }
+        
+        .testimonial__card:nth-child(1),
+        .testimonial__card:nth-child(4),
+        .testimonial__card:nth-child(5),
+        .testimonial__card:nth-child(8),
+        .testimonial__card:nth-child(9),
+        .testimonial__card:nth-child(12) {
+          width: 34%;
+        }
+        
+        .testimonial__card:nth-child(2),
+        .testimonial__card:nth-child(3),
+        .testimonial__card:nth-child(6),
+        .testimonial__card:nth-child(7),
+        .testimonial__card:nth-child(10),
+        .testimonial__card:nth-child(11) {
+          width: 66%;
+          //display: flex;
+          //flex-flow: row nowrap;
+          //align-items: center;
+          //justify-content: space-between;
+          //
+          //.testimonial__head {
+          //  width: 128px;
+          //  margin-right: $page-gutter;
+          //}
+          //
+          //.testimonial__figure {
+          //  width: calc(100% - #{$page-gutter} - 128px );
+          //}
+        }
+        
+        .testimonial__card:nth-last-child(2),
+        .testimonial__card:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  
+  &__submit {
+    padding: $vert-line-height 0;
+    
+    @include media($large-up) {
+      padding-top: ($vert-line-height * 2);
+    }
+  }
+}
