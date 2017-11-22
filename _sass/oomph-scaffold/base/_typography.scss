@@ -129,19 +129,19 @@ ol ul {
 // Block level elements
 blockquote {
   quotes: none;
-  position: relative;
 
   p {
     color: palette(mono);
     font-style: italic;
     padding-left: em(32);
+    position: relative;
   }
 
   p::before,
   p:last-child::after {
     color: palette(brand);
     font-family: $font-serif;
-    font-size: rem(48);
+    font-size: 2em;
     font-style: italic;
     font-weight: $font-weight-bold;
     line-height: 1;
@@ -150,15 +150,17 @@ blockquote {
   p::before {
     content: "“";
     position: absolute;
-      top: 0; left: .0625em;
+    top: .125em;
+    left: .25em;
   }
 
   p:last-child::after {
     content: "”";
     display: inline;
     line-height: 0;
-    margin-left: .125em;
     vertical-align: text-bottom;
+    position: relative;
+    top: -.125em;
   }
 }
 
