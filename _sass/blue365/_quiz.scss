@@ -1,0 +1,246 @@
+.quiz {
+  padding: 0 0 $vert-line-height;
+  
+  //<div class="quiz__sample">
+  //  <h3 class="quiz__number"><span><span class="fa" aria-hidden="true">&#10123;</span></span></h3>
+  //  <h2 class="quiz__question charlie">This is a simple question with a Yes/No answer.</h2>
+  //  <ul class="quiz__boolean menu">
+  //    <li><label for="option6">Yes</label> <input type="radio" value="radio-2[]" id="option6"></li>
+  //    <li><label for="option7">No</label> <input type="radio" value="radio-2[]" id="option7"></li>
+  //  </ul>
+  //</div>
+  &__sample {
+    padding: $vert-line-height 0;
+  }
+  
+  &__number {
+    text-align: center;
+    
+    .fa {
+      font-size: 150%;
+    }
+  }
+  
+  &__question {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  &__multiple-choice,
+  &__boolean,
+  &__list {
+    border-bottom: 1px solid $color-borders;
+    
+    li {
+      border: 1px solid $color-borders;
+      border-bottom: 0;
+      position: relative;
+    }
+    
+    label {
+      background-color: palette(mono, 10);
+      cursor: pointer;
+      display: block;
+      line-height: 1.5;
+      padding: .625em 1em .5em 3em;
+      transition: all 250ms ease;
+      
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: percent-color(palette(brand), 10);
+        color: palette(mono, 75);
+      }
+    }
+    
+    input:checked + label,
+    input:checked + label:hover,
+    input:checked + label:focus,
+    input:checked + label:active {
+      background-color: palette(mono, white);
+      color: palette(brand);
+    }
+    
+    input {
+      position: absolute;
+      top: em(11);
+      left: 1em;
+    }
+  }
+  
+  // Yes/No questions
+  //<ul class="quiz__boolean menu">
+  //  <li><input type="radio" value="radio-2" id="option6" name="radio-group-2"> <label for="option6">Yes</label></li>
+  //  <li><input type="radio" value="radio-2" id="option7" name="radio-group-2"> <label for="option7">No</label></li>
+  //</ul>
+  &__boolean {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    justify-content: center;
+    border-bottom: 0;
+    
+    li {
+      border: 1px solid $color-borders;
+      width: 50%;
+      
+      &::first-child {
+        margin-left: -1px;
+      }
+    }
+  }
+  
+  //<ul class="quiz__multiple-choice menu">
+  //  <li><input type="radio" value="radio-1" id="option1" name="radio-group-1"> <label for="option1">Strongly Disagree</label> </li>
+  //  <li><input type="radio" value="radio-1" id="option2" name="radio-group-1"> <label for="option2">Somewhat Disagree</label> </li>
+  //  <li><input type="radio" value="radio-1" id="option3" name="radio-group-1"> <label for="option3">Neutral</label> </li>
+  //  <li><input type="radio" value="radio-1" id="option4" name="radio-group-1"> <label for="option4">Somewhat Agree</label></li>
+  //  <li><input type="radio" value="radio-1" id="option5" name="radio-group-1"> <label for="option5">Strongly Agree</label></li>
+  //</ul>
+  &__multiple-choice {
+    
+    @include media($medium-up) {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: stretch;
+      justify-content: center;
+      
+      li {
+        margin-left: -1px;
+      }
+      
+      label {
+        height: 100%;
+        padding: 2.25em .75em .5em .75em;
+        text-align: center;
+      }
+      
+      input {
+        top: .75em;
+        left: 49%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+  
+  //<ul class="quiz__list menu">
+  //  <li><input type="checkbox" value="checkbox-1" id="option8"> <label for="option8">Option 1</label></li>
+  //  <li><input type="checkbox" value="checkbox-2" id="option9"> <label for="option9">Option 2</label></li>
+  //  <li><input type="checkbox" value="checkbox-3" id="option10"> <label for="option10">Option 3 with a longer label so we can see how a line would break onto multiple</label></li>
+  //</ul>
+  &__list {
+    
+    @include media($small-up) {
+      column-width: auto;
+      column-count: 2;
+      column-gap: 0;
+      border-bottom: 0;
+      
+      li {
+        border: 1px solid $color-borders;
+        break-inside: avoid;
+        margin-bottom: -1px;
+      }
+    }
+  }
+  
+  &__actions {
+    padding: ($vert-line-height / 2) 0 $vert-line-height;
+    text-align: center;
+    
+    @include media($medium-up) {
+      padding: $vert-line-height 0 ($vert-line-height * 2);
+    }
+  }
+  
+  &__closing {
+    color: palette(mono, 66);
+    text-align: center;
+    padding: 0 0 $vert-line-height;
+  }
+  
+  
+  // For the modal version
+  
+  //<div class="quiz__progress">
+  //  <ul class="menu">
+  //    <li class="quiz__progress__complete"></li>
+  //    <li></li>
+  //    <li></li>
+  //    <li></li>
+  //    <li></li>
+  //    <li></li>
+  //    <li></li>
+  //    <li></li>
+  //  </ul>
+  //</div>
+  &__progress {
+    padding: 0 0 $vert-line-height;
+    
+    ul {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: stretch;
+      justify-content: center;
+      width: 100%;
+      
+      li {
+        background-color: palette(mono, 15);
+        height: .75em;
+        margin: 1px;
+      }
+    }
+    
+    ul li#{&}__complete {
+      background-color: palette(brand);
+    }
+  }
+  
+  //<div class="quiz__prev-next">
+  //  <ul class="menu">
+  //    <li class="quiz__prev-next__prev"><a href="#">&larr; Back</a></li>
+  //    <li class="quiz__prev-next__next quiz__prev-next--disabled"><a href="#">Next &rarr;</a></li>
+  //  </ul>
+  //</div>
+  &__prev-next {
+    padding: ($vert-line-height /2) 0;
+    
+    ul {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: stretch;
+      justify-content: center;
+      
+      li {
+        width: 50%;
+      }
+    }
+    
+    &__prev {
+      padding-right: .75em;
+      text-align: right;
+    }
+    
+    &__next {
+      padding-left: .75em;
+      text-align: left;
+    }
+    
+    &--disabled {
+      
+      a {
+        cursor: not-allowed;
+        
+        @include touch-hover() {
+          color: palette(mono, 33);
+          text-decoration: none;
+        }
+        
+        @include touch-hover('hover') {
+          color: palette(mono, 33);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

@@ -87,6 +87,17 @@ $(document).ready(function() {
     });
   }
   
+  // Initialize on the Quiz sample page
+  if ( document.getElementById('quiz-modal') !== null ) {
+    $.magnificPopup.open({
+      items: {
+        src: '#quiz-modal',
+        type: 'inline',
+        midClick: true
+      }
+    });
+  }
+  
 });
 
 
