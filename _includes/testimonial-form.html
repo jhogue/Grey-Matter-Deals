@@ -1,0 +1,50 @@
+<form class="form">
+      	<fieldset>
+        	<legend class="screen-reader-text">Complete the form below to send us your Success Story</legend>
+        	<p>Some text here about what we expect to get from the author and what they should expect to from their submission, where it might get used, what rights they are waiving, etc…</p>
+        	
+        	<p>* Fields are required</p>
+        	<div class="grid grid--duo">
+            <div class="grid__item form__group">
+              <label for="first">First Name *</label>
+              <input class="form__input" type="text" id="first" placeholder="" required>
+            </div>
+            <div class="grid__item form__group">
+              <label for="last">Last Name *</label>
+              <input class="form__input" type="text" id="last" placeholder="" required>
+            </div>
+          </div>
+          
+          <div class="grid grid--duo">
+            <div class="grid__item form__group">
+              <label for="email">Email *</label>
+              <input class="form__input" type="email" id="email" placeholder="name@domain.com" required>
+            </div>
+            <div class="grid__item form__group">
+              <label for="phone">Phone</label>
+              <input class="form__input" type="tel" id="phone" placeholder="Optional">
+            </div>
+          </div>
+          
+          <div class="form__group">
+            <label for="message">Your Story *</label>
+            <textarea id="message" placeholder="Tell us how Blue365 helps you live a healthier life" required></textarea>
+          </div>
+          
+          <div class="form__group">
+            <label for="upload">Please supply a photo of yourself *</label>
+            <input type="file" class="form__input__file" required>
+            <p>Upload a file or connect with social media to use a profile picture.</p>
+            <p>
+              <button class="button button__secondary" type="submit"><span class="fa fa-facebook-official" aria-hidden="true"></span> Facebook</button>
+              <button class="button button__secondary" type="submit"><span class="fa fa-google-plus-square" aria-hidden="true"></span> Google+</button>
+              <button class="button button__secondary" type="submit"><span class="fa fa-apple" aria-hidden="true"></span> Apple ID</button>
+            </p>
+          </div>
+          
+          <div class="form__actions">
+            <input type="submit" class="button button__primary" value="Submit">
+          </div>
+          
+      	</fieldset>
+      </form>

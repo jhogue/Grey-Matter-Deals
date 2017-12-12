@@ -114,6 +114,14 @@
 	@include media($medium-up) {
   	max-width: 33%;
 	}
+	
+	.layout__container--text .entry-content &,
+	.entry-content.layout__container--text & {
+  	
+  	@include media($large-up) {
+    	margin-left: -15%;
+  	}
+	}
 }
 
 .align-right {
@@ -127,4 +135,35 @@
 	@include media($medium-up) {
   	max-width: 33%;
 	}
+	
+	.layout__container--text .entry-content &,
+	.entry-content.layout__container--text & {
+  	
+  	@include media($large-up) {
+    	margin-right: -15%;
+  	}
+	}
+}
+
+.align-none {
+  display: block;
+  margin: 0 auto;
+  
+  .layout__container--text .entry-content &,
+	.entry-content.layout__container--text & {
+  	
+  	@include media($large-up) {
+    	margin: 0 -15%;
+    	max-width: 130%;
+  	}
+  	
+  	@include media($xlarge-up) {
+    	margin: 0 -20%;
+    	max-width: 140%;
+  	}
+	}
+}
+
+.text-align-center {
+  text-align: center;
 }

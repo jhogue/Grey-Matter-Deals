@@ -1,0 +1,70 @@
+---
+layout: deal
+nav-title: Testimonials 2
+title: Blue365 Testimonials
+permalink: /testimonial-archive-2
+body-class: 'testimonials'
+---
+
+<div class="testimonial testimonial-2">
+
+
+  <div class="testimonial-2__hero" style="background-size: cover; background: center no-repeat url('http://fpoimg.com/1920x1080?text=Background Image') transparent;">
+    <h1 class="layout__title"><span class="blue365">Blue<span>365</span></span> Helps Real People Save Money</h1>
+  </div>
+
+  <div class="testimonial-2__intro">
+    <div class="layout__container--text">
+      <h2 class="delta">Join <span class="blue365">Blue<span>365</span></span> to start leading a healthcare lifestyle, just like these happy customers</h2>
+      <p><a href="#submit" class="button button__primary js-smoothscroll">Submit your Story</a></p>
+    </div>
+  </div>
+
+
+  <div class="testimonial__grid layout__container">
+		<div class="testimonial__grid__trio">
+      {% include testimonials-2.html %}
+      {% include testimonials-2.html %}
+    </div>
+  </div><!-- end .testimonial__grid -->
+
+
+  <div class="testimonial__break light-blue">
+    <div class="testimonial__card">
+      <div class="testimonial__head__wrapper">
+        <div class="testimonial__head">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Random User">
+        </div>
+      </div>
+      <figure class="testimonial__figure">
+        <blockquote class="testimonial__quote testimonial__quote__short">
+          <p><a href="{{ site.baseurl }}testimonial-single-medium.html" class="testimonial__link">I love saving money with Blue365. It keeps my wallet fat but it help me stay thin!</a> </p>
+        </blockquote>
+        <figcaption class="testimonial__citation">
+          <p>— <cite>Jeanette Prudhomme, Woonsocket, Rhode Island</cite></p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+
+  <div class="testimonial__grid layout__container">
+		<div class="testimonial__grid__trio">
+      {% include testimonials-2.html %}
+      {% include testimonials-2.html %}
+    </div>
+  </div><!-- end .testimonial__grid -->
+
+
+	<div id="submit" class="testimonial__submit">
+  	<div class="layout__container--text">
+    	
+    	<h2 class="text-align-center">Submit your Story</h2>
+    	
+    	{% include testimonial-form.html %}
+    	
+    </div>
+  </div>
+
+
+</div>

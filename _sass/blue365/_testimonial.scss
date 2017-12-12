@@ -68,7 +68,10 @@
     
     p {}
     
-    cite {}
+    cite {
+      border-bottom: 0;
+      font-style: normal;
+    }
     
     @include media($large-up) {
       text-align: left;
@@ -76,7 +79,7 @@
   }
 
 
-  //<div class="testimonial__feature">
+  //<div class="testimonial--feature">
   //  <figure class="testimonial__figure">
   //    <blockquote class="testimonial__quote light-blue">
   //      <p>Blue365 helped change my life. I saved money on a gym membership and stuck to my routine. After three months, I feel stronger, faster, and I'm ready to take on more challenges. </p>
@@ -88,11 +91,11 @@
   //      <p>— <cite>Jeffrey Tremblay, Provo, Utah</cite></p>
   //    </figcaption>
   //  </figure>
-  //  <div class="testimonial__feature__cta">
+  //  <div class="testimonial--feature__cta">
   //    <a href="#" class="button button__primary">Submit your Story</a>
   //  </div>
   //</div>
-  &__feature {
+  &--feature {
     max-width: em(980);
     margin: 0 auto;
     padding: 0 0 $vert-line-height 0;
@@ -121,10 +124,10 @@
     }
   }
   
-  &__feature &__quote {
+  &--feature &__quote {
     position: relative;
 
-    &:after {
+    &::after {
       content: '';
       width: 0;
       height: 0;
@@ -142,7 +145,7 @@
     }
   }
   
-  &__feature &__citation {
+  &--feature &__citation {
 
     & > div,
     & > p {
@@ -156,7 +159,7 @@
     }
   }
   
-  &__feature &__head {
+  &--feature &__head {
     margin-top: ($vert-line-height * 2);
     
     @include media($small-up) {
@@ -328,5 +331,257 @@
     @include media($large-up) {
       padding-top: ($vert-line-height * 2);
     }
+  }
+  
+  
+  // Single
+  //<div class="testimonial--single--feature light-blue">
+  //  <h1 class="testimonial__title">Jeanette Prudhomme <span class="location">Woonsocket, Rhode Island</span></h1>
+  //
+  //  <figure class="testimonial__figure">
+  //    <blockquote class="testimonial__quote">
+  //      <p>I love saving money with Blue365. It keeps my wallet fat but it help me stay thin!</p>
+  //    </blockquote>
+  //    <figcaption class="testimonial__citation">
+  //      <div class="testimonial__head">
+  //        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Random User">
+  //      </div>
+  //    </figcaption>
+  //  </figure>
+  //</div>
+  &__title {
+    text-align: center;
+    padding-bottom: ($vert-line-height/2);
+  
+    .location {
+      color: palette(mono, 66);
+      font-size: 66.7%;
+      white-space: nowrap;
+    }
+  }
+  
+  &--single--feature &__quote {
+    background-color: palette(mono, white);
+    position: relative;
+
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-width: 2rem;
+      border-style: solid;
+      border-color: palette(mono, white) transparent transparent transparent;
+      position: absolute;
+      top: 100%;
+      left: calc(50% - 2rem);
+    }
+
+    p {
+      @extend .delta;
+      font-weight: $font-weight-normal;
+    }
+  }
+  
+  &--single--feature &__citation {
+    padding: 2.5rem 0 1.5rem;
+  }
+  
+  &--single--feature {
+    margin: (- $vert-line-height) (- $page-gutter) 0;
+    padding: $vert-line-height $page-gutter;
+
+    
+    @include media($small-up) {
+      
+      .testimonial__figure {
+        display: flex;
+        flex-flow: row-reverse nowrap;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .testimonial__citation {
+        margin-right: 1.5em;
+        padding: 0;
+        width: 96px;
+      }
+      
+      .testimonial__quote {
+        
+        &::after {
+          border-width: 1rem;
+          border-color: transparent palette(mono, white) transparent transparent;
+          top: calc(50% - 1rem);
+          left: -2rem;
+        }
+      }
+    }
+    
+    @include media($medium-up) {
+      
+      .testimonial__citation {
+        width: 128px;
+      }
+    }
+  }
+  
+  &__body {
+    padding: $vert-line-height 0;
+  }
+  
+  &__return {
+    text-align: center;
+    padding: $vert-line-height 0;
+  }
+  
+  &--single &__submit {
+    margin: 0 (- $page-gutter) (- $vert-line-height);
+  }
+  
+  &__more {
+    
+    @include media($small-up) {
+
+      .testimonial__grid--flip-flop .testimonial__card {
+        border-top: 1px solid $color-borders;
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+
+%variable-padding-small {
+  padding: $vert-line-height 0;
+  
+  @include media($medium-up) {
+    padding: ($vert-line-height * 2) 0;
+  }
+  
+  @include media($large-up) {
+    padding: ($vert-line-height * 3) 0;
+  }
+}
+
+%variable-padding-big {
+  padding: ($vert-line-height * 2) 0;
+  
+  @include media($medium-up) {
+    padding: ($vert-line-height * 3) 0;
+  }
+  
+  @include media($large-up) {
+    padding: ($vert-line-height * 4) 0;
+  }
+}
+
+
+// Alternate
+.testimonial-2 {
+  
+  //<div class="testimonial-2__hero" style="background-size: cover; background: center no-repeat url('http://fpoimg.com/1920x1080?text=Background Image') transparent;">
+  //  <h1 class="layout__title"><span class="blue365">Blue<span>365</span></span> Helps Real People Save Money</h1>
+  //</div>
+  &__hero {
+    @extend %variable-padding-big;
+    margin: (- $vert-line-height) (- $page-gutter) 0;
+    
+    .layout__title {
+      font-weight: $font-weight-bold;
+      text-shadow: 0 0 .25em rgba(#fff, .75);
+    }
+  }
+
+  //<div class="testimonial-2__intro">
+  //  <div class="layout__container--text">
+  //    <h2 class="delta">Join <span class="blue365">Blue<span>365</span></span> to start leading a healthcare lifestyle, just like these happy customers</h2>
+  //    <p><a href="#submit" class="button button__primary js-smoothscroll">Submit your Story</a></p
+  //  </div>
+  //</div>
+  &__intro {
+    @extend %variable-padding-small;
+    text-align: center;
+  }
+  
+  //<div class="testimonial__grid layout__container">
+	//	<div class="testimonial__grid__trio">
+  .testimonial__grid {
+    border-top: 0;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .testimonial__grid__trio {
+    
+    @include media($small-up) {
+      column-width: auto;
+      column-count: 2;
+      column-gap: $page-gutter;
+    }
+    
+    @include media($large-up) {
+      column-count: 3;
+    }
+    
+    .testimonial__card {
+      border: 0;
+      break-inside: avoid;
+      margin-bottom: 0;
+      padding: $page-gutter;
+    }
+    
+    .testimonial__figure {
+      border: 1px solid $color-borders;
+      
+      h3 {
+        font-weight: $font-weight-bold;
+        padding-top: 1rem;
+        margin-bottom: -1rem;
+        text-align: center;
+      }
+    }
+    
+    .testimonial__citation {
+      padding: 0 $page-gutter $page-gutter;
+    }
+  }
+  
+  //<div class="testimonial__break light-blue">
+  //  <div class="testimonial__card">
+  //    <div class="testimonial__head">
+  //      <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Random User">
+  //    </div>
+  //    <figure class="testimonial__figure">
+  //      <blockquote class="testimonial__quote testimonial__quote__short">
+  //        <p><a href="{{ site.baseurl }}testimonial-single-medium.html" class="testimonial__link">I love saving money with Blue365. It keeps my wallet fat but it help me stay thin!</a> </p>
+  //      </blockquote>
+  //      <figcaption class="testimonial__citation">
+  //        <p>— <cite>Jeanette Prudhomme, Woonsocket, Rhode Island</cite></p>
+  //      </figcaption>
+  //    </figure>
+  //  </div>
+  //</div>
+  .testimonial__break {
+    margin: 0 (- $page-gutter);
+    padding: 0 $page-gutter;
+    
+    @include media($medium-up) {
+      
+      .testimonial__card {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .testimonial__head__wrapper {
+        margin-right: $page-gutter;
+        width: 128px;
+      }
+    }
+  }
+  
+  .testimonial__submit {
+    border-top: 1px solid $color-borders;
   }
 }
